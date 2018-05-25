@@ -1,1 +1,115 @@
+* {
+  font-family: "Work Sans";
+}
 
+h1 {
+  font-family: "Exo 2";
+  font-size: 2rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 500;
+}
+
+h2 {
+  color: #787878;
+  font-family: "Exo 2";
+  font-size: 1.2rem;
+  margin-top: 0px;
+}
+
+h3 {
+  color: #787878;
+  font-family: "Exo 2";
+  font-weight: 500;
+  text-align: left;
+  font-size: 1.1rem;
+  margin-top: 0px;
+}
+
+.loginContainer {
+  height: 685px;
+  padding-top: 140px;
+  background-image: url('./assets/login-bg.jpg');
+  background-size: cover;
+}
+
+.signupContainer {
+  width: 570px;
+  margin: 50px auto 0 auto;
+  background: #fff;
+  border-radius: 5px;
+  padding: 40px 70px;
+}
+
+.signupForms {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.emailSignup {
+  display: flex;
+  height: 150px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.emailSignup button {
+    height: 40px;
+    width: 100%;
+    border: none;
+    background: #79b32b;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.loginIntro {
+  color: #fff;
+  font-family: "Work Sans";
+  width: 50%;
+  margin: 0 auto;
+  line-height: 28px;
+}
+
+.locationInput input{
+  height: 40px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 1rem;
+  padding: 0 20px;
+}
+
+.emailPassForm input {
+  height: 35px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 0 20px;
+  width: calc(100% - 40px);
+  font-size: 0.9rem;
+}
+
+.emailPassForm {
+  width: 45%;
+}
+
+.socialSignup {
+  width: 45%;
+}
+
+.socialSignup button:hover {
+  cursor: pointer;
+}
+
+.googleBtn button {
+  background: #de4c33;
+  width: 100%;
+  height: 35px;
+  font-size: 0.9rem;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
