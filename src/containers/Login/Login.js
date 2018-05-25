@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
 import { loginUser } from '../../actions/loginUser';
-import { ticketmasterApiCall } from '../../apiCalls/ticketmasterApiCall';
+import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 
 export class Login extends Component {
   constructor(props) {
@@ -62,7 +62,7 @@ export class Login extends Component {
         this.props.loginUser(uid, email, this.state.location);
       })
 
-      ticketmasterApiCall();
+      ticketmasterApiCallRecentEvents(this.state.location);
     } else {
         this.setState({locationError: true})
         setTimeout(() => {
