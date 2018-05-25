@@ -11,7 +11,8 @@ export class Login extends Component {
     this.state = {
       location: '',
       email: '',
-      password: ''
+      password: '',
+      locationError: false
     }
   }
 
@@ -60,7 +61,12 @@ export class Login extends Component {
         this.props.storeUser(uid, email, this.state.location);
       })
     } else {
-      alert('Please enter a location')
+        this.setState({locationError: true})
+        setTimeout(() => {
+          this.setState({
+            locationError: false
+          });
+        }, 2000);
     }
   }
 
@@ -90,14 +96,17 @@ export class Login extends Component {
           <article className="locationForm">
             <h2>Choose your location</h2>
             <p>* Required for signup</p>
-            <form onClick={this.onClickHandler} className="locationInput" >
-              <input
-                name='location'
-                value={this.state.location}
-                onChange={this.onChangeHandler}
-                placeholder='Denver, CO'
-              />
-            </form>
+            <div>
+              { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
+              <form onClick={this.onClickHandler} className="locationInput" >
+                <input
+                  name='location'
+                  value={this.state.location}
+                  onChange={this.onChangeHandler}
+                  placeholder='Denver, CO'
+                />
+              </form>
+            </div>
           </article>
           <section className="signupForms">
             <article className="emailPassForm">

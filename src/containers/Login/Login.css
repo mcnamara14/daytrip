@@ -127,3 +127,55 @@ h3 {
   font-size: 0.9rem;
   margin-top: 10px;
 }
+
+/* .locationError {
+  width: 34%;
+  position: absolute;
+  left: -50px;
+  line-height: 21px;
+  padding: 10px;
+  color: #fff !important;
+  margin-top: -8px !important;
+  height: 40px;
+  background: #bbb;
+  border-radius: 3px;
+} */
+
+.locationForm div {
+  position: relative;
+}
+
+.locationError {
+  position: absolute;
+  background: #bbb;
+  width: 144px;
+  height: 20px;
+  top: -12px;
+  left: -24px;
+  font-size: 0.8rem !important;
+  color: #fff !important;
+  padding: 7px 12px 17px 15px;
+  border-radius: 3px 0 0 3px;
+}
+.locationError:after, .locationError:before {
+	left: 100%;
+	top: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.locationError:after {
+	border-color: rgba(136, 183, 213, 0);
+	border-width: 30px;
+	margin-top: -30px;
+}
+.locationError:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-left-color: #bbb;
+  border-width: 22px;
+  margin-top: -22px;
+}
