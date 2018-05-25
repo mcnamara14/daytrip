@@ -3,10 +3,16 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
+  height: 75px;
+  align-items: center;
+}
+
+header img {
+  height: 46px;
 }
 
 nav {
-  width: 30%;
+  width: 40%;
   display: flex;
   justify-content: space-between;
 }
@@ -18,4 +24,17 @@ nav a {
   text-decoration: none;
   font-weight: 500;
   color: #98b5c8;
+  font-style: italic;
+}
+
+.loginLink {
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+  align-items: center;
+  margin-left: 55px;
+}
+
+.loginLink img {
+  height: 25px;
 }
