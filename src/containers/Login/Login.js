@@ -55,6 +55,18 @@ export class Login extends Component {
       })
   }
 
+  facebookSignup = () => {
+    authorization.facebookSignup()
+      .then(result => {
+        const {
+          uid,
+          email
+        } = result.user;
+  
+        this.props.storeUser(uid, email, this.state.location);
+      })
+  }
+
   render() {
     return (
       <div className="loginContainer">
@@ -97,6 +109,9 @@ export class Login extends Component {
               <h3>Social Media Signup</h3>
               <div className="googleBtn">
                 <button onClick={this.googleSignup}>Google Signup</button>
+              </div>
+              <div className="facebookBtn">
+                <button onClick={this.facebookSignup}>Facebook Signup</button>
               </div>
             </article>
           </section>
