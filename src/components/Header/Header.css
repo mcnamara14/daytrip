@@ -1,0 +1,21 @@
+header {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+nav {
+  width: 30%;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  font-family: "Exo 2";
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 500;
+  color: #98b5c8;
+}
