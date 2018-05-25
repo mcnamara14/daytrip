@@ -42,7 +42,7 @@ export class Login extends Component {
             />
           </form>
           <section className="signupOptions">
-            <article className="emailSignup">
+            <form className="emailSignup">
               <input
                 name='email'
                 value={this.state.email}
@@ -55,7 +55,8 @@ export class Login extends Component {
                 onChange={this.onChangeHandler}
                 placeholder='Enter a password'
               />
-            </article>
+              <button>Sign In</button>
+            </form>
           </section>
         </section>
       </div>
