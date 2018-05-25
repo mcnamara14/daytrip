@@ -57,9 +57,9 @@ export class Login extends Component {
 
   render() {
     return (
-      <div className="Login">
+      <div className="loginContainer">
         <h1>Sign up to get started</h1>
-        <p>Why must they do that inspect anything brought into the house, yet 
+        <p className="loginIntro">Why must they do that inspect anything brought into the house, yet 
             destroy couch as revenge. Sleep on my human's head find me of your food meh.</p>
         <section className="signupForm">
           <article className="locationForm">
