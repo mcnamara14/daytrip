@@ -24,27 +24,33 @@ export class Login extends Component {
   }
 
   emailSubmitHandler = (event) => {
+    console.log('asdfsda')
     const {
       location,
       email,
       password,
     } = this.state;
 
-    authorization.emailPasswordSignup(email, password)
-    .then(result => {
-      const {
-        uid,
-        email
-      } = result.user;
+      if(this.state.location) {
+      authorization.emailPasswordSignup(email, password)
+      .then(result => {
+        const {
+          uid,
+          email
+        } = result.user;
 
-      this.props.storeUser(uid, email, location);
-    });
+        this.props.storeUser(uid, email, location);
+      });
 
-    event.preventDefault();
+      event.preventDefault();
+    } else {
+      alert('Please enter a location')
+    }
   }
 
   googleSignup = () => {
-    authorization.googleSignup()
+    if(this.state.location) {
+      authorization.googleSignup()
       .then(result => {
         const {
           uid,
@@ -53,9 +59,13 @@ export class Login extends Component {
   
         this.props.storeUser(uid, email, this.state.location);
       })
+    } else {
+      alert('Please enter a location')
+    }
   }
 
   facebookSignup = () => {
+    if(this.state.location) {
     authorization.facebookSignup()
       .then(result => {
         const {
@@ -65,6 +75,9 @@ export class Login extends Component {
   
         this.props.storeUser(uid, email, this.state.location);
       })
+    } else {
+      alert('Please enter a location')
+    }
   }
 
   render() {
@@ -89,7 +102,7 @@ export class Login extends Component {
           <section className="signupForms">
             <article className="emailPassForm">
               <h3>Email Signup</h3>
-              <form className="emailSignup" onClick={this.emailSubmitHandler} >
+              <form className="emailSignup" onSubmit={this.emailSubmitHandler} >
                 <input
                   name='email'
                   value={this.state.email}
