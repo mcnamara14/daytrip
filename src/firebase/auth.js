@@ -5,7 +5,7 @@ import * as firebase from 'firebase';
 export const emailPasswordSignup = (email, password) =>
   auth.createUserWithEmailAndPassword(email, password);
 
-  // Google Sign Up
+  // Email Sign Up
 export const googleSignup = () =>
 auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
 
