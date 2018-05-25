@@ -64,6 +64,7 @@ export class Login extends Component {
         <section className="signupContainer">
           <article className="locationForm">
             <h2>Choose your location</h2>
+            <p>* Required for signup</p>
             <form onClick={this.onClickHandler} className="locationInput" >
               <input
                 name='location'
