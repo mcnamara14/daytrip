@@ -9,7 +9,6 @@ export class Login extends Component {
     super();
 
     this.state = {
-      user: null,
       location: '',
       email: '',
       password: ''
@@ -24,24 +23,36 @@ export class Login extends Component {
     })
   }
 
-  onSubmitHandler = (event) => {
+  emailSubmitHandler = (event) => {
+    const {
+      location,
+      email,
+      password,
+    } = this.state;
+
+    authorization.emailPasswordSignup(email, password)
+    .then(result => {
       const {
-        location,
-        email,
-        password,
-      } = this.state;
-  
-      authorization.emailPasswordSignup(email, password)
+        uid,
+        email
+      } = result.user;
+
+      this.props.storeUser(uid, email, location);
+    });
+
+    event.preventDefault();
+  }
+
+  googleSignup = () => {
+    authorization.googleSignup()
       .then(result => {
         const {
           uid,
           email
         } = result.user;
-        console.log(uid)
-        this.props.storeUser(uid, email, location)
-      });
-
-      event.preventDefault();
+  
+        this.props.storeUser(uid, email, this.state.location);
+      })
   }
 
   render() {
@@ -51,17 +62,19 @@ export class Login extends Component {
         <p>Why must they do that inspect anything brought into the house, yet 
             destroy couch as revenge. Sleep on my human's head find me of your food meh.</p>
         <section className="signupForm">
-          <h2>Choose your location</h2>
-          <form onClick={this.onClickHandler} className="locationInput" >
-            <input
-              name='location'
-              value={this.state.location}
-              onChange={this.onChangeHandler}
-              placeholder='Denver, CO'
-            />
-          </form>
-          <section className="signupOptions">
-            <form className="emailSignup" onClick={this.onSubmitHandler} >
+          <article className="locationForm">
+            <h2>Choose your location</h2>
+            <form onClick={this.onClickHandler} className="locationInput" >
+              <input
+                name='location'
+                value={this.state.location}
+                onChange={this.onChangeHandler}
+                placeholder='Denver, CO'
+              />
+            </form>
+          </article>
+          <section className="emailPassForm">
+            <form className="emailSignup" onClick={this.emailSubmitHandler} >
               <input
                 name='email'
                 value={this.state.email}
@@ -76,6 +89,9 @@ export class Login extends Component {
               />
               <button>Sign In</button>
             </form>
+          </section>
+          <section className="googleGithubSignup">
+            <button onClick={this.googleSignup}>Google Signup</button>
           </section>
         </section>
       </div>
