@@ -61,7 +61,7 @@ export class Login extends Component {
         <h1>Sign up to get started</h1>
         <p className="loginIntro">Why must they do that inspect anything brought into the house, yet 
             destroy couch as revenge. Sleep on my human's head find me of your food meh.</p>
-        <section className="signupForm">
+        <section className="signupContainer">
           <article className="locationForm">
             <h2>Choose your location</h2>
             <form onClick={this.onClickHandler} className="locationInput" >
@@ -73,25 +73,31 @@ export class Login extends Component {
               />
             </form>
           </article>
-          <section className="emailPassForm">
-            <form className="emailSignup" onClick={this.emailSubmitHandler} >
-              <input
-                name='email'
-                value={this.state.email}
-                onChange={this.onChangeHandler}
-                placeholder='ex. tyler@daytrip.com'
-              />
-              <input
-                name='password'
-                value={this.state.password}
-                onChange={this.onChangeHandler}
-                placeholder='Enter a password'
-              />
-              <button>Sign In</button>
-            </form>
-          </section>
-          <section className="googleGithubSignup">
-            <button onClick={this.googleSignup}>Google Signup</button>
+          <section className="signupForms">
+            <article className="emailPassForm">
+              <h3>Email Signup</h3>
+              <form className="emailSignup" onClick={this.emailSubmitHandler} >
+                <input
+                  name='email'
+                  value={this.state.email}
+                  onChange={this.onChangeHandler}
+                  placeholder='ex. tyler@daytrip.com'
+                />
+                <input
+                  name='password'
+                  value={this.state.password}
+                  onChange={this.onChangeHandler}
+                  placeholder='Enter a password'
+                />
+                <button>Sign In</button>
+              </form>
+            </article>
+            <article className="socialSignup">
+              <h3>Social Media Signup</h3>
+              <div className="googleBtn">
+                <button onClick={this.googleSignup}>Google Signup</button>
+              </div>
+            </article>
           </section>
         </section>
       </div>
