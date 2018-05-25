@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
-
-
+import { storeUser } from '../../actions/storeUser';
 
 export class Login extends Component {
   constructor(props) {
     super();
 
     this.state = {
+      user: null,
       location: '',
       email: '',
       password: ''
@@ -31,7 +32,15 @@ export class Login extends Component {
       } = this.state;
   
       authorization.emailPasswordSignup(email, password)
- 
+      .then(result => {
+        const {
+          uid,
+          email
+        } = result.user;
+        console.log(uid)
+        this.props.storeUser(uid, email, location)
+      });
+
       event.preventDefault();
   }
 
@@ -57,7 +66,7 @@ export class Login extends Component {
                 name='email'
                 value={this.state.email}
                 onChange={this.onChangeHandler}
-                placeholder='ex. tyler@daytrips.com'
+                placeholder='ex. tyler@daytrip.com'
               />
               <input
                 name='password'
@@ -74,4 +83,8 @@ export class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = (dispatch) => ({
+  storeUser: (userId, email, location) => dispatch(storeUser(userId, email, location))
+})
+
+export default connect(null, mapDispatchToProps)(Login);
