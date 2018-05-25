@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import * as authorization from '../../firebase/auth';
 import './Login.css';
+
 
 
 export class Login extends Component {
@@ -21,8 +23,16 @@ export class Login extends Component {
     })
   }
 
-  onClickHandler = () => {
-
+  onSubmitHandler = (event) => {
+      const {
+        location,
+        email,
+        password,
+      } = this.state;
+  
+      authorization.emailPasswordSignup(email, password)
+ 
+      event.preventDefault();
   }
 
   render() {
@@ -42,7 +52,7 @@ export class Login extends Component {
             />
           </form>
           <section className="signupOptions">
-            <form className="emailSignup">
+            <form className="emailSignup" onClick={this.onSubmitHandler} >
               <input
                 name='email'
                 value={this.state.email}
@@ -51,7 +61,7 @@ export class Login extends Component {
               />
               <input
                 name='password'
-                value={this.state.location}
+                value={this.state.password}
                 onChange={this.onChangeHandler}
                 placeholder='Enter a password'
               />
