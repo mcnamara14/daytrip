@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
-import { storeUser } from '../../actions/storeUser';
+import { loginUser } from '../../actions/loginUser';
+import { ticketmasterApiCall } from '../../apiCalls/ticketmasterApiCall';
 
 export class Login extends Component {
   constructor(props) {
@@ -40,7 +41,7 @@ export class Login extends Component {
           email
         } = result.user;
 
-        this.props.storeUser(uid, email, location);
+        this.props.loginUser(uid, email, location);
       });
 
       event.preventDefault();
@@ -58,8 +59,10 @@ export class Login extends Component {
           email
         } = result.user;
   
-        this.props.storeUser(uid, email, this.state.location);
+        this.props.loginUser(uid, email, this.state.location);
       })
+
+      ticketmasterApiCall();
     } else {
         this.setState({locationError: true})
         setTimeout(() => {
@@ -68,6 +71,7 @@ export class Login extends Component {
           });
         }, 2000);
     }
+
   }
 
   facebookSignup = () => {
@@ -79,7 +83,7 @@ export class Login extends Component {
           email
         } = result.user;
   
-        this.props.storeUser(uid, email, this.state.location);
+        this.props.loginUser(uid, email, this.state.location);
       })
     } else {
       alert('Please enter a location')
@@ -144,7 +148,7 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  storeUser: (userId, email, location) => dispatch(storeUser(userId, email, location))
+  loginUser: (userId, email, location) => dispatch(loginUser(userId, email, location))
 })
 
 export default connect(null, mapDispatchToProps)(Login);

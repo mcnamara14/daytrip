@@ -7,14 +7,11 @@ import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import { rootReducer } from './reducers/index';
-import createSagaMiddleware from 'redux-saga';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__
   && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const sagaMiddleware = createSagaMiddleware();
-
-const store = createStore(rootReducer, applyMiddleware(sagaMiddleware), devTools)
+const store = createStore(rootReducer, devTools)
 
 const app = (
   <Provider store={store}>
@@ -26,4 +23,3 @@ const app = (
 
 ReactDOM.render(app, document.getElementById('root'));
 registerServiceWorker();
-sagaMiddleware.run(mySaga)
