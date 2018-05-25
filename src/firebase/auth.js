@@ -5,9 +5,13 @@ import * as firebase from 'firebase';
 export const emailPasswordSignup = (email, password) =>
   auth.createUserWithEmailAndPassword(email, password);
 
-  // Email Sign Up
+// Google Sign Up
 export const googleSignup = () =>
 auth.signInWithPopup(new firebase.auth.GoogleAuthProvider())
+
+// Facebook Sign Up
+export const facebookSignup = () =>
+auth.signInWithPopup(new firebase.auth.FacebookAuthProvider())
 
   // Email Sign In
 export const emailPasswordSignin = (email, password) =>
