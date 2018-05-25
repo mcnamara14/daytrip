@@ -1,12 +1,13 @@
 import * as firebase from 'firebase';
+import { firebaseApiKey } from './apiKey';
 
 const config = {
-    apiKey: "AIzaSyBhhPB1euEwuA3tbCshgSZafio8mkU63Hc",
-    authDomain: "daytrip-7d5c4.firebaseapp.com",
-    databaseURL: "https://daytrip-7d5c4.firebaseio.com",
-    projectId: "daytrip-7d5c4",
-    storageBucket: "daytrip-7d5c4.appspot.com",
-    messagingSenderId: "1096579022176",
+  apiKey: firebaseApiKey,
+  authDomain: "daytrip-c5c3a.firebaseapp.com",
+  databaseURL: "https://daytrip-c5c3a.firebaseio.com",
+  projectId: "daytrip-c5c3a",
+  storageBucket: "daytrip-c5c3a.appspot.com",
+  messagingSenderId: "532630776936",
   };
 
 if (!firebase.apps.length) {
