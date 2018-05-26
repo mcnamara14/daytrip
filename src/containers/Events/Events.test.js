@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './Component';
+import { Events } from './Events';
+import { shallow } from 'enzyme';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Component />, div);
-  ReactDOM.unmountComponentAtNode(div);
+it('should match the snapshot', () => {
+  const wrapper = shallow(<Events />);
+
+  expect(wrapper).toMatchSnaphot();
 });
