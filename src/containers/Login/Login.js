@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
@@ -90,8 +91,9 @@ export class Login extends Component {
 
     const events = await ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
     const recentEvents = cleanRecentEvents(events);
-    console.log(recentEvents)
+
     this.props.storeRecentEvents(recentEvents);
+    this.props.history.push('/events')
   }
 
   facebookSignup = () => {
@@ -186,4 +188,4 @@ const mapDispatchToProps = (dispatch) => ({
   storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login));
