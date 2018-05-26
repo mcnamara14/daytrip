@@ -6,6 +6,7 @@ import Login from '../../containers/Login/Login';
 import Events from '../../containers/Events/Events';
 
 class App extends Component {
+
   render() {
     return (
       <div className="App">
