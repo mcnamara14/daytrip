@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
-import { storeUser } from '../../actions/storeUser';
+import { loginUser } from '../../actions/loginUser';
+import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
+import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
+const moment = require('moment');
 
 export class Login extends Component {
   constructor(props) {
@@ -10,6 +14,8 @@ export class Login extends Component {
 
     this.state = {
       location: '',
+      city: '',
+      state: '',
       email: '',
       password: '',
       locationError: false
@@ -25,7 +31,6 @@ export class Login extends Component {
   }
 
   emailSubmitHandler = (event) => {
-    console.log('asdfsda')
     const {
       location,
       email,
@@ -40,34 +45,49 @@ export class Login extends Component {
           email
         } = result.user;
 
-        this.props.storeUser(uid, email, location);
+        this.props.loginUser(uid, email, location);
       });
 
       event.preventDefault();
     } else {
-      alert('Please enter a location')
+        this.handleMissingLocationError();
     }
   }
 
-  googleSignup = () => {
+  googleSignup = async () => {
     if(this.state.location) {
-      authorization.googleSignup()
-      .then(result => {
-        const {
-          uid,
-          email
-        } = result.user;
-  
-        this.props.storeUser(uid, email, this.state.location);
-      })
+      const result = await authorization.googleSignup();
+      const {
+        uid,
+        email
+      } = result.user;
+      
+      this.props.loginUser(uid, email, this.state.city, this.state.state);
+ 
+      this.handleTicketMasterFetch();
     } else {
-        this.setState({locationError: true})
-        setTimeout(() => {
-          this.setState({
-            locationError: false
-          });
-        }, 2000);
+        this.handleMissingLocationError();
     }
+  }
+
+  handleMissingLocationError = () => {
+    this.setState({locationError: true})
+    setTimeout(() => {
+      this.setState({
+        locationError: false
+      });
+    }, 2000);
+  }
+
+  handleTicketMasterFetch = () => {
+    const city = this.state.city;
+    const state = this.state.state;
+    const date = moment();
+    const timeNow = date.format()
+    const addTwoDays = date.clone().add(2, 'day');
+    const timeIn2Days = addTwoDays.format();
+
+    ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
   }
 
   facebookSignup = () => {
@@ -79,11 +99,22 @@ export class Login extends Component {
           email
         } = result.user;
   
-        this.props.storeUser(uid, email, this.state.location);
+        this.props.loginUser(uid, email, this.state.location);
       })
     } else {
-      alert('Please enter a location')
+        this.handleMissingLocationError();
     }
+  }
+
+  onDropdownSelect = (component) => {
+    const place = component.autocomplete.getPlace();
+    const city = place.vicinity;
+    const state = place.address_components[2].short_name;
+    
+    this.setState({
+      city,
+      state
+    })
   }
 
   render() {
@@ -99,12 +130,15 @@ export class Login extends Component {
             <div>
               { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
               <form onClick={this.onClickHandler} className="locationInput" >
-                <input
-                  name='location'
-                  value={this.state.location}
-                  onChange={this.onChangeHandler}
-                  placeholder='Denver, CO'
-                />
+              <LocationAutocomplete
+                name="location"
+                placeholder="Enter a location..."
+                targetArea="City, State"
+                locationType="(cities)"
+                googleAPIKey={googleApiKey}
+                onChange={this.onChangeHandler}
+                onDropdownSelect={this.onDropdownSelect}
+              />
               </form>
             </div>
           </article>
@@ -144,7 +178,7 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  storeUser: (userId, email, location) => dispatch(storeUser(userId, email, location))
+  loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state))
 })
 
 export default connect(null, mapDispatchToProps)(Login);
