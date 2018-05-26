@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as authorization from '../../firebase/auth';
 import './Events.css';
 import { RecentEvent } from '../../components/RecentEvent/RecentEvent';
 
@@ -17,9 +16,9 @@ export class Events extends Component {
           venue={event.venue}
           date={event.date}
         />
-      )
-    })
-    console.log(recentEvents)
+      );
+    });
+
     return (
       <div className="eventsContainer">
         <section className="recentEvents">
@@ -32,6 +31,6 @@ export class Events extends Component {
 
 export const mapStateToProps = (state) => ({
   events: state.recentEvents
-})
+});
 
 export default connect(mapStateToProps)(Events);

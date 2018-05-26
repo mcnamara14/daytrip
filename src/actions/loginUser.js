@@ -4,4 +4,4 @@ export const loginUser = (userId, email, city, state) => ({
   email,
   city,
   state
-})
+});

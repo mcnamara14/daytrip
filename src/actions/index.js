@@ -4,4 +4,4 @@ import { storeRecentEvents } from './storeRecentEvents';
 export {
   loginUser, 
   storeRecentEvents
-}
+};

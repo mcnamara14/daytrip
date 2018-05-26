@@ -15,7 +15,8 @@ export const cleanRecentEvents = (events) => {
     const price = priceRanges ? '$' + priceRanges[0].min + '+' : 'N/A';
 
     if (!dates.start.dateTBA) {
-      const standardTime = moment(dates.start.localTime, 'HH:mm').format('h:mm A');
+      const standardTime = moment(dates.start.localTime, 'HH:mm')
+        .format('h:mm A');
       date = dates.start.localDate + ' ' + standardTime ;
     } else {
       date = 'TBA';
@@ -33,4 +34,4 @@ export const cleanRecentEvents = (events) => {
   const recentEvents = allRecentEvents.slice(0, 8);
 
   return recentEvents;
-}
+};
