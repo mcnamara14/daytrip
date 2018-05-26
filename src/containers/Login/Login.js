@@ -25,10 +25,6 @@ export class Login extends Component {
     };
   }
 
-  componentDidMount() {
-    yelpApiCall();
-  }
-
   onChangeHandler = (event) => {
     const { name, value } = event.target;
 
