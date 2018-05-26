@@ -1,0 +1,1299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Login should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Login />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Sign up to get started
+</h1>,
+        <p
+          className="loginIntro"
+>
+          Why must they do that inspect anything brought into the house, yet destroy couch as revenge. Sleep on my human's head find me of your food meh.
+</p>,
+        <section
+          className="signupContainer"
+>
+          <article
+                    className="locationForm"
+          >
+                    <h2>
+                              Choose your location
+                    </h2>
+                    <p>
+                              * Required for signup
+                    </p>
+                    <div>
+                              
+                              <form
+                                        className="locationInput"
+                                        onClick={undefined}
+                              >
+                                        <LocationAutocomplete
+                                                  googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                                                  locationType="(cities)"
+                                                  name="location"
+                                                  onChange={[Function]}
+                                                  onDropdownSelect={[Function]}
+                                                  placeholder="Enter a location..."
+                                                  targetArea="City, State"
+                                        />
+                              </form>
+                    </div>
+          </article>
+          <section
+                    className="signupForms"
+          >
+                    <article
+                              className="emailPassForm"
+                    >
+                              <h3>
+                                        Email Signup
+                              </h3>
+                              <form
+                                        className="emailSignup"
+                                        onSubmit={[Function]}
+                              >
+                                        <input
+                                                  name="email"
+                                                  onChange={[Function]}
+                                                  placeholder="ex. tyler@daytrip.com"
+                                                  value={undefined}
+                                        />
+                                        <input
+                                                  name="password"
+                                                  onChange={[Function]}
+                                                  placeholder="Enter a password"
+                                                  value=""
+                                        />
+                                        <button>
+                                                  Sign In
+                                        </button>
+                              </form>
+                    </article>
+                    <article
+                              className="socialSignup"
+                    >
+                              <h3>
+                                        Social Media Signup
+                              </h3>
+                              <div
+                                        className="googleBtn"
+                              >
+                                        <button
+                                                  onClick={[Function]}
+                                        >
+                                                  Google Signup
+                                        </button>
+                              </div>
+                              <div
+                                        className="facebookBtn"
+                              >
+                                        <button
+                                                  onClick={[Function]}
+                                        >
+                                                  Facebook Signup
+                                        </button>
+                              </div>
+                    </article>
+          </section>
+</section>,
+      ],
+      "className": "loginContainer",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Sign up to get started",
+        },
+        "ref": null,
+        "rendered": "Sign up to get started",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Why must they do that inspect anything brought into the house, yet destroy couch as revenge. Sleep on my human's head find me of your food meh.",
+          "className": "loginIntro",
+        },
+        "ref": null,
+        "rendered": "Why must they do that inspect anything brought into the house, yet destroy couch as revenge. Sleep on my human's head find me of your food meh.",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <article
+              className="locationForm"
+>
+              <h2>
+                            Choose your location
+              </h2>
+              <p>
+                            * Required for signup
+              </p>
+              <div>
+                            
+                            <form
+                                          className="locationInput"
+                                          onClick={undefined}
+                            >
+                                          <LocationAutocomplete
+                                                        googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                                                        locationType="(cities)"
+                                                        name="location"
+                                                        onChange={[Function]}
+                                                        onDropdownSelect={[Function]}
+                                                        placeholder="Enter a location..."
+                                                        targetArea="City, State"
+                                          />
+                            </form>
+              </div>
+</article>,
+            <section
+              className="signupForms"
+>
+              <article
+                            className="emailPassForm"
+              >
+                            <h3>
+                                          Email Signup
+                            </h3>
+                            <form
+                                          className="emailSignup"
+                                          onSubmit={[Function]}
+                            >
+                                          <input
+                                                        name="email"
+                                                        onChange={[Function]}
+                                                        placeholder="ex. tyler@daytrip.com"
+                                                        value={undefined}
+                                          />
+                                          <input
+                                                        name="password"
+                                                        onChange={[Function]}
+                                                        placeholder="Enter a password"
+                                                        value=""
+                                          />
+                                          <button>
+                                                        Sign In
+                                          </button>
+                            </form>
+              </article>
+              <article
+                            className="socialSignup"
+              >
+                            <h3>
+                                          Social Media Signup
+                            </h3>
+                            <div
+                                          className="googleBtn"
+                            >
+                                          <button
+                                                        onClick={[Function]}
+                                          >
+                                                        Google Signup
+                                          </button>
+                            </div>
+                            <div
+                                          className="facebookBtn"
+                            >
+                                          <button
+                                                        onClick={[Function]}
+                                          >
+                                                        Facebook Signup
+                                          </button>
+                            </div>
+              </article>
+</section>,
+          ],
+          "className": "signupContainer",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h2>
+                  Choose your location
+</h2>,
+                <p>
+                  * Required for signup
+</p>,
+                <div>
+                  
+                  <form
+                                    className="locationInput"
+                                    onClick={undefined}
+                  >
+                                    <LocationAutocomplete
+                                                      googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                                                      locationType="(cities)"
+                                                      name="location"
+                                                      onChange={[Function]}
+                                                      onDropdownSelect={[Function]}
+                                                      placeholder="Enter a location..."
+                                                      targetArea="City, State"
+                                    />
+                  </form>
+</div>,
+              ],
+              "className": "locationForm",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Choose your location",
+                },
+                "ref": null,
+                "rendered": "Choose your location",
+                "type": "h2",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "* Required for signup",
+                },
+                "ref": null,
+                "rendered": "* Required for signup",
+                "type": "p",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "",
+                    <form
+                      className="locationInput"
+                      onClick={undefined}
+>
+                      <LocationAutocomplete
+                                            googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                                            locationType="(cities)"
+                                            name="location"
+                                            onChange={[Function]}
+                                            onDropdownSelect={[Function]}
+                                            placeholder="Enter a location..."
+                                            targetArea="City, State"
+                      />
+</form>,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "",
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <LocationAutocomplete
+                        googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                        locationType="(cities)"
+                        name="location"
+                        onChange={[Function]}
+                        onDropdownSelect={[Function]}
+                        placeholder="Enter a location..."
+                        targetArea="City, State"
+/>,
+                      "className": "locationInput",
+                      "onClick": undefined,
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "class",
+                      "props": Object {
+                        "googleAPIKey": "AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg",
+                        "locationType": "(cities)",
+                        "name": "location",
+                        "onChange": [Function],
+                        "onDropdownSelect": [Function],
+                        "placeholder": "Enter a location...",
+                        "targetArea": "City, State",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    "type": "form",
+                  },
+                ],
+                "type": "div",
+              },
+            ],
+            "type": "article",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <article
+                  className="emailPassForm"
+>
+                  <h3>
+                                    Email Signup
+                  </h3>
+                  <form
+                                    className="emailSignup"
+                                    onSubmit={[Function]}
+                  >
+                                    <input
+                                                      name="email"
+                                                      onChange={[Function]}
+                                                      placeholder="ex. tyler@daytrip.com"
+                                                      value={undefined}
+                                    />
+                                    <input
+                                                      name="password"
+                                                      onChange={[Function]}
+                                                      placeholder="Enter a password"
+                                                      value=""
+                                    />
+                                    <button>
+                                                      Sign In
+                                    </button>
+                  </form>
+</article>,
+                <article
+                  className="socialSignup"
+>
+                  <h3>
+                                    Social Media Signup
+                  </h3>
+                  <div
+                                    className="googleBtn"
+                  >
+                                    <button
+                                                      onClick={[Function]}
+                                    >
+                                                      Google Signup
+                                    </button>
+                  </div>
+                  <div
+                                    className="facebookBtn"
+                  >
+                                    <button
+                                                      onClick={[Function]}
+                                    >
+                                                      Facebook Signup
+                                    </button>
+                  </div>
+</article>,
+              ],
+              "className": "signupForms",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h3>
+                      Email Signup
+</h3>,
+                    <form
+                      className="emailSignup"
+                      onSubmit={[Function]}
+>
+                      <input
+                                            name="email"
+                                            onChange={[Function]}
+                                            placeholder="ex. tyler@daytrip.com"
+                                            value={undefined}
+                      />
+                      <input
+                                            name="password"
+                                            onChange={[Function]}
+                                            placeholder="Enter a password"
+                                            value=""
+                      />
+                      <button>
+                                            Sign In
+                      </button>
+</form>,
+                  ],
+                  "className": "emailPassForm",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Email Signup",
+                    },
+                    "ref": null,
+                    "rendered": "Email Signup",
+                    "type": "h3",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": Array [
+                        <input
+                          name="email"
+                          onChange={[Function]}
+                          placeholder="ex. tyler@daytrip.com"
+                          value={undefined}
+/>,
+                        <input
+                          name="password"
+                          onChange={[Function]}
+                          placeholder="Enter a password"
+                          value=""
+/>,
+                        <button>
+                          Sign In
+</button>,
+                      ],
+                      "className": "emailSignup",
+                      "onSubmit": [Function],
+                    },
+                    "ref": null,
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "name": "email",
+                          "onChange": [Function],
+                          "placeholder": "ex. tyler@daytrip.com",
+                          "value": undefined,
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "name": "password",
+                          "onChange": [Function],
+                          "placeholder": "Enter a password",
+                          "value": "",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "input",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Sign In",
+                        },
+                        "ref": null,
+                        "rendered": "Sign In",
+                        "type": "button",
+                      },
+                    ],
+                    "type": "form",
+                  },
+                ],
+                "type": "article",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <h3>
+                      Social Media Signup
+</h3>,
+                    <div
+                      className="googleBtn"
+>
+                      <button
+                                            onClick={[Function]}
+                      >
+                                            Google Signup
+                      </button>
+</div>,
+                    <div
+                      className="facebookBtn"
+>
+                      <button
+                                            onClick={[Function]}
+                      >
+                                            Facebook Signup
+                      </button>
+</div>,
+                  ],
+                  "className": "socialSignup",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": "Social Media Signup",
+                    },
+                    "ref": null,
+                    "rendered": "Social Media Signup",
+                    "type": "h3",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        onClick={[Function]}
+>
+                        Google Signup
+</button>,
+                      "className": "googleBtn",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Google Signup",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Google Signup",
+                      "type": "button",
+                    },
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <button
+                        onClick={[Function]}
+>
+                        Facebook Signup
+</button>,
+                      "className": "facebookBtn",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Facebook Signup",
+                        "onClick": [Function],
+                      },
+                      "ref": null,
+                      "rendered": "Facebook Signup",
+                      "type": "button",
+                    },
+                    "type": "div",
+                  },
+                ],
+                "type": "article",
+              },
+            ],
+            "type": "section",
+          },
+        ],
+        "type": "section",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Sign up to get started
+</h1>,
+          <p
+            className="loginIntro"
+>
+            Why must they do that inspect anything brought into the house, yet destroy couch as revenge. Sleep on my human's head find me of your food meh.
+</p>,
+          <section
+            className="signupContainer"
+>
+            <article
+                        className="locationForm"
+            >
+                        <h2>
+                                    Choose your location
+                        </h2>
+                        <p>
+                                    * Required for signup
+                        </p>
+                        <div>
+                                    
+                                    <form
+                                                className="locationInput"
+                                                onClick={undefined}
+                                    >
+                                                <LocationAutocomplete
+                                                            googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                                                            locationType="(cities)"
+                                                            name="location"
+                                                            onChange={[Function]}
+                                                            onDropdownSelect={[Function]}
+                                                            placeholder="Enter a location..."
+                                                            targetArea="City, State"
+                                                />
+                                    </form>
+                        </div>
+            </article>
+            <section
+                        className="signupForms"
+            >
+                        <article
+                                    className="emailPassForm"
+                        >
+                                    <h3>
+                                                Email Signup
+                                    </h3>
+                                    <form
+                                                className="emailSignup"
+                                                onSubmit={[Function]}
+                                    >
+                                                <input
+                                                            name="email"
+                                                            onChange={[Function]}
+                                                            placeholder="ex. tyler@daytrip.com"
+                                                            value={undefined}
+                                                />
+                                                <input
+                                                            name="password"
+                                                            onChange={[Function]}
+                                                            placeholder="Enter a password"
+                                                            value=""
+                                                />
+                                                <button>
+                                                            Sign In
+                                                </button>
+                                    </form>
+                        </article>
+                        <article
+                                    className="socialSignup"
+                        >
+                                    <h3>
+                                                Social Media Signup
+                                    </h3>
+                                    <div
+                                                className="googleBtn"
+                                    >
+                                                <button
+                                                            onClick={[Function]}
+                                                >
+                                                            Google Signup
+                                                </button>
+                                    </div>
+                                    <div
+                                                className="facebookBtn"
+                                    >
+                                                <button
+                                                            onClick={[Function]}
+                                                >
+                                                            Facebook Signup
+                                                </button>
+                                    </div>
+                        </article>
+            </section>
+</section>,
+        ],
+        "className": "loginContainer",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Sign up to get started",
+          },
+          "ref": null,
+          "rendered": "Sign up to get started",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Why must they do that inspect anything brought into the house, yet destroy couch as revenge. Sleep on my human's head find me of your food meh.",
+            "className": "loginIntro",
+          },
+          "ref": null,
+          "rendered": "Why must they do that inspect anything brought into the house, yet destroy couch as revenge. Sleep on my human's head find me of your food meh.",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <article
+                className="locationForm"
+>
+                <h2>
+                                Choose your location
+                </h2>
+                <p>
+                                * Required for signup
+                </p>
+                <div>
+                                
+                                <form
+                                                className="locationInput"
+                                                onClick={undefined}
+                                >
+                                                <LocationAutocomplete
+                                                                googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                                                                locationType="(cities)"
+                                                                name="location"
+                                                                onChange={[Function]}
+                                                                onDropdownSelect={[Function]}
+                                                                placeholder="Enter a location..."
+                                                                targetArea="City, State"
+                                                />
+                                </form>
+                </div>
+</article>,
+              <section
+                className="signupForms"
+>
+                <article
+                                className="emailPassForm"
+                >
+                                <h3>
+                                                Email Signup
+                                </h3>
+                                <form
+                                                className="emailSignup"
+                                                onSubmit={[Function]}
+                                >
+                                                <input
+                                                                name="email"
+                                                                onChange={[Function]}
+                                                                placeholder="ex. tyler@daytrip.com"
+                                                                value={undefined}
+                                                />
+                                                <input
+                                                                name="password"
+                                                                onChange={[Function]}
+                                                                placeholder="Enter a password"
+                                                                value=""
+                                                />
+                                                <button>
+                                                                Sign In
+                                                </button>
+                                </form>
+                </article>
+                <article
+                                className="socialSignup"
+                >
+                                <h3>
+                                                Social Media Signup
+                                </h3>
+                                <div
+                                                className="googleBtn"
+                                >
+                                                <button
+                                                                onClick={[Function]}
+                                                >
+                                                                Google Signup
+                                                </button>
+                                </div>
+                                <div
+                                                className="facebookBtn"
+                                >
+                                                <button
+                                                                onClick={[Function]}
+                                                >
+                                                                Facebook Signup
+                                                </button>
+                                </div>
+                </article>
+</section>,
+            ],
+            "className": "signupContainer",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <h2>
+                    Choose your location
+</h2>,
+                  <p>
+                    * Required for signup
+</p>,
+                  <div>
+                    
+                    <form
+                                        className="locationInput"
+                                        onClick={undefined}
+                    >
+                                        <LocationAutocomplete
+                                                            googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                                                            locationType="(cities)"
+                                                            name="location"
+                                                            onChange={[Function]}
+                                                            onDropdownSelect={[Function]}
+                                                            placeholder="Enter a location..."
+                                                            targetArea="City, State"
+                                        />
+                    </form>
+</div>,
+                ],
+                "className": "locationForm",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Choose your location",
+                  },
+                  "ref": null,
+                  "rendered": "Choose your location",
+                  "type": "h2",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "* Required for signup",
+                  },
+                  "ref": null,
+                  "rendered": "* Required for signup",
+                  "type": "p",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      "",
+                      <form
+                        className="locationInput"
+                        onClick={undefined}
+>
+                        <LocationAutocomplete
+                                                googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                                                locationType="(cities)"
+                                                name="location"
+                                                onChange={[Function]}
+                                                onDropdownSelect={[Function]}
+                                                placeholder="Enter a location..."
+                                                targetArea="City, State"
+                        />
+</form>,
+                    ],
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    "",
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <LocationAutocomplete
+                          googleAPIKey="AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg"
+                          locationType="(cities)"
+                          name="location"
+                          onChange={[Function]}
+                          onDropdownSelect={[Function]}
+                          placeholder="Enter a location..."
+                          targetArea="City, State"
+/>,
+                        "className": "locationInput",
+                        "onClick": undefined,
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "class",
+                        "props": Object {
+                          "googleAPIKey": "AIzaSyALBhbhEr9v9oY1Cwv4GjDUdHs_GnA8MRg",
+                          "locationType": "(cities)",
+                          "name": "location",
+                          "onChange": [Function],
+                          "onDropdownSelect": [Function],
+                          "placeholder": "Enter a location...",
+                          "targetArea": "City, State",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      "type": "form",
+                    },
+                  ],
+                  "type": "div",
+                },
+              ],
+              "type": "article",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <article
+                    className="emailPassForm"
+>
+                    <h3>
+                                        Email Signup
+                    </h3>
+                    <form
+                                        className="emailSignup"
+                                        onSubmit={[Function]}
+                    >
+                                        <input
+                                                            name="email"
+                                                            onChange={[Function]}
+                                                            placeholder="ex. tyler@daytrip.com"
+                                                            value={undefined}
+                                        />
+                                        <input
+                                                            name="password"
+                                                            onChange={[Function]}
+                                                            placeholder="Enter a password"
+                                                            value=""
+                                        />
+                                        <button>
+                                                            Sign In
+                                        </button>
+                    </form>
+</article>,
+                  <article
+                    className="socialSignup"
+>
+                    <h3>
+                                        Social Media Signup
+                    </h3>
+                    <div
+                                        className="googleBtn"
+                    >
+                                        <button
+                                                            onClick={[Function]}
+                                        >
+                                                            Google Signup
+                                        </button>
+                    </div>
+                    <div
+                                        className="facebookBtn"
+                    >
+                                        <button
+                                                            onClick={[Function]}
+                                        >
+                                                            Facebook Signup
+                                        </button>
+                    </div>
+</article>,
+                ],
+                "className": "signupForms",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h3>
+                        Email Signup
+</h3>,
+                      <form
+                        className="emailSignup"
+                        onSubmit={[Function]}
+>
+                        <input
+                                                name="email"
+                                                onChange={[Function]}
+                                                placeholder="ex. tyler@daytrip.com"
+                                                value={undefined}
+                        />
+                        <input
+                                                name="password"
+                                                onChange={[Function]}
+                                                placeholder="Enter a password"
+                                                value=""
+                        />
+                        <button>
+                                                Sign In
+                        </button>
+</form>,
+                    ],
+                    "className": "emailPassForm",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Email Signup",
+                      },
+                      "ref": null,
+                      "rendered": "Email Signup",
+                      "type": "h3",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": Array [
+                          <input
+                            name="email"
+                            onChange={[Function]}
+                            placeholder="ex. tyler@daytrip.com"
+                            value={undefined}
+/>,
+                          <input
+                            name="password"
+                            onChange={[Function]}
+                            placeholder="Enter a password"
+                            value=""
+/>,
+                          <button>
+                            Sign In
+</button>,
+                        ],
+                        "className": "emailSignup",
+                        "onSubmit": [Function],
+                      },
+                      "ref": null,
+                      "rendered": Array [
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "name": "email",
+                            "onChange": [Function],
+                            "placeholder": "ex. tyler@daytrip.com",
+                            "value": undefined,
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "name": "password",
+                            "onChange": [Function],
+                            "placeholder": "Enter a password",
+                            "value": "",
+                          },
+                          "ref": null,
+                          "rendered": null,
+                          "type": "input",
+                        },
+                        Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "Sign In",
+                          },
+                          "ref": null,
+                          "rendered": "Sign In",
+                          "type": "button",
+                        },
+                      ],
+                      "type": "form",
+                    },
+                  ],
+                  "type": "article",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": Array [
+                      <h3>
+                        Social Media Signup
+</h3>,
+                      <div
+                        className="googleBtn"
+>
+                        <button
+                                                onClick={[Function]}
+                        >
+                                                Google Signup
+                        </button>
+</div>,
+                      <div
+                        className="facebookBtn"
+>
+                        <button
+                                                onClick={[Function]}
+                        >
+                                                Facebook Signup
+                        </button>
+</div>,
+                    ],
+                    "className": "socialSignup",
+                  },
+                  "ref": null,
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": "Social Media Signup",
+                      },
+                      "ref": null,
+                      "rendered": "Social Media Signup",
+                      "type": "h3",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          onClick={[Function]}
+>
+                          Google Signup
+</button>,
+                        "className": "googleBtn",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Google Signup",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "Google Signup",
+                        "type": "button",
+                      },
+                      "type": "div",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": <button
+                          onClick={[Function]}
+>
+                          Facebook Signup
+</button>,
+                        "className": "facebookBtn",
+                      },
+                      "ref": null,
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "Facebook Signup",
+                          "onClick": [Function],
+                        },
+                        "ref": null,
+                        "rendered": "Facebook Signup",
+                        "type": "button",
+                      },
+                      "type": "div",
+                    },
+                  ],
+                  "type": "article",
+                },
+              ],
+              "type": "section",
+            },
+          ],
+          "type": "section",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

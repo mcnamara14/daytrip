@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './Component';
+import { shallow } from 'enzyme';
+import { RecentEvent } from './RecentEvent';
 
 it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<Component />, div);
-  ReactDOM.unmountComponentAtNode(div);
+  const wrapper = shallow(<RecentEvent />);
+
+  expect(wrapper).toMatchSnapshot();
 });
