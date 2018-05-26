@@ -91,6 +91,7 @@ export class Login extends Component {
     const events = await ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
     const recentEvents = cleanRecentEvents(events);
     console.log(recentEvents)
+    this.props.storeRecentEvents(recentEvents);
   }
 
   facebookSignup = () => {
@@ -181,7 +182,8 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state))
+  loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state)),
+  storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
 })
 
 export default connect(null, mapDispatchToProps)(Login);
