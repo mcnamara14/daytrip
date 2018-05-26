@@ -6,5 +6,6 @@ export const Component = () =>  {
     <div className="Component">
     </div>
   );
-}
+};
+
 export default Component;

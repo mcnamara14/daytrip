@@ -11,7 +11,7 @@ import { cleanRecentEvents } from '../../dataCleaners/index';
 const moment = require('moment');
 
 export class Login extends Component {
-  constructor(props) {
+  constructor() {
     super();
 
     this.state = {
@@ -21,7 +21,7 @@ export class Login extends Component {
       email: '',
       password: '',
       locationError: false
-    }
+    };
   }
 
   onChangeHandler = (event) => {
@@ -29,35 +29,35 @@ export class Login extends Component {
 
     this.setState({
       [name]: value
-    })
+    });
   }
 
   emailSubmitHandler = (event) => {
     const {
       location,
       email,
-      password,
+      password
     } = this.state;
 
-      if(this.state.location) {
+    if (this.state.location) {
       authorization.emailPasswordSignup(email, password)
-      .then(result => {
-        const {
-          uid,
-          email
-        } = result.user;
+        .then(result => {
+          const {
+            uid,
+            email
+          } = result.user;
 
-        this.props.loginUser(uid, email, location);
-      });
+          this.props.loginUser(uid, email, location);
+        });
 
       event.preventDefault();
     } else {
-        this.handleMissingLocationError();
+      this.handleMissingLocationError();
     }
   }
 
   googleSignup = async () => {
-    if(this.state.location) {
+    if (this.state.location) {
       const result = await authorization.googleSignup();
       const {
         uid,
@@ -68,12 +68,12 @@ export class Login extends Component {
  
       this.handleTicketMasterFetch();
     } else {
-        this.handleMissingLocationError();
+      this.handleMissingLocationError();
     }
   }
 
   handleMissingLocationError = () => {
-    this.setState({locationError: true})
+    this.setState({locationError: true});
     setTimeout(() => {
       this.setState({
         locationError: false
@@ -85,28 +85,28 @@ export class Login extends Component {
     const city = this.state.city;
     const state = this.state.state;
     const date = moment();
-    const timeNow = date.format()
+    const timeNow = date.format();
 
     const events = await ticketmasterApiCallRecentEvents(city, state, timeNow);
     const recentEvents = cleanRecentEvents(events);
 
     this.props.storeRecentEvents(recentEvents);
-    this.props.history.push('/events')
+    this.props.history.push('/events');
   }
 
   facebookSignup = () => {
-    if(this.state.location) {
-    authorization.facebookSignup()
-      .then(result => {
-        const {
-          uid,
-          email
-        } = result.user;
+    if (this.state.location) {
+      authorization.facebookSignup()
+        .then(result => {
+          const {
+            uid,
+            email
+          } = result.user;
   
-        this.props.loginUser(uid, email, this.state.location);
-      })
+          this.props.loginUser(uid, email, this.state.location);
+        });
     } else {
-        this.handleMissingLocationError();
+      this.handleMissingLocationError();
     }
   }
 
@@ -118,7 +118,7 @@ export class Login extends Component {
     this.setState({
       city,
       state
-    })
+    });
   }
 
   render() {
@@ -134,15 +134,15 @@ export class Login extends Component {
             <div>
               { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
               <form onClick={this.onClickHandler} className="locationInput" >
-              <LocationAutocomplete
-                name="location"
-                placeholder="Enter a location..."
-                targetArea="City, State"
-                locationType="(cities)"
-                googleAPIKey={googleApiKey}
-                onChange={this.onChangeHandler}
-                onDropdownSelect={this.onDropdownSelect}
-              />
+                <LocationAutocomplete
+                  name="location"
+                  placeholder="Enter a location..."
+                  targetArea="City, State"
+                  locationType="(cities)"
+                  googleAPIKey={googleApiKey}
+                  onChange={this.onChangeHandler}
+                  onDropdownSelect={this.onDropdownSelect}
+                />
               </form>
             </div>
           </article>
@@ -184,6 +184,6 @@ export class Login extends Component {
 const mapDispatchToProps = (dispatch) => ({
   loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state)),
   storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
-})
+});
 
 export default withRouter(connect(null, mapDispatchToProps)(Login));
