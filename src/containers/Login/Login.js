@@ -57,6 +57,7 @@ export class Login extends Component {
 
   googleSignup = async () => {
     if (this.state.location) {
+  
       const result = await authorization.googleSignup();
       const {
         uid,

@@ -85,7 +85,7 @@ describe('Login', () => {
       expect(result).toHaveBeenCalled();
     })
 
-    it('should call handleMissingLocationError when no location was entered', async () => {
+    it('should call handleMissingLocationError when no location was entered', () => {
       wrapper.instance().handleMissingLocationError = jest.fn();
       const result = wrapper.instance().handleMissingLocationError;
 
@@ -93,20 +93,69 @@ describe('Login', () => {
         location: ''
       });
 
-      await wrapper.instance().emailSubmitHandler(mockEvent);
+      wrapper.instance().emailSubmitHandler(mockEvent);
 
       expect(result).toHaveBeenCalled();
     })
   })
 
-  // describe('googleSignup', async () => {
-  //   it('should call googleSignup when there is a location', () => {
-  //     const wrapper = shallow(<Login />);
+  describe('googleSignup', () => {
+    let wrapper;
+    let mockLoginUser;
 
-  //     wrapper.setState({location: 'Denver, CO'});
+    beforeEach(() => {
+      mockLoginUser = jest.fn();
 
-  //     expect(googleSignup).toHaveBeenCalled();
-  //   })
-  // })
+      wrapper = shallow(<Login loginUser={mockLoginUser} />);
+
+      wrapper.setState({
+        location: 'Denver, CO',
+        city: 'Denver',
+        state: 'CO'
+      })
+      authorization.googleSignup = jest.fn().mockImplementation(() => ({
+        user: {
+          uid: 12345,
+          email: 'test@testerson.com'
+        }
+      }));
+      wrapper.instance().handleTicketMasterFetch = jest.fn();
+    })
+
+    it('should call googleSignup when there is a location', async () => {
+      const result = authorization.googleSignup;
+
+      await wrapper.instance().googleSignup();
+      
+      expect(result).toHaveBeenCalled();
+    })
+
+    it('should call loginUser when there is a location', async () => {
+      const result = wrapper.instance().props.loginUser;
+
+      await wrapper.instance().googleSignup();
+      
+      expect(result).toHaveBeenCalledWith(12345, 'test@testerson.com', 'Denver', 'CO');
+    })
+
+    it('should call handleTicketMasterFetch when there is a location', async () => {
+      const result = wrapper.instance().handleTicketMasterFetch
+
+      await wrapper.instance().googleSignup();
+      
+      expect(result).toHaveBeenCalled();
+    })
+
+    it('should call handleMissingLocationError when no location is entered', async () => {
+      wrapper.instance().handleMissingLocationError = jest.fn();
+      wrapper.setState({location: ''});
+
+      const result = wrapper.instance().handleMissingLocationError
+
+      await wrapper.instance().googleSignup();
+
+      expect(result).toHaveBeenCalled();
+    })
+  })
   
 })
