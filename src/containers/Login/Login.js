@@ -6,6 +6,7 @@ import './Login.css';
 import { loginUser } from '../../actions/loginUser';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/googleApiKey';
+var moment = require('moment');
 
 export class Login extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ export class Login extends Component {
         this.props.loginUser(uid, email, this.state.location);
       })
  
-      ticketmasterApiCallRecentEvents(this.state.city, this.state.state);
+      this.handleTicketMasterFetch();
     } else {
         this.setState({locationError: true})
         setTimeout(() => {
@@ -75,7 +76,17 @@ export class Login extends Component {
           });
         }, 2000);
     }
+  }
 
+  handleTicketMasterFetch = () => {
+    const city = this.state.city;
+    const state = this.state.state;
+    const date = moment();
+    const timeNow = date.format()
+    const addTwoDays = date.clone().add(2, 'day');
+    const timeIn2Days = addTwoDays.format();
+
+    ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
   }
 
   facebookSignup = () => {
