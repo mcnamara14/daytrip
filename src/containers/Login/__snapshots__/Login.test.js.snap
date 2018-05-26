@@ -73,7 +73,7 @@ ShallowWrapper {
                                                   name="email"
                                                   onChange={[Function]}
                                                   placeholder="ex. tyler@daytrip.com"
-                                                  value=""
+                                                  value={undefined}
                                         />
                                         <input
                                                   name="password"
@@ -191,7 +191,7 @@ ShallowWrapper {
                                                         name="email"
                                                         onChange={[Function]}
                                                         placeholder="ex. tyler@daytrip.com"
-                                                        value=""
+                                                        value={undefined}
                                           />
                                           <input
                                                         name="password"
@@ -380,7 +380,7 @@ ShallowWrapper {
                                                       name="email"
                                                       onChange={[Function]}
                                                       placeholder="ex. tyler@daytrip.com"
-                                                      value=""
+                                                      value={undefined}
                                     />
                                     <input
                                                       name="password"
@@ -440,7 +440,7 @@ ShallowWrapper {
                                             name="email"
                                             onChange={[Function]}
                                             placeholder="ex. tyler@daytrip.com"
-                                            value=""
+                                            value={undefined}
                       />
                       <input
                                             name="password"
@@ -478,7 +478,7 @@ ShallowWrapper {
                           name="email"
                           onChange={[Function]}
                           placeholder="ex. tyler@daytrip.com"
-                          value=""
+                          value={undefined}
 />,
                         <input
                           name="password"
@@ -503,7 +503,7 @@ ShallowWrapper {
                           "name": "email",
                           "onChange": [Function],
                           "placeholder": "ex. tyler@daytrip.com",
-                          "value": "",
+                          "value": undefined,
                         },
                         "ref": null,
                         "rendered": null,
@@ -711,7 +711,7 @@ ShallowWrapper {
                                                             name="email"
                                                             onChange={[Function]}
                                                             placeholder="ex. tyler@daytrip.com"
-                                                            value=""
+                                                            value={undefined}
                                                 />
                                                 <input
                                                             name="password"
@@ -829,7 +829,7 @@ ShallowWrapper {
                                                                 name="email"
                                                                 onChange={[Function]}
                                                                 placeholder="ex. tyler@daytrip.com"
-                                                                value=""
+                                                                value={undefined}
                                                 />
                                                 <input
                                                                 name="password"
@@ -1018,7 +1018,7 @@ ShallowWrapper {
                                                             name="email"
                                                             onChange={[Function]}
                                                             placeholder="ex. tyler@daytrip.com"
-                                                            value=""
+                                                            value={undefined}
                                         />
                                         <input
                                                             name="password"
@@ -1078,7 +1078,7 @@ ShallowWrapper {
                                                 name="email"
                                                 onChange={[Function]}
                                                 placeholder="ex. tyler@daytrip.com"
-                                                value=""
+                                                value={undefined}
                         />
                         <input
                                                 name="password"
@@ -1116,7 +1116,7 @@ ShallowWrapper {
                             name="email"
                             onChange={[Function]}
                             placeholder="ex. tyler@daytrip.com"
-                            value=""
+                            value={undefined}
 />,
                           <input
                             name="password"
@@ -1141,7 +1141,7 @@ ShallowWrapper {
                             "name": "email",
                             "onChange": [Function],
                             "placeholder": "ex. tyler@daytrip.com",
-                            "value": "",
+                            "value": undefined,
                           },
                           "ref": null,
                           "rendered": null,

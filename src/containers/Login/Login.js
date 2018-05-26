@@ -18,7 +18,7 @@ export class Login extends Component {
       location: '',
       city: '',
       state: '',
-      email: '',
+      emailInput: '',
       password: '',
       locationError: false
     };
@@ -32,23 +32,22 @@ export class Login extends Component {
     });
   }
 
-  emailSubmitHandler = (event) => {
+  emailSubmitHandler = async (event) => {
     const {
       location,
-      email,
+      emailInput,
       password
     } = this.state;
 
-    if (this.state.location) {
-      authorization.emailPasswordSignup(email, password)
-        .then(result => {
-          const {
-            uid,
-            email
-          } = result.user;
+    if (location) {
+      const result = await authorization.emailPasswordSignup(emailInput, password);
+      
+      const {
+        uid,
+        email
+      } = result.user;
 
-          this.props.loginUser(uid, email, location);
-        });
+      this.props.loginUser(uid, email, location);
 
       event.preventDefault();
     } else {
