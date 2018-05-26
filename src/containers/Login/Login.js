@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
@@ -85,13 +86,12 @@ export class Login extends Component {
     const state = this.state.state;
     const date = moment();
     const timeNow = date.format()
-    const addTwoDays = date.clone().add(2, 'day');
-    const timeIn2Days = addTwoDays.format();
 
-    const events = await ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
+    const events = await ticketmasterApiCallRecentEvents(city, state, timeNow);
     const recentEvents = cleanRecentEvents(events);
-    console.log(recentEvents)
+
     this.props.storeRecentEvents(recentEvents);
+    this.props.history.push('/events')
   }
 
   facebookSignup = () => {
@@ -186,4 +186,4 @@ const mapDispatchToProps = (dispatch) => ({
   storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
 })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default withRouter(connect(null, mapDispatchToProps)(Login));

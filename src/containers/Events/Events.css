@@ -41,3 +41,8 @@ h3 {
   border-radius: 5px;
   padding: 40px 70px;
 }
+
+.eventsContainer {
+  background-image: url('./assets/recent-events-bg.jpg');
+  background-size: cover;
+}
