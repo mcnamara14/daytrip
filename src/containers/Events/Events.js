@@ -2,20 +2,29 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as authorization from '../../firebase/auth';
 import './Events.css';
+import { RecentEvent } from '../../components/RecentEvent/RecentEvent';
 
 export class Events extends Component {
 
   render() {
-    const recentEvents = this.props.events.map(event => {
+    const recentEvents = this.props.events.map((event, index) => {
       return (
-        event.title
+        <RecentEvent
+          key={index}
+          image={event.image}
+          title={event.title}
+          price={event.price}
+          date={event.date}
+        />
       )
     })
     console.log(recentEvents)
     return (
       <div className="eventsContainer">
         <h1>Sign up to get started</h1>
-        { recentEvents }
+        <section className="recentEvents">
+          { recentEvents }
+        </section>
       </div>
     );
   }

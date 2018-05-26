@@ -1,0 +1,20 @@
+.recentEvents {
+  width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  background: #ccc;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.recentEvent {
+  width: 22%;
+  height: 500px;
+}
+.eventImage {
+  width: 300px;
+  height: 200px;
+  display: block;
+  background-size: cover;
+}
