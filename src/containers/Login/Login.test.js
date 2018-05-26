@@ -49,23 +49,22 @@ describe('Login', () => {
 
   describe('emailSubmitHandler', () => {
     let wrapper;
+    let mockEvent;
+    let mockLoginUser;
 
     beforeEach(() => {
-      const mockLoginUser = jest.fn();
+      mockLoginUser = jest.fn();
 
       wrapper = shallow(<Login loginUser={mockLoginUser} />);
-    });
 
-    it('should call emailPasswordSignup with correct arguments', async () => {
-      const mockEvent = {
-        preventDefault: () => {}
-      }
-
+      mockEvent = {preventDefault: () => {}}
       wrapper.setState({
         location: 'Denver, CO',
         email: 'test@test.com'
       });
+    });
 
+    it('should call emailPasswordSignup with correct arguments when a location is entered first', async () => {
       authorization.emailPasswordSignup = jest.fn().mockImplementation(() => ({
         user: {
           uid: 12345,
@@ -76,6 +75,27 @@ describe('Login', () => {
       await wrapper.instance().emailSubmitHandler(mockEvent);
 
       expect(authorization.emailPasswordSignup).toHaveBeenCalled()
+    })
+
+    it('should call loginUser when there is a location', async () => {
+      const result = wrapper.instance().props.loginUser;
+     
+      await wrapper.instance().emailSubmitHandler(mockEvent);
+
+      expect(result).toHaveBeenCalled();
+    })
+
+    it('should call handleMissingLocationError when no location was entered', async () => {
+      wrapper.instance().handleMissingLocationError = jest.fn();
+      const result = wrapper.instance().handleMissingLocationError;
+
+      wrapper.setState({
+        location: ''
+      });
+
+      await wrapper.instance().emailSubmitHandler(mockEvent);
+
+      expect(result).toHaveBeenCalled();
     })
   })
 
