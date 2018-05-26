@@ -6,7 +6,7 @@ import './Login.css';
 import { loginUser } from '../../actions/loginUser';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
-var moment = require('moment');
+const moment = require('moment');
 
 export class Login extends Component {
   constructor(props) {

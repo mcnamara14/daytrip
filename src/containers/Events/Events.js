@@ -1,32 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as authorization from '../../firebase/auth';
-import './Login.css';
-import { storeUser } from '../../actions/storeUser';
+import './Events.css';
 
-export class Login extends Component {
-  constructor(props) {
-    super();
-
-    this.state = {
-      location: '',
-      email: '',
-      password: '',
-      locationError: false
-    }
-  }
+export class Events extends Component {
 
   render() {
     return (
-      <div className="loginContainer">
+      <div className="eventsContainer">
         <h1>Sign up to get started</h1>
       </div>
     );
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
-  storeUser: (userId, email, location) => dispatch(storeUser(userId, email, location))
-})
-
-export default connect(null, mapDispatchToProps)(Login);
+export default Events;
