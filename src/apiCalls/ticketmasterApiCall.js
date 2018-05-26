@@ -9,7 +9,7 @@ export const ticketmasterApiCallRecentEvents = async (city, state, timeNow, time
     const data = await response.json();
     const events = data._embedded.events;
 
-    cleanRecentEvents(events);
+    return events
   } catch (error) {
       alert(error)
   }

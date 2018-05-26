@@ -6,6 +6,7 @@ import './Login.css';
 import { loginUser } from '../../actions/loginUser';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
+import { cleanRecentEvents } from '../../dataCleaners/index';
 const moment = require('moment');
 
 export class Login extends Component {
@@ -79,7 +80,7 @@ export class Login extends Component {
     }, 2000);
   }
 
-  handleTicketMasterFetch = () => {
+  handleTicketMasterFetch = async () => {
     const city = this.state.city;
     const state = this.state.state;
     const date = moment();
@@ -87,7 +88,9 @@ export class Login extends Component {
     const addTwoDays = date.clone().add(2, 'day');
     const timeIn2Days = addTwoDays.format();
 
-    ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
+    const events = await ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
+    const recentEvents = cleanRecentEvents(events);
+    console.log(recentEvents)
   }
 
   facebookSignup = () => {
