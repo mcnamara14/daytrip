@@ -3,7 +3,7 @@ const moment = require('moment');
 export const cleanRecentEvents = (events) => {
   let date;
 
-  const recentEvents = events.map(event => {
+  const allRecentEvents = events.map(event => {
     const {
       name,
       images,
@@ -28,7 +28,8 @@ export const cleanRecentEvents = (events) => {
     };
   });
 
-  console.log(recentEvents)
+  const recentEvents = allRecentEvents.slice(0, 8);
+
   return recentEvents;
 }
 

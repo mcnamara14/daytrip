@@ -3,9 +3,10 @@ import { connect } from 'react-redux';
 import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
-import { loginUser } from '../../actions/loginUser';
+import { loginUser, storeRecentEvents } from '../../actions/index';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
+import { cleanRecentEvents } from '../../dataCleaners/index';
 const moment = require('moment');
 
 export class Login extends Component {
@@ -79,7 +80,7 @@ export class Login extends Component {
     }, 2000);
   }
 
-  handleTicketMasterFetch = () => {
+  handleTicketMasterFetch = async () => {
     const city = this.state.city;
     const state = this.state.state;
     const date = moment();
@@ -87,7 +88,10 @@ export class Login extends Component {
     const addTwoDays = date.clone().add(2, 'day');
     const timeIn2Days = addTwoDays.format();
 
-    ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
+    const events = await ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
+    const recentEvents = cleanRecentEvents(events);
+    console.log(recentEvents)
+    this.props.storeRecentEvents(recentEvents);
   }
 
   facebookSignup = () => {
@@ -178,7 +182,8 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state))
+  loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state)),
+  storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
 })
 
 export default connect(null, mapDispatchToProps)(Login);

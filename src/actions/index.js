@@ -1,5 +1,7 @@
-import { storeUser } from './storeUser';
+import { loginUser } from './loginUser';
+import { storeRecentEvents } from './storeRecentEvents';
 
 export {
-  storeUser
+  loginUser, 
+  storeRecentEvents
 }
