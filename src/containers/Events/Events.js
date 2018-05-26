@@ -22,7 +22,6 @@ export class Events extends Component {
     console.log(recentEvents)
     return (
       <div className="eventsContainer">
-        <h1>Sign up to get started</h1>
         <section className="recentEvents">
           { recentEvents }
         </section>
