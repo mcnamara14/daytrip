@@ -157,5 +157,20 @@ describe('Login', () => {
       expect(result).toHaveBeenCalled();
     })
   })
+
+  describe('handleMissingLocationError', () => {
+    it('should set locationError in state to true then back to false after 2 seconds', () => {
+      const wrapper = shallow(<Login />);
+      jest.useFakeTimers();
+
+      wrapper.instance().handleMissingLocationError();
+
+      expect(wrapper.state('locationError')).toEqual(true);
+
+      jest.runAllTimers();
+
+      expect(wrapper.state('locationError')).toEqual(false);
+    })
+  })
   
 })
