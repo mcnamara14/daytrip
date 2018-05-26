@@ -1,14 +1,13 @@
 import { yelpApiKey } from './apiKeys/yelpApiKey';
 
-export const yelpApiCall = () => {
+export const yelpApiCall = async () => {
   let headers = new Headers();
   headers.append("Authorization", "Bearer " + yelpApiKey);
 
-  fetch("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=delis&latitude=37.786882&longitude=-122.399972", {
+  const result = await fetch("https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=delis&latitude=37.786882&longitude=-122.399972", {
     headers
-  }).then((res) => {
-    return res.json();
-  }).then((json) => {
-    console.log(json);
   });
+  const data = await result.json();
+
+  console.log(data)
 };
