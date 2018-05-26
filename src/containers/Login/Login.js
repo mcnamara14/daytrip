@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
 import { loginUser } from '../../actions/loginUser';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
+import { googleApiKey } from '../../apiCalls/googleApiKey';
 
 export class Login extends Component {
   constructor(props) {
@@ -11,6 +13,8 @@ export class Login extends Component {
 
     this.state = {
       location: '',
+      city: '',
+      state: '',
       email: '',
       password: '',
       locationError: false
@@ -61,8 +65,8 @@ export class Login extends Component {
   
         this.props.loginUser(uid, email, this.state.location);
       })
-
-      ticketmasterApiCallRecentEvents(this.state.location);
+ 
+      ticketmasterApiCallRecentEvents(this.state.city, this.state.state);
     } else {
         this.setState({locationError: true})
         setTimeout(() => {
@@ -90,6 +94,17 @@ export class Login extends Component {
     }
   }
 
+  onDropdownSelect = (component) => {
+    const place = component.autocomplete.getPlace();
+    const city = place.vicinity;
+    const state = place.address_components[2].short_name;
+    
+    this.setState({
+      city,
+      state
+    })
+  }
+
   render() {
     return (
       <div className="loginContainer">
@@ -103,12 +118,21 @@ export class Login extends Component {
             <div>
               { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
               <form onClick={this.onClickHandler} className="locationInput" >
-                <input
+              <LocationAutocomplete
+                name="location"
+                placeholder="Denver, CO"
+                targetArea="City, State"
+                locationType="(cities)"
+                googleAPIKey={googleApiKey}
+                onChange={this.onChangeHandler}
+                onDropdownSelect={this.onDropdownSelect}
+              />
+                {/* <input
                   name='location'
                   value={this.state.location}
                   onChange={this.onChangeHandler}
                   placeholder='Denver, CO'
-                />
+                /> */}
               </form>
             </div>
           </article>
