@@ -5,7 +5,7 @@ import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import { createStore } from 'redux';
 import { rootReducer } from './reducers/index';
 
 const devTools = window.__REDUX_DEVTOOLS_EXTENSION__

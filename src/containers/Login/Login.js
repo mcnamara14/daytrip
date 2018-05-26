@@ -5,7 +5,7 @@ import * as authorization from '../../firebase/auth';
 import './Login.css';
 import { loginUser } from '../../actions/loginUser';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
-import { googleApiKey } from '../../apiCalls/googleApiKey';
+import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 var moment = require('moment');
 
 export class Login extends Component {
@@ -31,7 +31,6 @@ export class Login extends Component {
   }
 
   emailSubmitHandler = (event) => {
-    console.log('asdfsda')
     const {
       location,
       email,
@@ -51,31 +50,33 @@ export class Login extends Component {
 
       event.preventDefault();
     } else {
-      alert('Please enter a location')
+        this.handleMissingLocationError();
     }
   }
 
-  googleSignup = () => {
+  googleSignup = async () => {
     if(this.state.location) {
-      authorization.googleSignup()
-      .then(result => {
-        const {
-          uid,
-          email
-        } = result.user;
-  
-        this.props.loginUser(uid, email, this.state.location);
-      })
+      const result = await authorization.googleSignup();
+      const {
+        uid,
+        email
+      } = result.user;
+      
+      this.props.loginUser(uid, email, this.state.city, this.state.state);
  
       this.handleTicketMasterFetch();
     } else {
-        this.setState({locationError: true})
-        setTimeout(() => {
-          this.setState({
-            locationError: false
-          });
-        }, 2000);
+        this.handleMissingLocationError();
     }
+  }
+
+  handleMissingLocationError = () => {
+    this.setState({locationError: true})
+    setTimeout(() => {
+      this.setState({
+        locationError: false
+      });
+    }, 2000);
   }
 
   handleTicketMasterFetch = () => {
@@ -101,7 +102,7 @@ export class Login extends Component {
         this.props.loginUser(uid, email, this.state.location);
       })
     } else {
-      alert('Please enter a location')
+        this.handleMissingLocationError();
     }
   }
 
@@ -131,19 +132,13 @@ export class Login extends Component {
               <form onClick={this.onClickHandler} className="locationInput" >
               <LocationAutocomplete
                 name="location"
-                placeholder="Denver, CO"
+                placeholder="Enter a location..."
                 targetArea="City, State"
                 locationType="(cities)"
                 googleAPIKey={googleApiKey}
                 onChange={this.onChangeHandler}
                 onDropdownSelect={this.onDropdownSelect}
               />
-                {/* <input
-                  name='location'
-                  value={this.state.location}
-                  onChange={this.onChangeHandler}
-                  placeholder='Denver, CO'
-                /> */}
               </form>
             </div>
           </article>
@@ -183,7 +178,7 @@ export class Login extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  loginUser: (userId, email, location) => dispatch(loginUser(userId, email, location))
+  loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state))
 })
 
 export default connect(null, mapDispatchToProps)(Login);

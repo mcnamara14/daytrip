@@ -1,10 +1,11 @@
 export const userReducer = (state = {userId: null, email: '', location: ''}, action) => {
   switch(action.type) {
-    case 'STORE_USER':
+    case 'LOGIN_USER':
       return {
         userId: action.userId,
         email: action.email,
-        location: action.location
+        city: action.city,
+        state: action.state
       }
     default:
       return state
