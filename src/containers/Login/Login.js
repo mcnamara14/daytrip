@@ -5,6 +5,7 @@ import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
 import { loginUser, storeRecentEvents } from '../../actions/index';
+import { yelpApiCall } from '../../apiCalls/yelpApiCall';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
@@ -22,6 +23,10 @@ export class Login extends Component {
       password: '',
       locationError: false
     };
+  }
+
+  componentDidMount() {
+    yelpApiCall();
   }
 
   onChangeHandler = (event) => {

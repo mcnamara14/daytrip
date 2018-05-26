@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "cors-anywhere": "^0.4.1",
     "eslint": "^4.19.1",
     "firebase": "^5.0.4",
     "location-autocomplete": "^1.2.4",
@@ -23,6 +24,14 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "lint": "./node_modules/eslint/bin/eslint.js ./src/* .js --ignore-pattern *.test.js"
+  },
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}",
+      "!src/index.js",
+      "!src/registerServiceWorker.js",
+      "!src/reducers/index.js"
+    ]
   },
   "devDependencies": {
     "enzyme": "^3.3.0",
