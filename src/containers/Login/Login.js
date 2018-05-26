@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
-import { loginUser } from '../../actions/loginUser';
+import { loginUser, storeRecentEvents } from '../../actions/index';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
