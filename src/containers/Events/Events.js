@@ -14,6 +14,7 @@ export class Events extends Component {
           image={event.image}
           title={event.title}
           price={event.price}
+          venue={event.venue}
           date={event.date}
         />
       )

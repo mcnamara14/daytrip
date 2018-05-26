@@ -86,10 +86,8 @@ export class Login extends Component {
     const state = this.state.state;
     const date = moment();
     const timeNow = date.format()
-    const addTwoDays = date.clone().add(2, 'day');
-    const timeIn2Days = addTwoDays.format();
 
-    const events = await ticketmasterApiCallRecentEvents(city, state, timeNow, timeIn2Days);
+    const events = await ticketmasterApiCallRecentEvents(city, state, timeNow);
     const recentEvents = cleanRecentEvents(events);
 
     this.props.storeRecentEvents(recentEvents);

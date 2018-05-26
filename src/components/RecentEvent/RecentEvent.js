@@ -11,6 +11,7 @@ export const RecentEvent = (props) =>  {
         <h3>{props.title}</h3>
         <p className="price">{props.price}</p>
         <hr/>
+        <p className="venue">{props.venue}</p>
         <p className="date">{props.date}</p>
         <button>Select</button>
       </div>
