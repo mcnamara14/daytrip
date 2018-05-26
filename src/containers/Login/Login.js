@@ -181,7 +181,7 @@ export class Login extends Component {
   }
 }
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state)),
   storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
 });
