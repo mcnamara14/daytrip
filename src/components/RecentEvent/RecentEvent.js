@@ -7,9 +7,13 @@ export const RecentEvent = (props) =>  {
   return (
     <div className="recentEvent">
       <div className="eventImage" style={ backgroundImage } ></div>
-      <h3>{props.title}</h3>
-      <p>{props.price}</p>
-      <p>{props.date}</p>
+      <div className="eventInfo">
+        <h3>{props.title}</h3>
+        <p className="price">{props.price}</p>
+        <hr/>
+        <p className="date">{props.date}</p>
+        <button>Select</button>
+      </div>
     </div>
   );
 }
