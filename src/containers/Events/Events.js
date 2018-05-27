@@ -14,6 +14,8 @@ export class Events extends Component {
           title={event.title}
           price={event.price}
           venue={event.venue}
+          locationLat={event.locationLat}
+          locationLong={event.locationLong}
           date={event.date}
         />
       );

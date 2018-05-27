@@ -27,6 +27,8 @@ export const cleanRecentEvents = (events) => {
       image: images[0].url,
       price,
       venue: _embedded.venues[0].name,
+      locationLat: _embedded.venues[0].location.latitude,
+      locationLong: _embedded.venues[0].location.longitude,
       date
     };
   });
