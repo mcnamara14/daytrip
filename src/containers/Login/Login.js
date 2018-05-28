@@ -9,7 +9,7 @@ import { yelpApiCall } from '../../apiCalls/yelpApiCall';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
-const moment = require('moment');
+import moment from 'moment';
 
 export class Login extends Component {
   constructor() {
