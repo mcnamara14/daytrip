@@ -253,4 +253,28 @@ describe('Login', () => {
     })
   });
 
+  describe('facebookSignup', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<Login loginUser={jest.fn()}/>);
+    })
+
+    it('should call facebookSignup', async () => {
+      authorization.facebookSignup = jest.fn().mockImplementation(() => ({
+          user: {
+            uid: 2345,
+            email: 'test@testerson.com'
+          }
+      }));
+      wrapper.setState({location: 'Boulder, CO'});
+
+      const result = authorization.facebookSignup;
+
+      await wrapper.instance().facebookSignup();
+
+      expect(result).toHaveBeenCalled();
+    })
+  })
+
 })
