@@ -5,7 +5,6 @@ import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
 import { loginUser, storeRecentEvents } from '../../actions/index';
-import { yelpApiCall } from '../../apiCalls/yelpApiCall';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
@@ -23,10 +22,6 @@ export class Login extends Component {
       password: '',
       locationError: false
     };
-  }
-
-  componentDidMount() {
-    yelpApiCall();
   }
 
   onChangeHandler = (event) => {
@@ -114,6 +109,7 @@ export class Login extends Component {
   }
 
   onDropdownSelect = (component) => {
+    console.log(component)
     const place = component.autocomplete.getPlace();
     const city = place.vicinity;
     const state = place.address_components[2].short_name;
@@ -141,7 +137,7 @@ export class Login extends Component {
                   name="location"
                   placeholder="Enter a location..."
                   targetArea="City, State"
-                  locationType="(cities)"
+                  locationType="(cities)" 
                   googleAPIKey={googleApiKey}
                   onChange={this.onChangeHandler}
                   onDropdownSelect={this.onDropdownSelect}
