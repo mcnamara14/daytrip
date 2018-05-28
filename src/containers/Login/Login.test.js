@@ -257,21 +257,39 @@ describe('Login', () => {
     let wrapper;
 
     beforeEach(() => {
+      authorization.facebookSignup = jest.fn().mockImplementation(() => ({
+        user: {
+          uid: 2345,
+          email: 'test@testerson.com'
+        }
+      }));
+
       wrapper = shallow(<Login loginUser={jest.fn()}/>);
     })
 
-    it('should call facebookSignup', async () => {
-      authorization.facebookSignup = jest.fn().mockImplementation(() => ({
-          user: {
-            uid: 2345,
-            email: 'test@testerson.com'
-          }
-      }));
+    it('should call facebookSignup when a location is entered', async () => {
       wrapper.setState({location: 'Boulder, CO'});
 
-      const result = authorization.facebookSignup;
+      await wrapper.instance().facebookSignup();
+
+      expect(authorization.facebookSignup).toHaveBeenCalled();
+    })
+
+    it('should call loginUser with correct arguments when a location is entered', async () => {
+      wrapper.setState({location: 'Boulder, CO'});
 
       await wrapper.instance().facebookSignup();
+
+      expect(wrapper.instance().props.loginUser).toHaveBeenCalledWith(2345, "test@testerson.com", "Boulder, CO");
+    })
+
+    it('should call handleMissingLocationError when missing a location', () => {
+      wrapper.setState({location: ''});
+      wrapper.instance().handleMissingLocationError = jest.fn();
+
+      wrapper.instance().facebookSignup();
+
+      const result = wrapper.instance().handleMissingLocationError;
 
       expect(result).toHaveBeenCalled();
     })
