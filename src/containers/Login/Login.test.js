@@ -298,7 +298,8 @@ describe('Login', () => {
 
   // describe('onDropdownSelect', () => {
   //   it('should set the state to the city and state selected', () => {
-  //     const wrapper = shallow(<Login />);
+  //     const wrapper = mount(<Login />);
+  //     const locationAutocomplete
   //     const locationAutocomplete = shallow(<LocationAutocomplete onChange={jest.fn()} onDropdownSelect={jest.fn()} />);
   //     locationAutocomplete.autocomplete.getPlace = jest.fn().mockImplementation(() => ({
   //       vicinity: 'Boulder', 

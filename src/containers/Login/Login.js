@@ -108,17 +108,17 @@ export class Login extends Component {
     }
   }
 
-  onDropdownSelect = (component) => {
-    console.log(component)
-    const place = component.autocomplete.getPlace();
-    const city = place.vicinity;
-    const state = place.address_components[2].short_name;
+  // onDropdownSelect = (component) => {
+  //   console.log(component)
+  //   const place = component.autocomplete.getPlace();
+  //   const city = place.vicinity;
+  //   const state = place.address_components[2].short_name;
     
-    this.setState({
-      city,
-      state
-    });
-  }
+  //   this.setState({
+  //     city,
+  //     state
+  //   });
+  // }
 
   render() {
     return (
