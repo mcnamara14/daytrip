@@ -9,7 +9,7 @@ import { yelpApiCall } from '../../apiCalls/yelpApiCall';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
-const moment = require('moment');
+import moment from 'moment';
 
 export class Login extends Component {
   constructor() {
@@ -99,17 +99,15 @@ export class Login extends Component {
     this.props.history.push('/events');
   }
 
-  facebookSignup = () => {
+  facebookSignup = async () => {
     if (this.state.location) {
-      authorization.facebookSignup()
-        .then(result => {
-          const {
-            uid,
-            email
-          } = result.user;
-  
-          this.props.loginUser(uid, email, this.state.location);
-        });
+      const result = await authorization.facebookSignup();
+      const {
+        uid,
+        email
+      } = result.user;
+
+      this.props.loginUser(uid, email, this.state.location);
     } else {
       this.handleMissingLocationError();
     }

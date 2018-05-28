@@ -4,6 +4,10 @@ import { Login } from './Login';
 import { shallow } from 'enzyme';
 import { emailPasswordSignup } from '../../firebase/auth';
 import * as authorization from '../../firebase/auth';
+import * as ticketmasterApiCall from '../../apiCalls/ticketmasterApiCall';
+import * as cleaner from '../../dataCleaners';
+import { createMemoryHistory } from 'history';
+jest.mock('moment', () => () => ({format: () => '2018-05-27T17:13:38-06:00'}));
 
 describe('Login', () => {
   let wrapper;
@@ -172,5 +176,123 @@ describe('Login', () => {
       expect(wrapper.state('locationError')).toEqual(false);
     })
   })
+
+  describe('handleTicketMasterFetch', () => {
+    let history;
+    let mockStoreRecentEvents;
+    let wrapper;
+
+    beforeEach(() => {
+      history = createMemoryHistory('/');
+      mockStoreRecentEvents = jest.fn();
+      ticketmasterApiCall.ticketmasterApiCallRecentEvents = jest.fn().mockImplementation(() => ([{
+        date: "2018-05-28 5:10 PM",
+        image: "https://s1.ticketm.net/dam/a/67d/7b495.jpg",
+        price: "$10+",
+        title: "San Francisco Giants at Colorado Rockies",
+        venue: "Coors Field",
+        reviews: "Rockies are awesome"
+      }]));
+
+      cleaner.cleanRecentEvents = jest.fn().mockImplementation(() => ([{
+        date: "2018-05-28 5:10 PM",
+        image: "https://s1.ticketm.net/dam/a/67d/7b495.jpg",
+        price: "$10+",
+        title: "San Francisco Giants at Colorado Rockies",
+        venue: "Coors Field"
+      }]));
+
+      wrapper = shallow(<Login history={history} storeRecentEvents={mockStoreRecentEvents} />);
+    })
+
+    it('should call ticketmasterApiCallRecentEvents with correct arguments', () => {
+      wrapper.instance().setState({
+        city: 'Boulder',
+        state: 'CO',
+        timeNow: '2018-05-27T17:13:38-06:00'
+      });
+      
+      const result = ticketmasterApiCall.ticketmasterApiCallRecentEvents;
+      
+      wrapper.instance().handleTicketMasterFetch();
+
+      expect(result).toHaveBeenCalledWith(wrapper.state('city'), wrapper.state('state'), wrapper.state('timeNow'))
+    })
+
+    it('should call cleanRecentMovies with the correct arguments', async () => {
+      const result = cleaner.cleanRecentEvents;
+      const expected = [
+        {
+          date: "2018-05-28 5:10 PM",
+          image: "https://s1.ticketm.net/dam/a/67d/7b495.jpg",
+          price: "$10+",
+          title: "San Francisco Giants at Colorado Rockies",
+          venue: "Coors Field",
+          reviews: "Rockies are awesome"
+        }
+      ];
   
+      await wrapper.instance().handleTicketMasterFetch();
+
+      expect(cleaner.cleanRecentEvents).toHaveBeenCalledWith(expected);
+    })
+
+    it('should call storeRecentEvents with the correct arguments', async () => {
+      const result = wrapper.instance().props.storeRecentEvents
+      const expected = [{
+        date: "2018-05-28 5:10 PM",
+        image: "https://s1.ticketm.net/dam/a/67d/7b495.jpg",
+        price: "$10+",
+        title: "San Francisco Giants at Colorado Rockies",
+        venue: "Coors Field"
+      }]
+
+      await wrapper.instance().handleTicketMasterFetch();
+
+      expect(result).toHaveBeenCalledWith(expected);
+    })
+  });
+
+  describe('facebookSignup', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      authorization.facebookSignup = jest.fn().mockImplementation(() => ({
+        user: {
+          uid: 2345,
+          email: 'test@testerson.com'
+        }
+      }));
+
+      wrapper = shallow(<Login loginUser={jest.fn()}/>);
+    })
+
+    it('should call facebookSignup when a location is entered', async () => {
+      wrapper.setState({location: 'Boulder, CO'});
+
+      await wrapper.instance().facebookSignup();
+
+      expect(authorization.facebookSignup).toHaveBeenCalled();
+    })
+
+    it('should call loginUser with correct arguments when a location is entered', async () => {
+      wrapper.setState({location: 'Boulder, CO'});
+
+      await wrapper.instance().facebookSignup();
+
+      expect(wrapper.instance().props.loginUser).toHaveBeenCalledWith(2345, "test@testerson.com", "Boulder, CO");
+    })
+
+    it('should call handleMissingLocationError when missing a location', () => {
+      wrapper.setState({location: ''});
+      wrapper.instance().handleMissingLocationError = jest.fn();
+
+      wrapper.instance().facebookSignup();
+
+      const result = wrapper.instance().handleMissingLocationError;
+
+      expect(result).toHaveBeenCalled();
+    })
+  })
+
 })
