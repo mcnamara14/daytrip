@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import './Events.css';
 import { RecentEvent } from '../../components/RecentEvent/RecentEvent';
 import { EventsHero } from '../../components/EventsHero/Events';
+import { EventsSearch } from '../EventsSearch/EventsSearch';
 
 export class Events extends Component {
 
@@ -23,11 +24,7 @@ export class Events extends Component {
     return (
       <div className="eventsContainer">
         <EventsHero />
-        <section className="searchEvents">
-          <input 
-            placeholder="Search for an event or choose a category"
-          />
-        </section>
+        <EventsSearch />
         <section className="recentEvents">
           { recentEvents }
         </section>

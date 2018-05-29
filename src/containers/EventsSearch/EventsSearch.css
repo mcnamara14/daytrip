@@ -1,0 +1,58 @@
+* {
+  font-family: "Work Sans";
+}
+
+.eventsContainer {
+    margin-top: -115px;
+}
+
+.eventsSearchContainer {
+  width: calc(50% - 100px);
+  height: 300px;
+  background: #fff;
+  text-align: left;
+  padding: 20px 100px 20px 80px;
+}
+
+.eventsSearchContainer h5 {
+  color: #7c7c7c;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+.eventsSearchContainer input {
+  width: 100%;
+  height: 45px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  padding: 0 0 0 20px;
+  font-size: 1rem;
+}
+
+.eventsSearchLocationDate {
+  display: flex;
+  margin-top: 30px;
+  justify-content: space-between;
+}
+
+.eventsSearchLocationDate input, .eventsSearchLocationDate div {
+  width: 46%;
+}
+
+.eventsSearchLocationDate .react-datepicker-wrapper, .eventsSearchLocationDate .react-datepicker__input-container input, .eventsSearchLocationDate .react-datepicker__input-container {
+  width: 100% !important;
+  color: #7c7c7c;
+}
+
+.react-datepicker {
+  width: 80% !important;
+}
+
+.react-datepicker__day-name {
+  width: 22% !important;
+  margin: 0.4rem;
+}
+
+.react-datepicker__header, .react-datepicker__month-container {
+  width: 100% !important;
+}
