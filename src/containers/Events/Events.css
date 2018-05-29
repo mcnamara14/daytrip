@@ -2,47 +2,8 @@
   font-family: "Work Sans";
 }
 
-h1 {
-  font-family: "Exo 2";
-  font-size: 2rem;
-  color: #fff;
-  text-transform: uppercase;
-  font-style: italic;
-  font-weight: 500;
-}
-
-h2 {
-  color: #787878;
-  font-family: "Exo 2";
-  font-size: 1.2rem;
-  margin: 0;
-}
-
-h3 {
-  color: #787878;
-  font-family: "Exo 2";
-  font-weight: 500;
-  text-align: left;
-  font-size: 1.1rem;
-  margin-top: 0px;
-}
-
-.loginContainer {
-  height: 685px;
-  padding-top: 140px;
-  background-image: url('./assets/login-bg.jpg');
-  background-size: cover;
-}
-
-.signupContainer {
-  width: 570px;
-  margin: 50px auto 0 auto;
-  background: #fff;
-  border-radius: 5px;
-  padding: 40px 70px;
-}
-
 .eventsContainer {
-  background-image: url('./assets/recent-events-bg.jpg');
+  /* background-image: url('./assets/recent-events-bg.jpg'); */
   background-size: cover;
+  background: #efefef;
 }

@@ -21,6 +21,11 @@ export class Events extends Component {
 
     return (
       <div className="eventsContainer">
+        <section className="searchEvents">
+          <input 
+            placeholder="Search for an event or choose a category"
+          />
+        </section>
         <section className="recentEvents">
           { recentEvents }
         </section>

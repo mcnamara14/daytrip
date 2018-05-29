@@ -3,7 +3,7 @@ header {
   display: flex;
   justify-content: space-between;
   margin: 0 auto;
-  height: 75px;
+  height: 100px;
   align-items: center;
 }
 
@@ -23,7 +23,7 @@ nav a {
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 500;
-  color: #98b5c8;
+  color: #fff;
   font-style: italic;
 }
 
