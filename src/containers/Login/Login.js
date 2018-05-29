@@ -126,7 +126,7 @@ export class Login extends Component {
         <section className="homeHeroContainer">
           <article className="homeHeroTextBox">
             <h1>Event Planner</h1>
-            <h4>Your personal event planning assistant.</h4>
+            <h4><span>Your personal event planning assistant.</span></h4>
             <p>Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.</p>
           </article>
         </section>

@@ -3,7 +3,5 @@
 }
 
 .eventsContainer {
-  /* background-image: url('./assets/recent-events-bg.jpg'); */
-  background-size: cover;
-  background: #efefef;
+    margin-top: -115px;
 }

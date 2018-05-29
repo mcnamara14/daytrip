@@ -8,7 +8,7 @@ h1 {
   color: #fff;
   text-transform: uppercase;
   font-weight: 700;
-  margin: 0 0 10px 0;
+  margin: 0;
 }
 
 h2 {
@@ -27,7 +27,7 @@ h3 {
 }
 
 h4 {
-  margin: 20px 0 20px 0;
+  margin: 10px 0 20px 0;
   color: #fff;
   text-align: left;
   font-weight: normal;
@@ -35,8 +35,13 @@ h4 {
   font-size: 1rem;
 }
 
+h4 span {
+  color: #ccc;
+  font-size: 0.9rem;
+}
+
 h5 {
-  color: #f44e2d;
+  color: #d9492c;
   text-transform: uppercase;
   font-weight: 300;
   font-size: 1rem;
@@ -52,20 +57,22 @@ h5 {
 .homeHeroTextBox {
   width: 375px;
   position: absolute;
-  right: 80px;
+  right: 115px;
   bottom: 150px;
   text-align: left;
 }
 
 .homeHeroTextBox p {
+  width: 80%;
   color: #fff;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   line-height: 1.4rem;
   margin-top: 30px;
+  text-align: justify;
 }
 
 .loginContainer {
-  margin-top: -100px;
+  margin-top: -115px;
 }
 
 .signupContainer {
@@ -144,6 +151,7 @@ h5 {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .signupFormsContainer {
@@ -182,7 +190,7 @@ h5 {
 }
 
 .googleBtn button {
-  background: #de4c33;
+  background: #d9492c;
   margin-bottom: 20px;
 }
 

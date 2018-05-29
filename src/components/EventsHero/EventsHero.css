@@ -1,0 +1,27 @@
+.eventsHeroContainer {
+  height: 575px;
+  z-index: -1;
+  position: relative;
+  background: url('./assets/events-hero-bg.jpg');
+  background-size: cover;
+}
+
+.eventsHeroTextBox {
+  width: 415px;
+  text-align: left;
+  position: absolute;
+  left: 8.5%;
+  bottom: 80px;
+}
+
+.eventsHeroTextBox button {
+  background: #d9492c;
+  height: 45px;
+  text-align: center;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 0 60px;
+  font-size: 1rem;
+  margin-top: 30px;
+}
