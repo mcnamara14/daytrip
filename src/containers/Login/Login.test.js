@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Login } from './Login';
+import { Login, mapDispatchToProps } from './Login';
 import { shallow } from 'enzyme';
 import { emailPasswordSignup } from '../../firebase/auth';
 import * as authorization from '../../firebase/auth';
 import * as ticketmasterApiCall from '../../apiCalls/ticketmasterApiCall';
 import * as cleaner from '../../dataCleaners';
 import { createMemoryHistory } from 'history';
+import LocationAutocomplete from 'location-autocomplete';
 jest.mock('moment', () => () => ({format: () => '2018-05-27T17:13:38-06:00'}));
 
 describe('Login', () => {
@@ -295,4 +296,58 @@ describe('Login', () => {
     })
   })
 
+  // describe('onDropdownSelect', () => {
+  //   it('should set the state to the city and state selected', () => {
+  //     const wrapper = mount(<Login />);
+  //     const locationAutocomplete
+  //     const locationAutocomplete = shallow(<LocationAutocomplete onChange={jest.fn()} onDropdownSelect={jest.fn()} />);
+  //     locationAutocomplete.autocomplete.getPlace = jest.fn().mockImplementation(() => ({
+  //       vicinity: 'Boulder', 
+  //       address_components: [
+  //         {0: {long_name: "Denver", short_name: "Denver"}},
+  //         {1: {long_name: "Denver County", short_name: "Denver County"}},
+  //         {2: {long_name: "Colorado", short_name: "CO"}}
+  //       ]
+  //     }))
+
+  //     wrapper.instance().onDropdownSelect();
+  //   })
+  // })
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params on loginUser', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'LOGIN_USER',
+        userId: 6,
+        email: 'test@testerson.com',
+        city: 'Boulder',
+        state: 'CO'
+      };
+
+      mappedProps.loginUser(6, 'test@testerson.com', 'Boulder', 'CO');
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on storeRecentEvents', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'STORE_RECENT_EVENTS',
+        recentEvents: [{
+          date: "2018-05-28 5:10 PM",
+          image: "https://s1.ticketm.net/dam/a/67d/7b495.jpg",
+          price: "$10+",
+          title: "San Francisco Giants at Colorado Rockies",
+          venue: "Coors Field"
+        }]
+      };
+
+      mappedProps.storeRecentEvents(mockAction.recentEvents);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+  });
 })

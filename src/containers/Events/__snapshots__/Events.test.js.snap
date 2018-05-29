@@ -29,65 +29,15 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <section
-        className="recentEvents"
+      "children": Array [
+        <section
+          className="searchEvents"
 >
-        <Unknown
-                date="2018-05-30 8:00 PM"
-                image="https://s1.ticketm.allswifty.jpg"
-                price="$300"
-                title="T Swift"
-                venue="Boulder Theater"
-        />
+          <input
+                    placeholder="Search for an event or choose a category"
+          />
 </section>,
-      "className": "eventsContainer",
-    },
-    "ref": null,
-    "rendered": Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": Array [
-          <Unknown
-            date="2018-05-30 8:00 PM"
-            image="https://s1.ticketm.allswifty.jpg"
-            price="$300"
-            title="T Swift"
-            venue="Boulder Theater"
-/>,
-        ],
-        "className": "recentEvents",
-      },
-      "ref": null,
-      "rendered": Array [
-        Object {
-          "instance": null,
-          "key": "0",
-          "nodeType": "function",
-          "props": Object {
-            "date": "2018-05-30 8:00 PM",
-            "image": "https://s1.ticketm.allswifty.jpg",
-            "price": "$300",
-            "title": "T Swift",
-            "venue": "Boulder Theater",
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-      ],
-      "type": "section",
-    },
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
-      "instance": null,
-      "key": undefined,
-      "nodeType": "host",
-      "props": Object {
-        "children": <section
+        <section
           className="recentEvents"
 >
           <Unknown
@@ -98,10 +48,36 @@ ShallowWrapper {
                     venue="Boulder Theater"
           />
 </section>,
-        "className": "eventsContainer",
+      ],
+      "className": "eventsContainer",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <input
+            placeholder="Search for an event or choose a category"
+/>,
+          "className": "searchEvents",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "placeholder": "Search for an event or choose a category",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "input",
+        },
+        "type": "section",
       },
-      "ref": null,
-      "rendered": Object {
+      Object {
         "instance": null,
         "key": undefined,
         "nodeType": "host",
@@ -137,6 +113,100 @@ ShallowWrapper {
         ],
         "type": "section",
       },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <section
+            className="searchEvents"
+>
+            <input
+                        placeholder="Search for an event or choose a category"
+            />
+</section>,
+          <section
+            className="recentEvents"
+>
+            <Unknown
+                        date="2018-05-30 8:00 PM"
+                        image="https://s1.ticketm.allswifty.jpg"
+                        price="$300"
+                        title="T Swift"
+                        venue="Boulder Theater"
+            />
+</section>,
+        ],
+        "className": "eventsContainer",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <input
+              placeholder="Search for an event or choose a category"
+/>,
+            "className": "searchEvents",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "placeholder": "Search for an event or choose a category",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          "type": "section",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <Unknown
+                date="2018-05-30 8:00 PM"
+                image="https://s1.ticketm.allswifty.jpg"
+                price="$300"
+                title="T Swift"
+                venue="Boulder Theater"
+/>,
+            ],
+            "className": "recentEvents",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": "0",
+              "nodeType": "function",
+              "props": Object {
+                "date": "2018-05-30 8:00 PM",
+                "image": "https://s1.ticketm.allswifty.jpg",
+                "price": "$300",
+                "title": "T Swift",
+                "venue": "Boulder Theater",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "section",
+        },
+      ],
       "type": "div",
     },
   ],

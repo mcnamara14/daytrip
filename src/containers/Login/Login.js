@@ -5,10 +5,10 @@ import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
 import { loginUser, storeRecentEvents } from '../../actions/index';
-import { yelpApiCall } from '../../apiCalls/yelpApiCall';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
+import homeSignupTextBoxImg from './assets/home-signup-text-box-img.jpg';
 import moment from 'moment';
 
 export class Login extends Component {
@@ -23,10 +23,6 @@ export class Login extends Component {
       password: '',
       locationError: false
     };
-  }
-
-  componentDidMount() {
-    yelpApiCall();
   }
 
   onChangeHandler = (event) => {
@@ -127,31 +123,43 @@ export class Login extends Component {
   render() {
     return (
       <div className="loginContainer">
-        <h1>Sign up to get started</h1>
-        <p className="loginIntro">Why must they do that inspect anything brought into the house, yet 
-            destroy couch as revenge. Sleep on my human's head find me of your food meh.</p>
-        <section className="signupContainer">
-          <article className="locationForm">
-            <h2>Choose your location</h2>
-            <p>* Required for signup</p>
-            <div>
-              { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
-              <form onClick={this.onClickHandler} className="locationInput" >
-                <LocationAutocomplete
-                  name="location"
-                  placeholder="Enter a location..."
-                  targetArea="City, State"
-                  locationType="(cities)"
-                  googleAPIKey={googleApiKey}
-                  onChange={this.onChangeHandler}
-                  onDropdownSelect={this.onDropdownSelect}
-                />
-              </form>
-            </div>
+        <section className="homeHeroContainer">
+          <article className="homeHeroTextBox">
+            <h1>Event Planner</h1>
+            <h4><span>Your personal event planning assistant.</span></h4>
+            <p>Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.</p>
           </article>
-          <section className="signupForms">
+        </section>
+        <section className="signupContainer">
+        <section className="signupTextBox">
+            <h2>Sign up to get started</h2>
+            <p>The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.</p>
+            <h5>We plan your stops</h5>
+            <img src={homeSignupTextBoxImg} />
+          </section>
+          <div className="signupForms">
+            <div className="signupFormsContainer">
+            <article className="locationForm">
+              <h3>Choose your location</h3>
+              <p>* Required for signup</p>
+              <div>
+                { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
+                <form onClick={this.onClickHandler} className="locationInput" >
+                  <LocationAutocomplete
+                    name="location"
+                    placeholder="Enter a location..."
+                    targetArea="City, State"
+                    locationType="(cities)" 
+                    googleAPIKey={googleApiKey}
+                    onChange={this.onChangeHandler}
+                    onDropdownSelect={this.onDropdownSelect}
+                  />
+                </form>
+              </div>
+          </article>
+          <section className="signupInputs">
             <article className="emailPassForm">
-              <h3>Email Signup</h3>
+              <h4>Email Signup</h4>
               <form className="emailSignup" onSubmit={this.emailSubmitHandler} >
                 <input
                   name='email'
@@ -169,7 +177,7 @@ export class Login extends Component {
               </form>
             </article>
             <article className="socialSignup">
-              <h3>Social Media Signup</h3>
+              <h4>Social Media Signup</h4>
               <div className="googleBtn">
                 <button onClick={this.googleSignup}>Google Signup</button>
               </div>
@@ -178,6 +186,8 @@ export class Login extends Component {
               </div>
             </article>
           </section>
+          </div>
+          </div>
         </section>
       </div>
     );
