@@ -29,16 +29,18 @@ export class EventsSearch extends Component {
         <input 
           placeholder="Search by event name or category"
         />
-        <LocationAutocomplete
-          name="location"
-          placeholder="Enter a location..."
-          targetArea="City, State"
-          locationType="(cities)" 
-        />
-        <DatePicker
-          selected={this.state.startDate}
-          onChange={this.handleChange}
-        />
+        <div className="eventsSearchLocationDate">
+          <LocationAutocomplete
+            name="location"
+            placeholder="Enter a location..."
+            targetArea="City, State"
+            locationType="(cities)" 
+          />
+          <DatePicker
+            selected={this.state.startDate}
+            onChange={this.handleChange}
+          />
+        </div>
       </div>
     );
   }
