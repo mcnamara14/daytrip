@@ -4,6 +4,7 @@ import './Events.css';
 import { RecentEvent } from '../../components/RecentEvent/RecentEvent';
 import { EventsHero } from '../../components/EventsHero/Events';
 import { EventsSearch } from '../EventsSearch/EventsSearch';
+import { StopsSelection } from '../../components/StopsSelection/StopsSelection';
 
 export class Events extends Component {
 
@@ -25,6 +26,7 @@ export class Events extends Component {
       <div className="eventsContainer">
         <EventsHero />
         <EventsSearch />
+        <StopsSelection />
         <section className="recentEvents">
           { recentEvents }
         </section>
