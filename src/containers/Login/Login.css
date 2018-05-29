@@ -35,11 +35,18 @@ h4 {
   font-size: 1rem;
 }
 
+h5 {
+  color: #f44e2d;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 1rem;
+}
+
 .homeHeroContainer {
   height: 575px;
   z-index: -1;
   position: relative;
-  background: url(/static/media/hero-bg.5c1a506d.jpg);
+  background: url('./assets/hero-bg.jpg');
 }
 
 .homeHeroTextBox {
@@ -186,6 +193,7 @@ h4 {
 .locationForm p {
   color: #aaa;
   font-size: 0.9rem;
+  line-height: 1.3rem;
   margin-top: 10px;
 }
 
@@ -199,14 +207,14 @@ h4 {
   width: 144px;
   height: 20px;
   top: -12px;
-  left: -24px;
+  left: 330px;
   font-size: 0.8rem !important;
   color: #fff !important;
   padding: 7px 12px 17px 15px;
-  border-radius: 3px 0 0 3px;
+  border-radius: 0 3px 3px 0;
 }
 .locationError:after, .locationError:before {
-	left: 100%;
+	right: 100%;
 	top: 50%;
 	border: solid transparent;
 	content: " ";
@@ -223,7 +231,7 @@ h4 {
 }
 .locationError:before {
   border-color: rgba(194, 225, 245, 0);
-  border-left-color: #bbb;
+  border-right-color: #bbb;
   border-width: 22px;
   margin-top: -22px;
 }
