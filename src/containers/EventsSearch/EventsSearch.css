@@ -14,10 +14,22 @@
   padding: 20px 100px 20px 80px;
 }
 
+.eventsSearchContainer button {
+  height: 50px;
+  width: 41%;
+  border-radius: 3px;
+  color: #fff;
+  background: #292829;
+  font-size: 0.9rem;
+  border: 1px solid #ccc;
+  margin-top: 20px;
+}
+
 .eventsSearchContainer h5 {
   color: #7c7c7c;
   font-weight: 300;
   font-size: 1.5rem;
+  margin-bottom: 20px;
 }
 
 .eventsSearchContainer input {

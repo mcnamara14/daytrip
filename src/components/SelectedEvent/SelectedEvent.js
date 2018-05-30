@@ -6,7 +6,6 @@ class SelectedEvent extends Component {
 
   render() {
     const { image, title, price, venue, date } = this.props.selectedEvent;
-
     const backgroundImage = {backgroundImage: "url(" + image + ")"};
   
     return (
