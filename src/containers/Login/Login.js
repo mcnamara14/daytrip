@@ -34,6 +34,7 @@ export class Login extends Component {
   }
 
   emailSubmitHandler = async (event) => {
+    event.preventDefault();
     const {
       location,
       emailInput,
@@ -48,9 +49,9 @@ export class Login extends Component {
         email
       } = result.user;
 
-      this.props.loginUser(uid, email, location);
+      this.props.loginUser(uid, email, this.state.city, this.state.state);
 
-      event.preventDefault();
+      this.handleTicketMasterFetch();
     } else {
       this.handleMissingLocationError();
     }
@@ -58,7 +59,6 @@ export class Login extends Component {
 
   googleSignup = async () => {
     if (this.state.location) {
-  
       const result = await authorization.googleSignup();
       const {
         uid,
@@ -87,7 +87,6 @@ export class Login extends Component {
     const state = this.state.state;
     const date = moment();
     const timeNow = date.format();
-
     const events = await ticketmasterApiCallRecentEvents(city, state, timeNow);
     const recentEvents = cleanRecentEvents(events);
 
@@ -131,7 +130,7 @@ export class Login extends Component {
           </article>
         </section>
         <section className="signupContainer">
-        <section className="signupTextBox">
+          <section className="signupTextBox">
             <h2>Sign up to get started</h2>
             <p>The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.</p>
             <h5>We plan your stops</h5>
@@ -139,54 +138,54 @@ export class Login extends Component {
           </section>
           <div className="signupForms">
             <div className="signupFormsContainer">
-            <article className="locationForm">
-              <h3>Choose your location</h3>
-              <p>* Required for signup</p>
-              <div>
-                { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
-                <form onClick={this.onClickHandler} className="locationInput" >
-                  <LocationAutocomplete
-                    name="location"
-                    placeholder="Enter a location..."
-                    targetArea="City, State"
-                    locationType="(cities)" 
-                    googleAPIKey={googleApiKey}
-                    onChange={this.onChangeHandler}
-                    onDropdownSelect={this.onDropdownSelect}
-                  />
-                </form>
-              </div>
-          </article>
-          <section className="signupInputs">
-            <article className="emailPassForm">
-              <h4>Email Signup</h4>
-              <form className="emailSignup" onSubmit={this.emailSubmitHandler} >
-                <input
-                  name='email'
-                  value={this.state.email}
-                  onChange={this.onChangeHandler}
-                  placeholder='ex. tyler@daytrip.com'
-                />
-                <input
-                  name='password'
-                  value={this.state.password}
-                  onChange={this.onChangeHandler}
-                  placeholder='Enter a password'
-                />
-                <button>Sign In</button>
-              </form>
-            </article>
-            <article className="socialSignup">
-              <h4>Social Media Signup</h4>
-              <div className="googleBtn">
-                <button onClick={this.googleSignup}>Google Signup</button>
-              </div>
-              <div className="facebookBtn">
-                <button onClick={this.facebookSignup}>Facebook Signup</button>
-              </div>
-            </article>
-          </section>
-          </div>
+              <article className="locationForm">
+                <h3>Choose your location</h3>
+                <p>* Required for signup</p>
+                <div>
+                  { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
+                  <form onClick={this.onClickHandler} className="locationInput" >
+                    <LocationAutocomplete
+                      name="location"
+                      placeholder="Enter a location..."
+                      targetArea="City, State"
+                      locationType="(cities)" 
+                      googleAPIKey={googleApiKey}
+                      onChange={this.onChangeHandler}
+                      onDropdownSelect={this.onDropdownSelect}
+                    />
+                  </form>
+                </div>
+              </article>
+              <section className="signupInputs">
+                <article className="emailPassForm">
+                  <h4>Email Signup</h4>
+                  <form className="emailSignup" onClick={this.emailSubmitHandler} >
+                    <input
+                      name='emailInput'
+                      value={this.state.emailInput}
+                      onChange={this.onChangeHandler}
+                      placeholder='ex. tyler@daytrip.com'
+                    />
+                    <input
+                      name='password'
+                      value={this.state.password}
+                      onChange={this.onChangeHandler}
+                      placeholder='Enter a password'
+                    />
+                    <button onClick={this.emailSubmitHandler} >Sign In</button>
+                  </form>
+                </article>
+                <article className="socialSignup">
+                  <h4>Social Media Signup</h4>
+                  <div className="googleBtn">
+                    <button onClick={this.googleSignup}>Google Signup</button>
+                  </div>
+                  <div className="facebookBtn">
+                    <button onClick={this.facebookSignup}>Facebook Signup</button>
+                  </div>
+                </article>
+              </section>
+            </div>
           </div>
         </section>
       </div>

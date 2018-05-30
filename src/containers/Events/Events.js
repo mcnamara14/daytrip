@@ -25,8 +25,10 @@ export class Events extends Component {
     return (
       <div className="eventsContainer">
         <EventsHero />
-        <EventsSearch />
-        <StopsSelection />
+        <div className="eventsStopsSelection">
+          <EventsSearch />
+          <StopsSelection />
+        </div>
         <section className="recentEvents">
           { recentEvents }
         </section>

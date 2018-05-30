@@ -221,6 +221,11 @@ h5 {
   padding: 7px 12px 17px 15px;
   border-radius: 0 3px 3px 0;
 }
+
+p.locationError {
+  line-height: 1rem;
+}
+
 .locationError:after, .locationError:before {
 	right: 100%;
 	top: 50%;

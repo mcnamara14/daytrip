@@ -12,9 +12,12 @@ jest.mock('moment', () => () => ({format: () => '2018-05-27T17:13:38-06:00'}));
 
 describe('Login', () => {
   let wrapper;
+  let history;
 
   beforeEach(() => {
-    wrapper = shallow(<Login />);
+    history = createMemoryHistory('/');
+
+    wrapper = shallow(<Login history={history} storeRecentEvents={jest.fn()} />);
   })
 
   it('should match the snapshot', () => {
@@ -36,7 +39,7 @@ describe('Login', () => {
 
   describe('onChangeHandler', () => {
     it('should change the state to the inputted value of corresponding name', () => {
-      const wrapper = shallow(<Login />);
+      const wrapper = shallow(<Login storeRecentEvents={jest.fn()} />);
       const mockEvent = {
         target: {
           name: 'email',
@@ -56,11 +59,13 @@ describe('Login', () => {
     let wrapper;
     let mockEvent;
     let mockLoginUser;
+    let history;
 
     beforeEach(() => {
       mockLoginUser = jest.fn();
+      history = createMemoryHistory('/');
 
-      wrapper = shallow(<Login loginUser={mockLoginUser} />);
+      wrapper = shallow(<Login history={history} loginUser={mockLoginUser} storeRecentEvents={jest.fn()} />);
 
       mockEvent = {preventDefault: () => {}}
       wrapper.setState({
@@ -107,11 +112,13 @@ describe('Login', () => {
   describe('googleSignup', () => {
     let wrapper;
     let mockLoginUser;
+    let history;
 
     beforeEach(() => {
+      history = createMemoryHistory('/');
       mockLoginUser = jest.fn();
 
-      wrapper = shallow(<Login loginUser={mockLoginUser} />);
+      wrapper = shallow(<Login history={history} loginUser={mockLoginUser} storeRecentEvents={jest.fn()} />);
 
       wrapper.setState({
         location: 'Denver, CO',
@@ -222,17 +229,7 @@ describe('Login', () => {
 
     it('should call cleanRecentMovies with the correct arguments', async () => {
       const result = cleaner.cleanRecentEvents;
-      const expected = [
-        {
-          date: "2018-05-28 5:10 PM",
-          image: "https://s1.ticketm.net/dam/a/67d/7b495.jpg",
-          price: "$10+",
-          title: "San Francisco Giants at Colorado Rockies",
-          venue: "Coors Field",
-          reviews: "Rockies are awesome"
-        }
-      ];
-  
+      const expected = [{"date": "2018-05-28 5:10 PM", "image": "https://s1.ticketm.net/dam/a/67d/7b495.jpg", "price": "$10+", "reviews": "Rockies are awesome", "title": "San Francisco Giants at Colorado Rockies", "venue": "Coors Field"}]
       await wrapper.instance().handleTicketMasterFetch();
 
       expect(cleaner.cleanRecentEvents).toHaveBeenCalledWith(expected);
@@ -258,6 +255,7 @@ describe('Login', () => {
     let wrapper;
 
     beforeEach(() => {
+      history = createMemoryHistory('/');
       authorization.facebookSignup = jest.fn().mockImplementation(() => ({
         user: {
           uid: 2345,
@@ -265,7 +263,7 @@ describe('Login', () => {
         }
       }));
 
-      wrapper = shallow(<Login loginUser={jest.fn()}/>);
+      wrapper = shallow(<Login loginUser={jest.fn()} storeRecentEvents={jest.fn()} history={history} />);
     })
 
     it('should call facebookSignup when a location is entered', async () => {
