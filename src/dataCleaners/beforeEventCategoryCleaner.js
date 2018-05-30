@@ -2,18 +2,19 @@ export const beforeEventCategoryCleaner = () => {
   let categories;
 
   const restaurantCategories = [
-    'afghani',
-    'african',
-    'senegalese',
-    'southafrican',
-    'newamerican',
-    'tradamerican'
+    { alias: 'afghani', label: 'Afghani'},
+    { alias: 'african', label: 'African'},
+    { alias: 'southafrican', label: 'South African'},
+    { alias: 'newamerican', label: 'New American'},
+    { alias: 'tradamerican', label: 'Traditional American'}
   ]
 
   categories = restaurantCategories.map((category, index) => {
+    const { alias, label } = category;
     return {
       value: index,
-      label: category
+      label,
+      alias
     }
   });
 
@@ -22,11 +23,11 @@ export const beforeEventCategoryCleaner = () => {
 
 
 
-// Andalusian (andalusian, [IT, ES])
-// Arabian (arabian, [AR, AT, AU, BE, BR, CA, CH, CL, CZ, DE, ES, FI, FR, GB, HK, IE, IT, JP, MX, MY, NL, NO, NZ, PH, PL, PT, SE, SG, TR, TW, US])
-// Arab Pizza (arabpizza, [BR])
-// Argentine (argentine, [AR, AT, AU, BE, BR, CA, CH, CL, CZ, DE, DK, ES, FR, GB, HK, IE, IT, JP, MX, MY, NL, NO, NZ, PH, PL, PT, SE, SG, TR, TW, US])
-// Armenian (armenian, [CZ, TR, PL, AR, FR, GB, IT, US, ES, BE])
+// andalusian, [IT, ES])
+// arabian, [AR, AT, AU, BE, BR, CA, CH, CL, CZ, DE, ES, FI, FR, GB, HK, IE, IT, JP, MX, MY, NL, NO, NZ, PH, PL, PT, SE, SG, TR, TW, US])
+// arabpizza, [BR])
+// argentine, [AR, AT, AU, BE, BR, CA, CH, CL, CZ, DE, DK, ES, FR, GB, HK, IE, IT, JP, MX, MY, NL, NO, NZ, PH, PL, PT, SE, SG, TR, TW, US])
+// armenian, [CZ, TR, PL, AR, FR, GB, IT, US, ES, BE])
 // Asian Fusion (asianfusion, All)
 // Asturian (asturian, [ES])
 // Australian (australian, All)

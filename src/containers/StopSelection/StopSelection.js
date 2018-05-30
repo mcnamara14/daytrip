@@ -9,22 +9,16 @@ export class StopSelection extends Component {
     super();
 
     this.state = {
-      selectedOption: null
-    };
-  }
+      selectedOption: {}
+    }
+  };
 
 beforeEventCategories = async () => {
- return beforeEventCategoryCleaner();
+  return beforeEventCategoryCleaner();
 }
 
 afterEventCategories = async () => {
   return afterEventCategoryCleaner();
- }
-
-handleChange = (date) => {
-  this.setState({
-    startDate: date
-  });
 }
 
 onSelect = (selectedOption) => {
@@ -36,7 +30,7 @@ onSelect = (selectedOption) => {
 }
 
 render() {
-  const { selectedOption } = this.state;
+  const { selectedOption} = this.state;
   const beforeAfter = this.props.type === 'before' ? 'before' : 'after';
   const restaurantBar = this.props.type === 'before' ? 'restaurant' : 'bar';
   const beforeAfterCategories = this.props.type === 'before' ? this.beforeEventCategories : this.afterEventCategories;
@@ -50,7 +44,7 @@ render() {
         loadOptions={beforeAfterCategories}
         value={selectedOption}
         onChange={this.onSelect}
-        placeholder="Search events"
+        placeholder="Choose a category"
       />
     </div>
   );
