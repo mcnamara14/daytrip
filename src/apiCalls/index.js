@@ -1,7 +1,9 @@
-import { ticketmasterApiCall } from './ticketmasterApiCall'; 
+import { ticketmasterApiCall, ticketmasterFetchSelectedEvent, ticketmasterApiCallRecentEventsSearch } from './ticketmasterApiCall'; 
 import { yelpApiCall } from './yelpApiCall'; 
 
 export {
   ticketmasterApiCall,
-  yelpApiCall
+  yelpApiCall,
+  ticketmasterFetchSelectedEvent,
+  ticketmasterApiCallRecentEventsSearch
 };

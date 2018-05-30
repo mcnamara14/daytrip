@@ -8,10 +8,12 @@ import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Async } from 'react-select';
-import { cleanRecentEventsSearch } from '../../dataCleaners/index';
-import { ticketmasterApiCallRecentEventsSearch } from '../../apiCalls/ticketmasterApiCall';
+import { cleanRecentEventsSearch, cleanRecentEvents } from '../../dataCleaners/index';
+import { ticketmasterApiCallRecentEventsSearch, ticketmasterFetchSelectedEvent } from '../../apiCalls/index';
 import 'react-select/dist/react-select.css';
 import { storeSelectedEvent } from '../../actions/index';
+import { select } from 'redux-saga/effects';
+
 
 
 class EventsSearch extends Component {
@@ -64,6 +66,13 @@ class EventsSearch extends Component {
       });
     }, 2000);
   }
+  
+  handleStoreEvent = async () => {
+    const eventId = this.state.selectedOption.id;
+    const selectedEvent = await ticketmasterFetchSelectedEvent(eventId);
+    console.log(selectedEvent)
+    this.props.storeSelectedEvent(selectedEvent);
+  }
 
   onDropdownSelect = (component) => {
     const place = component.autocomplete.getPlace();
@@ -104,15 +113,14 @@ class EventsSearch extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button>Select Event</button>
+        <button onClick={this.handleStoreEvent} >Select Event</button>
       </div>
     );
   }
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  storeSelectedEvent: ((event) => dispatch(storeSelectedEvent(event)))
+  storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event))
 })
-
 
 export default connect(null, mapDispatchToProps)(EventsSearch);
