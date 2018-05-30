@@ -40,7 +40,7 @@
 }
 
 .eventsSearchLocationDate .react-datepicker-wrapper, .eventsSearchLocationDate .react-datepicker__input-container input, .eventsSearchLocationDate .react-datepicker__input-container {
-  width: 100% !important;
+  width: 96% !important;
   color: #7c7c7c;
 }
 
