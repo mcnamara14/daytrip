@@ -1,5 +1,7 @@
 import { cleanRecentEvents } from './recentEventsCleaner';
+import { cleanRecentEventsSearch } from './recentEventsSearchCleaner'
 
 export {
-  cleanRecentEvents
+  cleanRecentEvents,
+  cleanRecentEventsSearch
 }

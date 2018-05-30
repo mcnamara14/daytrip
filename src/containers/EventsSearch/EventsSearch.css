@@ -40,7 +40,7 @@
 }
 
 .eventsSearchLocationDate .react-datepicker-wrapper, .eventsSearchLocationDate .react-datepicker__input-container input, .eventsSearchLocationDate .react-datepicker__input-container {
-  width: 100% !important;
+  width: 96% !important;
   color: #7c7c7c;
 }
 
@@ -55,4 +55,22 @@
 
 .react-datepicker__header, .react-datepicker__month-container {
   width: 100% !important;
+}
+
+.Select-input {
+  height: 45px !important;
+}
+
+.Select-input > input {
+  padding: 0 !important;
+}
+
+.Select.has-value.is-clearable.Select--single > .Select-control .Select-value {
+  display: flex;
+  align-items: center;
+}
+
+.Select-placeholder {
+  display: flex;
+  align-items: center;
 }
