@@ -1,4 +1,5 @@
 import { yelpApiKey } from './apiKeys/yelpApiKey';
+import * as cleaners from '../dataCleaners/index';
 
 export const yelpApiCall = async () => {
   let headers = new Headers();
