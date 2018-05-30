@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './SelectedEvent.css';
 
-export const SelectedEvent = () =>  {
-  // const backgroundImage = {backgroundImage: "url(" + props.image + ")"};
+class SelectedEvent extends Component {
 
-  // return (
-  //   <div className="selectedEvent">
-  //     <div className="eventImage" style={ backgroundImage } ></div>
-  //     <div className="eventInfo">
-  //       <h3>{props.title}</h3>
-  //       <p className="price">{props.price}</p>
-  //       <hr/>
-  //       <p className="venue">{props.venue}</p>
-  //       <p className="date">{props.date}</p>
-  //       <button>Select</button>
-  //   </div>
-  //   </div>
-  // );
+  render() {
+    const { image, title, price, venue, date } = this.props.selectedEvent;
+
+    const backgroundImage = {backgroundImage: "url(" + image + ")"};
+  
+    return (
+      <div className="selectedEvent">
+        <div className="eventImage" style={ backgroundImage } ></div>
+        <div className="eventInfo">
+          <h3>{title}</h3>
+          <p className="price">{price}</p>
+          <hr/>
+          <p className="venue">{venue}</p>
+          <p className="date">{date}</p>
+          <button>Select</button>
+      </div>
+      </div>
+    );
+  } 
 };
 
-export default SelectedEvent;
+export const mapStateToProps = (state) => ({
+  selectedEvent: state.selectedEvent
+})
+
+export default connect(mapStateToProps)(SelectedEvent);

@@ -1,1 +1,5 @@
-
+.selectedEvent {
+  height: 300px;
+  display: block;
+  background: red;
+}

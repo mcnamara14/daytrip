@@ -70,8 +70,9 @@ class EventsSearch extends Component {
   handleStoreEvent = async () => {
     const eventId = this.state.selectedOption.id;
     const selectedEvent = await ticketmasterFetchSelectedEvent(eventId);
-    console.log(selectedEvent)
-    this.props.storeSelectedEvent(selectedEvent);
+    const event = selectedEvent[0]
+
+    this.props.storeSelectedEvent(event);
   }
 
   onDropdownSelect = (component) => {
