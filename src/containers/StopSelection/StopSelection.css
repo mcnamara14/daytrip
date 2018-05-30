@@ -1,0 +1,65 @@
+.stopsSelectionContainer h3 {
+  color: #fff;
+  font-weight: 300;
+  text-transform: capitalize;
+  text-align: left;
+  font-size: 1.4rem;
+  margin-top: 0px;
+}
+
+.stopsSelectionContainer button {
+  margin-top: 30px;
+  border: 1px solid #e7654b;
+  border-radius: 3px;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: brown;
+  color: #fff;
+  font-size: 1rem;
+  background: rgba(211,104,83,1);
+  background: -moz-linear-gradient(top, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(211,104,83,1)), color-stop(100%, rgba(217,73,44,1)));
+  background: -webkit-linear-gradient(top, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
+  background: -o-linear-gradient(top, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
+  background: -ms-linear-gradient(top, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
+  background: linear-gradient(to bottom, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d36853', endColorstr='#d9492c', GradientType=0 );
+}
+
+.stopsSelectionContainer button:hover {
+  background: rgba(217,73,44,1);
+}
+
+.beforeEvent, .afterEvent {
+  width: 40%;
+}
+
+.filterTitle {
+  color: #ddd;
+}
+
+.priceRange {
+  background: #d25e47;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  display: flex;
+  height: 45px;
+  align-items: center;
+}
+
+.priceRange span {
+  padding: 13px 21px;
+  color: #fff;
+  border-right: 1px solid #ffd;
+}
+
+.priceRange span:hover {
+  cursor: pointer;
+  background: #be4128;
+}
+
+.priceRange span.last {
+  border: 0;
+}

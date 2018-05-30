@@ -6,6 +6,7 @@ export const StopsSelection = () =>  {
   return (
     <div className="stopsSelectionContainer">
       <StopSelection type={'before'}/>
+      <hr />
       <StopSelection type={'after'}/>
     </div>
   );

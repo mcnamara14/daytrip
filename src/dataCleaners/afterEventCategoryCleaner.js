@@ -10,11 +10,14 @@ export const afterEventCategoryCleaner = () => {
   ]
 
   categories = restaurantCategories.map((category, index) => {
+    const { alias, label } = category;
     return {
       value: index,
-      label: category
+      label,
+      alias
     }
   });
+
 
   return {options: categories};
 };

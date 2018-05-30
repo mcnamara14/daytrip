@@ -26,6 +26,7 @@ export class Login extends Component {
   }
 
   onChangeHandler = (event) => {
+    console.log('asdf')
     const { name, value } = event.target;
 
     this.setState({

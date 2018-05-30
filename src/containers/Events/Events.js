@@ -5,6 +5,7 @@ import { RecentEvent } from '../../components/RecentEvent/RecentEvent';
 import { EventsHero } from '../../components/EventsHero/Events';
 import EventsSearch from '../EventsSearch/EventsSearch';
 import { StopsSelection } from '../../components/StopsSelection/StopsSelection';
+import SelectedEvent from '../../components/SelectedEvent/SelectedEvent';
 
 export class Events extends Component {
 
@@ -29,6 +30,7 @@ export class Events extends Component {
           <EventsSearch />
           <StopsSelection />
         </div>
+        <SelectedEvent />
         <section className="recentEvents">
           { recentEvents }
         </section>
