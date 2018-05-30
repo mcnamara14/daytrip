@@ -4,7 +4,8 @@ export const cleanRecentEventsSearch = (events) => {
   const eventsSearchResults = events.map((event, index) => {
     return {
       value: index,
-      label: event.name
+      label: event.name,
+      id: event.id
     }
   })
 

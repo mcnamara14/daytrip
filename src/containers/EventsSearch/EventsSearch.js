@@ -21,7 +21,9 @@ class EventsSearch extends Component {
       startDate: moment(),
       location: '',
       city: '',
-      state:''
+      state:'',
+      locationError: false,
+      selectedOption: null
     };
   }
 
@@ -32,13 +34,35 @@ class EventsSearch extends Component {
   }
 
   handleTicketMasterFetch = async (input) => {
-    const city = this.state.city;
-    const state = this.state.state;
-    const date = this.state.startDate;
-    const timeNow = date.format();
-    const events = await ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
-    console.log(events)
-    return events;
+    if (this.state.city && this.state.state) {
+      const city = this.state.city;
+      const state = this.state.state;
+      const date = this.state.startDate;
+      const timeNow = date.format();
+      const events = await ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
+  
+      return events;
+    } else {
+      this.handleMissingLocationError();
+    }
+  }
+
+  onSelect = (selectedOption) => {
+    console.log('sdfdf')
+    this.setState({ selectedOption });
+		
+		if (selectedOption) {
+    	console.log(`Selected: ${selectedOption.id}`);
+		}
+  }
+
+  handleMissingLocationError = () => {
+    this.setState({locationError: true});
+    setTimeout(() => {
+      this.setState({
+        locationError: false
+      });
+    }, 2000);
   }
 
   onDropdownSelect = (component) => {
@@ -53,12 +77,16 @@ class EventsSearch extends Component {
   }
 
   render() {
+    const { selectedOption } = this.state;
+
     return (
       <div className="eventsSearchContainer">
         <h5>Search Events</h5>
         <Async
-          name="form-field-name"
+          name="searchEventsInput"
           loadOptions={this.handleTicketMasterFetch}
+          value={selectedOption}
+          onChange={this.onSelect}
         />
         <div className="eventsSearchLocationDate">
           <LocationAutocomplete
