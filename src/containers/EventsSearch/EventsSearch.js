@@ -11,7 +11,7 @@ import { Async } from 'react-select';
 import { cleanRecentEventsSearch } from '../../dataCleaners/index';
 import { ticketmasterApiCallRecentEventsSearch } from '../../apiCalls/ticketmasterApiCall';
 import 'react-select/dist/react-select.css';
-import { EventsSearchItem } from '../EventsSearchItem/EventsSearchItem';
+import { storeSelectedEvent } from '../../actions/index';
 
 
 class EventsSearch extends Component {
@@ -104,9 +104,15 @@ class EventsSearch extends Component {
             onChange={this.handleChange}
           />
         </div>
+        <button>Select Event</button>
       </div>
     );
   }
 }
 
-export default EventsSearch;
+export const mapDispatchToProps = (dispatch) => ({
+  storeSelectedEvent: ((event) => dispatch(storeSelectedEvent(event)))
+})
+
+
+export default connect(null, mapDispatchToProps)(EventsSearch);
