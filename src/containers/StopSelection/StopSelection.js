@@ -34,11 +34,12 @@ render() {
   const beforeAfter = this.props.type === 'before' ? 'before' : 'after';
   const restaurantBar = this.props.type === 'before' ? 'restaurant' : 'bar';
   const beforeAfterCategories = this.props.type === 'before' ? this.beforeEventCategories : this.afterEventCategories;
+  const className = beforeAfter + 'Event';
 
   return (
-    <div>
+    <div className={className}>
       <h3>{beforeAfter} the event</h3>
-      <p>{restaurantBar} category</p>
+      <p className="filterTitle">{restaurantBar} category</p>
       <Async
         name="searchEventsInput"
         loadOptions={beforeAfterCategories}
@@ -46,6 +47,14 @@ render() {
         onChange={this.onSelect}
         placeholder="Choose a category"
       />
+      <p className="filterTitle">Price</p>
+      <div className="priceRange">
+        <span>$</span>
+        <span>$$</span>
+        <span>$$$</span>
+        <span className="last">$$$$</span>
+      </div>
+      <button>Submit</button>
     </div>
   );
 }
