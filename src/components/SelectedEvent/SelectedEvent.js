@@ -11,15 +11,20 @@ class SelectedEvent extends Component {
   
     return (
       <div className="selectedEvent">
-        <div className="eventImage" style={ backgroundImage } ></div>
-        <div className="eventInfo">
-          <h3>{title}</h3>
-          <p className="price">{price}</p>
-          <hr/>
-          <p className="venue">{venue}</p>
-          <p className="date">{date}</p>
-          <button>Select</button>
-      </div>
+        <div className="selectedContainer">
+          <div className="selectedImage" style={ backgroundImage } ></div>
+          <div className="selectedTitle">
+            <h3>{title}</h3>
+            <p>Your selected event</p>
+          </div>
+          <div className="selectedInfo">
+            <p className="selectedPrice">{price}</p>
+            <span>
+              <p className="selectedVenue">{venue}</p>
+              <p className="selectedDate">{date}</p>
+            </span>
+          </div>
+        </div>
       </div>
     );
   } 

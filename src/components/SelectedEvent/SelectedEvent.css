@@ -1,5 +1,63 @@
 .selectedEvent {
   height: 300px;
-  display: block;
-  background: red;
+  background: #282829;
+  display: flex;
+  background: url('./assets/selected-bg.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.selectedImage {
+  width: 340px;
+  height: 225px;
+  background-size: cover;
+  border-radius: 3px;
+  background-position: center;
+}
+
+.selectedContainer {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.selectedTitle {
+  width: 36%;
+  text-align: left;
+}
+
+.selectedTitle h3 {
+  font-family: "Roboto";
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.selectedTitle p {
+  color: #c2c2c2;
+  text-transform: uppercase;
+}
+
+.selectedInfo {
+  width: 30%;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.selectedPrice {
+  font-size: 5rem;
+  color: #fff;
+  font-family: "Roboto";
+  margin-right: 40px;
+}
+
+.selectedVenue {
+  color: #fff;
+}
+
+.selectedDate {
+  color: #c2c2c2;
 }
