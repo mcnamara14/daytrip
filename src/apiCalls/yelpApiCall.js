@@ -8,6 +8,4 @@ export const yelpApiCall = async () => {
     headers
   });
   const data = await result.json();
-
-  console.log(data)
 };

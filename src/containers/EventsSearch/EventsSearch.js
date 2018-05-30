@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './EventsSearch.css';
 import LocationAutocomplete from 'location-autocomplete';
+import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import Calendar from 'rc-calendar';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -34,7 +35,8 @@ export class EventsSearch extends Component {
             name="location"
             placeholder="Enter a location..."
             targetArea="City, State"
-            locationType="(cities)" 
+            locationType="(cities)"
+            googleAPIKey={googleApiKey} 
           />
           <DatePicker
             selected={this.state.startDate}

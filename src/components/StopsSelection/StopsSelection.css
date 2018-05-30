@@ -1,1 +1,7 @@
-
+.stopsSelectionContainer {
+  background: #d9492c;
+  width: calc(60% - 140px);
+  margin-top: -100px;
+  padding: 20px 70px;
+  text-align: left;
+}
