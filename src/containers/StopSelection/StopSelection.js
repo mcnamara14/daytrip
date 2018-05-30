@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './StopSelection.css';
-import { fetchYelpCategories } from '../../apiCalls/yelpApiCall';
+import { beforeEventCategoryCleaner } from '../../dataCleaners/beforeEventCategoryCleaner';
+import { afterEventCategoryCleaner } from '../../dataCleaners/afterEventCategoryCleaner';
 import { Async } from 'react-select';
 
 export class StopSelection extends Component {
@@ -12,10 +13,13 @@ export class StopSelection extends Component {
     };
   }
 
-handleTicketMasterFetch = async (input) => {
-console.log('111')
- fetchYelpCategories(input)
+beforeEventCategories = async () => {
+ return beforeEventCategoryCleaner();
 }
+
+afterEventCategories = async () => {
+  return afterEventCategoryCleaner();
+ }
 
 handleChange = (date) => {
   this.setState({
@@ -27,7 +31,7 @@ onSelect = (selectedOption) => {
   this.setState({ selectedOption });
   
   if (selectedOption) {
-    console.log(`Selected: ${selectedOption.id}`);
+    console.log(selectedOption.label)
   }
 }
 
@@ -35,6 +39,7 @@ render() {
   const { selectedOption } = this.state;
   const beforeAfter = this.props.type === 'before' ? 'before' : 'after';
   const restaurantBar = this.props.type === 'before' ? 'restaurant' : 'bar';
+  const beforeAfterCategories = this.props.type === 'before' ? this.beforeEventCategories : this.afterEventCategories;
 
   return (
     <div>
@@ -42,7 +47,7 @@ render() {
       <p>{restaurantBar} category</p>
       <Async
         name="searchEventsInput"
-        loadOptions={this.handleTicketMasterFetch}
+        loadOptions={beforeAfterCategories}
         value={selectedOption}
         onChange={this.onSelect}
         placeholder="Search events"
