@@ -248,3 +248,22 @@ p.locationError {
   border-width: 22px;
   margin-top: -22px;
 }
+
+.pac-matched {
+  color: #444;
+}
+
+.pac-item-query, .pac-item {
+  font-size: 15px;
+  padding: 3px 0;
+  margin-right: 3px;
+}
+
+.pac-item-query:hover, .pac-item:hover {
+  cursor: pointer;
+  background: #eee;
+}
+
+.pac-icon {
+  background-image: none !important;
+}

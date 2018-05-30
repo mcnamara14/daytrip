@@ -11,6 +11,7 @@ import { Async } from 'react-select';
 import { cleanRecentEventsSearch } from '../../dataCleaners/index';
 import { ticketmasterApiCallRecentEventsSearch } from '../../apiCalls/ticketmasterApiCall';
 import 'react-select/dist/react-select.css';
+import { EventsSearchItem } from '../EventsSearchItem/EventsSearchItem';
 
 
 class EventsSearch extends Component {
@@ -48,12 +49,11 @@ class EventsSearch extends Component {
   }
 
   onSelect = (selectedOption) => {
-    console.log('sdfdf')
     this.setState({ selectedOption });
 		
-		if (selectedOption) {
-    	console.log(`Selected: ${selectedOption.id}`);
-		}
+    if (selectedOption) {
+      console.log(`Selected: ${selectedOption.id}`);
+    }
   }
 
   handleMissingLocationError = () => {
@@ -87,6 +87,7 @@ class EventsSearch extends Component {
           loadOptions={this.handleTicketMasterFetch}
           value={selectedOption}
           onChange={this.onSelect}
+          placeholder="Search events"
         />
         <div className="eventsSearchLocationDate">
           <LocationAutocomplete
