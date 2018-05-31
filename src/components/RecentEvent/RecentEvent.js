@@ -6,15 +6,17 @@ export const RecentEvent = (props) =>  {
 
   return (
     <div className="recentEvent">
-      <div className="eventImage" style={ backgroundImage } ></div>
       <div className="eventInfo">
-        <h3>{props.title}</h3>
-        <p className="price">{props.price}</p>
-        <hr/>
+        <div className="recentTitle">
+          <h3>{props.title}</h3>
+        </div>
         <p className="venue">{props.venue}</p>
         <p className="date">{props.date}</p>
-        <button>Select</button>
+        <hr/>
+        <p className="price">{props.price}</p>
       </div>
+      <div className="eventImage" style={ backgroundImage } ></div>
+      <button>Select</button>
     </div>
   );
 };

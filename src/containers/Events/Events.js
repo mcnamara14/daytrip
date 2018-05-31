@@ -31,10 +31,16 @@ export class Events extends Component {
           <EventsSearch />
           <StopsSelection />
         </div>
-        { this.props.selectedEvent ? <SelectedEvent /> : null }
-        <section className="recentEvents">
-          { recentEvents }
-        </section>
+        { this.props.selectedEvent ? <SelectedEvent /> : 
+          <section className="recentEvents">
+            <div className="upcomingEvents">
+            <h2>Upcoming Events</h2>
+              <div className="upcomingEventsContainer">
+                { recentEvents }
+              </div>
+            </div>
+          </section>
+        }
       </div>
     );
   }
