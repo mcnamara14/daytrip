@@ -53,7 +53,7 @@ class EventsSearch extends Component {
       const date = this.state.startDate;
       const timeNow = date.format();
       const events = await ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
-  
+      console.log(events)
       return events;
     } else {
       this.handleMissingLocationError();

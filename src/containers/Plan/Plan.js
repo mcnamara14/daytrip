@@ -9,7 +9,7 @@ export class Plan extends Component {
     const className = `restaurant${index}`;
 
     return (
-      <article className={className}>
+      <article className={className}  >
         <h2>{name}</h2>
         <p className="rating">{rating}</p>
         <p className="reviewCount">{reviews}</p>
