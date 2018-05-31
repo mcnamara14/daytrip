@@ -12,7 +12,7 @@ export const cleanRecentEvents = (events) => {
       _embedded
     } = event;
 
-    const price = priceRanges ? '$' + priceRanges[0].min + '+' : 'N/A';
+    const price = priceRanges ? '$' + priceRanges[0].min + '+' : 'Price TBD';
 
     if (!dates.start.dateTBA) {
       const standardTime = moment(dates.start.localTime, 'HH:mm')

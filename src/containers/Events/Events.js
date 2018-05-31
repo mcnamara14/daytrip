@@ -10,6 +10,7 @@ import SelectedEvent from '../../components/SelectedEvent/SelectedEvent';
 export class Events extends Component {
 
   render() {
+    console.log(this.props.selectedEvent)
     const recentEvents = this.props.events.map((event, index) => {
       return (
         <RecentEvent
@@ -30,17 +31,24 @@ export class Events extends Component {
           <EventsSearch />
           <StopsSelection />
         </div>
-        <SelectedEvent />
-        <section className="recentEvents">
-          { recentEvents }
-        </section>
+        { this.props.selectedEvent ? <SelectedEvent /> : 
+          <section className="recentEvents">
+            <div className="upcomingEvents">
+            <h2>Upcoming Events</h2>
+              <div className="upcomingEventsContainer">
+                { recentEvents }
+              </div>
+            </div>
+          </section>
+        }
       </div>
     );
   }
 }
 
 export const mapStateToProps = (state) => ({
-  events: state.recentEvents
+  events: state.recentEvents,
+  selectedEvent: state.selectedEvent
 });
 
 export default connect(mapStateToProps)(Events);
