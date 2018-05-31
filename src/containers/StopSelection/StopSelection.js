@@ -43,6 +43,7 @@ changePriceRange = (price) => {
     const priceRanges = this.state.priceRanges.filter(range => {
       return range !== price;
     })
+    
     this.setState({
       priceRanges 
     })
@@ -65,6 +66,7 @@ render() {
   const restaurantBar = this.props.type === 'before' ? 'restaurant' : 'bar';
   const beforeAfterCategories = this.props.type === 'before' ? this.beforeEventCategories : this.afterEventCategories;
   const className = beforeAfter + 'Event';
+  const priceSelected = this.state.priceRanges.includes()
 
   return (
     <div className={className}>
@@ -79,10 +81,10 @@ render() {
       />
       <p className="filterTitle">Price</p>
       <div className="priceRange">
-        <span onClick={() => this.changePriceRange('1')} >$</span>
-        <span onClick={() => this.changePriceRange('2')} >$$</span>
-        <span onClick={() => this.changePriceRange('3')} >$$$</span>
-        <span onClick={() => this.changePriceRange('4')} className="last">$$$$</span>
+        <span onClick={() => this.changePriceRange('1')} className={this.state.priceRanges.includes('1') ? 'selected' : null}>$</span>
+        <span onClick={() => this.changePriceRange('2')} className={this.state.priceRanges.includes('2') ? 'selected' : null}>$$</span>
+        <span onClick={() => this.changePriceRange('3')} className={this.state.priceRanges.includes('3') ? 'selected' : null}>$$$</span>
+        <span onClick={() => this.changePriceRange('4')} className={this.state.priceRanges.includes('4') ? 'selected last' : 'last'}>$$$$</span>
       </div>
       <button onClick={this.handleRestaurantClick}>Submit</button>
     </div>
