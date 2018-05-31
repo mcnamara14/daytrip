@@ -2,9 +2,11 @@ const moment = require('moment');
 
 export const cleanRecentEvents = (events) => {
   let date;
+  console.log(events)
 
   const allRecentEvents = events.map(event => {
     const {
+      id,
       name,
       images,
       priceRanges,
@@ -23,6 +25,7 @@ export const cleanRecentEvents = (events) => {
     }
 
     return {
+      id,
       title: name,
       image: images[0].url,
       price,

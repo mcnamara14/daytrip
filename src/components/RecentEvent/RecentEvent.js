@@ -1,24 +1,41 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './RecentEvent.css';
+import { storeSelectedEvent } from '../../actions/index';
+import { ticketmasterFetchSelectedEvent } from '../../apiCalls/index';
 
-export const RecentEvent = (props) =>  {
-  const backgroundImage = {backgroundImage: "url(" + props.image + ")"};
+class RecentEvent extends Component {
+  handleRecentClick = async (eventId) => {
+    const selectedEvent = await ticketmasterFetchSelectedEvent(eventId);
+    const event = selectedEvent[0]
 
-  return (
-    <div className="recentEvent">
-      <div className="eventInfo">
-        <div className="recentTitle">
-          <h3>{props.title}</h3>
+    this.props.storeSelectedEvent(event);
+  }
+
+  render() {
+    const { image, title, venue, date, price, id } = this.props;
+    const backgroundImage = {backgroundImage: "url(" + image + ")"};
+
+    return (
+      <div className="recentEvent">
+        <div className="eventInfo">
+          <div className="recentTitle">
+            <h3>{title}</h3>
+          </div>
+          <p className="venue">{venue}</p>
+          <p className="date">{date}</p>
+          <hr/>
+          <p className="price">{price}</p>
         </div>
-        <p className="venue">{props.venue}</p>
-        <p className="date">{props.date}</p>
-        <hr/>
-        <p className="price">{props.price}</p>
+        <div className="eventImage" style={ backgroundImage } ></div>
+        <button onClick={() => this.handleRecentClick(id)}>Select</button>
       </div>
-      <div className="eventImage" style={ backgroundImage } ></div>
-      <button>Select</button>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default RecentEvent;
+export const mapDispatchToProps = (dispatch) => ({
+  storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event))
+})
+
+export default connect(null, mapDispatchToProps)(RecentEvent);
