@@ -6,6 +6,7 @@ import { EventsHero } from '../../components/EventsHero/Events';
 import EventsSearch from '../EventsSearch/EventsSearch';
 import { StopsSelection } from '../../components/StopsSelection/StopsSelection';
 import SelectedEvent from '../../components/SelectedEvent/SelectedEvent';
+import Plans from '../Plans/Plans';
 
 export class Events extends Component {
 
@@ -37,13 +38,14 @@ export class Events extends Component {
         { this.props.selectedEvent ? <SelectedEvent /> : 
           <section className="recentEvents">
             <div className="upcomingEvents">
-            <h2>Upcoming Events</h2>
+              <h2>Upcoming Events</h2>
               <div className="upcomingEventsContainer">
                 { recentEvents }
               </div>
             </div>
           </section>
         }
+        { this.props.suggestedRestaurants.length ? <Plans /> : null }
       </div>
     );
   }
@@ -51,7 +53,8 @@ export class Events extends Component {
 
 export const mapStateToProps = (state) => ({
   events: state.recentEvents,
-  selectedEvent: state.selectedEvent
+  selectedEvent: state.selectedEvent,
+  suggestedRestaurants: state.suggestedRestaurants
 });
 
 export default connect(mapStateToProps)(Events);
