@@ -2,7 +2,6 @@ import { ticketmasterApiKey } from './apiKeys/ticketmasterApiKey';
 import { cleanRecentEventsSearch, cleanRecentEvents } from '../dataCleaners/index';
 
 export const ticketmasterApiCallRecentEvents = async (city, state, timeNow) => {
-  console.log(city, state)
   const url = `https://app.ticketmaster.com/discovery/v2/events.json?startDateTime=${timeNow}&sort=date,name,asc&city=${city}&stateCode=${state}&apikey=${ticketmasterApiKey}`;
 
   try {
