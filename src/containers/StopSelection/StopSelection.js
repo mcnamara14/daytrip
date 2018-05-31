@@ -5,6 +5,7 @@ import { beforeEventCategoryCleaner } from '../../dataCleaners/beforeEventCatego
 import { afterEventCategoryCleaner } from '../../dataCleaners/afterEventCategoryCleaner';
 import { Async } from 'react-select';
 import { yelpFetchRestaurants } from '../../apiCalls/yelpApiCall';
+import { storeSuggestedRestaurants } from '../../actions/storeSuggestedRestaurants';
 
 export class StopSelection extends Component {
   constructor() {
@@ -55,7 +56,7 @@ handleRestaurantClick = async () => {
   const category = this.state.selectedOption.alias;
 
   const suggestedRestaurants = await yelpFetchRestaurants(latitude, longitude, price, category)
-  console.log(suggestedRestaurants)
+  this.props.storeSuggestedRestaurants(suggestedRestaurants);
 }
 
 render() {
@@ -89,8 +90,12 @@ render() {
 }
 }
 
+export const mapDispatchToProps = (dispatch) => ({
+  storeSuggestedRestaurants: (restaurants) => dispatch(storeSuggestedRestaurants(restaurants))
+})
+
 export const mapStateToProps = (state) => ({
   selectedEvent: state.selectedEvent
 });
 
-export default connect(mapStateToProps)(StopSelection);
+export default connect(mapStateToProps, mapDispatchToProps)(StopSelection);
