@@ -14,8 +14,6 @@ import 'react-select/dist/react-select.css';
 import { storeSelectedEvent } from '../../actions/index';
 import { select } from 'redux-saga/effects';
 
-
-
 class EventsSearch extends Component {
   constructor() {
     super();
@@ -36,6 +34,18 @@ class EventsSearch extends Component {
     });
   }
 
+  componentWillMount() {
+    if(this.props.user) {
+      const selectedOption = this.props.user.city + ',' + this.props.user.state;
+
+      this.setState({
+        city: this.props.user.city,
+        state: this.props.user.state,
+        selectedOption
+      })
+    }
+  }
+
   handleTicketMasterFetch = async (input) => {
     if (this.state.city && this.state.state) {
       const city = this.state.city;
@@ -43,7 +53,7 @@ class EventsSearch extends Component {
       const date = this.state.startDate;
       const timeNow = date.format();
       const events = await ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
-  
+      console.log(events)
       return events;
     } else {
       this.handleMissingLocationError();
@@ -88,7 +98,7 @@ class EventsSearch extends Component {
 
   render() {
     const { selectedOption } = this.state;
-
+ 
     return (
       <div className="eventsSearchContainer">
         <h5>Search Events</h5>
@@ -102,7 +112,7 @@ class EventsSearch extends Component {
         <div className="eventsSearchLocationDate">
           <LocationAutocomplete
             name="location"
-            placeholder="Enter a location..."
+            placeholder={this.state.selectedOption}
             targetArea="City, State"
             locationType="(cities)"
             onChange={this.onChangeHandler}
@@ -124,4 +134,8 @@ export const mapDispatchToProps = (dispatch) => ({
   storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event))
 })
 
-export default connect(null, mapDispatchToProps)(EventsSearch);
+export const mapStateToProps = (state) => ({
+  user: state.user
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(EventsSearch);
