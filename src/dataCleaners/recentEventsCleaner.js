@@ -2,9 +2,11 @@ const moment = require('moment');
 
 export const cleanRecentEvents = (events) => {
   let date;
+  console.log(events)
 
   const allRecentEvents = events.map(event => {
     const {
+      id,
       name,
       images,
       priceRanges,
@@ -13,6 +15,8 @@ export const cleanRecentEvents = (events) => {
     } = event;
 
     const price = priceRanges ? '$' + priceRanges[0].min + '+' : 'Price TBD';
+    const latitude = _embedded.venues[0].location.latitude;
+    const longitude = _embedded.venues[0].location.longitude;
 
     if (!dates.start.dateTBA) {
       const standardTime = moment(dates.start.localTime, 'HH:mm')
@@ -23,11 +27,14 @@ export const cleanRecentEvents = (events) => {
     }
 
     return {
+      id,
       title: name,
       image: images[0].url,
       price,
       venue: _embedded.venues[0].name,
-      date
+      date,
+      latitude,
+      longitude
     };
   });
 
@@ -35,3 +42,4 @@ export const cleanRecentEvents = (events) => {
 
   return recentEvents;
 };
+

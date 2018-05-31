@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import './StopSelection.css';
 import { beforeEventCategoryCleaner } from '../../dataCleaners/beforeEventCategoryCleaner';
 import { afterEventCategoryCleaner } from '../../dataCleaners/afterEventCategoryCleaner';
 import { Async } from 'react-select';
+import { yelpFetchRestaurants } from '../../apiCalls/yelpApiCall';
+import { storeSuggestedRestaurants } from '../../actions/storeSuggestedRestaurants';
 
 export class StopSelection extends Component {
   constructor() {
@@ -46,6 +49,16 @@ changePriceRange = (price) => {
   }
 }
 
+handleRestaurantClick = async () => {
+  const latitude = this.props.selectedEvent.latitude;
+  const longitude = this.props.selectedEvent.longitude;
+  const price = this.state.priceRanges.sort().join();
+  const category = this.state.selectedOption.alias;
+
+  const suggestedRestaurants = await yelpFetchRestaurants(latitude, longitude, price, category)
+  this.props.storeSuggestedRestaurants(suggestedRestaurants);
+}
+
 render() {
   const { selectedOption, priceRange } = this.state;
   const beforeAfter = this.props.type === 'before' ? 'before' : 'after';
@@ -71,8 +84,18 @@ render() {
         <span onClick={() => this.changePriceRange('3')} >$$$</span>
         <span onClick={() => this.changePriceRange('4')} className="last">$$$$</span>
       </div>
-      <button>Submit</button>
+      <button onClick={this.handleRestaurantClick}>Submit</button>
     </div>
   );
 }
 }
+
+export const mapDispatchToProps = (dispatch) => ({
+  storeSuggestedRestaurants: (restaurants) => dispatch(storeSuggestedRestaurants(restaurants))
+})
+
+export const mapStateToProps = (state) => ({
+  selectedEvent: state.selectedEvent
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(StopSelection);
