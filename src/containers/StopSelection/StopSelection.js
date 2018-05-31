@@ -48,14 +48,14 @@ changePriceRange = (price) => {
   }
 }
 
-handleRestaurantClick = () => {
-  console.log('hello')
+handleRestaurantClick = async () => {
   const latitude = this.props.selectedEvent.latitude;
   const longitude = this.props.selectedEvent.longitude;
   const price = this.state.priceRanges.sort().join();
   const category = this.state.selectedOption.alias;
 
-  yelpFetchRestaurants(latitude, longitude, price, category)
+  const suggestedRestaurants = await yelpFetchRestaurants(latitude, longitude, price, category)
+  console.log(suggestedRestaurants)
 }
 
 render() {

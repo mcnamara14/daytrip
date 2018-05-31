@@ -1,5 +1,6 @@
 import { yelpApiKey } from './apiKeys/yelpApiKey';
 import * as cleaners from '../dataCleaners/index';
+import { suggestedRestaurantsCleaner } from '../dataCleaners/suggestedRestaurantsCleaner';
 
 export const yelpApiCall = async () => {
   let headers = new Headers();
@@ -12,7 +13,6 @@ export const yelpApiCall = async () => {
 };
 
 export const yelpFetchRestaurants = async (latitude, longitude, price, category) => {
-  console.log('working??')
   let headers = new Headers();
   headers.append("Authorization", "Bearer " + yelpApiKey);
   
@@ -20,6 +20,7 @@ export const yelpFetchRestaurants = async (latitude, longitude, price, category)
     headers
   });
   const data = await result.json();
+  const restaurants = data.businesses;
 
-  console.log(data)
+  return suggestedRestaurantsCleaner(restaurants)
 };
