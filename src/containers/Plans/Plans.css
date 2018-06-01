@@ -1,8 +1,8 @@
 .plansContainer {
   width: 86%;
   margin: 0 auto;
+  padding-top: 60px;
   display: flex;
-  align-items: center;
   flex-direction: column;
 }
 
@@ -15,4 +15,17 @@
   background-size: cover;
   background-position: center;
   border: 1px solid #eee;
+}
+
+.plansContainer h3 {
+  font-size: 1.5rem;
+  color: #494949;
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.plansContainer h3 {
+color: #7c7c7c;
+font-size: 1.2rem;
+text-transform: uppercase;
 }

@@ -6,4 +6,25 @@
 
 .plan article {
   width: 20%;
+  text-align: left;
 }
+
+.stars {
+  float: none;
+  margin: 0 auto;
+  width: 80px;
+  position: relative;
+}
+
+.goldStars{
+  border: 0;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+ } 
+
+ .stars img {
+   height: auto;
+   max-width: 76px;
+ }
