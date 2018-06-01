@@ -4,16 +4,28 @@ import Plan from '../Plan/Plan';
 import './Plans.css';
 
 export class Plans extends Component {
+
   render () {
     const plans = this.props.suggestedRestaurants.map((restaurant, index) => {
       const { name, rating, address, price, review_count, image_url } = restaurant;
+      const { title, image, venue, date } = this.props.selectedEvent;
+      const eventPrice = this.props.selectedEvent.price;
 
-      return <Plan name={name} rating={rating} address={address} price={price} reviews={review_count} image={image_url} index={index}/>
+      return (
+        <section className="plan" key={index}>
+          <Plan title={name} rating={rating} location={address} price={price} reviews={review_count} image={image_url} type={'restaurant'} index={index}/>
+          <img src={require('./assets/route-img.jpg')} className="routeImg" />
+          <Plan title={title} rating={''} location={venue} price={eventPrice} reviews={date} image={image} type={'event'} index={index}/>
+          <img src={require('./assets/route-img.jpg')} className="routeImg" />
+          <Plan title={name} rating={rating} location={address} price={price} reviews={review_count} image={image_url} type={'restaurant'} index={index}/>
+        </section>
+      )
     })
     
     return (
       <section className="suggestedPlans">
         <div className="plansContainer">
+          <h3>Suggested Plan</h3>
           { plans }
         </div>
       </section>
@@ -22,7 +34,8 @@ export class Plans extends Component {
 }
 
 export const mapStateToProps = (state) => ({
-  suggestedRestaurants: state.suggestedRestaurants
+  suggestedRestaurants: state.suggestedRestaurants,
+  selectedEvent: state.selectedEvent
 })
 
 export default connect(mapStateToProps)(Plans)

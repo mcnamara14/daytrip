@@ -55,6 +55,10 @@
   border-right: 1px solid #ffd;
 }
 
+.priceRange span.selected {
+  background: #c03a1f;
+}
+
 .priceRange span:hover {
   cursor: pointer;
   background: #be4128;

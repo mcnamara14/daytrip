@@ -1,17 +1,14 @@
 .plansContainer {
   width: 86%;
   margin: 0 auto;
+  padding-top: 60px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
 }
 
-.restaurantImage {
-  width: 90%;
-  height: 190px;
-  border-radius: 5px 5px 0 0;
-  display: block;
-  border-radius: 5px;
-  background-size: cover;
-  background-position: center;
-  border: 1px solid #eee;
+.plansContainer h3 {
+  color: #555;
+  font-family: "Roboto";
+  font-size: 1.6rem;
+  text-transform: uppercase;
 }
