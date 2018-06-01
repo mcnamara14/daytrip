@@ -10,13 +10,13 @@
 }
 
 .stars {
-  float: none;
+  float: left;
   margin: 0 auto;
-  width: 80px;
+  width: 100px;
   position: relative;
 }
 
-.goldStars{
+.redStars{
   border: 0;
   left: 0;
   overflow: hidden;
@@ -26,5 +26,5 @@
 
  .stars img {
    height: auto;
-   max-width: 76px;
+   max-width: 100px;
  }
