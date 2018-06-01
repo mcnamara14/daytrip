@@ -2,6 +2,9 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding-bottom: 65px;
+  border-bottom: 1px solid #eee;
 }
 
 .plan h2 {
@@ -64,4 +67,9 @@
 
 .stopInfo {
   height: 160px;
+}
+
+.routeImg {
+  width: auto;
+  margin-top: 16%;
 }

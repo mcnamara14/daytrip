@@ -12,9 +12,11 @@ export class Plans extends Component {
       const eventPrice = this.props.selectedEvent.price;
 
       return (
-        <section className="plan">
+        <section className="plan" key={index}>
           <Plan title={name} rating={rating} location={address} price={price} reviews={review_count} image={image_url} type={'restaurant'} index={index}/>
+          <img src={require('./assets/route-img.jpg')} className="routeImg" />
           <Plan title={title} rating={''} location={venue} price={eventPrice} reviews={date} image={image} type={'event'} index={index}/>
+          <img src={require('./assets/route-img.jpg')} className="routeImg" />
           <Plan title={name} rating={rating} location={address} price={price} reviews={review_count} image={image_url} type={'restaurant'} index={index}/>
         </section>
       )
