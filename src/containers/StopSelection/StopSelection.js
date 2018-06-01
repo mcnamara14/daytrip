@@ -6,6 +6,8 @@ import { afterEventCategoryCleaner } from '../../dataCleaners/afterEventCategory
 import { Async } from 'react-select';
 import { yelpFetchRestaurants } from '../../apiCalls/yelpApiCall';
 import { storeSuggestedRestaurants } from '../../actions/storeSuggestedRestaurants';
+import { storeSuggestedBars } from '../../actions/storeSuggestedBars';
+
 
 export class StopSelection extends Component {
   constructor() {
@@ -56,8 +58,10 @@ handleRestaurantClick = async () => {
   const price = this.state.priceRanges.sort().join();
   const category = this.state.selectedOption.alias;
 
-  const suggestedRestaurants = await yelpFetchRestaurants(latitude, longitude, price, category)
-  this.props.storeSuggestedRestaurants(suggestedRestaurants);
+  const suggestedRestaurantsBars = await yelpFetchRestaurants(latitude, longitude, price, category)
+  
+  this.props.type === 'before' ? this.props.storeSuggestedRestaurants(suggestedRestaurantsBars) : 
+    this.props.storeSuggestedBars(suggestedRestaurantsBars);
 }
 
 render() {
@@ -93,7 +97,8 @@ render() {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  storeSuggestedRestaurants: (restaurants) => dispatch(storeSuggestedRestaurants(restaurants))
+  storeSuggestedRestaurants: (restaurants) => dispatch(storeSuggestedRestaurants(restaurants)),
+  storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars))
 })
 
 export const mapStateToProps = (state) => ({
