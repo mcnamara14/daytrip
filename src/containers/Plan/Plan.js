@@ -15,7 +15,7 @@ export class Plan extends Component {
         <div className="stopInfo">
           <h2>{title}</h2>
           <p className="location">{location}</p>
-          { type === 'restaurant' ?
+          { type === 'restaurant' || type === 'bar' ?
             <div className="reviewContainer">
               <div className="stars">
                 <div>

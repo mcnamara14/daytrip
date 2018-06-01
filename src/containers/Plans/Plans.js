@@ -2,41 +2,74 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Plan from '../Plan/Plan';
 import './Plans.css';
+import PropTypes from 'prop-types';
 
 export class Plans extends Component {
 
   render () {
-    let selectedEvent;
     let plans = [];
 
     if (this.props.suggestedBars.length && this.props.suggestedBars.length) {
       for (let i = 0; i < 3; i++) {
-        const { title, image, venue, date } = this.props.selectedEvent;
+        const { 
+          name: restaurantName, 
+          rating: restaurantRating, 
+          address: restaurantAddress, 
+          price: restaurantPrice, 
+          review_count: restaurantReviewCount , 
+          image_url: restaurantImage 
+        } = this.props.suggestedRestaurants[i];
+        const { 
+          name: barName, 
+          rating: barRating, 
+          address: barAddress, 
+          price: barPrice, 
+          review_count: barReviewCount, 
+          image_url: barImage 
+        } = this.props.suggestedBars[i];
+        const { 
+          title, 
+          image, 
+          venue, 
+          date } = this.props.selectedEvent;
         const eventPrice = this.props.selectedEvent.price;
         const planNum = i + 1;
-
-        const barName = this.props.suggestedBars[i].name;
-        const barRating = this.props.suggestedBars[i].rating;
-        const barAddress = this.props.suggestedBars[i].address;
-        const barPrice = this.props.suggestedBars[i].price;
-        const barReviewCount = this.props.suggestedBars[i].review_count;
-        const barImage = this.props.suggestedBars[i].image_url;
-
-        const restaurantName = this.props.suggestedRestaurants[i].name;
-        const restaurantRating = this.props.suggestedRestaurants[i].rating;
-        const restaurantAddress = this.props.suggestedRestaurants[i].address;
-        const restaurantPrice = this.props.suggestedRestaurants[i].price;
-        const restaurantReviewCount = this.props.suggestedRestaurants[i].review_count;
-        const restaurantImage = this.props.suggestedRestaurants[i].image_url;
 
         plans.push(<div key={i} className="planContainer">
           <h4>Plan {planNum}</h4>
           <section className="plan">
-            <Plan title={restaurantName} rating={restaurantRating} location={restaurantAddress} price={restaurantPrice} reviews={restaurantReviewCount} image={restaurantImage} type={'restaurant'} index={planNum}/>
+            <Plan 
+              title={restaurantName} 
+              rating={restaurantRating} 
+              location={restaurantAddress} 
+              price={restaurantPrice} 
+              reviews={restaurantReviewCount} 
+              image={restaurantImage} 
+              type={'restaurant'} 
+              index={planNum}
+            />
             <img src={require('./assets/route-img.jpg')} className="routeImg" />
-            <Plan title={title} rating={''} location={venue} price={eventPrice} reviews={date} image={image} type={'event'} index={planNum}/>
+            <Plan 
+              title={title} 
+              rating={''} 
+              location={venue} 
+              price={eventPrice} 
+              reviews={date} 
+              image={image} 
+              type={'event'} 
+              index={planNum}
+            />
             <img src={require('./assets/route-img.jpg')} className="routeImg" />
-            <Plan title={barName} rating={barRating} location={barAddress} price={barPrice} reviews={barReviewCount} image={barImage} type={'bar'} index={planNum}/>
+            <Plan 
+              title={barName} 
+              rating={barRating} 
+              location={barAddress} 
+              price={barPrice} 
+              reviews={barReviewCount} 
+              image={barImage} 
+              type={'bar'} 
+              index={planNum}
+            />
           </section>
           <button>Select Plan</button>
         </div>);
@@ -60,4 +93,4 @@ export const mapStateToProps = (state) => ({
   selectedEvent: state.selectedEvent
 })
 
-export default connect(mapStateToProps)(Plans)
+export default connect(mapStateToProps)(Plans);
