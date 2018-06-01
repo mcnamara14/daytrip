@@ -4,14 +4,21 @@
   justify-content: space-between;
 }
 
+.plan h2 {
+  color: #666;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
 .plan article {
-  width: 20%;
+  width: 21%;
   text-align: left;
 }
 
 .stars {
   float: left;
-  margin: 0 auto;
+  margin: 0 10px 0 0;
   width: 100px;
   position: relative;
 }
@@ -28,3 +35,33 @@
    height: auto;
    max-width: 100px;
  }
+
+.reviewCount {
+  color: #888;
+}
+
+.price {
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.location {
+  color: #888;
+  font-size: 0.85rem;
+  margin: 0 0 25px 0;
+}
+
+.stopImage {
+  width: 100%;
+  height: 190px;
+  border-radius: 5px 5px 0 0;
+  display: block;
+  border-radius: 5px;
+  background-size: cover;
+  background-position: center;
+  border: 1px solid #eee;
+}
+
+.stopInfo {
+  height: 160px;
+}

@@ -12,22 +12,26 @@ export class Plan extends Component {
 
     return (
       <article className={className}  >
-        <h2>{title}</h2>
-        { type === 'restaurant' ? 
-          <div className="stars">
-            <div>
-              <img src={require('./assets/stars-gray.png')} />
-            </div>
-            <div className="redStars" style={{ "width": `${review}%` }}>
-              <img src={require('./assets/stars-red.png')} />
-            </div>
-          </div> :
-          null
-        }
-        <p className="reviewCount">{reviews}</p>
-        <p className="price">{price}</p>
-        <p className="location">{location}</p>
-        <div className="restaurantImage" style={backgroundImage}></div>
+        <div className="stopInfo">
+          <h2>{title}</h2>
+          <p className="location">{location}</p>
+          { type === 'restaurant' ?
+            <div className="reviewContainer">
+              <div className="stars">
+                <div>
+                  <img src={require('./assets/stars-gray.png')} />
+                </div>
+                <div className="redStars" style={{ "width": `${review}%` }}>
+                  <img src={require('./assets/stars-red.png')} />
+                </div>
+              </div>
+              <p className="reviewCount">{reviews} reviews</p>
+            </div> :
+            null
+          }
+          <p className="price">{price}</p>
+        </div>
+        <div className="stopImage" style={backgroundImage}></div>
       </article>
     )
   }

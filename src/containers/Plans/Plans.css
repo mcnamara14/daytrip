@@ -6,26 +6,9 @@
   flex-direction: column;
 }
 
-.restaurantImage {
-  width: 90%;
-  height: 190px;
-  border-radius: 5px 5px 0 0;
-  display: block;
-  border-radius: 5px;
-  background-size: cover;
-  background-position: center;
-  border: 1px solid #eee;
-}
-
 .plansContainer h3 {
-  font-size: 1.5rem;
-  color: #494949;
+  color: #555;
+  font-family: "Roboto";
+  font-size: 1.6rem;
   text-transform: uppercase;
-  text-align: left;
-}
-
-.plansContainer h3 {
-color: #7c7c7c;
-font-size: 1.2rem;
-text-transform: uppercase;
 }
