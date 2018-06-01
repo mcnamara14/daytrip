@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import './Plan.css';
 
 export class Plan extends Component {
 
   render() {
-    const { title, rating, location, price, reviews, image, index } = this.props;
+    const { title, rating, location, price, reviews, image, index, type } = this.props;
     const backgroundImage = {backgroundImage: "url(" + image + ")"};
-    const className = `restaurant${index}`;
+    const className = `${type}-${index}`;
 
     return (
       <article className={className}  >

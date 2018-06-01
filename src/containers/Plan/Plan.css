@@ -1,0 +1,9 @@
+.plan {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.plan article {
+  width: 20%;
+}
