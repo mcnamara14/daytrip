@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { shallow } from 'enzyme';
-import { RecentEvent } from './RecentEvent';
+import { RecentEvent, mapDispatchToProps } from './RecentEvent';
 import { fetchSelectedEvent } from '../../apiCalls';
 jest.mock('../../apiCalls');
 import { mockDirtyRecentEvents } from '../../mockData/mockRecentEvents'
@@ -48,4 +48,20 @@ describe('RecentEvent', () => {
       expect(wrapper.instance().handleRecentClick).toHaveBeenCalledWith('12345');
     })
   })
-})
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params on storeSelectedEvent', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockEvent = mockDirtyRecentEvents.events[0];
+      const mockAction = {
+        type: 'STORE_SELECTED_EVENT',
+        event: mockEvent
+      };
+
+      mappedProps.storeSelectedEvent(mockEvent);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+  })
+});
