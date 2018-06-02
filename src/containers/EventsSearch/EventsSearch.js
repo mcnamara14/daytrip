@@ -9,9 +9,9 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Async } from 'react-select';
 import { cleanRecentEventsSearch, cleanRecentEvents } from '../../dataCleaners/index';
-import { ticketmasterApiCallRecentEventsSearch, ticketmasterFetchSelectedEvent } from '../../apiCalls/index';
+import { ticketmasterApiCallRecentEventsSearch, ticketmasterFetchSelectedEvent } from '../../apiCalls';
 import 'react-select/dist/react-select.css';
-import { storeSelectedEvent } from '../../actions/index';
+import { storeSelectedEvent, toggleLocation } from '../../actions';
 import { select } from 'redux-saga/effects';
 
 class EventsSearch extends Component {
@@ -21,11 +21,15 @@ class EventsSearch extends Component {
     this.state = {
       startDate: moment(),
       location: '',
-      city: '',
-      state:'',
+      city: 'Denver',
+      state:'CO',
       locationError: false,
-      selectedOption: null
+      selectedOption: 'Enter a location'
     };
+  }
+
+  componentDidMount() {
+    this.handleTicketMasterFetch();
   }
 
   handleChange = (date) => {
@@ -35,7 +39,7 @@ class EventsSearch extends Component {
   }
 
   componentWillMount() {
-    if(this.props.user) {
+    if (this.props.user.userId !== null) {
       const selectedOption = this.props.user.city + ',' + this.props.user.state;
 
       this.setState({
@@ -46,14 +50,14 @@ class EventsSearch extends Component {
     }
   }
 
-  handleTicketMasterFetch = async (input) => {
+  handleTicketMasterFetch = (input) => {
     if (this.state.city && this.state.state) {
       const city = this.state.city;
       const state = this.state.state;
       const date = this.state.startDate;
       const timeNow = date.format();
-      const events = await ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
-      console.log(events)
+      const events = ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
+
       return events;
     } else {
       this.handleMissingLocationError();
@@ -92,12 +96,16 @@ class EventsSearch extends Component {
     
     this.setState({
       city,
-      state
+      state,
+      selectedOption: ''
     });
+
+    this.props.toggleLocation(false);
   }
 
   render() {
     const { selectedOption } = this.state;
+    let isLoadingExternally = true;
  
     return (
       <div className="eventsSearchContainer">
@@ -108,11 +116,13 @@ class EventsSearch extends Component {
           value={selectedOption}
           onChange={this.onSelect}
           placeholder="Search events"
+          autoload={false}
         />
         <div className="eventsSearchLocationDate">
+          { this.props.eventError ? <p className="errorPopup">An event is required for signup</p>: ''}
           <LocationAutocomplete
             name="location"
-            placeholder={this.state.selectedOption}
+            placeholder={this.state.selectedOption ? this.state.selectedOption : 'Enter a location'}
             targetArea="City, State"
             locationType="(cities)"
             onChange={this.onChangeHandler}
@@ -124,18 +134,20 @@ class EventsSearch extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button onClick={this.handleStoreEvent} >Select Event</button>
+        <button onClick={this.handleStoreEvent}>Select Event</button>
       </div>
     );
   }
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event))
+  storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event)),
+  toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
 })
 
 export const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  eventError: state.eventError
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsSearch);

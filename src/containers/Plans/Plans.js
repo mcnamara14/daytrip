@@ -6,11 +6,17 @@ import PropTypes from 'prop-types';
 
 export class Plans extends Component {
 
-  render () {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedEvent) {
+      this.getPlans();;
+    }
+  }
+
+  getPlans = () => {
     let plans = [];
 
     if (this.props.suggestedBars.length && this.props.suggestedBars.length) {
-      for (let i = 0; i < 3; i++) {
+      for (let i = 0; i < this.props.suggestedBars.length; i++) {
         const { 
           name: restaurantName, 
           rating: restaurantRating, 
@@ -76,11 +82,16 @@ export class Plans extends Component {
       }
     }
 
+    return plans;
+  }
+
+  render () {
+
     return (
       <section className="suggestedPlans">
         <div className="plansContainer">
           <h3>Suggested Plan</h3>
-          { plans.length ? plans : null }
+          { this.props.suggestedBars.length && this.props.suggestedRestaurants.length ? this.getPlans() : null }
         </div>
       </section>
     )
@@ -91,6 +102,6 @@ export const mapStateToProps = (state) => ({
   suggestedRestaurants: state.suggestedRestaurants,
   suggestedBars: state.suggestedBars,
   selectedEvent: state.selectedEvent
-})
+});
 
 export default connect(mapStateToProps)(Plans);

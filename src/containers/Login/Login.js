@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom';
 import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
-import { loginUser, storeRecentEvents } from '../../actions/index';
+import { loginUser, storeRecentEvents, toggleLocation } from '../../actions';
 import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
@@ -17,8 +17,8 @@ export class Login extends Component {
 
     this.state = {
       location: '',
-      city: '',
-      state: '',
+      city: 'Denver',
+      state: 'CO',
       emailInput: '',
       password: '',
       locationError: false
@@ -26,7 +26,6 @@ export class Login extends Component {
   }
 
   onChangeHandler = (event) => {
-    console.log('asdf')
     const { name, value } = event.target;
 
     this.setState({
@@ -70,16 +69,14 @@ export class Login extends Component {
  
       this.handleTicketMasterFetch();
     } else {
-      this.handleMissingLocationError();
+      this.toggleLocation();
     }
   }
 
-  handleMissingLocationError = () => {
-    this.setState({locationError: true});
+  toggleLocation = () => {
+    this.props.toggleLocation(true);
     setTimeout(() => {
-      this.setState({
-        locationError: false
-      });
+      this.props.toggleLocation(false);
     }, 2000);
   }
 
@@ -105,7 +102,7 @@ export class Login extends Component {
 
       this.props.loginUser(uid, email, this.state.location);
     } else {
-      this.handleMissingLocationError();
+      this.toggleLocation();
     }
   }
 
@@ -118,6 +115,8 @@ export class Login extends Component {
       city,
       state
     });
+
+    this.props.toggleLocation(false)
   }
 
   render() {
@@ -143,7 +142,7 @@ export class Login extends Component {
                 <h3>Choose your location</h3>
                 <p>* Required for signup</p>
                 <div>
-                  { this.state.locationError ? <div><p className="locationError">A location is required for signup</p></div> : ''}
+                  { this.props.location ? <div><p className="errorPopup">A location is required for signup</p></div> : ''}
                   <form onClick={this.onClickHandler} className="locationInput" >
                     <LocationAutocomplete
                       name="location"
@@ -196,7 +195,11 @@ export class Login extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state)),
-  storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
+  storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents)),
+  toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
 });
 
-export default withRouter(connect(null, mapDispatchToProps)(Login));
+export const mapStateToProps = (state) => ({
+  location: state.location
+})
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
