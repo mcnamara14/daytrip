@@ -86,5 +86,21 @@ describe('EventsSearch', () => {
     })
   })
 
+  describe('handleMissingLocationError', () => {
+    it('should set state of location error to true then to false 2 secs later', () => {
+      jest.useFakeTimers();
+      const wrapper = shallow(<EventsSearch user={mockUser} />);
+
+      wrapper.instance().handleMissingLocationError();
+
+      expect(wrapper.state().locationError).toEqual(true);
+
+      wrapper.update();
+      jest.runAllTimers();
+
+      expect(wrapper.state().locationError).toEqual(false);
+    })
+  })
+
 
 });
