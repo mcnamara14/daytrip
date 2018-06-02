@@ -1,18 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Events } from './Events';
+import { EventsSearch } from './EventsSearch';
 import { shallow } from 'enzyme';
+import { mockDirtyRecentEvents, mockUser } from '../../mockData';
+import { cleanRecentEventsSearch } from '../../dataCleaners/recentEventsSearchCleaner';
+jest.mock('../../dataCleaners/recentEventsSearchCleaner');
 
-it('should match the snapshot', () => {
-  const mockEvents = [{
-    title: "T Swift",
-    image: "https://s1.ticketm.allswifty.jpg",
-    price: "$300",
-    venue: "Boulder Theater",
-    date: "2018-05-30 8:00 PM"
-  }];
 
-  const wrapper = shallow(<Events events={mockEvents} />);
+describe('EventsSearch', () => {
+  let wrapper;
 
-  expect(wrapper).toMatchSnapshot();
-});
+  beforeEach(() => {
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      json: () => Promise.resolve({
+        _embedded:
+        mockDirtyRecentEvents
+      })
+    }));
+  })
+  it('should match the snapshot', () => {
+    const mockEvents = mockDirtyRecentEvents.events;
+    wrapper = shallow(<EventsSearch events={mockEvents} user={mockUser} />);
+    expect(wrapper).toMatchSnapshot();
+  });
+})

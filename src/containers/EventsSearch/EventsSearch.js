@@ -11,7 +11,7 @@ import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
 import { storeSelectedEvent, toggleLocation } from '../../actions';
 
-class EventsSearch extends Component {
+export class EventsSearch extends Component {
   constructor() {
     super();
 
