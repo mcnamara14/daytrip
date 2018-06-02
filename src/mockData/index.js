@@ -1,7 +1,7 @@
 import { mockDirtyRecentEvents } from './mockRecentEvents';
-import { mockCleanRestaurantAndBarData } from './mockRestaurantAndBarData';
+import { mockCleanRestaurantAndBar } from './mockRestaurantAndBarData';
 
 export {
   mockDirtyRecentEvents,
-  mockCleanRestaurantAndBarData
+  mockCleanRestaurantAndBar
 }
