@@ -1,0 +1,485 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventsSearch should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <EventsSearch
+    events={
+        Array [
+            Object {
+              "date": "2018-05-30 8:00 PM",
+              "image": "https://s1.ticketm.allswifty.jpg",
+              "price": "$300",
+              "title": "T Swift",
+              "venue": "Boulder Theater",
+            },
+          ]
+    }
+    user={
+        Object {
+            "city": "San Diego",
+            "email": "mcnamara14@gmail.com",
+            "state": "CA",
+            "userId": "tvcmzDN3SoZ6vU07a1w9vY3S8zt1",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h5>
+          Search Events
+</h5>,
+        <Async
+          autoload={false}
+          cache={Object {}}
+          ignoreAccents={true}
+          ignoreCase={true}
+          loadOptions={[Function]}
+          loadingPlaceholder="Loading..."
+          name="searchEventsInput"
+          onChange={[Function]}
+          options={Array []}
+          placeholder="Search events"
+          searchPromptText="Type to search"
+          value="San Diego,CA"
+>
+          [Function]
+</Async>,
+        <div
+          className="eventsSearchLocationDate"
+>
+          
+          <LocationAutocomplete
+                    googleAPIKey="AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw"
+                    locationType="(cities)"
+                    name="location"
+                    onChange={undefined}
+                    onDropdownSelect={[Function]}
+                    placeholder="San Diego,CA"
+                    targetArea="City, State"
+          />
+          <DatePicker
+                    allowSameDay={false}
+                    dateFormat="L"
+                    dateFormatCalendar="MMMM YYYY"
+                    disabled={false}
+                    disabledKeyboardNavigation={false}
+                    dropdownMode="scroll"
+                    monthsShown={1}
+                    onBlur={[Function]}
+                    onChange={[Function]}
+                    onClickOutside={[Function]}
+                    onFocus={[Function]}
+                    onKeyDown={[Function]}
+                    onMonthChange={[Function]}
+                    onSelect={[Function]}
+                    onYearChange={[Function]}
+                    preventOpenOnFocus={false}
+                    selected={"2018-06-02T20:37:11.927Z"}
+                    shouldCloseOnSelect={true}
+                    showTimeSelect={false}
+                    timeCaption="Time"
+                    timeIntervals={30}
+                    withPortal={false}
+          />
+</div>,
+        <button
+          onClick={[Function]}
+>
+          Select Event
+</button>,
+      ],
+      "className": "eventsSearchContainer",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Search Events",
+        },
+        "ref": null,
+        "rendered": "Search Events",
+        "type": "h5",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "autoload": false,
+          "cache": Object {},
+          "children": [Function],
+          "ignoreAccents": true,
+          "ignoreCase": true,
+          "loadOptions": [Function],
+          "loadingPlaceholder": "Loading...",
+          "name": "searchEventsInput",
+          "onChange": [Function],
+          "options": Array [],
+          "placeholder": "Search events",
+          "searchPromptText": "Type to search",
+          "value": "San Diego,CA",
+        },
+        "ref": null,
+        "rendered": [Function],
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "",
+            <LocationAutocomplete
+              googleAPIKey="AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw"
+              locationType="(cities)"
+              name="location"
+              onChange={undefined}
+              onDropdownSelect={[Function]}
+              placeholder="San Diego,CA"
+              targetArea="City, State"
+/>,
+            <DatePicker
+              allowSameDay={false}
+              dateFormat="L"
+              dateFormatCalendar="MMMM YYYY"
+              disabled={false}
+              disabledKeyboardNavigation={false}
+              dropdownMode="scroll"
+              monthsShown={1}
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClickOutside={[Function]}
+              onFocus={[Function]}
+              onKeyDown={[Function]}
+              onMonthChange={[Function]}
+              onSelect={[Function]}
+              onYearChange={[Function]}
+              preventOpenOnFocus={false}
+              selected={"2018-06-02T20:37:11.927Z"}
+              shouldCloseOnSelect={true}
+              showTimeSelect={false}
+              timeCaption="Time"
+              timeIntervals={30}
+              withPortal={false}
+/>,
+          ],
+          "className": "eventsSearchLocationDate",
+        },
+        "ref": null,
+        "rendered": Array [
+          "",
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "googleAPIKey": "AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw",
+              "locationType": "(cities)",
+              "name": "location",
+              "onChange": undefined,
+              "onDropdownSelect": [Function],
+              "placeholder": "San Diego,CA",
+              "targetArea": "City, State",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "allowSameDay": false,
+              "dateFormat": "L",
+              "dateFormatCalendar": "MMMM YYYY",
+              "disabled": false,
+              "disabledKeyboardNavigation": false,
+              "dropdownMode": "scroll",
+              "monthsShown": 1,
+              "onBlur": [Function],
+              "onChange": [Function],
+              "onClickOutside": [Function],
+              "onFocus": [Function],
+              "onKeyDown": [Function],
+              "onMonthChange": [Function],
+              "onSelect": [Function],
+              "onYearChange": [Function],
+              "preventOpenOnFocus": false,
+              "selected": "2018-06-02T20:37:11.927Z",
+              "shouldCloseOnSelect": true,
+              "showTimeSelect": false,
+              "timeCaption": "Time",
+              "timeIntervals": 30,
+              "withPortal": false,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Select Event",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Select Event",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h5>
+            Search Events
+</h5>,
+          <Async
+            autoload={false}
+            cache={Object {}}
+            ignoreAccents={true}
+            ignoreCase={true}
+            loadOptions={[Function]}
+            loadingPlaceholder="Loading..."
+            name="searchEventsInput"
+            onChange={[Function]}
+            options={Array []}
+            placeholder="Search events"
+            searchPromptText="Type to search"
+            value="San Diego,CA"
+>
+            [Function]
+</Async>,
+          <div
+            className="eventsSearchLocationDate"
+>
+            
+            <LocationAutocomplete
+                        googleAPIKey="AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw"
+                        locationType="(cities)"
+                        name="location"
+                        onChange={undefined}
+                        onDropdownSelect={[Function]}
+                        placeholder="San Diego,CA"
+                        targetArea="City, State"
+            />
+            <DatePicker
+                        allowSameDay={false}
+                        dateFormat="L"
+                        dateFormatCalendar="MMMM YYYY"
+                        disabled={false}
+                        disabledKeyboardNavigation={false}
+                        dropdownMode="scroll"
+                        monthsShown={1}
+                        onBlur={[Function]}
+                        onChange={[Function]}
+                        onClickOutside={[Function]}
+                        onFocus={[Function]}
+                        onKeyDown={[Function]}
+                        onMonthChange={[Function]}
+                        onSelect={[Function]}
+                        onYearChange={[Function]}
+                        preventOpenOnFocus={false}
+                        selected={"2018-06-02T20:37:11.927Z"}
+                        shouldCloseOnSelect={true}
+                        showTimeSelect={false}
+                        timeCaption="Time"
+                        timeIntervals={30}
+                        withPortal={false}
+            />
+</div>,
+          <button
+            onClick={[Function]}
+>
+            Select Event
+</button>,
+        ],
+        "className": "eventsSearchContainer",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Search Events",
+          },
+          "ref": null,
+          "rendered": "Search Events",
+          "type": "h5",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "autoload": false,
+            "cache": Object {},
+            "children": [Function],
+            "ignoreAccents": true,
+            "ignoreCase": true,
+            "loadOptions": [Function],
+            "loadingPlaceholder": "Loading...",
+            "name": "searchEventsInput",
+            "onChange": [Function],
+            "options": Array [],
+            "placeholder": "Search events",
+            "searchPromptText": "Type to search",
+            "value": "San Diego,CA",
+          },
+          "ref": null,
+          "rendered": [Function],
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "",
+              <LocationAutocomplete
+                googleAPIKey="AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw"
+                locationType="(cities)"
+                name="location"
+                onChange={undefined}
+                onDropdownSelect={[Function]}
+                placeholder="San Diego,CA"
+                targetArea="City, State"
+/>,
+              <DatePicker
+                allowSameDay={false}
+                dateFormat="L"
+                dateFormatCalendar="MMMM YYYY"
+                disabled={false}
+                disabledKeyboardNavigation={false}
+                dropdownMode="scroll"
+                monthsShown={1}
+                onBlur={[Function]}
+                onChange={[Function]}
+                onClickOutside={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                onMonthChange={[Function]}
+                onSelect={[Function]}
+                onYearChange={[Function]}
+                preventOpenOnFocus={false}
+                selected={"2018-06-02T20:37:11.927Z"}
+                shouldCloseOnSelect={true}
+                showTimeSelect={false}
+                timeCaption="Time"
+                timeIntervals={30}
+                withPortal={false}
+/>,
+            ],
+            "className": "eventsSearchLocationDate",
+          },
+          "ref": null,
+          "rendered": Array [
+            "",
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "googleAPIKey": "AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw",
+                "locationType": "(cities)",
+                "name": "location",
+                "onChange": undefined,
+                "onDropdownSelect": [Function],
+                "placeholder": "San Diego,CA",
+                "targetArea": "City, State",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "allowSameDay": false,
+                "dateFormat": "L",
+                "dateFormatCalendar": "MMMM YYYY",
+                "disabled": false,
+                "disabledKeyboardNavigation": false,
+                "dropdownMode": "scroll",
+                "monthsShown": 1,
+                "onBlur": [Function],
+                "onChange": [Function],
+                "onClickOutside": [Function],
+                "onFocus": [Function],
+                "onKeyDown": [Function],
+                "onMonthChange": [Function],
+                "onSelect": [Function],
+                "onYearChange": [Function],
+                "preventOpenOnFocus": false,
+                "selected": "2018-06-02T20:37:11.927Z",
+                "shouldCloseOnSelect": true,
+                "showTimeSelect": false,
+                "timeCaption": "Time",
+                "timeIntervals": 30,
+                "withPortal": false,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Select Event",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Select Event",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
