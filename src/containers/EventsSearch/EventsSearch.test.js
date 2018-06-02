@@ -7,7 +7,8 @@ import moment from 'moment';
 import { mockDirtyRecentEvents, mockUser } from '../../mockData';
 import { cleanRecentEventsSearch } from '../../dataCleaners/recentEventsSearchCleaner';
 jest.mock('../../dataCleaners/recentEventsSearchCleaner');
-import { fetchRecentEventsOnSearch } from '../../apiCalls';
+import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
+jest.mock('../../apiCalls/ticketmasterApiCalls');
 jest.mock('../../apiCalls');
 
 
@@ -102,5 +103,25 @@ describe('EventsSearch', () => {
     })
   })
 
+  // How do you mock implement fetchSelectedEvent?
+
+  // describe('handleStoreEvent', () => {
+  //   it('should call fetchSelectedEvent with the correct argument', async () => { 
+  //     const mockOption = {
+  //       id: 'Z7r9jZ1AeuAuo',
+  //       label: 'T-Swift Pepsi Center2018-08-07 7:00'
+  //     }
+  //     const wrapper = shallow(<EventsSearch user={mockUser} />);
+  //     wrapper.setState({
+  //       selectedOption: mockOption
+  //     });
+
+  //     const result = fetchSelectedEvent('Z7r9jZ1AeuAuo')
+
+  //     await wrapper.instance().handleStoreEvent();
+
+  //     expect(result).toHaveBeenCalledWith(0);
+  //   })
+  // })
 
 });
