@@ -28,6 +28,6 @@ export const fetchRestaurantsAndBars = async (
       });
   const data = await result.json();
   const restaurants = data.businesses;
-
+  
   return suggestedRestaurantsCleaner(restaurants);
 };
