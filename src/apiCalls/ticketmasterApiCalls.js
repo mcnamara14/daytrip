@@ -53,7 +53,7 @@ export const fetchSelectedEvent = async (id) => {
   try {
     const response = await fetch(url);
     const event = await response.json();
-
+    
     return cleanRecentEvents([event]);
   } catch (error) {
     alert(error);
