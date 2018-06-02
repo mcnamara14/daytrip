@@ -11,7 +11,12 @@ import Plans from '../Plans/Plans';
 export class Events extends Component {
 
   render() {
-    const { events, selectedEvent, suggestedBars, suggestedRestaurants } = this.props;
+    const { 
+      events, 
+      selectedEvent, 
+      suggestedBars, 
+      suggestedRestaurants 
+    } = this.props;
 
     const recentEvents = events.map((event, index) => {
       const { id, image, title, price, venue, date } = event;
@@ -46,7 +51,8 @@ export class Events extends Component {
             </div>
           </section>
         }
-        { suggestedRestaurants.length && suggestedBars.length ? <Plans /> : null }
+        { suggestedRestaurants.length && suggestedBars.length ? 
+          <Plans /> : null }
       </div>
     );
   }

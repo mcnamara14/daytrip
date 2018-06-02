@@ -2,9 +2,16 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './StopSelection.css';
 import Select from 'react-select';
-import { beforeEventCategoryCleaner, afterEventCategoryCleaner } from '../../dataCleaners';
-import { yelpFetchRestaurants } from '../../apiCalls/yelpApiCall';
-import { storeSuggestedRestaurants, storeSuggestedBars, toggleEventError } from '../../actions';
+import { 
+  beforeEventCategoryCleaner, 
+  afterEventCategoryCleaner 
+} from '../../dataCleaners';
+import { fetchRestaurantsAndBars } from '../../apiCalls';
+import { 
+  storeSuggestedRestaurants, 
+  storeSuggestedBars, 
+  toggleEventError 
+} from '../../actions';
 
 export class StopSelection extends Component {
   constructor() {
@@ -30,18 +37,18 @@ export class StopSelection extends Component {
 
   changePriceRange = (price) => {
     if (!this.state.priceRanges.includes(price)) {
-      const priceRanges = [...this.state.priceRanges, price]
+      const priceRanges = [...this.state.priceRanges, price];
       this.setState({
         priceRanges 
-      })
+      });
     } else {
       const priceRanges = this.state.priceRanges.filter(range => {
         return range !== price;
-      })
+      });
       
       this.setState({
         priceRanges 
-      })
+      });
     }
   }
 
@@ -53,7 +60,12 @@ export class StopSelection extends Component {
   }
 
   storeRestaurantsOrBars = async () => {
-    const { latitude, longitude, selectedEvent, type, storeSuggestedRestaurants, storeSuggestedBars } = this.props;
+    const { 
+      selectedEvent, 
+      type, 
+      storeSuggestedRestaurants, 
+      storeSuggestedBars 
+    } = this.props;
     const { selectedOption, priceRanges } = this.state;
 
     if (selectedEvent !== null && selectedOption !== null) {
@@ -61,7 +73,8 @@ export class StopSelection extends Component {
       const longitude = selectedEvent.longitude;
       const price = priceRanges.sort().join();
       const category = selectedOption.alias;
-      const suggestedRestaurantsBars = await yelpFetchRestaurants(latitude, longitude, price, category);
+      const suggestedRestaurantsBars = 
+        await fetchRestaurantsAndBars(latitude, longitude, price, category);
       
       type === 'before' ? storeSuggestedRestaurants(suggestedRestaurantsBars) : 
         storeSuggestedBars(suggestedRestaurantsBars);
@@ -75,9 +88,9 @@ export class StopSelection extends Component {
     const { type } = this.props;
     const beforeAfter = type === 'before' ? 'before' : 'after';
     const restaurantBar = type === 'before' ? 'restaurant' : 'bar';
-    const beforeAfterCategories = type === 'before' ? beforeEventCategoryCleaner() : afterEventCategoryCleaner();
+    const beforeAfterCategories = type === 'before' ? 
+      beforeEventCategoryCleaner() : afterEventCategoryCleaner();
     const className = beforeAfter + 'Event';
-    const priceSelected = priceRanges.includes()
 
     return (
       <div className={className}>
@@ -114,11 +127,11 @@ export class StopSelection extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   storeSuggestedRestaurants: (restaurants) => {
-    return dispatch(storeSuggestedRestaurants(restaurants))
+    return dispatch(storeSuggestedRestaurants(restaurants));
   },
   storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars)),
   toggleEventError: (boolean) => dispatch(toggleEventError(boolean))
-})
+});
 
 export const mapStateToProps = (state) => ({
   selectedEvent: state.selectedEvent,

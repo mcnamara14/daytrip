@@ -1,9 +1,13 @@
-import { ticketmasterApiCall, ticketmasterFetchSelectedEvent, ticketmasterApiCallRecentEventsSearch } from './ticketmasterApiCall'; 
-import { yelpApiCall } from './yelpApiCall'; 
+import { 
+  fetchRecentEvents, 
+  fetchSelectedEvent, 
+  fetchRecentEventsOnSearch 
+} from './ticketmasterApiCalls'; 
+import { fetchRestaurantsAndBars  } from './yelpApiCalls'; 
 
 export {
-  ticketmasterApiCall,
-  yelpApiCall,
-  ticketmasterFetchSelectedEvent,
-  ticketmasterApiCallRecentEventsSearch
+  fetchRecentEvents,
+  fetchRestaurantsAndBars,
+  fetchSelectedEvent,
+  fetchRecentEventsOnSearch
 };
