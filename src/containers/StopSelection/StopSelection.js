@@ -75,7 +75,7 @@ export class StopSelection extends Component {
       const category = selectedOption.alias;
       const suggestedRestaurantsBars = 
         await fetchRestaurantsAndBars(latitude, longitude, price, category);
-      
+      console.log(suggestedRestaurantsBars)
       type === 'before' ? storeSuggestedRestaurants(suggestedRestaurantsBars) : 
         storeSuggestedBars(suggestedRestaurantsBars);
     } else if (selectedEvent === null) {
