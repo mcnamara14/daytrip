@@ -17,8 +17,8 @@ export class Login extends Component {
 
     this.state = {
       location: '',
-      city: '',
-      state: '',
+      city: 'Denver',
+      state: 'CO',
       emailInput: '',
       password: '',
       locationError: false

@@ -19,5 +19,5 @@ export const afterEventCategoryCleaner = () => {
   });
 
 
-  return {options: categories};
+  return restaurantCategories;
 };

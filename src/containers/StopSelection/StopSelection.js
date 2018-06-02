@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './StopSelection.css';
 import { beforeEventCategoryCleaner } from '../../dataCleaners/beforeEventCategoryCleaner';
 import { afterEventCategoryCleaner } from '../../dataCleaners/afterEventCategoryCleaner';
-import { Async } from 'react-select';
+import Select from 'react-select';
 import { yelpFetchRestaurants } from '../../apiCalls/yelpApiCall';
 import { storeSuggestedRestaurants, storeSuggestedBars, toggleEventError } from '../../actions';
 
@@ -25,14 +25,6 @@ export class StopSelection extends Component {
       }, 0);
     }
   }
-
-beforeEventCategories = async () => {
-  return beforeEventCategoryCleaner();
-}
-
-afterEventCategories = async () => {
-  return afterEventCategoryCleaner();
-}
 
 onSelect = (selectedOption) => {
   this.setState({ selectedOption });
@@ -67,7 +59,7 @@ toggleEventError = () => {
 }
 
 handleRestaurantClick = async () => {
-  if (this.props.selectedEvent !== null) {
+  if (this.props.selectedEvent !== null && this.state.selectedOption !== null) {
     const latitude = this.props.selectedEvent.latitude;
     const longitude = this.props.selectedEvent.longitude;
     const price = this.state.priceRanges.sort().join();
@@ -90,7 +82,7 @@ render() {
   const { selectedOption, priceRange } = this.state;
   const beforeAfter = this.props.type === 'before' ? 'before' : 'after';
   const restaurantBar = this.props.type === 'before' ? 'restaurant' : 'bar';
-  const beforeAfterCategories = this.props.type === 'before' ? this.beforeEventCategories : this.afterEventCategories;
+  const beforeAfterCategories = this.props.type === 'before' ? beforeEventCategoryCleaner() : afterEventCategoryCleaner();
   const className = beforeAfter + 'Event';
   const priceSelected = this.state.priceRanges.includes()
 
@@ -98,9 +90,9 @@ render() {
     <div className={className}>
       <h3>{beforeAfter} the event</h3>
       <p className="filterTitle">{restaurantBar} category</p>
-      <Async
+      <Select
         name="searchEventsInput"
-        loadOptions={beforeAfterCategories}
+        options={beforeAfterCategories}
         value={selectedOption}
         onChange={this.onSelect}
         placeholder="Choose a category"

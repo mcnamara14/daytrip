@@ -21,11 +21,15 @@ class EventsSearch extends Component {
     this.state = {
       startDate: moment(),
       location: '',
-      city: '',
-      state:'',
+      city: 'Denver',
+      state:'CO',
       locationError: false,
       selectedOption: 'Enter a location'
     };
+  }
+
+  componentDidMount() {
+    this.handleTicketMasterFetch();
   }
 
   handleChange = (date) => {
@@ -35,7 +39,7 @@ class EventsSearch extends Component {
   }
 
   componentWillMount() {
-    if(this.props.user) {
+    if (this.props.user.userId !== null) {
       const selectedOption = this.props.user.city + ',' + this.props.user.state;
 
       this.setState({
@@ -46,14 +50,14 @@ class EventsSearch extends Component {
     }
   }
 
-  handleTicketMasterFetch = async (input) => {
+  handleTicketMasterFetch = (input) => {
     if (this.state.city && this.state.state) {
       const city = this.state.city;
       const state = this.state.state;
       const date = this.state.startDate;
       const timeNow = date.format();
-      const events = await ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
-      console.log(events)
+      const events = ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
+
       return events;
     } else {
       this.handleMissingLocationError();
@@ -92,14 +96,16 @@ class EventsSearch extends Component {
     
     this.setState({
       city,
-      state
+      state,
+      selectedOption: ''
     });
 
-    this.props.toggleLocation(false)
+    this.props.toggleLocation(false);
   }
 
   render() {
     const { selectedOption } = this.state;
+    let isLoadingExternally = true;
  
     return (
       <div className="eventsSearchContainer">
@@ -110,6 +116,7 @@ class EventsSearch extends Component {
           value={selectedOption}
           onChange={this.onSelect}
           placeholder="Search events"
+          autoload={false}
         />
         <div className="eventsSearchLocationDate">
           { this.props.eventError ? <p className="errorPopup">An event is required for signup</p>: ''}
