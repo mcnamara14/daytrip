@@ -72,5 +72,19 @@ describe('EventsSearch', () => {
     })
   });
 
+  describe('onSelect', () => {
+    it('should set state of selected option', () => {
+      const wrapper = shallow(<EventsSearch user={mockUser} />);
+      const expectedOption = {
+        id: "Z7r9jZ1AeuAuo",
+        label: "T-Swift Pepsi Center2018-08-07 7:00"
+      }
+
+      wrapper.instance().onSelect(expectedOption)
+
+      expect(wrapper.state('selectedOption')).toEqual(expectedOption)
+    })
+  })
+
 
 });
