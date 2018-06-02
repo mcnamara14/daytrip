@@ -40,7 +40,7 @@ export class Plans extends Component {
         const planNum = i + 1;
 
         plans.push(<div key={i} className="planContainer">
-          <h4>Plan {planNum}</h4>
+          <h4>Plan</h4>
           <section className="plan">
             <Stop 
               title={restaurantName} 
