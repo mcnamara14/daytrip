@@ -87,7 +87,7 @@ ShallowWrapper {
                     onSelect={[Function]}
                     onYearChange={[Function]}
                     preventOpenOnFocus={false}
-                    selected={"2018-06-02T18:54:56.493Z"}
+                    selected={"2018-06-02T19:00:43.914Z"}
                     shouldCloseOnSelect={true}
                     showTimeSelect={false}
                     timeCaption="Time"
@@ -172,7 +172,7 @@ ShallowWrapper {
               onSelect={[Function]}
               onYearChange={[Function]}
               preventOpenOnFocus={false}
-              selected={"2018-06-02T18:54:56.493Z"}
+              selected={"2018-06-02T19:00:43.914Z"}
               shouldCloseOnSelect={true}
               showTimeSelect={false}
               timeCaption="Time"
@@ -223,7 +223,7 @@ ShallowWrapper {
               "onSelect": [Function],
               "onYearChange": [Function],
               "preventOpenOnFocus": false,
-              "selected": "2018-06-02T18:54:56.493Z",
+              "selected": "2018-06-02T19:00:43.914Z",
               "shouldCloseOnSelect": true,
               "showTimeSelect": false,
               "timeCaption": "Time",
@@ -308,7 +308,7 @@ ShallowWrapper {
                         onSelect={[Function]}
                         onYearChange={[Function]}
                         preventOpenOnFocus={false}
-                        selected={"2018-06-02T18:54:56.493Z"}
+                        selected={"2018-06-02T19:00:43.914Z"}
                         shouldCloseOnSelect={true}
                         showTimeSelect={false}
                         timeCaption="Time"
@@ -393,7 +393,7 @@ ShallowWrapper {
                 onSelect={[Function]}
                 onYearChange={[Function]}
                 preventOpenOnFocus={false}
-                selected={"2018-06-02T18:54:56.493Z"}
+                selected={"2018-06-02T19:00:43.914Z"}
                 shouldCloseOnSelect={true}
                 showTimeSelect={false}
                 timeCaption="Time"
@@ -444,7 +444,7 @@ ShallowWrapper {
                 "onSelect": [Function],
                 "onYearChange": [Function],
                 "preventOpenOnFocus": false,
-                "selected": "2018-06-02T18:54:56.493Z",
+                "selected": "2018-06-02T19:00:43.914Z",
                 "shouldCloseOnSelect": true,
                 "showTimeSelect": false,
                 "timeCaption": "Time",

@@ -8,19 +8,27 @@ jest.mock('../../dataCleaners/recentEventsSearchCleaner');
 
 
 describe('EventsSearch', () => {
-  let wrapper;
-
-  beforeEach(() => {
+  it('should match the snapshot', () => {
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       json: () => Promise.resolve({
         _embedded:
         mockDirtyRecentEvents
       })
     }));
-  })
-  it('should match the snapshot', () => {
     const mockEvents = mockDirtyRecentEvents.events;
-    wrapper = shallow(<EventsSearch events={mockEvents} user={mockUser} />);
+    const wrapper = shallow(<EventsSearch events={mockEvents} user={mockUser} />);
     expect(wrapper).toMatchSnapshot();
+  });
+
+
+  describe('handleChange', () => {
+    it('should set data in state to selected date', () => {
+      const wrapper = shallow(<EventsSearch user={mockUser} />);
+      
+      wrapper.instance().handleChange('062018');
+
+      const expected = '062018';
+      expect(wrapper.state('startDate')).toEqual(expected)
+    })
   });
 })
