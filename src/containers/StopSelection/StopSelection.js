@@ -50,6 +50,13 @@ changePriceRange = (price) => {
   }
 }
 
+toggleLocation = () => {
+  this.props.toggleLocation(true);
+  setTimeout(() => {
+    this.props.toggleLocation(false);
+  }, 2000);
+}
+
 handleRestaurantClick = async () => {
   if (this.props.location) {
     const latitude = this.props.selectedEvent.latitude;
@@ -62,7 +69,7 @@ handleRestaurantClick = async () => {
     this.props.type === 'before' ? this.props.storeSuggestedRestaurants(suggestedRestaurantsBars) : 
       this.props.storeSuggestedBars(suggestedRestaurantsBars);
   } else {
-    this.props.toggleLocation(true)
+    this.toggleLocation();
   }
 }
 

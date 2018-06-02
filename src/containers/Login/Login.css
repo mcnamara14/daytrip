@@ -220,6 +220,7 @@ h5 {
   color: #fff !important;
   padding: 7px 12px 17px 15px;
   border-radius: 0 3px 3px 0;
+  z-index: 9;
 }
 
 p.locationError {

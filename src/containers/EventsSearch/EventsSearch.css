@@ -45,6 +45,12 @@
   display: flex;
   margin-top: 25px;
   justify-content: space-between;
+  position: relative;
+}
+
+.eventsSearchLocationDate .locationError {
+  left: 240px;
+  padding: 7px 34px 19px 25px;
 }
 
 .eventsSearchLocationDate input, .eventsSearchLocationDate div {

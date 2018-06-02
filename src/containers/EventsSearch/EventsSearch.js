@@ -110,6 +110,7 @@ class EventsSearch extends Component {
           placeholder="Search events"
         />
         <div className="eventsSearchLocationDate">
+          { this.props.location ? <p className="locationError">A location is required for signup</p>: ''}
           <LocationAutocomplete
             name="location"
             placeholder={this.state.selectedOption ? this.state.selectedOption : 'Enter a location'}
@@ -135,7 +136,8 @@ export const mapDispatchToProps = (dispatch) => ({
 })
 
 export const mapStateToProps = (state) => ({
-  user: state.user
+  user: state.user,
+  location: state.location
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsSearch);
