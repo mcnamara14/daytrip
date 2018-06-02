@@ -17,8 +17,8 @@ export class Login extends Component {
 
     this.state = {
       location: '',
-      city: 'Denver',
-      state: 'CO',
+      city: '',
+      state: '',
       emailInput: '',
       password: '',
       locationError: false
@@ -38,7 +38,9 @@ export class Login extends Component {
     const {
       location,
       emailInput,
-      password
+      password,
+      city,
+      state
     } = this.state;
 
     if (location) {
@@ -49,7 +51,7 @@ export class Login extends Component {
         email
       } = result.user;
 
-      this.props.loginUser(uid, email, this.state.city, this.state.state);
+      this.props.loginUser(uid, email, city, state);
 
       this.handleTicketMasterFetch();
     } else {

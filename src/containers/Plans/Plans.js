@@ -1,22 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Plan from '../Plan/Plan';
 import './Plans.css';
+import Stop from '../Stop/Stop';
 import PropTypes from 'prop-types';
 
 export class Plans extends Component {
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.selectedEvent) {
-  //     this.getPlans();;
-  //   }
-  // }
-
   getPlans = () => {
+    const { suggestedBars, suggestedRestaurants, selectedEvent } = this.props;
     let plans = [];
 
-    if (this.props.suggestedBars.length && this.props.suggestedBars.length) {
-      console.log('sdf')
+    if (suggestedBars.length && suggestedBars.length) {
       for (let i = 0; i < this.props.suggestedBars.length; i++) {
         const { 
           name: restaurantName, 
@@ -39,13 +32,13 @@ export class Plans extends Component {
           image, 
           venue, 
           date } = this.props.selectedEvent;
-        const eventPrice = this.props.selectedEvent.price;
+        const eventPrice = selectedEvent.price;
         const planNum = i + 1;
 
         plans.push(<div key={i} className="planContainer">
           <h4>Plan {planNum}</h4>
           <section className="plan">
-            <Plan 
+            <Stop 
               title={restaurantName} 
               rating={restaurantRating} 
               location={restaurantAddress} 
@@ -56,7 +49,7 @@ export class Plans extends Component {
               index={planNum}
             />
             <img src={require('./assets/route-img.jpg')} className="routeImg" />
-            <Plan 
+            <Stop 
               title={title} 
               rating={''} 
               location={venue} 
@@ -67,7 +60,7 @@ export class Plans extends Component {
               index={planNum}
             />
             <img src={require('./assets/route-img.jpg')} className="routeImg" />
-            <Plan 
+            <Stop 
               title={barName} 
               rating={barRating} 
               location={barAddress} 
@@ -87,12 +80,13 @@ export class Plans extends Component {
   }
 
   render () {
+    const { suggestedBars, suggestedRestaurants } = this.props;
 
     return (
       <section className="suggestedPlans">
         <div className="plansContainer">
           <h3>Suggested Plan</h3>
-          { this.props.suggestedBars.length && this.props.suggestedRestaurants.length ? this.getPlans() : null }
+          { suggestedBars.length && suggestedRestaurants.length ? this.getPlans() : null }
         </div>
       </section>
     )
