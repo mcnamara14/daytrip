@@ -26,10 +26,10 @@ class SelectedEvent extends Component {
       </div>
     );
   } 
-};
+}
 
 export const mapStateToProps = (state) => ({
   selectedEvent: state.selectedEvent
-})
+});
 
 export default connect(mapStateToProps)(SelectedEvent);

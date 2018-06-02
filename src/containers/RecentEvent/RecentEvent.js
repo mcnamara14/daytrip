@@ -7,7 +7,7 @@ import { fetchSelectedEvent } from '../../apiCalls';
 class RecentEvent extends Component {
   handleRecentClick = async (eventId) => {
     const selectedEvent = await fetchSelectedEvent(eventId);
-    const event = selectedEvent[0]
+    const event = selectedEvent[0];
 
     this.props.storeSelectedEvent(event);
   }
@@ -36,6 +36,6 @@ class RecentEvent extends Component {
 
 export const mapDispatchToProps = (dispatch) => ({
   storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event))
-})
+});
 
 export default connect(null, mapDispatchToProps)(RecentEvent);

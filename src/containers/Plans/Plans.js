@@ -6,17 +6,21 @@ import PropTypes from 'prop-types';
 
 export class Plans extends Component {
   getPlans = () => {
-    const { suggestedBars, suggestedRestaurants, selectedEvent } = this.props;
+    const { 
+      suggestedBars, 
+      suggestedRestaurants, 
+      selectedEvent 
+    } = this.props;
     let plans = [];
 
-    if (suggestedBars.length && suggestedBars.length) {
-      for (let i = 0; i < this.props.suggestedBars.length; i++) {
+    if (suggestedBars.length && suggestedRestaurants.length) {
+      for (var i = 0; i < this.props.suggestedBars.length; i++) {
         const { 
           name: restaurantName, 
           rating: restaurantRating, 
           address: restaurantAddress, 
           price: restaurantPrice, 
-          review_count: restaurantReviewCount , 
+          review_count: restaurantReviewCount, 
           image_url: restaurantImage 
         } = this.props.suggestedRestaurants[i];
         const { 
@@ -86,10 +90,11 @@ export class Plans extends Component {
       <section className="suggestedPlans">
         <div className="plansContainer">
           <h3>Suggested Plan</h3>
-          { suggestedBars.length && suggestedRestaurants.length ? this.getPlans() : null }
+          { suggestedBars.length && suggestedRestaurants.length ? 
+            this.getPlans() : null }
         </div>
       </section>
-    )
+    );
   }
 }
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import './Stop.css';
 
 export class Stop extends Component {
@@ -42,7 +41,7 @@ export class Stop extends Component {
         </div>
         <div className="stopImage" style={backgroundImage}></div>
       </article>
-    )
+    );
   }
 }
 
