@@ -4,6 +4,7 @@ import { storeSelectedEvent } from './storeSelectedEvent';
 import { storeSuggestedRestaurants } from './storeSuggestedRestaurants';
 import { storeSuggestedBars } from './storeSuggestedBars';
 import { toggleLocation } from './toggleLocation';
+import { toggleEventError } from './toggleEventError';
 
 export {
   loginUser, 
@@ -11,5 +12,6 @@ export {
   storeSelectedEvent, 
   storeSuggestedRestaurants,
   storeSuggestedBars,
-  toggleLocation
+  toggleLocation,
+  toggleEventError
 };

@@ -142,7 +142,7 @@ export class Login extends Component {
                 <h3>Choose your location</h3>
                 <p>* Required for signup</p>
                 <div>
-                  { this.props.location ? <div><p className="locationError">A location is required for signup</p></div> : ''}
+                  { this.props.location ? <div><p className="errorPopup">A location is required for signup</p></div> : ''}
                   <form onClick={this.onClickHandler} className="locationInput" >
                     <LocationAutocomplete
                       name="location"

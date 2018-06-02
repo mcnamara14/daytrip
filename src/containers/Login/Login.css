@@ -209,7 +209,7 @@ h5 {
   position: relative;
 }
 
-.locationError {
+.errorPopup {
   position: absolute;
   background: #bbb;
   width: 144px;
@@ -223,11 +223,11 @@ h5 {
   z-index: 9;
 }
 
-p.locationError {
+p.errorPopup {
   line-height: 1rem;
 }
 
-.locationError:after, .locationError:before {
+.errorPopup:after, .errorPopup:before {
 	right: 100%;
 	top: 50%;
 	border: solid transparent;
@@ -238,12 +238,12 @@ p.locationError {
 	pointer-events: none;
 }
 
-.locationError:after {
+.errorPopup:after {
 	border-color: rgba(136, 183, 213, 0);
 	border-width: 30px;
 	margin-top: -30px;
 }
-.locationError:before {
+.errorPopup:before {
   border-color: rgba(194, 225, 245, 0);
   border-right-color: #bbb;
   border-width: 22px;

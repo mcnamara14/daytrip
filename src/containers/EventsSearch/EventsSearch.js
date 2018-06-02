@@ -9,9 +9,9 @@ import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
 import { Async } from 'react-select';
 import { cleanRecentEventsSearch, cleanRecentEvents } from '../../dataCleaners/index';
-import { ticketmasterApiCallRecentEventsSearch, ticketmasterFetchSelectedEvent } from '../../apiCalls/index';
+import { ticketmasterApiCallRecentEventsSearch, ticketmasterFetchSelectedEvent } from '../../apiCalls';
 import 'react-select/dist/react-select.css';
-import { storeSelectedEvent } from '../../actions/index';
+import { storeSelectedEvent, toggleLocation } from '../../actions';
 import { select } from 'redux-saga/effects';
 
 class EventsSearch extends Component {
@@ -94,6 +94,8 @@ class EventsSearch extends Component {
       city,
       state
     });
+
+    this.props.toggleLocation(false)
   }
 
   render() {
@@ -110,7 +112,7 @@ class EventsSearch extends Component {
           placeholder="Search events"
         />
         <div className="eventsSearchLocationDate">
-          { this.props.location ? <p className="locationError">A location is required for signup</p>: ''}
+          { this.props.eventError ? <p className="errorPopup">An event is required for signup</p>: ''}
           <LocationAutocomplete
             name="location"
             placeholder={this.state.selectedOption ? this.state.selectedOption : 'Enter a location'}
@@ -132,12 +134,13 @@ class EventsSearch extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event))
+  storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event)),
+  toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
 })
 
 export const mapStateToProps = (state) => ({
   user: state.user,
-  location: state.location
+  eventError: state.eventError
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsSearch);

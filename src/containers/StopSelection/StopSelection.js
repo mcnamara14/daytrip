@@ -5,7 +5,7 @@ import { beforeEventCategoryCleaner } from '../../dataCleaners/beforeEventCatego
 import { afterEventCategoryCleaner } from '../../dataCleaners/afterEventCategoryCleaner';
 import { Async } from 'react-select';
 import { yelpFetchRestaurants } from '../../apiCalls/yelpApiCall';
-import { storeSuggestedRestaurants, storeSuggestedBars, toggleLocation } from '../../actions';
+import { storeSuggestedRestaurants, storeSuggestedBars, toggleEventError } from '../../actions';
 
 export class StopSelection extends Component {
   constructor() {
@@ -50,15 +50,15 @@ changePriceRange = (price) => {
   }
 }
 
-toggleLocation = () => {
-  this.props.toggleLocation(true);
+toggleEventError = () => {
+  this.props.toggleEventError(true);
   setTimeout(() => {
-    this.props.toggleLocation(false);
+    this.props.toggleEventError(false);
   }, 2000);
 }
 
 handleRestaurantClick = async () => {
-  if (this.props.location) {
+  if (this.props.selectedEvent !== null) {
     const latitude = this.props.selectedEvent.latitude;
     const longitude = this.props.selectedEvent.longitude;
     const price = this.state.priceRanges.sort().join();
@@ -69,7 +69,7 @@ handleRestaurantClick = async () => {
     this.props.type === 'before' ? this.props.storeSuggestedRestaurants(suggestedRestaurantsBars) : 
       this.props.storeSuggestedBars(suggestedRestaurantsBars);
   } else {
-    this.toggleLocation();
+    this.toggleEventError();
   }
 }
 
@@ -108,12 +108,12 @@ render() {
 export const mapDispatchToProps = (dispatch) => ({
   storeSuggestedRestaurants: (restaurants) => dispatch(storeSuggestedRestaurants(restaurants)),
   storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars)),
-  toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
+  toggleEventError: (boolean) => dispatch(toggleEventError(boolean))
 })
 
 export const mapStateToProps = (state) => ({
   selectedEvent: state.selectedEvent,
-  location: state.location
+  eventError: state.eventError
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StopSelection);
