@@ -5,7 +5,7 @@ import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
 import { loginUser, storeRecentEvents, toggleLocation } from '../../actions';
-import { ticketmasterApiCallRecentEvents } from '../../apiCalls/ticketmasterApiCall';
+import { fetchRecentEvents } from '../../apiCalls';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
 import homeSignupTextBoxImg from './assets/home-signup-text-box-img.jpg';
@@ -87,7 +87,7 @@ export class Login extends Component {
     const state = this.state.state;
     const date = moment();
     const timeNow = date.format();
-    const events = await ticketmasterApiCallRecentEvents(city, state, timeNow);
+    const events = await fetchRecentEvents(city, state, timeNow);
     const recentEvents = cleanRecentEvents(events);
 
     this.props.storeRecentEvents(recentEvents);

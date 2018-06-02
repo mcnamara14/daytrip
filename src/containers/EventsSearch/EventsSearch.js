@@ -9,7 +9,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Async } from 'react-select';
 import 'react-select/dist/react-select.css';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
-import { ticketmasterApiCallRecentEventsSearch, ticketmasterFetchSelectedEvent } from '../../apiCalls';
+import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
 import { storeSelectedEvent, toggleLocation } from '../../actions';
 
 class EventsSearch extends Component {
@@ -56,7 +56,7 @@ class EventsSearch extends Component {
     if (city && state) {
       const date = startDate;
       const timeNow = date.format();
-      const events = await ticketmasterApiCallRecentEventsSearch(city, state, timeNow, input);
+      const events = await fetchRecentEventsOnSearch(city, state, timeNow, input);
 
       return events;
     } else {
@@ -79,7 +79,7 @@ class EventsSearch extends Component {
   
   handleStoreEvent = async () => {
     const eventId = this.state.selectedOption.id;
-    const selectedEvent = await ticketmasterFetchSelectedEvent(eventId);
+    const selectedEvent = await fetchSelectedEvent(eventId);
     const event = selectedEvent[0];
 
     this.props.storeSelectedEvent(event);

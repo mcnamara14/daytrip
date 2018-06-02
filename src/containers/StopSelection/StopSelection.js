@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import './StopSelection.css';
 import Select from 'react-select';
 import { beforeEventCategoryCleaner, afterEventCategoryCleaner } from '../../dataCleaners';
-import { yelpFetchRestaurants } from '../../apiCalls/yelpApiCall';
+import { fetchRestaurantsAndBars } from '../../apiCalls';
 import { storeSuggestedRestaurants, storeSuggestedBars, toggleEventError } from '../../actions';
 
 export class StopSelection extends Component {
@@ -61,7 +61,7 @@ export class StopSelection extends Component {
       const longitude = selectedEvent.longitude;
       const price = priceRanges.sort().join();
       const category = selectedOption.alias;
-      const suggestedRestaurantsBars = await yelpFetchRestaurants(latitude, longitude, price, category);
+      const suggestedRestaurantsBars = await fetchRestaurantsAndBars(latitude, longitude, price, category);
       
       type === 'before' ? storeSuggestedRestaurants(suggestedRestaurantsBars) : 
         storeSuggestedBars(suggestedRestaurantsBars);

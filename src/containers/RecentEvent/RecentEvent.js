@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './RecentEvent.css';
 import { storeSelectedEvent } from '../../actions';
-import { ticketmasterFetchSelectedEvent } from '../../apiCalls';
+import { fetchSelectedEvent } from '../../apiCalls';
 
 class RecentEvent extends Component {
   handleRecentClick = async (eventId) => {
-    const selectedEvent = await ticketmasterFetchSelectedEvent(eventId);
+    const selectedEvent = await fetchSelectedEvent(eventId);
     const event = selectedEvent[0]
 
     this.props.storeSelectedEvent(event);
