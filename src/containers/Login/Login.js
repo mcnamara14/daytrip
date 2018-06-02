@@ -44,7 +44,8 @@ export class Login extends Component {
     } = this.state;
 
     if (location) {
-      const result = await authorization.emailPasswordSignup(emailInput, password);
+      const result = 
+        await authorization.emailPasswordSignup(emailInput, password);
       
       const {
         uid,
@@ -118,7 +119,7 @@ export class Login extends Component {
       state
     });
 
-    this.props.toggleLocation(false)
+    this.props.toggleLocation(false);
   }
 
   render() {
@@ -128,13 +129,15 @@ export class Login extends Component {
           <article className="homeHeroTextBox">
             <h1>Event Planner</h1>
             <h4><span>Your personal event planning assistant.</span></h4>
-            <p>Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.</p>
+            <p>Let us wax poetic about the beauty of the cheeseburger. 
+              The burg is flavour gracefully dances across.</p>
           </article>
         </section>
         <section className="signupContainer">
           <section className="signupTextBox">
             <h2>Sign up to get started</h2>
-            <p>The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.</p>
+            <p>The cheese melts on the burger and in your mouth, 
+              perfectly complementing the medium-rare beef.</p>
             <h5>We plan your stops</h5>
             <img src={homeSignupTextBoxImg} />
           </section>
@@ -144,8 +147,13 @@ export class Login extends Component {
                 <h3>Choose your location</h3>
                 <p>* Required for signup</p>
                 <div>
-                  { this.props.location ? <div><p className="errorPopup">A location is required for signup</p></div> : ''}
-                  <form onClick={this.onClickHandler} className="locationInput" >
+                  { this.props.location ? 
+                    <div><p className="errorPopup">
+                      A location is required for signup
+                    </p></div> : ''}
+                  <form 
+                    onClick={this.onClickHandler} 
+                    className="locationInput" >
                     <LocationAutocomplete
                       name="location"
                       placeholder="Enter a location..."
@@ -161,7 +169,9 @@ export class Login extends Component {
               <section className="signupInputs">
                 <article className="emailPassForm">
                   <h4>Email Signup</h4>
-                  <form className="emailSignup" onClick={this.emailSubmitHandler} >
+                  <form 
+                    className="emailSignup" 
+                    onClick={this.emailSubmitHandler} >
                     <input
                       name='emailInput'
                       value={this.state.emailInput}
@@ -183,7 +193,8 @@ export class Login extends Component {
                     <button onClick={this.googleSignup}>Google Signup</button>
                   </div>
                   <div className="facebookBtn">
-                    <button onClick={this.facebookSignup}>Facebook Signup</button>
+                    <button 
+                      onClick={this.facebookSignup}>Facebook Signup</button>
                   </div>
                 </article>
               </section>
@@ -196,12 +207,16 @@ export class Login extends Component {
 }
 
 export const mapDispatchToProps = (dispatch) => ({
-  loginUser: (userId, email, city, state) => dispatch(loginUser(userId, email, city, state)),
-  storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents)),
+  loginUser: (userId, email, city, state) => {
+    return dispatch(loginUser(userId, email, city, state));
+  },
+  storeRecentEvents: (recentEvents) => {
+    return dispatch(storeRecentEvents(recentEvents));
+  },
   toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
 });
 
 export const mapStateToProps = (state) => ({
   location: state.location
-})
+});
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

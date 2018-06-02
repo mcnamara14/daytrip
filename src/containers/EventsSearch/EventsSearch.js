@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './EventsSearch.css';
 import LocationAutocomplete from 'location-autocomplete';
-import Calendar from 'rc-calendar';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import 'react-datepicker/dist/react-datepicker.css';
