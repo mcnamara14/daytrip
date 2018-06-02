@@ -21,7 +21,7 @@ ShallowWrapper {
         <img
           alt="Header logo"
           className="headerLogo"
-          src="header-logo.jpg"
+          src="header-logo.png"
 />,
         <nav>
           <NavLink
@@ -51,7 +51,7 @@ ShallowWrapper {
                     <img
                               alt="Login icon"
                               className="loginIcon"
-                              src="header-login-icon.jpg"
+                              src="header-login-icon.png"
                     />
                     <NavLink
                               activeClassName="active"
@@ -74,7 +74,7 @@ ShallowWrapper {
         "props": Object {
           "alt": "Header logo",
           "className": "headerLogo",
-          "src": "header-logo.jpg",
+          "src": "header-logo.png",
         },
         "ref": null,
         "rendered": null,
@@ -113,7 +113,7 @@ ShallowWrapper {
               <img
                             alt="Login icon"
                             className="loginIcon"
-                            src="header-login-icon.jpg"
+                            src="header-login-icon.png"
               />
               <NavLink
                             activeClassName="active"
@@ -179,7 +179,7 @@ ShallowWrapper {
                 <img
                   alt="Login icon"
                   className="loginIcon"
-                  src="header-login-icon.jpg"
+                  src="header-login-icon.png"
 />,
                 <NavLink
                   activeClassName="active"
@@ -201,7 +201,7 @@ ShallowWrapper {
                 "props": Object {
                   "alt": "Login icon",
                   "className": "loginIcon",
-                  "src": "header-login-icon.jpg",
+                  "src": "header-login-icon.png",
                 },
                 "ref": null,
                 "rendered": null,
@@ -241,7 +241,7 @@ ShallowWrapper {
           <img
             alt="Header logo"
             className="headerLogo"
-            src="header-logo.jpg"
+            src="header-logo.png"
 />,
           <nav>
             <NavLink
@@ -271,7 +271,7 @@ ShallowWrapper {
                         <img
                                     alt="Login icon"
                                     className="loginIcon"
-                                    src="header-login-icon.jpg"
+                                    src="header-login-icon.png"
                         />
                         <NavLink
                                     activeClassName="active"
@@ -294,7 +294,7 @@ ShallowWrapper {
           "props": Object {
             "alt": "Header logo",
             "className": "headerLogo",
-            "src": "header-logo.jpg",
+            "src": "header-logo.png",
           },
           "ref": null,
           "rendered": null,
@@ -333,7 +333,7 @@ ShallowWrapper {
                 <img
                                 alt="Login icon"
                                 className="loginIcon"
-                                src="header-login-icon.jpg"
+                                src="header-login-icon.png"
                 />
                 <NavLink
                                 activeClassName="active"
@@ -399,7 +399,7 @@ ShallowWrapper {
                   <img
                     alt="Login icon"
                     className="loginIcon"
-                    src="header-login-icon.jpg"
+                    src="header-login-icon.png"
 />,
                   <NavLink
                     activeClassName="active"
@@ -421,7 +421,7 @@ ShallowWrapper {
                   "props": Object {
                     "alt": "Login icon",
                     "className": "loginIcon",
-                    "src": "header-login-icon.jpg",
+                    "src": "header-login-icon.png",
                   },
                   "ref": null,
                   "rendered": null,

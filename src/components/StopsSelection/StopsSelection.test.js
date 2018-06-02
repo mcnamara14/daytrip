@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Component from './Component';
+import { StopsSelection } from './StopsSelection';
 import { shallow } from 'enzyme';
 
 it('renders without crashing', () => {
-  
+  const wrapper = shallow(<StopsSelection />);
+
+  expect(wrapper).toMatchSnapshot();
 });
