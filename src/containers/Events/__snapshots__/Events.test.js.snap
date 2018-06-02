@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`should match the snapshot 1`] = `
+exports[`Events should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
@@ -13,6 +13,41 @@ ShallowWrapper {
               "price": "$300",
               "title": "T Swift",
               "venue": "Boulder Theater",
+            },
+          ]
+    }
+    selectedEvent={
+        Array [
+            Object {
+              "date": "2018-05-30 8:00 PM",
+              "image": "https://s1.ticketm.allswifty.jpg",
+              "price": "$300",
+              "title": "T Swift",
+              "venue": "Boulder Theater",
+            },
+          ]
+    }
+    suggestedBars={
+        Array [
+            Object {
+              "address": "1420 E 18th Ave Denver, CO 80218",
+              "image_url": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
+              "name": "Beebs",
+              "price": "$$",
+              "rating": 4.5,
+              "review_count": 450,
+            },
+          ]
+    }
+    suggestedRestaurants={
+        Array [
+            Object {
+              "address": "1420 E 18th Ave Denver, CO 80218",
+              "image_url": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
+              "name": "Beebs",
+              "price": "$$",
+              "rating": 4.5,
+              "review_count": 450,
             },
           ]
     }
@@ -34,20 +69,11 @@ ShallowWrapper {
         <div
           className="eventsStopsSelection"
 >
-          <EventsSearch />
+          <Connect(EventsSearch) />
           <Unknown />
 </div>,
-        <section
-          className="recentEvents"
->
-          <Unknown
-                    date="2018-05-30 8:00 PM"
-                    image="https://s1.ticketm.allswifty.jpg"
-                    price="$300"
-                    title="T Swift"
-                    venue="Boulder Theater"
-          />
-</section>,
+        <Connect(SelectedEvent) />,
+        <Connect(Plans) />,
       ],
       "className": "eventsContainer",
     },
@@ -68,7 +94,7 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <EventsSearch />,
+            <Connect(EventsSearch) />,
             <Unknown />,
           ],
           "className": "eventsStopsSelection",
@@ -99,38 +125,20 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": Array [
-            <Unknown
-              date="2018-05-30 8:00 PM"
-              image="https://s1.ticketm.allswifty.jpg"
-              price="$300"
-              title="T Swift"
-              venue="Boulder Theater"
-/>,
-          ],
-          "className": "recentEvents",
-        },
+        "nodeType": "class",
+        "props": Object {},
         "ref": null,
-        "rendered": Array [
-          Object {
-            "instance": null,
-            "key": "0",
-            "nodeType": "function",
-            "props": Object {
-              "date": "2018-05-30 8:00 PM",
-              "image": "https://s1.ticketm.allswifty.jpg",
-              "price": "$300",
-              "title": "T Swift",
-              "venue": "Boulder Theater",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": [Function],
-          },
-        ],
-        "type": "section",
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {},
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
       },
     ],
     "type": "div",
@@ -146,20 +154,11 @@ ShallowWrapper {
           <div
             className="eventsStopsSelection"
 >
-            <EventsSearch />
+            <Connect(EventsSearch) />
             <Unknown />
 </div>,
-          <section
-            className="recentEvents"
->
-            <Unknown
-                        date="2018-05-30 8:00 PM"
-                        image="https://s1.ticketm.allswifty.jpg"
-                        price="$300"
-                        title="T Swift"
-                        venue="Boulder Theater"
-            />
-</section>,
+          <Connect(SelectedEvent) />,
+          <Connect(Plans) />,
         ],
         "className": "eventsContainer",
       },
@@ -180,7 +179,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <EventsSearch />,
+              <Connect(EventsSearch) />,
               <Unknown />,
             ],
             "className": "eventsStopsSelection",
@@ -211,38 +210,20 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": Array [
-              <Unknown
-                date="2018-05-30 8:00 PM"
-                image="https://s1.ticketm.allswifty.jpg"
-                price="$300"
-                title="T Swift"
-                venue="Boulder Theater"
-/>,
-            ],
-            "className": "recentEvents",
-          },
+          "nodeType": "class",
+          "props": Object {},
           "ref": null,
-          "rendered": Array [
-            Object {
-              "instance": null,
-              "key": "0",
-              "nodeType": "function",
-              "props": Object {
-                "date": "2018-05-30 8:00 PM",
-                "image": "https://s1.ticketm.allswifty.jpg",
-                "price": "$300",
-                "title": "T Swift",
-                "venue": "Boulder Theater",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": [Function],
-            },
-          ],
-          "type": "section",
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {},
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
         },
       ],
       "type": "div",
