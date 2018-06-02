@@ -4,7 +4,7 @@ import './RecentEvent.css';
 import { storeSelectedEvent } from '../../actions';
 import { fetchSelectedEvent } from '../../apiCalls';
 
-class RecentEvent extends Component {
+export class RecentEvent extends Component {
   handleRecentClick = async (eventId) => {
     const selectedEvent = await fetchSelectedEvent(eventId);
     const event = selectedEvent[0];
