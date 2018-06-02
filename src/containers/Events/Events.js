@@ -45,7 +45,7 @@ export class Events extends Component {
             </div>
           </section>
         }
-        { this.props.suggestedRestaurants.length ? <Plans /> : null }
+        { this.props.suggestedRestaurants.length && this.props.suggestedBars.length ? <Plans /> : null }
       </div>
     );
   }
@@ -54,7 +54,8 @@ export class Events extends Component {
 export const mapStateToProps = (state) => ({
   events: state.recentEvents,
   selectedEvent: state.selectedEvent,
-  suggestedRestaurants: state.suggestedRestaurants
+  suggestedRestaurants: state.suggestedRestaurants,
+  suggestedBars: state.suggestedBars
 });
 
 export default connect(mapStateToProps)(Events);

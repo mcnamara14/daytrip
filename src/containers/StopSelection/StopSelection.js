@@ -12,7 +12,7 @@ export class StopSelection extends Component {
     super();
 
     this.state = {
-      selectedOption: {},
+      selectedOption: null,
       priceRanges:[]
     }
   };
@@ -20,7 +20,6 @@ export class StopSelection extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.selectedEvent) {
       setTimeout(() => {
-        console.log('event', this.props.selectedEvent)
         this.handleRestaurantClick();
       }, 0);
     }
@@ -59,21 +58,19 @@ toggleEventError = () => {
 }
 
 handleRestaurantClick = async () => {
+  const { latitude, longitude, selectedEvent, type, storeSuggestedRestaurants, storeSuggestedBars } = this.props;
+  const { selectedOption, priceRanges } = this.state;
+
   if (this.props.selectedEvent !== null && this.state.selectedOption !== null) {
-    const latitude = this.props.selectedEvent.latitude;
-    const longitude = this.props.selectedEvent.longitude;
-    const price = this.state.priceRanges.sort().join();
-    const category = this.state.selectedOption.alias;
-    console.log(this.props.selectedEvent)
-    console.log(latitude)
-    console.log(longitude)
-    console.log(price)
-    console.log(category)
+    const latitude = selectedEvent.latitude;
+    const longitude = selectedEvent.longitude;
+    const price = priceRanges.sort().join();
+    const category = selectedOption.alias;
     const suggestedRestaurantsBars = await yelpFetchRestaurants(latitude, longitude, price, category)
     
-    this.props.type === 'before' ? this.props.storeSuggestedRestaurants(suggestedRestaurantsBars) : 
-      this.props.storeSuggestedBars(suggestedRestaurantsBars);
-  } else {
+    type === 'before' ? storeSuggestedRestaurants(suggestedRestaurantsBars) : 
+      storeSuggestedBars(suggestedRestaurantsBars);
+  } else if (this.props.selectedEvent === null) {
     this.toggleEventError();
   }
 }

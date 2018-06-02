@@ -6,16 +6,17 @@ import PropTypes from 'prop-types';
 
 export class Plans extends Component {
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedEvent) {
-      this.getPlans();;
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.selectedEvent) {
+  //     this.getPlans();;
+  //   }
+  // }
 
   getPlans = () => {
     let plans = [];
 
     if (this.props.suggestedBars.length && this.props.suggestedBars.length) {
+      console.log('sdf')
       for (let i = 0; i < this.props.suggestedBars.length; i++) {
         const { 
           name: restaurantName, 

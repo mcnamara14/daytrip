@@ -1,22 +1,11 @@
 export const beforeEventCategoryCleaner = () => {
-  let categories;
-
-  const restaurantCategories = [
+const restaurantCategories = [
     { alias: 'afghani', label: 'Afghani'},
     { alias: 'african', label: 'African'},
     { alias: 'southafrican', label: 'South African'},
     { alias: 'newamerican', label: 'New American'},
     { alias: 'tradamerican', label: 'Traditional American'}
   ]
-
-  categories = restaurantCategories.map((category, index) => {
-    const { alias, label } = category;
-    return {
-      value: index,
-      label,
-      alias
-    }
-  });
 
   return restaurantCategories;
 };
