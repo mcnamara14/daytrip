@@ -7,7 +7,7 @@ jest.mock('../../apiCalls');
 import { mockDirtyRecentEvents } from '../../mockData/mockRecentEvents'
 
 describe('RecentEvent', () => {
-  it.skip('renders without crashing', () => {
+  it('renders without crashing', () => {
     const wrapper = shallow(<RecentEvent />);
   
     expect(wrapper).toMatchSnapshot();
@@ -21,7 +21,7 @@ describe('RecentEvent', () => {
       fetchSelectedEvent.mockImplementation(() => [{title: 'T-Swift'}])
     })
 
-    it.skip('should call fetchSelectedEvent with the correct argument', async () => {
+    it('should call fetchSelectedEvent with the correct argument', async () => {
       const expected = '12345';
 
       await wrapper.instance().handleRecentClick(expected);
@@ -29,14 +29,23 @@ describe('RecentEvent', () => {
       expect(fetchSelectedEvent).toHaveBeenCalledWith(expected);
     })
 
-    it.skip('should call storeSelectedEvent with the correct argument', async () => {
+    it('should call storeSelectedEvent with the correct argument', async () => {
       const expected = {title: 'T-Swift'};
 
       await wrapper.instance().handleRecentClick(expected);
 
       expect(wrapper.instance().props.storeSelectedEvent).toHaveBeenCalledWith(expected);
     })
-
   });
-  
+
+  describe('Event button click', () => {
+    it('should call handleRecentClick with correct argument when button is clicked to add event', () => {
+      const wrapper = shallow(<RecentEvent id={'12345'} storeSelectedEvent={jest.fn()} />);
+
+      wrapper.instance().handleRecentClick = jest.fn();
+
+      wrapper.find('button').simulate('click');
+      expect(wrapper.instance().handleRecentClick).toHaveBeenCalledWith('12345');
+    })
+  })
 })
