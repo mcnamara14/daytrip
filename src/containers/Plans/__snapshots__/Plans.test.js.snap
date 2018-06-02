@@ -1,0 +1,809 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Plans
+    selectedEvent={
+        Array [
+            Object {
+              "date": "2018-05-30 8:00 PM",
+              "image": "https://s1.ticketm.allswifty.jpg",
+              "price": "$300",
+              "title": "T Swift",
+              "venue": "Boulder Theater",
+            },
+          ]
+    }
+    suggestedBars={
+        Array [
+            Object {
+              "address": "1420 E 18th Ave Denver, CO 80218",
+              "image_url": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
+              "name": "Beebs",
+              "price": "$$",
+              "rating": 4.5,
+              "review_count": 450,
+            },
+          ]
+    }
+    suggestedRestaurants={
+        Array [
+            Object {
+              "address": "1420 E 18th Ave Denver, CO 80218",
+              "image_url": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
+              "name": "Beebs",
+              "price": "$$",
+              "rating": 4.5,
+              "review_count": 450,
+            },
+          ]
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": <div
+        className="plansContainer"
+>
+        <h3>
+                Suggested Plan
+        </h3>
+        <div
+                className="planContainer"
+        >
+                <h4>
+                        Plan 
+                        1
+                </h4>
+                <section
+                        className="plan"
+                >
+                        <Stop
+                                image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                index={1}
+                                location="1420 E 18th Ave Denver, CO 80218"
+                                price="$$"
+                                rating={4.5}
+                                reviews={450}
+                                title="Beebs"
+                                type="restaurant"
+                        />
+                        <img
+                                className="routeImg"
+                                src="route-img.jpg"
+                        />
+                        <Stop
+                                image={undefined}
+                                index={1}
+                                location={undefined}
+                                price={undefined}
+                                rating=""
+                                reviews={undefined}
+                                title={undefined}
+                                type="event"
+                        />
+                        <img
+                                className="routeImg"
+                                src="route-img.jpg"
+                        />
+                        <Stop
+                                image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                index={1}
+                                location="1420 E 18th Ave Denver, CO 80218"
+                                price="$$"
+                                rating={4.5}
+                                reviews={450}
+                                title="Beebs"
+                                type="bar"
+                        />
+                </section>
+                <button>
+                        Select Plan
+                </button>
+        </div>
+</div>,
+      "className": "suggestedPlans",
+    },
+    "ref": null,
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            Suggested Plan
+</h3>,
+          Array [
+            <div
+              className="planContainer"
+>
+              <h4>
+                            Plan 
+                            1
+              </h4>
+              <section
+                            className="plan"
+              >
+                            <Stop
+                                          image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                          index={1}
+                                          location="1420 E 18th Ave Denver, CO 80218"
+                                          price="$$"
+                                          rating={4.5}
+                                          reviews={450}
+                                          title="Beebs"
+                                          type="restaurant"
+                            />
+                            <img
+                                          className="routeImg"
+                                          src="route-img.jpg"
+                            />
+                            <Stop
+                                          image={undefined}
+                                          index={1}
+                                          location={undefined}
+                                          price={undefined}
+                                          rating=""
+                                          reviews={undefined}
+                                          title={undefined}
+                                          type="event"
+                            />
+                            <img
+                                          className="routeImg"
+                                          src="route-img.jpg"
+                            />
+                            <Stop
+                                          image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                          index={1}
+                                          location="1420 E 18th Ave Denver, CO 80218"
+                                          price="$$"
+                                          rating={4.5}
+                                          reviews={450}
+                                          title="Beebs"
+                                          type="bar"
+                            />
+              </section>
+              <button>
+                            Select Plan
+              </button>
+</div>,
+          ],
+        ],
+        "className": "plansContainer",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Suggested Plan",
+          },
+          "ref": null,
+          "rendered": "Suggested Plan",
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": "0",
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <h4>
+                Plan 
+                1
+</h4>,
+              <section
+                className="plan"
+>
+                <Stop
+                                image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                index={1}
+                                location="1420 E 18th Ave Denver, CO 80218"
+                                price="$$"
+                                rating={4.5}
+                                reviews={450}
+                                title="Beebs"
+                                type="restaurant"
+                />
+                <img
+                                className="routeImg"
+                                src="route-img.jpg"
+                />
+                <Stop
+                                image={undefined}
+                                index={1}
+                                location={undefined}
+                                price={undefined}
+                                rating=""
+                                reviews={undefined}
+                                title={undefined}
+                                type="event"
+                />
+                <img
+                                className="routeImg"
+                                src="route-img.jpg"
+                />
+                <Stop
+                                image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                index={1}
+                                location="1420 E 18th Ave Denver, CO 80218"
+                                price="$$"
+                                rating={4.5}
+                                reviews={450}
+                                title="Beebs"
+                                type="bar"
+                />
+</section>,
+              <button>
+                Select Plan
+</button>,
+            ],
+            "className": "planContainer",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  "Plan ",
+                  1,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                "Plan ",
+                1,
+              ],
+              "type": "h4",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <Stop
+                    image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                    index={1}
+                    location="1420 E 18th Ave Denver, CO 80218"
+                    price="$$"
+                    rating={4.5}
+                    reviews={450}
+                    title="Beebs"
+                    type="restaurant"
+/>,
+                  <img
+                    className="routeImg"
+                    src="route-img.jpg"
+/>,
+                  <Stop
+                    image={undefined}
+                    index={1}
+                    location={undefined}
+                    price={undefined}
+                    rating=""
+                    reviews={undefined}
+                    title={undefined}
+                    type="event"
+/>,
+                  <img
+                    className="routeImg"
+                    src="route-img.jpg"
+/>,
+                  <Stop
+                    image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                    index={1}
+                    location="1420 E 18th Ave Denver, CO 80218"
+                    price="$$"
+                    rating={4.5}
+                    reviews={450}
+                    title="Beebs"
+                    type="bar"
+/>,
+                ],
+                "className": "plan",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "image": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
+                    "index": 1,
+                    "location": "1420 E 18th Ave Denver, CO 80218",
+                    "price": "$$",
+                    "rating": 4.5,
+                    "reviews": 450,
+                    "title": "Beebs",
+                    "type": "restaurant",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "routeImg",
+                    "src": "route-img.jpg",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "image": undefined,
+                    "index": 1,
+                    "location": undefined,
+                    "price": undefined,
+                    "rating": "",
+                    "reviews": undefined,
+                    "title": undefined,
+                    "type": "event",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "className": "routeImg",
+                    "src": "route-img.jpg",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "class",
+                  "props": Object {
+                    "image": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
+                    "index": 1,
+                    "location": "1420 E 18th Ave Denver, CO 80218",
+                    "price": "$$",
+                    "rating": 4.5,
+                    "reviews": 450,
+                    "title": "Beebs",
+                    "type": "bar",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": [Function],
+                },
+              ],
+              "type": "section",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Select Plan",
+              },
+              "ref": null,
+              "rendered": "Select Plan",
+              "type": "button",
+            },
+          ],
+          "type": "div",
+        },
+      ],
+      "type": "div",
+    },
+    "type": "section",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="plansContainer"
+>
+          <h3>
+                    Suggested Plan
+          </h3>
+          <div
+                    className="planContainer"
+          >
+                    <h4>
+                              Plan 
+                              1
+                    </h4>
+                    <section
+                              className="plan"
+                    >
+                              <Stop
+                                        image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                        index={1}
+                                        location="1420 E 18th Ave Denver, CO 80218"
+                                        price="$$"
+                                        rating={4.5}
+                                        reviews={450}
+                                        title="Beebs"
+                                        type="restaurant"
+                              />
+                              <img
+                                        className="routeImg"
+                                        src="route-img.jpg"
+                              />
+                              <Stop
+                                        image={undefined}
+                                        index={1}
+                                        location={undefined}
+                                        price={undefined}
+                                        rating=""
+                                        reviews={undefined}
+                                        title={undefined}
+                                        type="event"
+                              />
+                              <img
+                                        className="routeImg"
+                                        src="route-img.jpg"
+                              />
+                              <Stop
+                                        image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                        index={1}
+                                        location="1420 E 18th Ave Denver, CO 80218"
+                                        price="$$"
+                                        rating={4.5}
+                                        reviews={450}
+                                        title="Beebs"
+                                        type="bar"
+                              />
+                    </section>
+                    <button>
+                              Select Plan
+                    </button>
+          </div>
+</div>,
+        "className": "suggestedPlans",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <h3>
+              Suggested Plan
+</h3>,
+            Array [
+              <div
+                className="planContainer"
+>
+                <h4>
+                                Plan 
+                                1
+                </h4>
+                <section
+                                className="plan"
+                >
+                                <Stop
+                                                image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                                index={1}
+                                                location="1420 E 18th Ave Denver, CO 80218"
+                                                price="$$"
+                                                rating={4.5}
+                                                reviews={450}
+                                                title="Beebs"
+                                                type="restaurant"
+                                />
+                                <img
+                                                className="routeImg"
+                                                src="route-img.jpg"
+                                />
+                                <Stop
+                                                image={undefined}
+                                                index={1}
+                                                location={undefined}
+                                                price={undefined}
+                                                rating=""
+                                                reviews={undefined}
+                                                title={undefined}
+                                                type="event"
+                                />
+                                <img
+                                                className="routeImg"
+                                                src="route-img.jpg"
+                                />
+                                <Stop
+                                                image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                                index={1}
+                                                location="1420 E 18th Ave Denver, CO 80218"
+                                                price="$$"
+                                                rating={4.5}
+                                                reviews={450}
+                                                title="Beebs"
+                                                type="bar"
+                                />
+                </section>
+                <button>
+                                Select Plan
+                </button>
+</div>,
+            ],
+          ],
+          "className": "plansContainer",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Suggested Plan",
+            },
+            "ref": null,
+            "rendered": "Suggested Plan",
+            "type": "h3",
+          },
+          Object {
+            "instance": null,
+            "key": "0",
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <h4>
+                  Plan 
+                  1
+</h4>,
+                <section
+                  className="plan"
+>
+                  <Stop
+                                    image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                    index={1}
+                                    location="1420 E 18th Ave Denver, CO 80218"
+                                    price="$$"
+                                    rating={4.5}
+                                    reviews={450}
+                                    title="Beebs"
+                                    type="restaurant"
+                  />
+                  <img
+                                    className="routeImg"
+                                    src="route-img.jpg"
+                  />
+                  <Stop
+                                    image={undefined}
+                                    index={1}
+                                    location={undefined}
+                                    price={undefined}
+                                    rating=""
+                                    reviews={undefined}
+                                    title={undefined}
+                                    type="event"
+                  />
+                  <img
+                                    className="routeImg"
+                                    src="route-img.jpg"
+                  />
+                  <Stop
+                                    image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                                    index={1}
+                                    location="1420 E 18th Ave Denver, CO 80218"
+                                    price="$$"
+                                    rating={4.5}
+                                    reviews={450}
+                                    title="Beebs"
+                                    type="bar"
+                  />
+</section>,
+                <button>
+                  Select Plan
+</button>,
+              ],
+              "className": "planContainer",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    "Plan ",
+                    1,
+                  ],
+                },
+                "ref": null,
+                "rendered": Array [
+                  "Plan ",
+                  1,
+                ],
+                "type": "h4",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": Array [
+                    <Stop
+                      image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                      index={1}
+                      location="1420 E 18th Ave Denver, CO 80218"
+                      price="$$"
+                      rating={4.5}
+                      reviews={450}
+                      title="Beebs"
+                      type="restaurant"
+/>,
+                    <img
+                      className="routeImg"
+                      src="route-img.jpg"
+/>,
+                    <Stop
+                      image={undefined}
+                      index={1}
+                      location={undefined}
+                      price={undefined}
+                      rating=""
+                      reviews={undefined}
+                      title={undefined}
+                      type="event"
+/>,
+                    <img
+                      className="routeImg"
+                      src="route-img.jpg"
+/>,
+                    <Stop
+                      image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
+                      index={1}
+                      location="1420 E 18th Ave Denver, CO 80218"
+                      price="$$"
+                      rating={4.5}
+                      reviews={450}
+                      title="Beebs"
+                      type="bar"
+/>,
+                  ],
+                  "className": "plan",
+                },
+                "ref": null,
+                "rendered": Array [
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "image": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
+                      "index": 1,
+                      "location": "1420 E 18th Ave Denver, CO 80218",
+                      "price": "$$",
+                      "rating": 4.5,
+                      "reviews": 450,
+                      "title": "Beebs",
+                      "type": "restaurant",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "routeImg",
+                      "src": "route-img.jpg",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "image": undefined,
+                      "index": 1,
+                      "location": undefined,
+                      "price": undefined,
+                      "rating": "",
+                      "reviews": undefined,
+                      "title": undefined,
+                      "type": "event",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "className": "routeImg",
+                      "src": "route-img.jpg",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": "img",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "class",
+                    "props": Object {
+                      "image": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
+                      "index": 1,
+                      "location": "1420 E 18th Ave Denver, CO 80218",
+                      "price": "$$",
+                      "rating": 4.5,
+                      "reviews": 450,
+                      "title": "Beebs",
+                      "type": "bar",
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                ],
+                "type": "section",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Select Plan",
+                },
+                "ref": null,
+                "rendered": "Select Plan",
+                "type": "button",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "div",
+      },
+      "type": "section",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
