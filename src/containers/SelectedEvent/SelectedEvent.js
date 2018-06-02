@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import './SelectedEvent.css';
 
 class SelectedEvent extends Component {
-
   render() {
     const { image, title, price, venue, date } = this.props.selectedEvent;
     const backgroundImage = {backgroundImage: "url(" + image + ")"};

@@ -1,6 +1,4 @@
 export const afterEventCategoryCleaner = () => {
-  let categories;
-
   const restaurantCategories = [
     { alias: 'airportlounges', label: 'Airport Lounges'},
     { alias: 'beerbar', label: 'Beer Bar'},
@@ -8,16 +6,6 @@ export const afterEventCategoryCleaner = () => {
     { alias: 'cigarbars', label: 'Cigar Bars'},
     { alias: 'cocktailbars', label: 'Cocktail Bars'}
   ]
-
-  categories = restaurantCategories.map((category, index) => {
-    const { alias, label } = category;
-    return {
-      value: index,
-      label,
-      alias
-    }
-  });
-
 
   return restaurantCategories;
 };

@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import './Plan.css';
+import './Stop.css';
 
-export class Plan extends Component {
+export class Stop extends Component {
 
   render() {
-    const { title, rating, location, price, reviews, image, index, type } = this.props;
+    const { 
+      title, 
+      rating, 
+      location, 
+      price, 
+      reviews, 
+      image, 
+      index, 
+      type 
+    } = this.props;
     const backgroundImage = {backgroundImage: "url(" + image + ")"};
     const className = `${type}-${index}`;
     const review = rating * 20;
@@ -37,4 +46,4 @@ export class Plan extends Component {
   }
 }
 
-export default Plan;
+export default Stop;

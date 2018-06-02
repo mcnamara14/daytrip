@@ -5,8 +5,8 @@ export const EventsHero = () =>  {
   return (
     <div className="eventsHeroContainer">     
       <article className="eventsHeroTextBox">
-        <h1>Rockies vs Reds</h1>
-        <h4><span>Coors Field</span></h4>
+        <h1>We plan your day for you</h1>
+        <h4><span>Select an event. Choose a type of restaurant and bar. We'll do the rest.</span></h4>
         <button>Select Event</button>
       </article>
     </div>
