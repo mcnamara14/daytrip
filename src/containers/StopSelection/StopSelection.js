@@ -17,6 +17,15 @@ export class StopSelection extends Component {
     }
   };
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedEvent) {
+      setTimeout(() => {
+        console.log('event', this.props.selectedEvent)
+        this.handleRestaurantClick();
+      }, 0);
+    }
+  }
+
 beforeEventCategories = async () => {
   return beforeEventCategoryCleaner();
 }
@@ -63,7 +72,11 @@ handleRestaurantClick = async () => {
     const longitude = this.props.selectedEvent.longitude;
     const price = this.state.priceRanges.sort().join();
     const category = this.state.selectedOption.alias;
-
+    console.log(this.props.selectedEvent)
+    console.log(latitude)
+    console.log(longitude)
+    console.log(price)
+    console.log(category)
     const suggestedRestaurantsBars = await yelpFetchRestaurants(latitude, longitude, price, category)
     
     this.props.type === 'before' ? this.props.storeSuggestedRestaurants(suggestedRestaurantsBars) : 

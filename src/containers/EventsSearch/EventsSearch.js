@@ -127,7 +127,7 @@ class EventsSearch extends Component {
             onChange={this.handleChange}
           />
         </div>
-        <button onClick={this.handleStoreEvent} >Select Event</button>
+        <button onClick={this.handleStoreEvent}>Select Event</button>
       </div>
     );
   }
