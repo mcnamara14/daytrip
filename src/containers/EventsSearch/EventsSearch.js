@@ -29,12 +29,6 @@ export class EventsSearch extends Component {
     this.fetchEvents();
   }
 
-  handleChange = (startDate) => {
-    this.setState({
-      startDate
-    });
-  }
-
   componentWillMount() {
     const { user } = this.props;
 
@@ -47,6 +41,12 @@ export class EventsSearch extends Component {
         selectedOption
       })
     }
+  }
+
+  handleChange = (startDate) => {
+    this.setState({
+      startDate
+    });
   }
 
   fetchEvents = async (input) => {
