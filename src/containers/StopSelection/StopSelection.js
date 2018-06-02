@@ -5,9 +5,7 @@ import { beforeEventCategoryCleaner } from '../../dataCleaners/beforeEventCatego
 import { afterEventCategoryCleaner } from '../../dataCleaners/afterEventCategoryCleaner';
 import { Async } from 'react-select';
 import { yelpFetchRestaurants } from '../../apiCalls/yelpApiCall';
-import { storeSuggestedRestaurants } from '../../actions/storeSuggestedRestaurants';
-import { storeSuggestedBars } from '../../actions/storeSuggestedBars';
-
+import { storeSuggestedRestaurants, storeSuggestedBars, toggleLocation } from '../../actions';
 
 export class StopSelection extends Component {
   constructor() {
@@ -53,15 +51,19 @@ changePriceRange = (price) => {
 }
 
 handleRestaurantClick = async () => {
-  const latitude = this.props.selectedEvent.latitude;
-  const longitude = this.props.selectedEvent.longitude;
-  const price = this.state.priceRanges.sort().join();
-  const category = this.state.selectedOption.alias;
+  if (this.props.location) {
+    const latitude = this.props.selectedEvent.latitude;
+    const longitude = this.props.selectedEvent.longitude;
+    const price = this.state.priceRanges.sort().join();
+    const category = this.state.selectedOption.alias;
 
-  const suggestedRestaurantsBars = await yelpFetchRestaurants(latitude, longitude, price, category)
-  
-  this.props.type === 'before' ? this.props.storeSuggestedRestaurants(suggestedRestaurantsBars) : 
-    this.props.storeSuggestedBars(suggestedRestaurantsBars);
+    const suggestedRestaurantsBars = await yelpFetchRestaurants(latitude, longitude, price, category)
+    
+    this.props.type === 'before' ? this.props.storeSuggestedRestaurants(suggestedRestaurantsBars) : 
+      this.props.storeSuggestedBars(suggestedRestaurantsBars);
+  } else {
+    this.props.toggleLocation(true)
+  }
 }
 
 render() {
@@ -98,11 +100,13 @@ render() {
 
 export const mapDispatchToProps = (dispatch) => ({
   storeSuggestedRestaurants: (restaurants) => dispatch(storeSuggestedRestaurants(restaurants)),
-  storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars))
+  storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars)),
+  toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
 })
 
 export const mapStateToProps = (state) => ({
-  selectedEvent: state.selectedEvent
+  selectedEvent: state.selectedEvent,
+  location: state.location
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StopSelection);

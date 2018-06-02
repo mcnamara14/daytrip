@@ -4,6 +4,7 @@ import { recentEvents } from './recentEvents';
 import { selectedEvent } from './selectedEvent';
 import { suggestedRestaurants } from './suggestedRestaurants';
 import { suggestedBars } from './suggestedBars';
+import { location } from './location';
 
 
 export const rootReducer = combineReducers({
@@ -11,5 +12,6 @@ export const rootReducer = combineReducers({
   recentEvents, 
   selectedEvent,
   suggestedRestaurants,
-  suggestedBars
+  suggestedBars,
+  location
 })

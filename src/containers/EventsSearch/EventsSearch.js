@@ -24,7 +24,7 @@ class EventsSearch extends Component {
       city: '',
       state:'',
       locationError: false,
-      selectedOption: null
+      selectedOption: 'Enter a location'
     };
   }
 
@@ -112,7 +112,7 @@ class EventsSearch extends Component {
         <div className="eventsSearchLocationDate">
           <LocationAutocomplete
             name="location"
-            placeholder={this.state.selectedOption}
+            placeholder={this.state.selectedOption ? this.state.selectedOption : 'Enter a location'}
             targetArea="City, State"
             locationType="(cities)"
             onChange={this.onChangeHandler}
