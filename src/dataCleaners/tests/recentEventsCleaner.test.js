@@ -1,17 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { cleanRecentEvents} from '../dataCleaners';
+import { cleanRecentEvents} from '../';
 import { 
   mockCleanRecentEvents, 
   mockCleanRecentEventsNoStartNoPrice, 
   mockDirtyRecentEvents, 
   mockDirtyRecentEventsNoStartNoPrice 
-} from '../mockData';
+} from '../../mockData';
 jest.mock('moment', () => () => ({format: () => '2018-05-27T17:13:38-06:00'}));
 
 describe('cleanRecentEvents', () => {
   it('should clean times when there is a start date', () => {
-
     expect(cleanRecentEvents(mockDirtyRecentEvents.events)).toEqual(mockCleanRecentEvents.events)
   })
 

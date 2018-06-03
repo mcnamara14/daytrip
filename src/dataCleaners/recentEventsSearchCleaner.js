@@ -26,7 +26,7 @@ export const cleanRecentEventsSearch = (events) => {
       label: name + venue + date,
       id,
     }
-  })
+  });
 
   return {options: eventsSearchResults}
 };
