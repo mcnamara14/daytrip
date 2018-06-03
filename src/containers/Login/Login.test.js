@@ -343,7 +343,14 @@ describe('Login', () => {
       expect(wrapper.instance().props.toggleLocation).toHaveBeenCalledWith(false);
     })
   })
+  
+  describe('mapDispatchToProps', () => {
+    it('should render a location popup when location is submitted', () => {
+      const wrapper = shallow(<Login toggleLocation={jest.fn()} location={'Denver'} />);
 
+      expect(wrapper.find('.errorPopup').length).toEqual(1);
+    })
+  })
   describe('mapDispatchToProps', () => {
     it('should call dispatch with the correct params on loginUser', () => {
       const mockDispatch = jest.fn();
@@ -376,6 +383,19 @@ describe('Login', () => {
       };
 
       mappedProps.storeRecentEvents(mockAction.recentEvents);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleLocation', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_LOCATION',
+        boolean: false
+      };
+
+      mappedProps.toggleLocation(false);
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
