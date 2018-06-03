@@ -1,0 +1,747 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <StopSelection />,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h3>
+          after
+           the event
+</h3>,
+        <p
+          className="filterTitle"
+>
+          bar
+           category
+</p>,
+        <Select
+          arrowRenderer={[Function]}
+          autosize={true}
+          backspaceRemoves={true}
+          backspaceToRemoveMessage="Press backspace to remove {label}"
+          clearAllText="Clear all"
+          clearRenderer={[Function]}
+          clearValueText="Clear value"
+          clearable={true}
+          closeOnSelect={true}
+          deleteRemoves={true}
+          delimiter=","
+          disabled={false}
+          escapeClearsValue={true}
+          filterOptions={[Function]}
+          ignoreAccents={true}
+          ignoreCase={true}
+          inputProps={Object {}}
+          isLoading={false}
+          joinValues={false}
+          labelKey="label"
+          matchPos="any"
+          matchProp="any"
+          menuBuffer={0}
+          menuRenderer={[Function]}
+          multi={false}
+          name="searchEventsInput"
+          noResultsText="No results found"
+          onBlurResetsInput={true}
+          onChange={[Function]}
+          onCloseResetsInput={true}
+          onSelectResetsInput={true}
+          openOnClick={true}
+          optionComponent={[Function]}
+          options={
+                    Array [
+                              Object {
+                                "alias": "airportlounges",
+                                "label": "Airport Lounges",
+                              },
+                              Object {
+                                "alias": "beerbar",
+                                "label": "Beer Bar",
+                              },
+                              Object {
+                                "alias": "champagne_bars",
+                                "label": "Champagne Bars",
+                              },
+                              Object {
+                                "alias": "cigarbars",
+                                "label": "Cigar Bars",
+                              },
+                              Object {
+                                "alias": "cocktailbars",
+                                "label": "Cocktail Bars",
+                              },
+                            ]
+          }
+          pageSize={5}
+          placeholder="Choose a category"
+          removeSelected={true}
+          required={false}
+          rtl={false}
+          scrollMenuIntoView={true}
+          searchable={true}
+          simpleValue={false}
+          tabSelectsValue={true}
+          trimFilter={true}
+          value={null}
+          valueComponent={[Function]}
+          valueKey="value"
+/>,
+        <p
+          className="filterTitle"
+>
+          Price
+</p>,
+        <div
+          className="priceRange"
+>
+          <span
+                    className={null}
+                    onClick={[Function]}
+          >
+                    $
+          </span>
+          <span
+                    className={null}
+                    onClick={[Function]}
+          >
+                    $$
+          </span>
+          <span
+                    className={null}
+                    onClick={[Function]}
+          >
+                    $$$
+          </span>
+          <span
+                    className="last"
+                    onClick={[Function]}
+          >
+                    $$$$
+          </span>
+</div>,
+        <button
+          onClick={[Function]}
+>
+          Submit
+</button>,
+      ],
+      "className": "afterEvent",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "after",
+            " the event",
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          "after",
+          " the event",
+        ],
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            "bar",
+            " category",
+          ],
+          "className": "filterTitle",
+        },
+        "ref": null,
+        "rendered": Array [
+          "bar",
+          " category",
+        ],
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "arrowRenderer": [Function],
+          "autosize": true,
+          "backspaceRemoves": true,
+          "backspaceToRemoveMessage": "Press backspace to remove {label}",
+          "clearAllText": "Clear all",
+          "clearRenderer": [Function],
+          "clearValueText": "Clear value",
+          "clearable": true,
+          "closeOnSelect": true,
+          "deleteRemoves": true,
+          "delimiter": ",",
+          "disabled": false,
+          "escapeClearsValue": true,
+          "filterOptions": [Function],
+          "ignoreAccents": true,
+          "ignoreCase": true,
+          "inputProps": Object {},
+          "isLoading": false,
+          "joinValues": false,
+          "labelKey": "label",
+          "matchPos": "any",
+          "matchProp": "any",
+          "menuBuffer": 0,
+          "menuRenderer": [Function],
+          "multi": false,
+          "name": "searchEventsInput",
+          "noResultsText": "No results found",
+          "onBlurResetsInput": true,
+          "onChange": [Function],
+          "onCloseResetsInput": true,
+          "onSelectResetsInput": true,
+          "openOnClick": true,
+          "optionComponent": [Function],
+          "options": Array [
+            Object {
+              "alias": "airportlounges",
+              "label": "Airport Lounges",
+            },
+            Object {
+              "alias": "beerbar",
+              "label": "Beer Bar",
+            },
+            Object {
+              "alias": "champagne_bars",
+              "label": "Champagne Bars",
+            },
+            Object {
+              "alias": "cigarbars",
+              "label": "Cigar Bars",
+            },
+            Object {
+              "alias": "cocktailbars",
+              "label": "Cocktail Bars",
+            },
+          ],
+          "pageSize": 5,
+          "placeholder": "Choose a category",
+          "removeSelected": true,
+          "required": false,
+          "rtl": false,
+          "scrollMenuIntoView": true,
+          "searchable": true,
+          "simpleValue": false,
+          "tabSelectsValue": true,
+          "trimFilter": true,
+          "value": null,
+          "valueComponent": [Function],
+          "valueKey": "value",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Price",
+          "className": "filterTitle",
+        },
+        "ref": null,
+        "rendered": "Price",
+        "type": "p",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <span
+              className={null}
+              onClick={[Function]}
+>
+              $
+</span>,
+            <span
+              className={null}
+              onClick={[Function]}
+>
+              $$
+</span>,
+            <span
+              className={null}
+              onClick={[Function]}
+>
+              $$$
+</span>,
+            <span
+              className="last"
+              onClick={[Function]}
+>
+              $$$$
+</span>,
+          ],
+          "className": "priceRange",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "$",
+              "className": null,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "$",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "$$",
+              "className": null,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "$$",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "$$$",
+              "className": null,
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "$$$",
+            "type": "span",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "$$$$",
+              "className": "last",
+              "onClick": [Function],
+            },
+            "ref": null,
+            "rendered": "$$$$",
+            "type": "span",
+          },
+        ],
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Submit",
+          "onClick": [Function],
+        },
+        "ref": null,
+        "rendered": "Submit",
+        "type": "button",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h3>
+            after
+             the event
+</h3>,
+          <p
+            className="filterTitle"
+>
+            bar
+             category
+</p>,
+          <Select
+            arrowRenderer={[Function]}
+            autosize={true}
+            backspaceRemoves={true}
+            backspaceToRemoveMessage="Press backspace to remove {label}"
+            clearAllText="Clear all"
+            clearRenderer={[Function]}
+            clearValueText="Clear value"
+            clearable={true}
+            closeOnSelect={true}
+            deleteRemoves={true}
+            delimiter=","
+            disabled={false}
+            escapeClearsValue={true}
+            filterOptions={[Function]}
+            ignoreAccents={true}
+            ignoreCase={true}
+            inputProps={Object {}}
+            isLoading={false}
+            joinValues={false}
+            labelKey="label"
+            matchPos="any"
+            matchProp="any"
+            menuBuffer={0}
+            menuRenderer={[Function]}
+            multi={false}
+            name="searchEventsInput"
+            noResultsText="No results found"
+            onBlurResetsInput={true}
+            onChange={[Function]}
+            onCloseResetsInput={true}
+            onSelectResetsInput={true}
+            openOnClick={true}
+            optionComponent={[Function]}
+            options={
+                        Array [
+                                    Object {
+                                      "alias": "airportlounges",
+                                      "label": "Airport Lounges",
+                                    },
+                                    Object {
+                                      "alias": "beerbar",
+                                      "label": "Beer Bar",
+                                    },
+                                    Object {
+                                      "alias": "champagne_bars",
+                                      "label": "Champagne Bars",
+                                    },
+                                    Object {
+                                      "alias": "cigarbars",
+                                      "label": "Cigar Bars",
+                                    },
+                                    Object {
+                                      "alias": "cocktailbars",
+                                      "label": "Cocktail Bars",
+                                    },
+                                  ]
+            }
+            pageSize={5}
+            placeholder="Choose a category"
+            removeSelected={true}
+            required={false}
+            rtl={false}
+            scrollMenuIntoView={true}
+            searchable={true}
+            simpleValue={false}
+            tabSelectsValue={true}
+            trimFilter={true}
+            value={null}
+            valueComponent={[Function]}
+            valueKey="value"
+/>,
+          <p
+            className="filterTitle"
+>
+            Price
+</p>,
+          <div
+            className="priceRange"
+>
+            <span
+                        className={null}
+                        onClick={[Function]}
+            >
+                        $
+            </span>
+            <span
+                        className={null}
+                        onClick={[Function]}
+            >
+                        $$
+            </span>
+            <span
+                        className={null}
+                        onClick={[Function]}
+            >
+                        $$$
+            </span>
+            <span
+                        className="last"
+                        onClick={[Function]}
+            >
+                        $$$$
+            </span>
+</div>,
+          <button
+            onClick={[Function]}
+>
+            Submit
+</button>,
+        ],
+        "className": "afterEvent",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "after",
+              " the event",
+            ],
+          },
+          "ref": null,
+          "rendered": Array [
+            "after",
+            " the event",
+          ],
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              "bar",
+              " category",
+            ],
+            "className": "filterTitle",
+          },
+          "ref": null,
+          "rendered": Array [
+            "bar",
+            " category",
+          ],
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "arrowRenderer": [Function],
+            "autosize": true,
+            "backspaceRemoves": true,
+            "backspaceToRemoveMessage": "Press backspace to remove {label}",
+            "clearAllText": "Clear all",
+            "clearRenderer": [Function],
+            "clearValueText": "Clear value",
+            "clearable": true,
+            "closeOnSelect": true,
+            "deleteRemoves": true,
+            "delimiter": ",",
+            "disabled": false,
+            "escapeClearsValue": true,
+            "filterOptions": [Function],
+            "ignoreAccents": true,
+            "ignoreCase": true,
+            "inputProps": Object {},
+            "isLoading": false,
+            "joinValues": false,
+            "labelKey": "label",
+            "matchPos": "any",
+            "matchProp": "any",
+            "menuBuffer": 0,
+            "menuRenderer": [Function],
+            "multi": false,
+            "name": "searchEventsInput",
+            "noResultsText": "No results found",
+            "onBlurResetsInput": true,
+            "onChange": [Function],
+            "onCloseResetsInput": true,
+            "onSelectResetsInput": true,
+            "openOnClick": true,
+            "optionComponent": [Function],
+            "options": Array [
+              Object {
+                "alias": "airportlounges",
+                "label": "Airport Lounges",
+              },
+              Object {
+                "alias": "beerbar",
+                "label": "Beer Bar",
+              },
+              Object {
+                "alias": "champagne_bars",
+                "label": "Champagne Bars",
+              },
+              Object {
+                "alias": "cigarbars",
+                "label": "Cigar Bars",
+              },
+              Object {
+                "alias": "cocktailbars",
+                "label": "Cocktail Bars",
+              },
+            ],
+            "pageSize": 5,
+            "placeholder": "Choose a category",
+            "removeSelected": true,
+            "required": false,
+            "rtl": false,
+            "scrollMenuIntoView": true,
+            "searchable": true,
+            "simpleValue": false,
+            "tabSelectsValue": true,
+            "trimFilter": true,
+            "value": null,
+            "valueComponent": [Function],
+            "valueKey": "value",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Price",
+            "className": "filterTitle",
+          },
+          "ref": null,
+          "rendered": "Price",
+          "type": "p",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <span
+                className={null}
+                onClick={[Function]}
+>
+                $
+</span>,
+              <span
+                className={null}
+                onClick={[Function]}
+>
+                $$
+</span>,
+              <span
+                className={null}
+                onClick={[Function]}
+>
+                $$$
+</span>,
+              <span
+                className="last"
+                onClick={[Function]}
+>
+                $$$$
+</span>,
+            ],
+            "className": "priceRange",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "$",
+                "className": null,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "$",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "$$",
+                "className": null,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "$$",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "$$$",
+                "className": null,
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "$$$",
+              "type": "span",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "$$$$",
+                "className": "last",
+                "onClick": [Function],
+              },
+              "ref": null,
+              "rendered": "$$$$",
+              "type": "span",
+            },
+          ],
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Submit",
+            "onClick": [Function],
+          },
+          "ref": null,
+          "rendered": "Submit",
+          "type": "button",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;
