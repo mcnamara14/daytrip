@@ -8,11 +8,49 @@ ShallowWrapper {
     events={
         Array [
             Object {
-              "date": "2018-05-30 8:00 PM",
-              "image": "https://s1.ticketm.allswifty.jpg",
-              "price": "$300",
-              "title": "T Swift",
-              "venue": "Boulder Theater",
+              "_embedded": Object {
+                "venues": Array [
+                  Object {
+                    "location": Object {
+                      "latitude": "39.735001",
+                      "longitude": "-105.020401",
+                    },
+                    "name": "Boulder Theater",
+                  },
+                ],
+              },
+              "classifications": Array [
+                Object {
+                  "test": "...",
+                },
+              ],
+              "dates": Object {
+                "start": Object {
+                  "localDate": "2018-05-30",
+                  "localTime": "08:00:00",
+                },
+              },
+              "id": "Zrt9dk32l",
+              "images": Array [
+                Object {
+                  "url": "https://s1.ticketm.allswifty.jpg",
+                },
+              ],
+              "name": "T Swift",
+              "priceRanges": Array [
+                Object {
+                  "currency": "USD",
+                  "max": 12,
+                  "min": 300,
+                },
+              ],
+              "sales": Object {
+                "public": Object {
+                  "test": "...",
+                },
+              },
+              "type": "event",
+              "url": "http://www.ticketsnow.com/PID=2107079",
             },
           ]
     }
@@ -87,7 +125,7 @@ ShallowWrapper {
                     onSelect={[Function]}
                     onYearChange={[Function]}
                     preventOpenOnFocus={false}
-                    selected={"2018-06-02T20:37:11.927Z"}
+                    selected={"2018-06-03T21:02:49.715Z"}
                     shouldCloseOnSelect={true}
                     showTimeSelect={false}
                     timeCaption="Time"
@@ -172,7 +210,7 @@ ShallowWrapper {
               onSelect={[Function]}
               onYearChange={[Function]}
               preventOpenOnFocus={false}
-              selected={"2018-06-02T20:37:11.927Z"}
+              selected={"2018-06-03T21:02:49.715Z"}
               shouldCloseOnSelect={true}
               showTimeSelect={false}
               timeCaption="Time"
@@ -223,7 +261,7 @@ ShallowWrapper {
               "onSelect": [Function],
               "onYearChange": [Function],
               "preventOpenOnFocus": false,
-              "selected": "2018-06-02T20:37:11.927Z",
+              "selected": "2018-06-03T21:02:49.715Z",
               "shouldCloseOnSelect": true,
               "showTimeSelect": false,
               "timeCaption": "Time",
@@ -308,7 +346,7 @@ ShallowWrapper {
                         onSelect={[Function]}
                         onYearChange={[Function]}
                         preventOpenOnFocus={false}
-                        selected={"2018-06-02T20:37:11.927Z"}
+                        selected={"2018-06-03T21:02:49.715Z"}
                         shouldCloseOnSelect={true}
                         showTimeSelect={false}
                         timeCaption="Time"
@@ -393,7 +431,7 @@ ShallowWrapper {
                 onSelect={[Function]}
                 onYearChange={[Function]}
                 preventOpenOnFocus={false}
-                selected={"2018-06-02T20:37:11.927Z"}
+                selected={"2018-06-03T21:02:49.715Z"}
                 shouldCloseOnSelect={true}
                 showTimeSelect={false}
                 timeCaption="Time"
@@ -444,7 +482,7 @@ ShallowWrapper {
                 "onSelect": [Function],
                 "onYearChange": [Function],
                 "preventOpenOnFocus": false,
-                "selected": "2018-06-02T20:37:11.927Z",
+                "selected": "2018-06-03T21:02:49.715Z",
                 "shouldCloseOnSelect": true,
                 "showTimeSelect": false,
                 "timeCaption": "Time",

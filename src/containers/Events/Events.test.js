@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Events } from './Events';
 import { shallow } from 'enzyme';
-import { mockDirtyRecentEvents, mockCleanRestaurantAndBar } from '../../mockData';
+import { mockCleanRecentEvents, mockCleanRestaurantAndBar } from '../../mockData';
 import SelectedEvent from '../SelectedEvent/SelectedEvent';
 import Plans from '../Plans/Plans';
 
@@ -14,10 +14,10 @@ describe('Events', () => {
   let mockSelectedEvent;
 
   beforeEach(() => {
-    mockEvents = mockDirtyRecentEvents.events;
+    mockEvents = mockCleanRecentEvents.events;
     mockSuggestedRestaurants = mockCleanRestaurantAndBar;
     mockSuggestedBars = mockCleanRestaurantAndBar;
-    mockSelectedEvent = mockDirtyRecentEvents.events
+    mockSelectedEvent = mockCleanRecentEvents.events
     
     wrapper = 
       shallow(<Events 

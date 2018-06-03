@@ -91,7 +91,7 @@ export class Login extends Component {
 
     const events = await fetchRecentEvents(city, state, timeNow);
     const recentEvents = cleanRecentEvents(events);
-
+    
     this.props.storeRecentEvents(recentEvents);
     this.props.history.push('/events');
   }
