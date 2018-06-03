@@ -1,5 +1,6 @@
 import { mockDirtyRecentEvents, mockCleanRecentEvents, mockCleanRecentEventsNoStartNoPrice, mockDirtyRecentEventsNoStartNoPrice } from './mockRecentEvents';
 import { mockCleanRestaurantAndBar } from './mockRestaurantAndBarData';
+import { mockCleanRecentEventsSearchResult, mockCleanRecentEventsSearchResultNoStart } from './mockRecentEventsSearchResult';
 import { mockUser } from './mockUser';
 
 export {
@@ -8,5 +9,7 @@ export {
   mockDirtyRecentEventsNoStartNoPrice,
   mockCleanRecentEventsNoStartNoPrice,
   mockCleanRestaurantAndBar,
-  mockUser
+  mockUser,
+  mockCleanRecentEventsSearchResult,
+  mockCleanRecentEventsSearchResultNoStart
 }
