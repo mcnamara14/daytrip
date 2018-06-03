@@ -11,6 +11,15 @@ import LocationAutocomplete from 'location-autocomplete';
 jest.mock('moment', () => () => ({format: () => '2018-05-27T17:13:38-06:00'}));
 import { cleanRecentEvents } from '../../dataCleaners/recentEventsCleaner';
 jest.mock('../../dataCleaners/recentEventsCleaner');
+jest.mock('location-autocomplete', () => () => ({autocomplete: {getPlace: () => ({
+  vicinity: 'Boulder', 
+  address_components: [
+    {0: {long_name: "Denver", short_name: "Denver"}},
+    {1: {long_name: "Denver County", short_name: "Denver County"}},
+    {2: {long_name: "Colorado", short_name: "CO"}}
+  ]
+})}}));
+
 
 describe('Login', () => {
   let wrapper;
@@ -300,24 +309,48 @@ describe('Login', () => {
     })
   })
 
-  // describe('onDropdownSelect', () => {
-  //   it('should set the state to the city and state selected', () => {
-  //     const wrapper = mount(<Login />);
-  //     const locationAutocomplete
-  //     const locationAutocomplete = shallow(<LocationAutocomplete onChange={jest.fn()} onDropdownSelect={jest.fn()} />);
-  //     locationAutocomplete.autocomplete.getPlace = jest.fn().mockImplementation(() => ({
-  //       vicinity: 'Boulder', 
-  //       address_components: [
-  //         {0: {long_name: "Denver", short_name: "Denver"}},
-  //         {1: {long_name: "Denver County", short_name: "Denver County"}},
-  //         {2: {long_name: "Colorado", short_name: "CO"}}
-  //       ]
-  //     }))
+  describe('onDropdownSelect', () => {
+    let wrapper;
+    let mockComponent;
 
-  //     wrapper.instance().onDropdownSelect();
-  //   })
-  // })
+    beforeEach(() => {
+      mockComponent = {autocomplete: {getPlace: () => ({
+        vicinity: 'Boulder', 
+        address_components: [
+          {long_name: "Denver", short_name: "Denver"},
+          {long_name: "Denver County", short_name: "Denver County"},
+          {long_name: "Colorado", short_name: "CO"}
+        ]
+      })}}
 
+      wrapper = shallow(<Login toggleLocation={jest.fn()} />);
+    })
+
+    it('should set the state to the city and state selected', () => {
+      wrapper.instance().onDropdownSelect(mockComponent);
+
+      mockComponent.autocomplete = jest.fn();
+
+      expect(wrapper.state('city')).toEqual('Boulder');
+      expect(wrapper.state('state')).toEqual('CO');
+    })
+
+    it('should call toggleLocation with an argument of false', () => {
+      wrapper.instance().onDropdownSelect(mockComponent);
+
+      mockComponent.autocomplete = jest.fn();
+
+      expect(wrapper.instance().props.toggleLocation).toHaveBeenCalledWith(false);
+    })
+  })
+  
+  describe('mapDispatchToProps', () => {
+    it('should render a location popup when location is submitted', () => {
+      const wrapper = shallow(<Login toggleLocation={jest.fn()} location={'Denver'} />);
+
+      expect(wrapper.find('.errorPopup').length).toEqual(1);
+    })
+  })
   describe('mapDispatchToProps', () => {
     it('should call dispatch with the correct params on loginUser', () => {
       const mockDispatch = jest.fn();
@@ -350,6 +383,19 @@ describe('Login', () => {
       };
 
       mappedProps.storeRecentEvents(mockAction.recentEvents);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleLocation', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_LOCATION',
+        boolean: false
+      };
+
+      mappedProps.toggleLocation(false);
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
