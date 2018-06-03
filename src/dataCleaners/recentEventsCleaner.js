@@ -3,7 +3,6 @@ const moment = require('moment');
 export const cleanRecentEvents = (events) => {
   let date;
   console.log(events)
-
   const allRecentEvents = events.map(event => {
     const {
       id,
@@ -13,6 +12,8 @@ export const cleanRecentEvents = (events) => {
       dates,
       _embedded
     } = event;
+
+    console.log(dates)
 
     const price = priceRanges ? '$' + priceRanges[0].min + '+' : 'Price TBD';
     const latitude = _embedded.venues[0].location.latitude;
@@ -25,6 +26,7 @@ export const cleanRecentEvents = (events) => {
     } else {
       date = 'TBA';
     }
+
 
     return {
       id,
