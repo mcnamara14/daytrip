@@ -88,6 +88,7 @@ export class Login extends Component {
     const state = this.state.state;
     const date = moment();
     const timeNow = date.format();
+
     const events = await fetchRecentEvents(city, state, timeNow);
     const recentEvents = cleanRecentEvents(events);
 
