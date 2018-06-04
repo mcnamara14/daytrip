@@ -88,6 +88,6 @@ it('should match the snapshot', () => {
       
       expect(fetchCalls.fetchRestaurantsAndBars).toHaveBeenCalled();
     });
-  })
+  });
 
 })
