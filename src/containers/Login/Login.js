@@ -89,9 +89,8 @@ export class Login extends Component {
     const state = this.state.state;
     const date = moment();
     const timeNow = date.format();
-    console.log(timeNow)
+    
     const events = await fetchRecentEvents(city, state, timeNow);
-    console.log(events)
     const recentEvents = cleanRecentEvents(events);
     
     this.props.storeRecentEvents(recentEvents);
@@ -113,7 +112,6 @@ export class Login extends Component {
   }
 
   onDropdownSelect = (component) => {
-    console.log(component)
     const place = component.autocomplete.getPlace();
     const city = place.vicinity;
     const state = place.address_components[2].short_name;
