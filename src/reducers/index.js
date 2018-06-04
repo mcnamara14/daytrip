@@ -6,6 +6,7 @@ import { suggestedRestaurants } from './suggestedRestaurants';
 import { suggestedBars } from './suggestedBars';
 import { location } from './location';
 import { eventError } from './eventError';
+import { filtersError } from './filtersError';
 import { barFilters } from './barFilters';
 import { restaurantFilters } from './restaurantFilters';
 
@@ -18,6 +19,7 @@ export const rootReducer = combineReducers({
   suggestedBars,
   location,
   eventError,
+  filtersError,
   barFilters,
   restaurantFilters
 })

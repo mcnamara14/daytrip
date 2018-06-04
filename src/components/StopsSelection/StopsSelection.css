@@ -1,12 +1,17 @@
-.stopsSelectionContainer {
+.stopsSelection {
   background: #d9492c;
   width: calc(60% - 140px);
   margin-top: -100px;
-  justify-content: space-between;
-  display: flex;
   padding: 20px 70px;
   text-align: left;
   align-items: center;
+  position: relative;
+}
+
+.stopsSelectionContainer {
+  display: flex;
+  padding-top: 50px;
+  justify-content: space-between;
 }
 
 .stopsSelectionContainer hr {
@@ -16,4 +21,20 @@
   border-top: 0;
   width: 1px;
   margin: 0;
+}
+
+.filtersError {
+  height: 100%;
+  display: inline-block;
+  background: rgba(206,86,62,0.9);
+  position: absolute;
+  width: 100%;
+  color: #fff;
+  font-size: 1.4rem;
+  top: -22px;
+  left: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
 }
