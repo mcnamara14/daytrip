@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
+import PropTypes from 'prop-types';
 import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
@@ -206,6 +207,14 @@ export class Login extends Component {
     );
   }
 }
+
+Login.propTypes = {
+  loginUser: PropTypes.func,
+  toggleLocation: PropTypes.func,
+  storeRecentEvents: PropTypes.func,
+  history: PropTypes.object,
+  location: PropTypes.object
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   loginUser: (userId, email, city, state) => {

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './RecentEvent.css';
+import PropTypes from 'prop-types';
 import { storeSelectedEvent } from '../../actions';
 import { fetchSelectedEvent } from '../../apiCalls';
 
@@ -33,6 +34,16 @@ export class RecentEvent extends Component {
     );
   }
 }
+
+RecentEvent.propTypes = {
+  storeSelectedEvent: PropTypes.func,
+  image: PropTypes.string,
+  title: PropTypes.string,
+  venue: PropTypes.string,
+  date: PropTypes.string,
+  price: PropTypes.string,
+  id: PropTypes.string
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event))
