@@ -6,53 +6,51 @@ ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Plans
     selectedEvent={
-        Array [
-            Object {
-              "_embedded": Object {
-                "venues": Array [
-                  Object {
-                    "location": Object {
-                      "latitude": "39.735001",
-                      "longitude": "-105.020401",
-                    },
-                    "name": "Boulder Theater",
+        Object {
+            "_embedded": Object {
+              "venues": Array [
+                Object {
+                  "location": Object {
+                    "latitude": "39.735001",
+                    "longitude": "-105.020401",
                   },
-                ],
-              },
-              "classifications": Array [
-                Object {
-                  "test": "...",
+                  "name": "Boulder Theater",
                 },
               ],
-              "dates": Object {
-                "start": Object {
-                  "localDate": "2018-05-30",
-                  "localTime": "08:00:00",
-                },
-              },
-              "id": "Zrt9dk32l",
-              "images": Array [
-                Object {
-                  "url": "https://s1.ticketm.allswifty.jpg",
-                },
-              ],
-              "name": "T Swift",
-              "priceRanges": Array [
-                Object {
-                  "currency": "USD",
-                  "max": 12,
-                  "min": 300,
-                },
-              ],
-              "sales": Object {
-                "public": Object {
-                  "test": "...",
-                },
-              },
-              "type": "event",
-              "url": "http://www.ticketsnow.com/PID=2107079",
             },
-          ]
+            "classifications": Array [
+              Object {
+                "test": "...",
+              },
+            ],
+            "dates": Object {
+              "start": Object {
+                "localDate": "2018-05-30",
+                "localTime": "08:00:00",
+              },
+            },
+            "id": "Zrt9dk32l",
+            "images": Array [
+              Object {
+                "url": "https://s1.ticketm.allswifty.jpg",
+              },
+            ],
+            "name": "T Swift",
+            "priceRanges": Array [
+              Object {
+                "currency": "USD",
+                "max": 12,
+                "min": 300,
+              },
+            ],
+            "sales": Object {
+              "public": Object {
+                "test": "...",
+              },
+            },
+            "type": "event",
+            "url": "http://www.ticketsnow.com/PID=2107079",
+          }
     }
     suggestedBars={
         Array [
@@ -107,6 +105,7 @@ ShallowWrapper {
                         className="plan"
                 >
                         <Stop
+                                id={undefined}
                                 image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                 index={1}
                                 location="1420 E 18th Ave Denver, CO 80218"
@@ -121,11 +120,12 @@ ShallowWrapper {
                                 src="route-img.jpg"
                         />
                         <Stop
+                                id="Zrt9dk32l"
                                 image={undefined}
                                 index={1}
                                 location={undefined}
                                 price={undefined}
-                                rating=""
+                                rating={0}
                                 reviews={undefined}
                                 title={undefined}
                                 type="event"
@@ -135,6 +135,7 @@ ShallowWrapper {
                                 src="route-img.jpg"
                         />
                         <Stop
+                                id={undefined}
                                 image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                 index={1}
                                 location="1420 E 18th Ave Denver, CO 80218"
@@ -145,7 +146,9 @@ ShallowWrapper {
                                 type="bar"
                         />
                 </section>
-                <button>
+                <button
+                        onClick={undefined}
+                >
                         Select Plan
                 </button>
         </div>
@@ -173,6 +176,7 @@ ShallowWrapper {
                             className="plan"
               >
                             <Stop
+                                          id={undefined}
                                           image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                           index={1}
                                           location="1420 E 18th Ave Denver, CO 80218"
@@ -187,11 +191,12 @@ ShallowWrapper {
                                           src="route-img.jpg"
                             />
                             <Stop
+                                          id="Zrt9dk32l"
                                           image={undefined}
                                           index={1}
                                           location={undefined}
                                           price={undefined}
-                                          rating=""
+                                          rating={0}
                                           reviews={undefined}
                                           title={undefined}
                                           type="event"
@@ -201,6 +206,7 @@ ShallowWrapper {
                                           src="route-img.jpg"
                             />
                             <Stop
+                                          id={undefined}
                                           image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                           index={1}
                                           location="1420 E 18th Ave Denver, CO 80218"
@@ -211,7 +217,9 @@ ShallowWrapper {
                                           type="bar"
                             />
               </section>
-              <button>
+              <button
+                            onClick={undefined}
+              >
                             Select Plan
               </button>
 </div>,
@@ -245,6 +253,7 @@ ShallowWrapper {
                 className="plan"
 >
                 <Stop
+                                id={undefined}
                                 image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                 index={1}
                                 location="1420 E 18th Ave Denver, CO 80218"
@@ -259,11 +268,12 @@ ShallowWrapper {
                                 src="route-img.jpg"
                 />
                 <Stop
+                                id="Zrt9dk32l"
                                 image={undefined}
                                 index={1}
                                 location={undefined}
                                 price={undefined}
-                                rating=""
+                                rating={0}
                                 reviews={undefined}
                                 title={undefined}
                                 type="event"
@@ -273,6 +283,7 @@ ShallowWrapper {
                                 src="route-img.jpg"
                 />
                 <Stop
+                                id={undefined}
                                 image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                 index={1}
                                 location="1420 E 18th Ave Denver, CO 80218"
@@ -283,7 +294,9 @@ ShallowWrapper {
                                 type="bar"
                 />
 </section>,
-              <button>
+              <button
+                onClick={undefined}
+>
                 Select Plan
 </button>,
             ],
@@ -309,6 +322,7 @@ ShallowWrapper {
               "props": Object {
                 "children": Array [
                   <Stop
+                    id={undefined}
                     image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                     index={1}
                     location="1420 E 18th Ave Denver, CO 80218"
@@ -323,11 +337,12 @@ ShallowWrapper {
                     src="route-img.jpg"
 />,
                   <Stop
+                    id="Zrt9dk32l"
                     image={undefined}
                     index={1}
                     location={undefined}
                     price={undefined}
-                    rating=""
+                    rating={0}
                     reviews={undefined}
                     title={undefined}
                     type="event"
@@ -337,6 +352,7 @@ ShallowWrapper {
                     src="route-img.jpg"
 />,
                   <Stop
+                    id={undefined}
                     image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                     index={1}
                     location="1420 E 18th Ave Denver, CO 80218"
@@ -356,6 +372,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
+                    "id": undefined,
                     "image": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
                     "index": 1,
                     "location": "1420 E 18th Ave Denver, CO 80218",
@@ -386,11 +403,12 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
+                    "id": "Zrt9dk32l",
                     "image": undefined,
                     "index": 1,
                     "location": undefined,
                     "price": undefined,
-                    "rating": "",
+                    "rating": 0,
                     "reviews": undefined,
                     "title": undefined,
                     "type": "event",
@@ -416,6 +434,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "class",
                   "props": Object {
+                    "id": undefined,
                     "image": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
                     "index": 1,
                     "location": "1420 E 18th Ave Denver, CO 80218",
@@ -438,6 +457,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "Select Plan",
+                "onClick": undefined,
               },
               "ref": null,
               "rendered": "Select Plan",
@@ -473,6 +493,7 @@ ShallowWrapper {
                               className="plan"
                     >
                               <Stop
+                                        id={undefined}
                                         image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                         index={1}
                                         location="1420 E 18th Ave Denver, CO 80218"
@@ -487,11 +508,12 @@ ShallowWrapper {
                                         src="route-img.jpg"
                               />
                               <Stop
+                                        id="Zrt9dk32l"
                                         image={undefined}
                                         index={1}
                                         location={undefined}
                                         price={undefined}
-                                        rating=""
+                                        rating={0}
                                         reviews={undefined}
                                         title={undefined}
                                         type="event"
@@ -501,6 +523,7 @@ ShallowWrapper {
                                         src="route-img.jpg"
                               />
                               <Stop
+                                        id={undefined}
                                         image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                         index={1}
                                         location="1420 E 18th Ave Denver, CO 80218"
@@ -511,7 +534,9 @@ ShallowWrapper {
                                         type="bar"
                               />
                     </section>
-                    <button>
+                    <button
+                              onClick={undefined}
+                    >
                               Select Plan
                     </button>
           </div>
@@ -539,6 +564,7 @@ ShallowWrapper {
                                 className="plan"
                 >
                                 <Stop
+                                                id={undefined}
                                                 image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                                 index={1}
                                                 location="1420 E 18th Ave Denver, CO 80218"
@@ -553,11 +579,12 @@ ShallowWrapper {
                                                 src="route-img.jpg"
                                 />
                                 <Stop
+                                                id="Zrt9dk32l"
                                                 image={undefined}
                                                 index={1}
                                                 location={undefined}
                                                 price={undefined}
-                                                rating=""
+                                                rating={0}
                                                 reviews={undefined}
                                                 title={undefined}
                                                 type="event"
@@ -567,6 +594,7 @@ ShallowWrapper {
                                                 src="route-img.jpg"
                                 />
                                 <Stop
+                                                id={undefined}
                                                 image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                                 index={1}
                                                 location="1420 E 18th Ave Denver, CO 80218"
@@ -577,7 +605,9 @@ ShallowWrapper {
                                                 type="bar"
                                 />
                 </section>
-                <button>
+                <button
+                                onClick={undefined}
+                >
                                 Select Plan
                 </button>
 </div>,
@@ -611,6 +641,7 @@ ShallowWrapper {
                   className="plan"
 >
                   <Stop
+                                    id={undefined}
                                     image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                     index={1}
                                     location="1420 E 18th Ave Denver, CO 80218"
@@ -625,11 +656,12 @@ ShallowWrapper {
                                     src="route-img.jpg"
                   />
                   <Stop
+                                    id="Zrt9dk32l"
                                     image={undefined}
                                     index={1}
                                     location={undefined}
                                     price={undefined}
-                                    rating=""
+                                    rating={0}
                                     reviews={undefined}
                                     title={undefined}
                                     type="event"
@@ -639,6 +671,7 @@ ShallowWrapper {
                                     src="route-img.jpg"
                   />
                   <Stop
+                                    id={undefined}
                                     image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                                     index={1}
                                     location="1420 E 18th Ave Denver, CO 80218"
@@ -649,7 +682,9 @@ ShallowWrapper {
                                     type="bar"
                   />
 </section>,
-                <button>
+                <button
+                  onClick={undefined}
+>
                   Select Plan
 </button>,
               ],
@@ -675,6 +710,7 @@ ShallowWrapper {
                 "props": Object {
                   "children": Array [
                     <Stop
+                      id={undefined}
                       image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                       index={1}
                       location="1420 E 18th Ave Denver, CO 80218"
@@ -689,11 +725,12 @@ ShallowWrapper {
                       src="route-img.jpg"
 />,
                     <Stop
+                      id="Zrt9dk32l"
                       image={undefined}
                       index={1}
                       location={undefined}
                       price={undefined}
-                      rating=""
+                      rating={0}
                       reviews={undefined}
                       title={undefined}
                       type="event"
@@ -703,6 +740,7 @@ ShallowWrapper {
                       src="route-img.jpg"
 />,
                     <Stop
+                      id={undefined}
                       image="https://s3-media3.fl.yelpcdn.com/tg/o.jpg"
                       index={1}
                       location="1420 E 18th Ave Denver, CO 80218"
@@ -722,6 +760,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
+                      "id": undefined,
                       "image": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
                       "index": 1,
                       "location": "1420 E 18th Ave Denver, CO 80218",
@@ -752,11 +791,12 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
+                      "id": "Zrt9dk32l",
                       "image": undefined,
                       "index": 1,
                       "location": undefined,
                       "price": undefined,
-                      "rating": "",
+                      "rating": 0,
                       "reviews": undefined,
                       "title": undefined,
                       "type": "event",
@@ -782,6 +822,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "class",
                     "props": Object {
+                      "id": undefined,
                       "image": "https://s3-media3.fl.yelpcdn.com/tg/o.jpg",
                       "index": 1,
                       "location": "1420 E 18th Ave Denver, CO 80218",
@@ -804,6 +845,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": "Select Plan",
+                  "onClick": undefined,
                 },
                 "ref": null,
                 "rendered": "Select Plan",

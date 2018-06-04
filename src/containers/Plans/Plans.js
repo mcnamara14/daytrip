@@ -5,6 +5,12 @@ import Stop from '../Stop/Stop';
 import PropTypes from 'prop-types';
 
 export class Plans extends Component {
+  selectPlan = (restaurantId, eventId, barId) => {
+    console.log(restaurantId);
+    console.log(eventId);
+    console.log(barId);  
+  }
+
   getPlans = () => {
     const { 
       suggestedBars, 
@@ -16,6 +22,7 @@ export class Plans extends Component {
     if (suggestedBars.length && suggestedRestaurants.length) {
       for (var i = 0; i < this.props.suggestedBars.length; i++) {
         const { 
+          id: restaurantId,
           name: restaurantName, 
           rating: restaurantRating, 
           address: restaurantAddress, 
@@ -24,6 +31,7 @@ export class Plans extends Component {
           image_url: restaurantImage 
         } = this.props.suggestedRestaurants[i];
         const { 
+          id: barId,
           name: barName, 
           rating: barRating, 
           address: barAddress, 
@@ -32,6 +40,7 @@ export class Plans extends Component {
           image_url: barImage 
         } = this.props.suggestedBars[i];
         const { 
+          id,
           title, 
           image, 
           venue, 
@@ -43,6 +52,7 @@ export class Plans extends Component {
           <h4>Plan</h4>
           <section className="plan">
             <Stop 
+              id={restaurantId}
               title={restaurantName} 
               rating={restaurantRating} 
               location={restaurantAddress} 
@@ -53,9 +63,10 @@ export class Plans extends Component {
               index={planNum}
             />
             <img src={require('./assets/route-img.jpg')} className="routeImg" />
-            <Stop 
+            <Stop
+              id={id} 
               title={title} 
-              rating={''} 
+              rating={0} 
               location={venue} 
               price={eventPrice} 
               reviews={date} 
@@ -65,6 +76,7 @@ export class Plans extends Component {
             />
             <img src={require('./assets/route-img.jpg')} className="routeImg" />
             <Stop 
+              id={barId}
               title={barName} 
               rating={barRating} 
               location={barAddress} 
@@ -75,7 +87,7 @@ export class Plans extends Component {
               index={planNum}
             />
           </section>
-          <button>Select Plan</button>
+          <button onClick={() => this.selectPlan(restaurantId, id, barId)}>Select Plan</button>
         </div>);
       }
     }
@@ -101,6 +113,11 @@ export class Plans extends Component {
 Plans.propTypes = {
   suggestedRestaurants: PropTypes.array,
   suggestedBars: PropTypes.array,
+  selectedEvent: PropTypes.object
+};
+
+Stop.propTypes = {
+  rating: PropTypes.number,
   selectedEvent: PropTypes.object
 };
 

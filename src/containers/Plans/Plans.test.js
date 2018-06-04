@@ -15,7 +15,7 @@ describe('Plans', () => {
     wrapper = shallow(<Plans 
       suggestedBars={mockSuggestedBarAndRestaurantData}
       suggestedRestaurants={mockSuggestedBarAndRestaurantData} 
-      selectedEvent={mockSelectedEvent}
+      selectedEvent={mockSelectedEvent[0]}
       />);
   
   })
