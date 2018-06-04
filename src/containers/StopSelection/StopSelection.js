@@ -38,6 +38,7 @@ export class StopSelection extends Component {
   changePriceRange = (price) => {
     if (!this.state.priceRanges.includes(price)) {
       const priceRanges = [...this.state.priceRanges, price];
+      
       this.setState({
         priceRanges 
       });
