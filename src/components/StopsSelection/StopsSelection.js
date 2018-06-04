@@ -6,6 +6,14 @@ import { storeSuggestedRestaurants, storeSuggestedBars } from '../../actions';
 import { fetchRestaurantsAndBars } from '../../apiCalls';
 
 export class StopsSelection extends Component {
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedEvent) {
+      setTimeout(() => {
+        this.storeRestaurantsAndBars();
+      }, 0);
+    }
+  }
+
   storeRestaurantsAndBars = () => {
     const { 
       selectedEvent,
@@ -17,6 +25,7 @@ export class StopsSelection extends Component {
       const latitude = selectedEvent.latitude;
       const longitude = selectedEvent.longitude;
       this.storeSuggestedRestaurants(latitude, longitude);
+      this.storeSuggestedBars(latitude, longitude);
     } else if (selectedEvent === null) {
       this.toggleEventError();
     }

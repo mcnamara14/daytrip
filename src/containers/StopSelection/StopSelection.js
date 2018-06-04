@@ -28,14 +28,6 @@ export class StopSelection extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedEvent) {
-      setTimeout(() => {
-        this.storeRestaurantsOrBars();
-      }, 0);
-    }
-  }
-
   onSelect = (selectedOption) => {
     this.setState({ selectedOption });
   }
@@ -69,29 +61,6 @@ export class StopSelection extends Component {
     setTimeout(() => {
       this.props.toggleEventError(false);
     }, 2000);
-  }
-
-  storeRestaurantsOrBars = async () => {
-    const { 
-      selectedEvent, 
-      type, 
-      storeSuggestedRestaurants, 
-      storeSuggestedBars 
-    } = this.props;
-    const { selectedOption, priceRanges } = this.state;
-   
-    if (selectedEvent !== null && selectedOption !== null) {
-      const latitude = selectedEvent.latitude;
-      const longitude = selectedEvent.longitude;
-      const price = priceRanges.sort().join();
-      const category = selectedOption.alias;
-      const suggestedRestaurantsBars = 
-        await fetchRestaurantsAndBars(latitude, longitude, price, category);
-      type === 'before' ? storeSuggestedRestaurants(suggestedRestaurantsBars) : 
-        storeSuggestedBars(suggestedRestaurantsBars);
-    } else if (selectedEvent === null) {
-      this.toggleEventError();
-    }
   }
 
   render() {
