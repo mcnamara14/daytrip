@@ -2,12 +2,22 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './StopsSelection.css';
 import StopSelection from '../../containers/StopSelection/StopSelection';
-import { storeSuggestedRestaurants, storeSuggestedBars, toggleFiltersError, toggleEventError } from '../../actions';
+import { 
+  storeSuggestedRestaurants, 
+  storeSuggestedBars, 
+  toggleFiltersError, 
+  toggleEventError,
+  toggleRestaurantBarError 
+} from '../../actions';
 import { fetchRestaurantsAndBars } from '../../apiCalls';
 
 export class StopsSelection extends Component {
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedEvent !== null && nextProps.restaurantFilters.category !== undefined && nextProps.barFilters.category !== undefined) {
+    if (nextProps.selectedEvent !== null && 
+        nextProps.restaurantFilters.category !== undefined && 
+        nextProps.barFilters.category !== undefined && 
+        !this.props.filtersError &&
+        !this.props.restaurantBarError) {
       setTimeout(() => {
         this.storeRestaurantsAndBars();
       }, 1000);
@@ -15,7 +25,6 @@ export class StopsSelection extends Component {
   }
 
   storeRestaurantsAndBars = () => {
-    console.log('sdfdsdfsdf')
     const { 
       selectedEvent,
       restaurantFilters,
@@ -48,6 +57,13 @@ export class StopsSelection extends Component {
     }, 2000);
   }
 
+  toggleRestaurantBarError = () => {
+    this.props.toggleRestaurantBarError(true);
+    setTimeout(() => {
+      this.props.toggleRestaurantBarError(false);
+    }, 2000);
+  }
+
   storeSuggestedRestaurants = async (latitude, longitude) => {
     const {
       restaurantFilters,
@@ -58,7 +74,8 @@ export class StopsSelection extends Component {
     const category = restaurantFilters.category;
     const suggestedRestaurants = 
       await fetchRestaurantsAndBars(latitude, longitude, price, category);
-    storeSuggestedRestaurants(suggestedRestaurants);
+    suggestedRestaurants.length ? storeSuggestedRestaurants(suggestedRestaurants) :
+      this.toggleRestaurantBarError();
   }
 
   storeSuggestedBars = async (latitude, longitude) => {
@@ -67,17 +84,21 @@ export class StopsSelection extends Component {
       storeSuggestedBars
     } = this.props;
 
-    const price = barFilters.priceRange.sort().join();
-    const category = barFilters.category;
-    const suggestedBars = 
-      await fetchRestaurantsAndBars(latitude, longitude, price, category);
-    storeSuggestedBars(suggestedBars);
+    if (barFilters.priceRange.length) {
+      const price = barFilters.priceRange.sort().join();
+      const category = barFilters.category;
+      const suggestedBars = 
+        await fetchRestaurantsAndBars(latitude, longitude, price, category);
+      storeSuggestedBars(suggestedBars);
+    }
+
   }
 
   render() {
     return (
       <div className="stopsSelection">
         { this.props.filtersError ? <p className="filtersError">Please add a price and category for each stop.</p> : null }
+        { this.props.restaurantBarError ? <p className="filtersError">No restaurants or bars near by matching your filters. <br/> Select new filters.</p> : null }
         <div className="stopsSelectionContainer">
           <StopSelection type={'before'}/>
           <hr />
@@ -95,14 +116,16 @@ export const mapDispatchToProps = (dispatch) => ({
   },
   storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars)),
   toggleFiltersError: (boolean) => dispatch(toggleFiltersError(boolean)),
-  toggleEventError: (boolean) => dispatch(toggleEventError(boolean))
+  toggleEventError: (boolean) => dispatch(toggleEventError(boolean)),
+  toggleRestaurantBarError: (boolean) => dispatch(toggleRestaurantBarError(boolean))
 });
 
 export const mapStateToProps = (state) => ({
   selectedEvent: state.selectedEvent,
   restaurantFilters: state.restaurantFilters,
   barFilters: state.barFilters,
-  filtersError: state.filtersError
+  filtersError: state.filtersError,
+  restaurantBarError: state.restaurantBarError
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StopsSelection);

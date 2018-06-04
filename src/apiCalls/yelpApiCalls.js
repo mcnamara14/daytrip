@@ -8,6 +8,8 @@ export const fetchRestaurantsAndBars = async (
   longitude, 
   price, 
   category) => {
+  
+  let restaurants;
 
   const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/'
   const prefix = `${corsAnywhereUrl}https://api.yelp.com/v3/businesses/search?`;
@@ -20,14 +22,16 @@ export const fetchRestaurantsAndBars = async (
 
   let headers = new Headers();
   headers.append("Authorization", "Bearer " + yelpApiKey);
-  
   const result = 
     await fetch(`${prefix}${cat}&${lat}&${long}&${cost}&${radius}&${sort}`, 
       {
         headers
       });
   const data = await result.json();
-  const restaurants = data.businesses;
-  
-  return suggestedRestaurantsCleaner(restaurants);
+  restaurants = data.businesses;
+  if (restaurants.length) {
+    return suggestedRestaurantsCleaner(restaurants);
+  } else {
+    return [];
+  }
 };
