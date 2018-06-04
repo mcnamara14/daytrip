@@ -10,7 +10,11 @@ export class Plans extends Component {
   selectPlan = (restaurantId, eventId, barId) => {
     if (this.props.user.userId) {
       const firebaseRef = firebase.database().ref();
-      firebaseRef.child('users').child(this.props.user.userId).update({selectedPlan: [restaurantId, eventId, barId]});
+      firebaseRef.child('users').child(this.props.user.userId).update(
+        {
+          selectedPlan: [restaurantId, eventId, barId]
+        }
+      );
     }
   }
 
