@@ -14,7 +14,7 @@ export const Header = () =>  {
         <NavLink to='/account'>Account</NavLink>
         <div className='loginLink'>
           <img src={loginIcon} className="loginIcon" alt="Login icon" />
-          <NavLink to='/login' className="navLogin">Login</NavLink>
+          <NavLink to='/' className="navLogin">Login / Signup</NavLink>
         </div>
       </nav>
     </header>

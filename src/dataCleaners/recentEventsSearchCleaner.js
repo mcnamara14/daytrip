@@ -23,7 +23,7 @@ export const cleanRecentEventsSearch = (events) => {
 
     return {
       value: index,
-      label: name + venue + date,
+      label: name + venue,
       id,
     }
   });

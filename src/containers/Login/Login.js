@@ -170,7 +170,7 @@ export class Login extends Component {
               </article>
               <section className="signupInputs">
                 <article className="emailPassForm">
-                  <h4>Email Signup</h4>
+                  <h4>Email Signup / Login</h4>
                   <form 
                     className="emailSignup" 
                     onClick={this.emailSubmitHandler} >
@@ -190,7 +190,7 @@ export class Login extends Component {
                   </form>
                 </article>
                 <article className="socialSignup">
-                  <h4>Social Media Signup</h4>
+                  <h4>Social Media Signup / Login</h4>
                   <div className="googleBtn">
                     <button onClick={this.googleSignup}>Google Signup</button>
                   </div>
