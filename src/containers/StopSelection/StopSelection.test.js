@@ -49,4 +49,19 @@ it('should match the snapshot', () => {
     });
   })
 
+  describe('toggleEventError', () => {
+    it('should call toggleEventError with an arg of true then call again with an arg of false after 2 seconds', () => {
+      const wrapper = shallow(<StopSelection toggleEventError={jest.fn()} />);
+      jest.useFakeTimers();
+
+      wrapper.instance().toggleEventError();
+
+      expect(wrapper.instance().props.toggleEventError).toHaveBeenCalledWith(true)
+
+      jest.runAllTimers();
+
+      expect(wrapper.instance().props.toggleEventError).toHaveBeenCalledWith(false)
+    })
+  })
+
 })
