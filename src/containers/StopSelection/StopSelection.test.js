@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StopSelection } from './StopSelection';
+import { StopSelection, mapDispatchToProps, mapStateToProps } from './StopSelection';
 import { shallow } from 'enzyme';
 import { 
   mockCleanRestaurantAndBar, 
@@ -123,13 +123,55 @@ it('should match the snapshot', () => {
     it('should call toggleEventError if there isnt a selected event', async () => {
       const wrapper = shallow(<StopSelection toggleEventError={jest.fn()} selectedEvent={null}  />);
       wrapper.instance().toggleEventError = jest.fn();
-      
+
       await wrapper.instance().storeRestaurantsOrBars();
 
       const expected = mockCleanSuggestedRestaurant
       
       expect(wrapper.instance().toggleEventError).toHaveBeenCalled();
     });
-
   });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params on storeSuggestedRestaurants', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockRestaurants = mockCleanSuggestedRestaurant;
+      const mockAction = {
+        type: 'STORE_SUGGESTED_RESTAURANTS',
+        restaurants: mockRestaurants
+      };
+
+      mappedProps.storeSuggestedRestaurants(mockRestaurants);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on storeSuggestedBars', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockRestaurants = mockCleanSuggestedRestaurant;
+      const mockAction = {
+        type: 'STORE_SUGGESTED_BARS',
+        bars: mockRestaurants
+      };
+
+      mappedProps.storeSuggestedBars(mockRestaurants);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleEventError', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_EVENT_ERROR',
+        boolean: true
+      };
+
+      mappedProps.toggleEventError(true);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+  })
 })
