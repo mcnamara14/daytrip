@@ -40,11 +40,17 @@ export const fetchRecentEventsOnSearch = async (
   const key = `apikey=${ticketmasterApiKey}`;
 
   const url = `${prefix}${start}&${sort}&${city}&${state}&${input}&${key}`;
-  const response = await fetch(url);
-  const data = await response.json();
-  const events = data._embedded.events;
 
-  return cleanRecentEventsSearch(events);
+  try {
+    const response = await fetch(url);
+    const data = await response.json();
+    const events = data._embedded.events;
+  
+    return cleanRecentEventsSearch(events);
+  } catch (error) {
+    console.log(error)
+  }
+
 };
 
 export const fetchSelectedEvent = async (id) => {
