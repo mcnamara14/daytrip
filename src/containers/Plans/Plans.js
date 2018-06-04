@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import './Plans.css';
 import Stop from '../Stop/Stop';
 import PropTypes from 'prop-types';
+import * as firebase from 'firebase';
+import 'firebase/database';
 
 export class Plans extends Component {
   selectPlan = (restaurantId, eventId, barId) => {
-    console.log(restaurantId);
-    console.log(eventId);
-    console.log(barId);  
+    if (this.props.user.userId) {
+      const firebaseRef = firebase.database().ref();
+      firebaseRef.child('users').child(this.props.user.userId).update({selectedPlan: [restaurantId, eventId, barId]});
+    }
   }
 
   getPlans = () => {
@@ -124,7 +127,8 @@ Stop.propTypes = {
 export const mapStateToProps = (state) => ({
   suggestedRestaurants: state.suggestedRestaurants,
   suggestedBars: state.suggestedBars,
-  selectedEvent: state.selectedEvent
+  selectedEvent: state.selectedEvent,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Plans);

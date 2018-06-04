@@ -11,8 +11,7 @@ import 'react-select/dist/react-select.css';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
 import { storeSelectedEvent, toggleLocation } from '../../actions';
-// import * as firebase from 'firebase';
-// import 'firebase/database';
+
 
 export class EventsSearch extends Component {
   constructor() {
@@ -26,8 +25,6 @@ export class EventsSearch extends Component {
       locationError: false,
       selectedOption: 'Enter a location'
     };
-
-    // this.firebaseRef = firebase.database().ref();
   }
 
   componentDidMount() {
@@ -87,10 +84,6 @@ export class EventsSearch extends Component {
     const event = selectedEvent[0];
 
     this.props.storeSelectedEvent(event);
-
-    if (this.props.user.userId) {
-      // this.firebaseRef.child('users').child(this.props.user.userId).update({selectedEvent: this.props.selectedEvent.id})
-    }
   }
 
   onDropdownSelect = (component) => {
