@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { EventsSearch } from './EventsSearch';
+import { EventsSearch, mapDispatchToProps } from './EventsSearch';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 // jest.mock('moment', () => ({format: () => '2018–01–30T12:34:56+00:00'}));
@@ -37,23 +37,7 @@ describe('EventsSearch', () => {
     })
   });
 
-  // Cant figure out how to mock moment.js format method
-
   describe('fetchEvents', () => {
-    // it('should call fetchRecentEventsOnSearch with the correct arguments if a location is entered', async () => {
-    //   const wrapper = shallow(<EventsSearch user={mockUser} />);
-    //   wrapper.setState({
-    //     city: 'Boulder', 
-    //     state: 'CO',
-    //     startDate: '062018'
-    //   });
-
-    //   wrapper.instance().fetchEvents('rockies');
-    //   const result = await fetchRecentEventsOnSearch();
-
-    //   expect(fetchRecentEventsOnSearch).toHaveBeenCalledWith(0)
-    // })
-
     it('should call handleMissingLocationError when there is no location', () => {
       const wrapper = shallow(<EventsSearch user={mockUser} />);
 
@@ -182,6 +166,35 @@ describe('EventsSearch', () => {
       wrapper.instance().onDropdownSelect(mockComponent);
 
       expect(wrapper.instance().props.toggleLocation).toHaveBeenCalled();
+    });
+  })
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params on storeSelectedEvent', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockEvent = mockDirtyRecentEvents.events[0];
+      const mockAction = {
+        type: 'STORE_SELECTED_EVENT',
+        event: mockEvent
+      };
+
+      mappedProps.storeSelectedEvent(mockEvent);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleLocation', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_LOCATION',
+        boolean: false
+      };
+
+      mappedProps.toggleLocation(false);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
   })
 
