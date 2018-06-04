@@ -7,7 +7,7 @@ import moment from 'moment';
 import { mockDirtyRecentEvents, mockUser } from '../../mockData';
 import { cleanRecentEventsSearch } from '../../dataCleaners/recentEventsSearchCleaner';
 jest.mock('../../dataCleaners/recentEventsSearchCleaner');
-import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
+import * as fetchCalls from '../../apiCalls';
 jest.mock('../../apiCalls/ticketmasterApiCalls');
 jest.mock('../../apiCalls');
 
@@ -103,26 +103,49 @@ describe('EventsSearch', () => {
     })
   })
 
-  // How do you mock implement fetchSelectedEvent?
+  describe('handleStoreEvent', () => {
+    let wrapper;
+    let mockOption;
 
-  // describe('handleStoreEvent', () => {
-  //   it('should call fetchSelectedEvent with the correct argument', async () => { 
-  //     const mockOption = {
-  //       id: 'Z7r9jZ1AeuAuo',
-  //       label: 'T-Swift Pepsi Center2018-08-07 7:00'
-  //     }
-  //     const wrapper = shallow(<EventsSearch user={mockUser} />);
-  //     wrapper.setState({
-  //       selectedOption: mockOption
-  //     });
+    beforeEach(() => {
+      mockOption = {
+        id: 'Z7r9jZ1AeuAuo',
+        label: 'T-Swift Pepsi Center2018-08-07 7:00'
+      }
 
-  //     const result = fetchSelectedEvent('Z7r9jZ1AeuAuo')
+      wrapper = shallow(<EventsSearch user={mockUser} storeSelectedEvent={jest.fn()} />);
 
-  //     await wrapper.instance().handleStoreEvent();
+      fetchCalls.fetchSelectedEvent.mockImplementation(() => ([
+        {mockOption}
+      ]))
+    })
+    it('should call fetchSelectedEvent with the correct argument', async () => { 
+      wrapper.setState({
+        selectedOption: mockOption
+      });
 
-  //     expect(result).toHaveBeenCalledWith(0);
-  //   })
-  // })
+      const result = fetchCalls.fetchSelectedEvent
+
+      await wrapper.instance().handleStoreEvent();
+
+      expect(result).toHaveBeenCalledWith('Z7r9jZ1AeuAuo');
+    })
+
+    it('should call storeSelectedEvent with the correct argument', async () => { 
+      const result = wrapper.instance().props.storeSelectedEvent
+      
+      await wrapper.instance().handleStoreEvent();
+
+      const expected = {
+        "mockOption": {
+          "id": "Z7r9jZ1AeuAuo", 
+          "label": "T-Swift Pepsi Center2018-08-07 7:00"
+        }
+      }
+
+      expect(result).toHaveBeenCalledWith(expected);
+    })
+  })
 
   describe('onDropdownSelect', () => {
     let wrapper;
