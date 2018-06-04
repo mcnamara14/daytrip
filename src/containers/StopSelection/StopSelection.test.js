@@ -120,5 +120,16 @@ it('should match the snapshot', () => {
       expect(wrapper.instance().props.storeSuggestedBars).toHaveBeenCalledWith(expected);
     });
 
+    it('should call toggleEventError if there isnt a selected event', async () => {
+      const wrapper = shallow(<StopSelection toggleEventError={jest.fn()} selectedEvent={null}  />);
+      wrapper.instance().toggleEventError = jest.fn();
+      
+      await wrapper.instance().storeRestaurantsOrBars();
+
+      const expected = mockCleanSuggestedRestaurant
+      
+      expect(wrapper.instance().toggleEventError).toHaveBeenCalled();
+    });
+
   });
 })
