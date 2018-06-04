@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './SelectedEvent.css';
+import PropTypes from 'prop-types';
 
 export class SelectedEvent extends Component {
   render() {
@@ -27,6 +28,10 @@ export class SelectedEvent extends Component {
     );
   } 
 }
+
+SelectedEvent.propTypes = {
+  selectedEvent: PropTypes.object
+};
 
 export const mapStateToProps = (state) => ({
   selectedEvent: state.selectedEvent

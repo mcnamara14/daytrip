@@ -98,6 +98,12 @@ export class Plans extends Component {
   }
 }
 
+Plans.propTypes = {
+  suggestedRestaurants: PropTypes.array,
+  suggestedBars: PropTypes.array,
+  selectedEvent: PropTypes.object
+};
+
 export const mapStateToProps = (state) => ({
   suggestedRestaurants: state.suggestedRestaurants,
   suggestedBars: state.suggestedBars,

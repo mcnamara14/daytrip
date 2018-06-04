@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './EventsSearch.css';
+import PropTypes from 'prop-types';
 import LocationAutocomplete from 'location-autocomplete';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
@@ -39,7 +40,7 @@ export class EventsSearch extends Component {
         city: user.city,
         state: user.state,
         selectedOption
-      })
+      });
     }
   }
 
@@ -100,7 +101,6 @@ export class EventsSearch extends Component {
 
   render() {
     const { selectedOption } = this.state;
-    let isLoadingExternally = true;
  
     return (
       <div className="eventsSearchContainer">
@@ -135,14 +135,21 @@ export class EventsSearch extends Component {
   }
 }
 
+EventsSearch.propTypes = {
+  user: PropTypes.object,
+  storeSelectedEvent: PropTypes.func,
+  toggleLocation: PropTypes.func,
+  eventError: PropTypes.bool
+};
+
 export const mapDispatchToProps = (dispatch) => ({
   storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event)),
   toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
-})
+});
 
 export const mapStateToProps = (state) => ({
   user: state.user,
   eventError: state.eventError
-})
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsSearch);

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Events.css';
+import PropTypes from 'prop-types';
 import RecentEvent from '../../containers/RecentEvent/RecentEvent';
 import { EventsHero } from '../../components/EventsHero/EventsHero';
 import EventsSearch from '../EventsSearch/EventsSearch';
@@ -9,7 +10,6 @@ import SelectedEvent from '../../containers/SelectedEvent/SelectedEvent';
 import Plans from '../Plans/Plans';
 
 export class Events extends Component {
-
   render() {
     const { 
       events, 
@@ -57,6 +57,13 @@ export class Events extends Component {
     );
   }
 }
+
+Events.propTypes = {
+  events: PropTypes.array,
+  selectedEvent: PropTypes.object,
+  suggestedBars: PropTypes.array,
+  suggestedRestaurants: PropTypes.array
+};
 
 export const mapStateToProps = (state) => ({
   events: state.recentEvents,

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './StopSelection.css';
+import PropTypes from 'prop-types';
 import Select from 'react-select';
 import { 
   beforeEventCategoryCleaner, 
@@ -124,6 +125,15 @@ export class StopSelection extends Component {
     );
   }
 }
+
+StopSelection.propTypes = {
+  storeSuggestedRestaurants: PropTypes.func,
+  storeSuggestedBars: PropTypes.func,
+  toggleEventError: PropTypes.func,
+  selectedEvent: PropTypes.object,
+  eventError: PropTypes.string,
+  type: PropTypes.string
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   storeSuggestedRestaurants: (restaurants) => {

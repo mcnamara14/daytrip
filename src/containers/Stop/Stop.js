@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Stop.css';
+import PropTypes from 'prop-types';
 
 export class Stop extends Component {
 
@@ -44,5 +45,16 @@ export class Stop extends Component {
     );
   }
 }
+
+Stop.propTypes = {
+  title: PropTypes.string,
+  rating: PropTypes.string,
+  location: PropTypes.string,
+  price: PropTypes.string,
+  reviews: PropTypes.string,
+  image: PropTypes.string,
+  index: PropTypes.string,
+  type: PropTypes.string
+};
 
 export default Stop;

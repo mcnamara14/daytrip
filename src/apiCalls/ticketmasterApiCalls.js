@@ -56,7 +56,7 @@ export const fetchSelectedEvent = async (id) => {
     
     return cleanRecentEvents([event]);
   } catch (error) {
-    alert(error);
+    console.log('error');
   }
 };
 
