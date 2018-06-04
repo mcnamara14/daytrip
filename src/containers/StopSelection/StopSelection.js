@@ -68,7 +68,7 @@ export class StopSelection extends Component {
       storeSuggestedBars 
     } = this.props;
     const { selectedOption, priceRanges } = this.state;
-
+   
     if (selectedEvent !== null && selectedOption !== null) {
       const latitude = selectedEvent.latitude;
       const longitude = selectedEvent.longitude;
