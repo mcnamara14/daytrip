@@ -1,6 +1,7 @@
 import { location } from '../location';
 import { eventError } from '../eventError';
 import { recentEvents } from '../recentEvents';
+import { selectedEvent } from '../selectedEvent';
 
 describe('Reducers', () => {
   describe('location reducer', () => {
@@ -64,6 +65,28 @@ describe('Reducers', () => {
       const expected = [{title: 'TSwizzle'}];
 
       const result = recentEvents(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('selectedEvent reducer', () => {
+    it('should return the initial state', () => {
+      const expected = null;
+
+      const result = selectedEvent(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return the boolean passed with TOGGLE EVENT ERROR action type', () => {
+      const mockAction = {
+        type: 'STORE_SELECTED_EVENT',
+        event: {title: 'TSwizzle'}
+      }
+      const expected = {title: 'TSwizzle'};
+
+      const result = selectedEvent(undefined, mockAction)
 
       expect(result).toEqual(expected)
     })
