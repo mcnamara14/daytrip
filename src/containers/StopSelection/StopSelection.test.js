@@ -173,5 +173,37 @@ it('should match the snapshot', () => {
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
-  })
+  });
+
+  describe('mapStateToProps', () => {
+    it('should map selectedEvent to props', () => {
+      const state = {
+        selectedEvent: {title: 'Swifty'},
+        bar: {title: 'Matchbox'}
+      };
+
+      const expected = {
+        selectedEvent: {title: 'Swifty'}
+      };
+
+      const mappedProps = mapStateToProps(state);
+
+      expect(mappedProps).toEqual(expected);
+    });
+
+    it('should map eventError to props', () => {
+      const state = {
+        eventError: false,
+        bar: {title: 'Matchbox'}
+      };
+
+      const expected = {
+        eventError: false
+      };
+      
+      const mappedProps = mapStateToProps(state);
+
+      expect(mappedProps).toEqual(expected);
+    });
+  });
 })
