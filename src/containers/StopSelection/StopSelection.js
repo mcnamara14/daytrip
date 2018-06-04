@@ -38,6 +38,7 @@ export class StopSelection extends Component {
   changePriceRange = (price) => {
     if (!this.state.priceRanges.includes(price)) {
       const priceRanges = [...this.state.priceRanges, price];
+      
       this.setState({
         priceRanges 
       });
@@ -75,7 +76,6 @@ export class StopSelection extends Component {
       const category = selectedOption.alias;
       const suggestedRestaurantsBars = 
         await fetchRestaurantsAndBars(latitude, longitude, price, category);
-      console.log(suggestedRestaurantsBars)
       type === 'before' ? storeSuggestedRestaurants(suggestedRestaurantsBars) : 
         storeSuggestedBars(suggestedRestaurantsBars);
     } else if (selectedEvent === null) {
