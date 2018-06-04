@@ -1,4 +1,5 @@
 export const suggestedRestaurantsCleaner = (restaurants) => {
+  console.log(restaurants)
   const allRestaurants = restaurants.map(restaurant => {
     const {
       name,

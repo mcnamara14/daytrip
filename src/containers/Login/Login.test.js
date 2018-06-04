@@ -4,11 +4,22 @@ import { Login, mapDispatchToProps } from './Login';
 import { shallow } from 'enzyme';
 import { emailPasswordSignup } from '../../firebase/auth';
 import * as authorization from '../../firebase/auth';
-import * as ticketmasterApiCall from '../../apiCalls/ticketmasterApiCall';
+import * as ticketmasterApiCalls from '../../apiCalls';
 import * as cleaner from '../../dataCleaners';
 import { createMemoryHistory } from 'history';
 import LocationAutocomplete from 'location-autocomplete';
 jest.mock('moment', () => () => ({format: () => '2018-05-27T17:13:38-06:00'}));
+import { cleanRecentEvents } from '../../dataCleaners/recentEventsCleaner';
+jest.mock('../../dataCleaners/recentEventsCleaner');
+jest.mock('location-autocomplete', () => () => ({autocomplete: {getPlace: () => ({
+  vicinity: 'Boulder', 
+  address_components: [
+    {0: {long_name: "Denver", short_name: "Denver"}},
+    {1: {long_name: "Denver County", short_name: "Denver County"}},
+    {2: {long_name: "Colorado", short_name: "CO"}}
+  ]
+})}}));
+
 
 describe('Login', () => {
   let wrapper;
@@ -49,7 +60,7 @@ describe('Login', () => {
 
       const expected = 'test@testerson.com';
 
-      wrapper.find('input[name="email"]').simulate('change', mockEvent);
+      wrapper.find('input[name="emailInput"]').simulate('change', mockEvent);
 
       expect(wrapper.state('email')).toEqual(expected);
     })
@@ -151,18 +162,22 @@ describe('Login', () => {
     })
 
     it('should call handleTicketMasterFetch when there is a location', async () => {
-      const result = wrapper.instance().handleTicketMasterFetch
+      wrapper.instance().toggleLocation = jest.fn();
 
+      const result = wrapper.instance().handleTicketMasterFetch
+      
       await wrapper.instance().googleSignup();
       
       expect(result).toHaveBeenCalled();
     })
 
-    it('should call handleMissingLocationError when no location is entered', async () => {
-      wrapper.instance().handleMissingLocationError = jest.fn();
-      wrapper.setState({location: ''});
+    it('should call toggleLocation when no location is entered', async () => {
+      wrapper.instance().toggleLocation = jest.fn();
+      wrapper.setState({
+        location: ''
+      })
 
-      const result = wrapper.instance().handleMissingLocationError
+      const result = wrapper.instance().toggleLocation
 
       await wrapper.instance().googleSignup();
 
@@ -170,19 +185,20 @@ describe('Login', () => {
     })
   })
 
-  describe('handleMissingLocationError', () => {
-    it('should set locationError in state to true then back to false after 2 seconds', () => {
-      const wrapper = shallow(<Login />);
+  describe('toggleLocation', () => {
+    it('should call toggleLocation with correct argument then call again 2 seconds', () => {
+      const wrapper = shallow(<Login toggleLocation={jest.fn()} />);
+      const result = wrapper.instance().props.toggleLocation;
+
       jest.useFakeTimers();
 
-      wrapper.instance().handleMissingLocationError();
+      wrapper.instance().toggleLocation();
 
-      expect(wrapper.state('locationError')).toEqual(true);
+      expect(result).toHaveBeenCalledWith(true);
 
       jest.runAllTimers();
 
-      expect(wrapper.state('locationError')).toEqual(false);
-    })
+      expect(result).toHaveBeenCalledWith(false);    })
   })
 
   describe('handleTicketMasterFetch', () => {
@@ -193,7 +209,7 @@ describe('Login', () => {
     beforeEach(() => {
       history = createMemoryHistory('/');
       mockStoreRecentEvents = jest.fn();
-      ticketmasterApiCall.ticketmasterApiCallRecentEvents = jest.fn().mockImplementation(() => ([{
+      ticketmasterApiCalls.fetchRecentEvents = jest.fn().mockImplementation(() => ([{
         date: "2018-05-28 5:10 PM",
         image: "https://s1.ticketm.net/dam/a/67d/7b495.jpg",
         price: "$10+",
@@ -213,16 +229,16 @@ describe('Login', () => {
       wrapper = shallow(<Login history={history} storeRecentEvents={mockStoreRecentEvents} />);
     })
 
-    it('should call ticketmasterApiCallRecentEvents with correct arguments', () => {
+    it('should call fetchRecentEvents with correct arguments', async () => {
       wrapper.instance().setState({
         city: 'Boulder',
         state: 'CO',
         timeNow: '2018-05-27T17:13:38-06:00'
       });
       
-      const result = ticketmasterApiCall.ticketmasterApiCallRecentEvents;
+      const result = ticketmasterApiCalls.fetchRecentEvents;
       
-      wrapper.instance().handleTicketMasterFetch();
+      await wrapper.instance().handleTicketMasterFetch();
 
       expect(result).toHaveBeenCalledWith(wrapper.state('city'), wrapper.state('state'), wrapper.state('timeNow'))
     })
@@ -282,36 +298,59 @@ describe('Login', () => {
       expect(wrapper.instance().props.loginUser).toHaveBeenCalledWith(2345, "test@testerson.com", "Boulder, CO");
     })
 
-    it('should call handleMissingLocationError when missing a location', () => {
-      wrapper.setState({location: ''});
-      wrapper.instance().handleMissingLocationError = jest.fn();
+    it('should call toggleLocation when missing a location', async () => {
+      wrapper.instance().toggleLocation = jest.fn();
 
-      wrapper.instance().facebookSignup();
+      await wrapper.instance().facebookSignup();
 
-      const result = wrapper.instance().handleMissingLocationError;
+      const result = wrapper.instance().toggleLocation;
 
       expect(result).toHaveBeenCalled();
     })
   })
 
-  // describe('onDropdownSelect', () => {
-  //   it('should set the state to the city and state selected', () => {
-  //     const wrapper = mount(<Login />);
-  //     const locationAutocomplete
-  //     const locationAutocomplete = shallow(<LocationAutocomplete onChange={jest.fn()} onDropdownSelect={jest.fn()} />);
-  //     locationAutocomplete.autocomplete.getPlace = jest.fn().mockImplementation(() => ({
-  //       vicinity: 'Boulder', 
-  //       address_components: [
-  //         {0: {long_name: "Denver", short_name: "Denver"}},
-  //         {1: {long_name: "Denver County", short_name: "Denver County"}},
-  //         {2: {long_name: "Colorado", short_name: "CO"}}
-  //       ]
-  //     }))
+  describe('onDropdownSelect', () => {
+    let wrapper;
+    let mockComponent;
 
-  //     wrapper.instance().onDropdownSelect();
-  //   })
-  // })
+    beforeEach(() => {
+      mockComponent = {autocomplete: {getPlace: () => ({
+        vicinity: 'Boulder', 
+        address_components: [
+          {long_name: "Denver", short_name: "Denver"},
+          {long_name: "Denver County", short_name: "Denver County"},
+          {long_name: "Colorado", short_name: "CO"}
+        ]
+      })}}
 
+      wrapper = shallow(<Login toggleLocation={jest.fn()} />);
+    })
+
+    it('should set the state to the city and state selected', () => {
+      wrapper.instance().onDropdownSelect(mockComponent);
+
+      mockComponent.autocomplete = jest.fn();
+
+      expect(wrapper.state('city')).toEqual('Boulder');
+      expect(wrapper.state('state')).toEqual('CO');
+    })
+
+    it('should call toggleLocation with an argument of false', () => {
+      wrapper.instance().onDropdownSelect(mockComponent);
+
+      mockComponent.autocomplete = jest.fn();
+
+      expect(wrapper.instance().props.toggleLocation).toHaveBeenCalledWith(false);
+    })
+  })
+  
+  describe('mapDispatchToProps', () => {
+    it('should render a location popup when location is submitted', () => {
+      const wrapper = shallow(<Login toggleLocation={jest.fn()} location={'Denver'} />);
+
+      expect(wrapper.find('.errorPopup').length).toEqual(1);
+    })
+  })
   describe('mapDispatchToProps', () => {
     it('should call dispatch with the correct params on loginUser', () => {
       const mockDispatch = jest.fn();
@@ -344,6 +383,19 @@ describe('Login', () => {
       };
 
       mappedProps.storeRecentEvents(mockAction.recentEvents);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleLocation', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_LOCATION',
+        boolean: false
+      };
+
+      mappedProps.toggleLocation(false);
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
