@@ -107,17 +107,17 @@ export class StopSelection extends Component {
         <div className="priceRange">
           <span 
             onClick={() => this.changePriceRange('1')} 
-            className={priceRanges.includes('1') ? 'selected' : null}>$</span>
+            className={priceRanges.includes('1') ? 'selected' : 'priceOne'}>$</span>
           <span 
             onClick={() => this.changePriceRange('2')} 
-            className={priceRanges.includes('2') ? 'selected' : null}>$$</span>
+            className={priceRanges.includes('2') ? 'selected' : 'priceTwo'}>$$</span>
           <span 
             onClick={() => this.changePriceRange('3')} 
-            className={priceRanges.includes('3') ? 'selected' : null}>$$$</span>
+            className={priceRanges.includes('3') ? 'selected' : 'priceThree'}>$$$</span>
           <span 
             onClick={() => this.changePriceRange('4')} 
             className={priceRanges.includes('4') ? 'selected last' : 
-              'last'}>$$$$</span>
+              'priceFour last'}>$$$$</span>
         </div>
         <button onClick={this.storeRestaurantsOrBars}>Submit</button>
       </div>

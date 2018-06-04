@@ -132,6 +132,45 @@ it('should match the snapshot', () => {
     });
   });
 
+  describe('return functionality', () => {
+    it('should call changePriceRange with the correct argument when price one button is clicked', () => {
+      const wrapper = shallow(<StopSelection />);
+      wrapper.instance().changePriceRange = jest.fn();
+
+      wrapper.find('.priceOne').simulate('click');
+
+      expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('1');
+    });
+
+    it('should call changePriceRange with the correct argument when price two button is clicked', () => {
+      const wrapper = shallow(<StopSelection />);
+      wrapper.instance().changePriceRange = jest.fn();
+      
+      wrapper.find('.priceTwo').simulate('click');
+
+      expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('2');
+    })
+
+    it('should call changePriceRange with the correct argument when price three button is clicked', () => {
+      const wrapper = shallow(<StopSelection />);
+      wrapper.instance().changePriceRange = jest.fn();
+      
+      wrapper.find('.priceThree').simulate('click');
+
+      expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('3');
+    })
+
+    it('should call changePriceRange with the correct argument when price four button is clicked', () => {
+      const wrapper = shallow(<StopSelection />);
+      wrapper.instance().changePriceRange = jest.fn();
+      
+      wrapper.find('.priceFour').simulate('click');
+
+      expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('4');
+    })
+
+  });
+
   describe('mapDispatchToProps', () => {
     it('should call dispatch with the correct params on storeSuggestedRestaurants', () => {
       const mockDispatch = jest.fn();
