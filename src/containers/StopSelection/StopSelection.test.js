@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { StopSelection, mapDispatchToProps, mapStateToProps } from './StopSelection';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { 
   mockCleanRestaurantAndBar, 
   mockCleanRecentEvents,
@@ -26,6 +26,24 @@ it('should match the snapshot', () => {
       expect(wrapper.state('selectedOption')).toEqual(mockCleanRestaurantAndBar)
     });
   })
+
+  // describe('componentWillReceiveProps', () => {
+  //   it('should call changePriceRange with the correct argument when price one button is clicked', () => {
+  //     const wrapper = shallow(<StopSelection selectedEvent={{ title: 'T-Swift'}} />);
+  //     const instance = wrapper.instance();
+  //     const spy = jest.spyOn(instance, 'storeRestaurantsOrBars');
+
+  //     expect(spy).not.toHaveBeenCalled();
+
+  //     wrapper.setProps({
+  //       selectedEvent: {
+  //         title: 'Backstreet Boys'
+  //       }
+  //     });
+
+  //     expect(spy).toHaveBeenCalled();
+  //   })
+  // });
 
   describe('changePriceRange', () => {
     it('should add price range to state when its not included already', () => {
@@ -130,6 +148,45 @@ it('should match the snapshot', () => {
       
       expect(wrapper.instance().toggleEventError).toHaveBeenCalled();
     });
+  });
+
+  describe('return functionality', () => {
+    it('should call changePriceRange with the correct argument when price one button is clicked', () => {
+      const wrapper = shallow(<StopSelection />);
+      wrapper.instance().changePriceRange = jest.fn();
+
+      wrapper.find('.priceOne').simulate('click');
+
+      expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('1');
+    });
+
+    it('should call changePriceRange with the correct argument when price two button is clicked', () => {
+      const wrapper = shallow(<StopSelection />);
+      wrapper.instance().changePriceRange = jest.fn();
+      
+      wrapper.find('.priceTwo').simulate('click');
+
+      expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('2');
+    })
+
+    it('should call changePriceRange with the correct argument when price three button is clicked', () => {
+      const wrapper = shallow(<StopSelection />);
+      wrapper.instance().changePriceRange = jest.fn();
+      
+      wrapper.find('.priceThree').simulate('click');
+
+      expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('3');
+    })
+
+    it('should call changePriceRange with the correct argument when price four button is clicked', () => {
+      const wrapper = shallow(<StopSelection />);
+      wrapper.instance().changePriceRange = jest.fn();
+      
+      wrapper.find('.priceFour').simulate('click');
+
+      expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('4');
+    })
+
   });
 
   describe('mapDispatchToProps', () => {

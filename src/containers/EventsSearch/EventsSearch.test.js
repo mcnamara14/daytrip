@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { EventsSearch } from './EventsSearch';
+import { EventsSearch, mapDispatchToProps } from './EventsSearch';
 import { shallow } from 'enzyme';
 import moment from 'moment';
 // jest.mock('moment', () => ({format: () => '2018–01–30T12:34:56+00:00'}));
 import { mockDirtyRecentEvents, mockUser } from '../../mockData';
 import { cleanRecentEventsSearch } from '../../dataCleaners/recentEventsSearchCleaner';
 jest.mock('../../dataCleaners/recentEventsSearchCleaner');
-import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
+import * as fetchCalls from '../../apiCalls';
 jest.mock('../../apiCalls/ticketmasterApiCalls');
 jest.mock('../../apiCalls');
 
@@ -37,23 +37,7 @@ describe('EventsSearch', () => {
     })
   });
 
-  // Cant figure out how to mock moment.js format method
-
   describe('fetchEvents', () => {
-    // it('should call fetchRecentEventsOnSearch with the correct arguments if a location is entered', async () => {
-    //   const wrapper = shallow(<EventsSearch user={mockUser} />);
-    //   wrapper.setState({
-    //     city: 'Boulder', 
-    //     state: 'CO',
-    //     startDate: '062018'
-    //   });
-
-    //   wrapper.instance().fetchEvents('rockies');
-    //   const result = await fetchRecentEventsOnSearch();
-
-    //   expect(fetchRecentEventsOnSearch).toHaveBeenCalledWith(0)
-    // })
-
     it('should call handleMissingLocationError when there is no location', () => {
       const wrapper = shallow(<EventsSearch user={mockUser} />);
 
@@ -103,25 +87,150 @@ describe('EventsSearch', () => {
     })
   })
 
-  // How do you mock implement fetchSelectedEvent?
+  describe('handleStoreEvent', () => {
+    let wrapper;
+    let mockOption;
 
-  // describe('handleStoreEvent', () => {
-  //   it('should call fetchSelectedEvent with the correct argument', async () => { 
-  //     const mockOption = {
-  //       id: 'Z7r9jZ1AeuAuo',
-  //       label: 'T-Swift Pepsi Center2018-08-07 7:00'
-  //     }
-  //     const wrapper = shallow(<EventsSearch user={mockUser} />);
-  //     wrapper.setState({
-  //       selectedOption: mockOption
-  //     });
+    beforeEach(() => {
+      mockOption = {
+        id: 'Z7r9jZ1AeuAuo',
+        label: 'T-Swift Pepsi Center2018-08-07 7:00'
+      }
 
-  //     const result = fetchSelectedEvent('Z7r9jZ1AeuAuo')
+      wrapper = shallow(<EventsSearch user={mockUser} storeSelectedEvent={jest.fn()} />);
 
-  //     await wrapper.instance().handleStoreEvent();
+      fetchCalls.fetchSelectedEvent.mockImplementation(() => ([
+        {mockOption}
+      ]))
+    })
+    it('should call fetchSelectedEvent with the correct argument', async () => { 
+      wrapper.setState({
+        selectedOption: mockOption
+      });
 
-  //     expect(result).toHaveBeenCalledWith(0);
-  //   })
-  // })
+      const result = fetchCalls.fetchSelectedEvent
+
+      await wrapper.instance().handleStoreEvent();
+
+      expect(result).toHaveBeenCalledWith('Z7r9jZ1AeuAuo');
+    })
+
+    it('should call storeSelectedEvent with the correct argument', async () => { 
+      const result = wrapper.instance().props.storeSelectedEvent
+      
+      await wrapper.instance().handleStoreEvent();
+
+      const expected = {
+        "mockOption": {
+          "id": "Z7r9jZ1AeuAuo", 
+          "label": "T-Swift Pepsi Center2018-08-07 7:00"
+        }
+      }
+
+      expect(result).toHaveBeenCalledWith(expected);
+    })
+  })
+
+  describe('onDropdownSelect', () => {
+    let wrapper;
+    let mockComponent;
+
+    beforeEach(() => {
+      wrapper = shallow(<EventsSearch user={mockUser} toggleLocation={jest.fn()} />);
+
+      mockComponent = {
+        autocomplete: {
+          getPlace: jest.fn().mockImplementation(() => ({
+            vicinity: 'Denver',
+            address_components: [
+              {long_name: 'Colorado'},
+              {short_name: 'COLORADO'},
+              {short_name: 'CO'}
+            ]
+          }))
+        }
+      }
+    })
+
+    it('should set state of city, state, and selectedOption', () => {
+
+
+      wrapper.instance().onDropdownSelect(mockComponent);
+
+      expect(wrapper.state('city')).toEqual('Denver');
+      expect(wrapper.state('state')).toEqual('CO');
+      expect(wrapper.state('selectedOption')).toEqual('');
+    })
+
+    it('should call toggleLocation', () => {
+      wrapper.instance().onDropdownSelect(mockComponent);
+
+      expect(wrapper.instance().props.toggleLocation).toHaveBeenCalled();
+    });
+  })
+
+  describe('componentWillMount', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<EventsSearch user={mockUser} eventError={true} />);
+    })
+
+    it('should set state to users information when a user is signed in', () => {
+      expect(wrapper.state('city')).toEqual('San Diego');
+      expect(wrapper.state('state')).toEqual('CA');
+      expect(wrapper.state('selectedOption')).toEqual('San Diego,CA');
+    })
+
+    it('should not set state to users information when a user is not signed in', () => {
+      const mockUser = {
+        userId: null,
+        city: '',
+        state: ''
+      }
+      wrapper = shallow(<EventsSearch user={mockUser} eventError={true} />);
+
+      expect(wrapper.state('city')).toEqual('');
+      expect(wrapper.state('state')).toEqual('');
+      expect(wrapper.state('selectedOption')).toEqual('Enter a location');
+    })
+  });
+
+  describe('return functionality', () => {
+    it('should render an errorPopup when eventsError in store is true', () => {
+      const wrapper = shallow(<EventsSearch user={mockUser} eventError={true} />);
+
+      expect(wrapper.find('.errorPopup').length).toEqual(1);
+    })
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params on storeSelectedEvent', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockEvent = mockDirtyRecentEvents.events[0];
+      const mockAction = {
+        type: 'STORE_SELECTED_EVENT',
+        event: mockEvent
+      };
+
+      mappedProps.storeSelectedEvent(mockEvent);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleLocation', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_LOCATION',
+        boolean: false
+      };
+
+      mappedProps.toggleLocation(false);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+  })
 
 });

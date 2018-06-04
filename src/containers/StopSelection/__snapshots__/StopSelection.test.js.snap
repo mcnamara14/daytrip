@@ -109,25 +109,25 @@ ShallowWrapper {
           className="priceRange"
 >
           <span
-                    className={null}
+                    className="priceOne"
                     onClick={[Function]}
           >
                     $
           </span>
           <span
-                    className={null}
+                    className="priceTwo"
                     onClick={[Function]}
           >
                     $$
           </span>
           <span
-                    className={null}
+                    className="priceThree"
                     onClick={[Function]}
           >
                     $$$
           </span>
           <span
-                    className="last"
+                    className="priceFour last"
                     onClick={[Function]}
           >
                     $$$$
@@ -275,25 +275,25 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <span
-              className={null}
+              className="priceOne"
               onClick={[Function]}
 >
               $
 </span>,
             <span
-              className={null}
+              className="priceTwo"
               onClick={[Function]}
 >
               $$
 </span>,
             <span
-              className={null}
+              className="priceThree"
               onClick={[Function]}
 >
               $$$
 </span>,
             <span
-              className="last"
+              className="priceFour last"
               onClick={[Function]}
 >
               $$$$
@@ -309,7 +309,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "$",
-              "className": null,
+              "className": "priceOne",
               "onClick": [Function],
             },
             "ref": null,
@@ -322,7 +322,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "$$",
-              "className": null,
+              "className": "priceTwo",
               "onClick": [Function],
             },
             "ref": null,
@@ -335,7 +335,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "$$$",
-              "className": null,
+              "className": "priceThree",
               "onClick": [Function],
             },
             "ref": null,
@@ -348,7 +348,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "$$$$",
-              "className": "last",
+              "className": "priceFour last",
               "onClick": [Function],
             },
             "ref": null,
@@ -471,25 +471,25 @@ ShallowWrapper {
             className="priceRange"
 >
             <span
-                        className={null}
+                        className="priceOne"
                         onClick={[Function]}
             >
                         $
             </span>
             <span
-                        className={null}
+                        className="priceTwo"
                         onClick={[Function]}
             >
                         $$
             </span>
             <span
-                        className={null}
+                        className="priceThree"
                         onClick={[Function]}
             >
                         $$$
             </span>
             <span
-                        className="last"
+                        className="priceFour last"
                         onClick={[Function]}
             >
                         $$$$
@@ -637,25 +637,25 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <span
-                className={null}
+                className="priceOne"
                 onClick={[Function]}
 >
                 $
 </span>,
               <span
-                className={null}
+                className="priceTwo"
                 onClick={[Function]}
 >
                 $$
 </span>,
               <span
-                className={null}
+                className="priceThree"
                 onClick={[Function]}
 >
                 $$$
 </span>,
               <span
-                className="last"
+                className="priceFour last"
                 onClick={[Function]}
 >
                 $$$$
@@ -671,7 +671,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "$",
-                "className": null,
+                "className": "priceOne",
                 "onClick": [Function],
               },
               "ref": null,
@@ -684,7 +684,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "$$",
-                "className": null,
+                "className": "priceTwo",
                 "onClick": [Function],
               },
               "ref": null,
@@ -697,7 +697,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "$$$",
-                "className": null,
+                "className": "priceThree",
                 "onClick": [Function],
               },
               "ref": null,
@@ -710,7 +710,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "$$$$",
-                "className": "last",
+                "className": "priceFour last",
                 "onClick": [Function],
               },
               "ref": null,
