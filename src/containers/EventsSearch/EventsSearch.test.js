@@ -169,6 +169,33 @@ describe('EventsSearch', () => {
     });
   })
 
+  describe('componentWillMount', () => {
+    let wrapper;
+
+    beforeEach(() => {
+      wrapper = shallow(<EventsSearch user={mockUser} eventError={true} />);
+    })
+
+    it('should set state to users information when a user is signed in', () => {
+      expect(wrapper.state('city')).toEqual('San Diego');
+      expect(wrapper.state('state')).toEqual('CA');
+      expect(wrapper.state('selectedOption')).toEqual('San Diego,CA');
+    })
+
+    it('should not set state to users information when a user is not signed in', () => {
+      const mockUser = {
+        userId: null,
+        city: '',
+        state: ''
+      }
+      wrapper = shallow(<EventsSearch user={mockUser} eventError={true} />);
+
+      expect(wrapper.state('city')).toEqual('');
+      expect(wrapper.state('state')).toEqual('');
+      expect(wrapper.state('selectedOption')).toEqual('Enter a location');
+    })
+  });
+
   describe('return functionality', () => {
     it('should render an errorPopup when eventsError in store is true', () => {
       const wrapper = shallow(<EventsSearch user={mockUser} eventError={true} />);
