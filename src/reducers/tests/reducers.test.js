@@ -4,6 +4,7 @@ import { recentEvents } from '../recentEvents';
 import { selectedEvent } from '../selectedEvent';
 import { suggestedBars } from '../suggestedBars';
 import { suggestedRestaurants } from '../suggestedRestaurants';
+import { user } from '../user';
 
 describe('Reducers', () => {
   describe('location reducer', () => {
@@ -134,6 +135,37 @@ describe('Reducers', () => {
       const expected = [{title: 'Acron'}];
 
       const result = suggestedRestaurants(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('user reducer', () => {
+    it('should return the initial state', () => {
+      const expected = {userId: null, email: '', city: '', state: ''};
+
+      const result = user(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTSaction type', () => {
+      const mockAction = {
+        type: 'LOGIN_USER',
+        userId: '12345', 
+        email: 'test@testerson.com', 
+        city: 'Denver', 
+        state: 'CO'
+      }
+
+      const expected = {
+        userId: '12345', 
+        email: 'test@testerson.com', 
+        city: 'Denver', 
+        state: 'CO'
+      };
+
+      const result = user(undefined, mockAction)
 
       expect(result).toEqual(expected)
     })
