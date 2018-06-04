@@ -27,23 +27,27 @@ it('should match the snapshot', () => {
     });
   })
 
-  // describe('componentWillReceiveProps', () => {
-  //   it('should call changePriceRange with the correct argument when price one button is clicked', () => {
-  //     const wrapper = shallow(<StopSelection selectedEvent={{ title: 'T-Swift'}} />);
-  //     const instance = wrapper.instance();
-  //     const spy = jest.spyOn(instance, 'storeRestaurantsOrBars');
+  describe('componentWillReceiveProps', () => {
+    it('should call changePriceRange with the correct argument when price one button is clicked', () => {
+      jest.useFakeTimers();
+      const spy = jest.spyOn(StopSelection.prototype, 'componentWillReceiveProps');
+      const wrapper = mount(<StopSelection selectedEvent={{ title: 'T-Swift'}} />);
+      wrapper.instance().storeRestaurantsOrBars = jest.fn();
 
-  //     expect(spy).not.toHaveBeenCalled();
+      expect(wrapper.instance().storeRestaurantsOrBars).not.toHaveBeenCalled();
 
-  //     wrapper.setProps({
-  //       selectedEvent: {
-  //         title: 'Backstreet Boys'
-  //       }
-  //     });
+      wrapper.setProps({
+        selectedEvent: {
+          title: 'Backstreet Boys'
+        }
+      });
 
-  //     expect(spy).toHaveBeenCalled();
-  //   })
-  // });
+      wrapper.update();
+      jest.runAllTimers();
+
+      expect(wrapper.instance().storeRestaurantsOrBars).toHaveBeenCalled();
+    })
+  });
 
   describe('changePriceRange', () => {
     it('should add price range to state when its not included already', () => {
