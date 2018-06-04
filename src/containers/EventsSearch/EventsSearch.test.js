@@ -124,4 +124,42 @@ describe('EventsSearch', () => {
   //   })
   // })
 
+  describe('onDropdownSelect', () => {
+    let wrapper;
+    let mockComponent;
+
+    beforeEach(() => {
+      wrapper = shallow(<EventsSearch user={mockUser} toggleLocation={jest.fn()} />);
+
+      mockComponent = {
+        autocomplete: {
+          getPlace: jest.fn().mockImplementation(() => ({
+            vicinity: 'Denver',
+            address_components: [
+              {long_name: 'Colorado'},
+              {short_name: 'COLORADO'},
+              {short_name: 'CO'}
+            ]
+          }))
+        }
+      }
+    })
+
+    it('should set state of city, state, and selectedOption', () => {
+
+
+      wrapper.instance().onDropdownSelect(mockComponent);
+
+      expect(wrapper.state('city')).toEqual('Denver');
+      expect(wrapper.state('state')).toEqual('CO');
+      expect(wrapper.state('selectedOption')).toEqual('');
+    })
+
+    it('should call toggleLocation', () => {
+      wrapper.instance().onDropdownSelect(mockComponent);
+
+      expect(wrapper.instance().props.toggleLocation).toHaveBeenCalled();
+    });
+  })
+
 });
