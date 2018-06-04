@@ -38,6 +38,4 @@ describe('fetchRestaurantsAndBars', () => {
 
       expect(result).toEqual(expected);
     });
-
-
   })

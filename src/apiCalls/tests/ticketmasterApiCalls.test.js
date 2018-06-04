@@ -1,5 +1,5 @@
 import React from 'react';
-import { fetchRecentEvents, fetchRecentEventsOnSearch, fetchSelectedEvent } from '../index';
+import { fetchRecentEvents, fetchRecentEventsOnSearch, fetchSelectedEvent } from '../';
 import { ticketmasterApiKey } from '../apiKeys/ticketmasterApiKey';
 import { shallow } from 'enzyme';
 import { mockDirtyRecentEvents } from '../../mockData';
@@ -92,5 +92,6 @@ describe('ticketmasterApiCalls', () => {
 
       expect(result).toEqual(expected);
     });
+
   })
 })
