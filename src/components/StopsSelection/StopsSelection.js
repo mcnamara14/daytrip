@@ -15,7 +15,6 @@ export class StopsSelection extends Component {
   }
 
   storeRestaurantsAndBars = () => {
-    console.log('sdfdsdfsdf')
     const { 
       selectedEvent,
       restaurantFilters,
