@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import { StopSelection } from './StopSelection';
 import { shallow } from 'enzyme';
 import { mockCleanRestaurantAndBar } from '../../mockData';
+import * as fetchCalls from '../../apiCalls';
+jest.mock('../../apiCalls/yelpApiCalls');
 
 describe('StopSelection', () => {
 it('should match the snapshot', () => {
@@ -62,6 +64,30 @@ it('should match the snapshot', () => {
 
       expect(wrapper.instance().props.toggleEventError).toHaveBeenCalledWith(false)
     })
+  })
+
+  describe('storeRestaurantsOrBars', () => {
+    it('should call fetchRestaurantsAndBars with the correct args when there is a selectedEvent and selected restaurant or bar category', async () => {
+      const wrapper = shallow(<StopSelection toggleEventError={jest.fn()} selectedEvent={{title: 'T-Swift'}} storeSuggestedRestaurants={jest.fn()} storeSuggestedBars={jest.fn()} />);
+      
+      wrapper.setState({
+        selectedOption: {title: 'The Matchbox'}
+      })
+      await wrapper.instance().storeRestaurantsOrBars();
+      
+      expect(fetchCalls.fetchRestaurantsAndBars).toHaveBeenCalledWith();
+    });
+
+    it('should call storeSuggestedRestaurants with the correct args when there is a selectedEvent and selected restaurant or bar category', async () => {
+      const wrapper = shallow(<StopSelection toggleEventError={jest.fn()} selectedEvent={{title: 'T-Swift'}} storeSuggestedRestaurants={jest.fn()} storeSuggestedBars={jest.fn()} />);
+      
+      wrapper.setState({
+        selectedOption: {title: 'The Matchbox'}
+      })
+      await wrapper.instance().storeRestaurantsOrBars();
+      
+      expect(fetchCalls.fetchRestaurantsAndBars).toHaveBeenCalled();
+    });
   })
 
 })
