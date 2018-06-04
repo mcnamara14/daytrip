@@ -7,14 +7,69 @@ import * as firebase from 'firebase';
 import 'firebase/database';
 
 export class Plans extends Component {
-  selectPlan = (restaurantId, eventId, barId) => {
+  selectPlan = (
+    restaurantId,
+    restaurantName, 
+    restaurantRating, 
+    restaurantAddress, 
+    restaurantPrice, 
+    restaurantReviewCount, 
+    restaurantImage,
+    barId,
+    barName, 
+    barRating, 
+    barAddress, 
+    barPrice, 
+    barReviewCount, 
+    barImage,
+    id,
+    title, 
+    image, 
+    venue, 
+    date,
+    eventPrice,
+    planNum 
+  ) => {
+
     if (this.props.user.userId) {
       const firebaseRef = firebase.database().ref();
-      firebaseRef.child('users').child(this.props.user.userId).update(
+      firebaseRef.child('users').child(this.props.user.userId).child('selectedPlan').update(
         {
-          selectedPlan: [restaurantId, eventId, barId]
+          restaurant: {
+            id: restaurantId,
+            title: restaurantName,
+            rating: restaurantRating,
+            location: restaurantAddress, 
+            price: restaurantPrice, 
+            reviews: restaurantReviewCount, 
+            image: restaurantImage, 
+            type: 'restaurant', 
+            index: planNum
+          },
+          bar: {
+            id: barId,
+            title: barName,
+            rating: barRating,
+            location: barAddress, 
+            price: barPrice,
+            reviews: barReviewCount,
+            image: barImage,
+            type: 'bar' ,
+            index: planNum
+          },
+          event: {
+            id: id, 
+            title: title, 
+            rating: 0, 
+            location: venue, 
+            price: eventPrice, 
+            reviews: date, 
+            image: image, 
+            type: 'event', 
+            index: planNum
+          }
         }
-      );
+      )
     }
   }
 
@@ -94,7 +149,29 @@ export class Plans extends Component {
               index={planNum}
             />
           </section>
-          <button onClick={() => this.selectPlan(restaurantId, id, barId)}>Select Plan</button>
+          <button onClick={() => this.selectPlan(
+            restaurantId,
+            restaurantName, 
+            restaurantRating, 
+            restaurantAddress, 
+            restaurantPrice, 
+            restaurantReviewCount, 
+            restaurantImage,
+            barId,
+            barName, 
+            barRating, 
+            barAddress, 
+            barPrice, 
+            barReviewCount, 
+            barImage,
+            id,
+            title, 
+            image, 
+            venue, 
+            date,
+            eventPrice,
+            planNum
+          )}>Select Plan</button>
         </div>);
       }
     }

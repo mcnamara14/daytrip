@@ -8,7 +8,7 @@ const config = {
   projectId: "daytrip-c5c3a",
   storageBucket: "daytrip-c5c3a.appspot.com",
   messagingSenderId: "532630776936",
-  };
+};
 
 if (!firebase.apps.length) {
   firebase.initializeApp(config);
