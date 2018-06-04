@@ -169,6 +169,14 @@ describe('EventsSearch', () => {
     });
   })
 
+  describe('return functionality', () => {
+    it('should render an errorPopup when eventsError in store is true', () => {
+      const wrapper = shallow(<EventsSearch user={mockUser} eventError={true} />);
+
+      expect(wrapper.find('.errorPopup').length).toEqual(1);
+    })
+  });
+
   describe('mapDispatchToProps', () => {
     it('should call dispatch with the correct params on storeSelectedEvent', () => {
       const mockDispatch = jest.fn();
