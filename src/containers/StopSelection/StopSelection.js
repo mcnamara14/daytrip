@@ -50,7 +50,7 @@ export class StopSelection extends Component {
         priceRanges 
       });
     }
-    console.log(this.props.type)
+    
     this.props.type === 'before' ? this.props.storeRestaurantFilters(this.state.selectedOption.alias, priceRanges) :
       this.props.storeBarFilters(this.state.selectedOption.alias, priceRanges);
     
