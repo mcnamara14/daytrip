@@ -14,7 +14,7 @@ ShallowWrapper {
             "entries": Array [
               Object {
                 "hash": "",
-                "key": "m5lqnl",
+                "key": "j5jvn3",
                 "pathname": "/",
                 "search": "",
                 "state": undefined,
@@ -28,7 +28,7 @@ ShallowWrapper {
             "listen": [Function],
             "location": Object {
               "hash": "",
-              "key": "m5lqnl",
+              "key": "j5jvn3",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -130,7 +130,7 @@ ShallowWrapper {
                                                   className="emailPassForm"
                                         >
                                                   <h4>
-                                                            Email Signup
+                                                            Email Signup / Login
                                                   </h4>
                                                   <form
                                                             className="emailSignup"
@@ -159,7 +159,7 @@ ShallowWrapper {
                                                   className="socialSignup"
                                         >
                                                   <h4>
-                                                            Social Media Signup
+                                                            Social Media Signup / Login
                                                   </h4>
                                                   <div
                                                             className="googleBtn"
@@ -346,7 +346,7 @@ ShallowWrapper {
                                                         className="emailPassForm"
                                           >
                                                         <h4>
-                                                                      Email Signup
+                                                                      Email Signup / Login
                                                         </h4>
                                                         <form
                                                                       className="emailSignup"
@@ -375,7 +375,7 @@ ShallowWrapper {
                                                         className="socialSignup"
                                           >
                                                         <h4>
-                                                                      Social Media Signup
+                                                                      Social Media Signup / Login
                                                         </h4>
                                                         <div
                                                                       className="googleBtn"
@@ -516,7 +516,7 @@ ShallowWrapper {
                                                 className="emailPassForm"
                                 >
                                                 <h4>
-                                                                Email Signup
+                                                                Email Signup / Login
                                                 </h4>
                                                 <form
                                                                 className="emailSignup"
@@ -545,7 +545,7 @@ ShallowWrapper {
                                                 className="socialSignup"
                                 >
                                                 <h4>
-                                                                Social Media Signup
+                                                                Social Media Signup / Login
                                                 </h4>
                                                 <div
                                                                 className="googleBtn"
@@ -611,7 +611,7 @@ ShallowWrapper {
                                         className="emailPassForm"
                     >
                                         <h4>
-                                                            Email Signup
+                                                            Email Signup / Login
                                         </h4>
                                         <form
                                                             className="emailSignup"
@@ -640,7 +640,7 @@ ShallowWrapper {
                                         className="socialSignup"
                     >
                                         <h4>
-                                                            Social Media Signup
+                                                            Social Media Signup / Login
                                         </h4>
                                         <div
                                                             className="googleBtn"
@@ -802,7 +802,7 @@ ShallowWrapper {
                         className="emailPassForm"
 >
                         <h4>
-                                                Email Signup
+                                                Email Signup / Login
                         </h4>
                         <form
                                                 className="emailSignup"
@@ -831,7 +831,7 @@ ShallowWrapper {
                         className="socialSignup"
 >
                         <h4>
-                                                Social Media Signup
+                                                Social Media Signup / Login
                         </h4>
                         <div
                                                 className="googleBtn"
@@ -864,7 +864,7 @@ ShallowWrapper {
                       "props": Object {
                         "children": Array [
                           <h4>
-                            Email Signup
+                            Email Signup / Login
 </h4>,
                           <form
                             className="emailSignup"
@@ -898,10 +898,10 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "children": "Email Signup",
+                            "children": "Email Signup / Login",
                           },
                           "ref": null,
-                          "rendered": "Email Signup",
+                          "rendered": "Email Signup / Login",
                           "type": "h4",
                         },
                         Object {
@@ -986,7 +986,7 @@ ShallowWrapper {
                       "props": Object {
                         "children": Array [
                           <h4>
-                            Social Media Signup
+                            Social Media Signup / Login
 </h4>,
                           <div
                             className="googleBtn"
@@ -1016,10 +1016,10 @@ ShallowWrapper {
                           "key": undefined,
                           "nodeType": "host",
                           "props": Object {
-                            "children": "Social Media Signup",
+                            "children": "Social Media Signup / Login",
                           },
                           "ref": null,
-                          "rendered": "Social Media Signup",
+                          "rendered": "Social Media Signup / Login",
                           "type": "h4",
                         },
                         Object {
@@ -1178,7 +1178,7 @@ ShallowWrapper {
                                                             className="emailPassForm"
                                                 >
                                                             <h4>
-                                                                        Email Signup
+                                                                        Email Signup / Login
                                                             </h4>
                                                             <form
                                                                         className="emailSignup"
@@ -1207,7 +1207,7 @@ ShallowWrapper {
                                                             className="socialSignup"
                                                 >
                                                             <h4>
-                                                                        Social Media Signup
+                                                                        Social Media Signup / Login
                                                             </h4>
                                                             <div
                                                                         className="googleBtn"
@@ -1394,7 +1394,7 @@ ShallowWrapper {
                                                                 className="emailPassForm"
                                                 >
                                                                 <h4>
-                                                                                Email Signup
+                                                                                Email Signup / Login
                                                                 </h4>
                                                                 <form
                                                                                 className="emailSignup"
@@ -1423,7 +1423,7 @@ ShallowWrapper {
                                                                 className="socialSignup"
                                                 >
                                                                 <h4>
-                                                                                Social Media Signup
+                                                                                Social Media Signup / Login
                                                                 </h4>
                                                                 <div
                                                                                 className="googleBtn"
@@ -1564,7 +1564,7 @@ ShallowWrapper {
                                                       className="emailPassForm"
                                     >
                                                       <h4>
-                                                                        Email Signup
+                                                                        Email Signup / Login
                                                       </h4>
                                                       <form
                                                                         className="emailSignup"
@@ -1593,7 +1593,7 @@ ShallowWrapper {
                                                       className="socialSignup"
                                     >
                                                       <h4>
-                                                                        Social Media Signup
+                                                                        Social Media Signup / Login
                                                       </h4>
                                                       <div
                                                                         className="googleBtn"
@@ -1659,7 +1659,7 @@ ShallowWrapper {
                                             className="emailPassForm"
                       >
                                             <h4>
-                                                                  Email Signup
+                                                                  Email Signup / Login
                                             </h4>
                                             <form
                                                                   className="emailSignup"
@@ -1688,7 +1688,7 @@ ShallowWrapper {
                                             className="socialSignup"
                       >
                                             <h4>
-                                                                  Social Media Signup
+                                                                  Social Media Signup / Login
                                             </h4>
                                             <div
                                                                   className="googleBtn"
@@ -1850,7 +1850,7 @@ ShallowWrapper {
                           className="emailPassForm"
 >
                           <h4>
-                                                    Email Signup
+                                                    Email Signup / Login
                           </h4>
                           <form
                                                     className="emailSignup"
@@ -1879,7 +1879,7 @@ ShallowWrapper {
                           className="socialSignup"
 >
                           <h4>
-                                                    Social Media Signup
+                                                    Social Media Signup / Login
                           </h4>
                           <div
                                                     className="googleBtn"
@@ -1912,7 +1912,7 @@ ShallowWrapper {
                         "props": Object {
                           "children": Array [
                             <h4>
-                              Email Signup
+                              Email Signup / Login
 </h4>,
                             <form
                               className="emailSignup"
@@ -1946,10 +1946,10 @@ ShallowWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "children": "Email Signup",
+                              "children": "Email Signup / Login",
                             },
                             "ref": null,
-                            "rendered": "Email Signup",
+                            "rendered": "Email Signup / Login",
                             "type": "h4",
                           },
                           Object {
@@ -2034,7 +2034,7 @@ ShallowWrapper {
                         "props": Object {
                           "children": Array [
                             <h4>
-                              Social Media Signup
+                              Social Media Signup / Login
 </h4>,
                             <div
                               className="googleBtn"
@@ -2064,10 +2064,10 @@ ShallowWrapper {
                             "key": undefined,
                             "nodeType": "host",
                             "props": Object {
-                              "children": "Social Media Signup",
+                              "children": "Social Media Signup / Login",
                             },
                             "ref": null,
-                            "rendered": "Social Media Signup",
+                            "rendered": "Social Media Signup / Login",
                             "type": "h4",
                           },
                           Object {

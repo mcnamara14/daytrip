@@ -57,9 +57,9 @@ ShallowWrapper {
                               activeClassName="active"
                               ariaCurrent="true"
                               className="navLogin"
-                              to="/login"
+                              to="/"
                     >
-                              Login
+                              Login / Signup
                     </NavLink>
           </div>
 </nav>,
@@ -119,9 +119,9 @@ ShallowWrapper {
                             activeClassName="active"
                             ariaCurrent="true"
                             className="navLogin"
-                            to="/login"
+                            to="/"
               >
-                            Login
+                            Login / Signup
               </NavLink>
 </div>,
           ],
@@ -185,9 +185,9 @@ ShallowWrapper {
                   activeClassName="active"
                   ariaCurrent="true"
                   className="navLogin"
-                  to="/login"
+                  to="/"
 >
-                  Login
+                  Login / Signup
 </NavLink>,
               ],
               "className": "loginLink",
@@ -214,12 +214,12 @@ ShallowWrapper {
                 "props": Object {
                   "activeClassName": "active",
                   "ariaCurrent": "true",
-                  "children": "Login",
+                  "children": "Login / Signup",
                   "className": "navLogin",
-                  "to": "/login",
+                  "to": "/",
                 },
                 "ref": null,
-                "rendered": "Login",
+                "rendered": "Login / Signup",
                 "type": [Function],
               },
             ],
@@ -277,9 +277,9 @@ ShallowWrapper {
                                     activeClassName="active"
                                     ariaCurrent="true"
                                     className="navLogin"
-                                    to="/login"
+                                    to="/"
                         >
-                                    Login
+                                    Login / Signup
                         </NavLink>
             </div>
 </nav>,
@@ -339,9 +339,9 @@ ShallowWrapper {
                                 activeClassName="active"
                                 ariaCurrent="true"
                                 className="navLogin"
-                                to="/login"
+                                to="/"
                 >
-                                Login
+                                Login / Signup
                 </NavLink>
 </div>,
             ],
@@ -405,9 +405,9 @@ ShallowWrapper {
                     activeClassName="active"
                     ariaCurrent="true"
                     className="navLogin"
-                    to="/login"
+                    to="/"
 >
-                    Login
+                    Login / Signup
 </NavLink>,
                 ],
                 "className": "loginLink",
@@ -434,12 +434,12 @@ ShallowWrapper {
                   "props": Object {
                     "activeClassName": "active",
                     "ariaCurrent": "true",
-                    "children": "Login",
+                    "children": "Login / Signup",
                     "className": "navLogin",
-                    "to": "/login",
+                    "to": "/",
                   },
                   "ref": null,
-                  "rendered": "Login",
+                  "rendered": "Login / Signup",
                   "type": [Function],
                 },
               ],

@@ -12,6 +12,7 @@ import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
 import { storeSelectedEvent, toggleLocation } from '../../actions';
 
+
 export class EventsSearch extends Component {
   constructor() {
     super();
@@ -101,7 +102,7 @@ export class EventsSearch extends Component {
 
   render() {
     const { selectedOption } = this.state;
- 
+    
     return (
       <div className="eventsSearchContainer">
         <h5>Search Events</h5>
@@ -142,6 +143,14 @@ EventsSearch.propTypes = {
   eventError: PropTypes.bool
 };
 
+LocationAutocomplete.propTypes = {
+  onChange: PropTypes.func
+};
+
+DatePicker.propTypes = {
+  selected: PropTypes.string
+};
+
 export const mapDispatchToProps = (dispatch) => ({
   storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event)),
   toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
@@ -149,7 +158,8 @@ export const mapDispatchToProps = (dispatch) => ({
 
 export const mapStateToProps = (state) => ({
   user: state.user,
-  eventError: state.eventError
+  eventError: state.eventError,
+  selectedEvent: state.selectedEvent
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsSearch);

@@ -18,13 +18,13 @@ describe('Events', () => {
     mockSuggestedRestaurants = mockCleanRestaurantAndBar;
     mockSuggestedBars = mockCleanRestaurantAndBar;
     mockSelectedEvent = mockCleanRecentEvents.events
-    
+ 
     wrapper = 
       shallow(<Events 
         events={mockEvents} 
         suggestedRestaurants={mockSuggestedRestaurants}
         suggestedBars={mockSuggestedBars}
-        selectedEvent={mockSelectedEvent}
+        selectedEvent={mockSelectedEvent[0]}
       />);
   })
   it('should match the snapshot', () => {
@@ -42,7 +42,7 @@ describe('Events', () => {
       events={mockEvents} 
       suggestedRestaurants={mockSuggestedRestaurants}
       suggestedBars={mockSuggestedBars}
-      selectedEvent={mockSelectedEvent}
+      selectedEvent={mockSelectedEvent[0]}
     />);
 
     expect(wrapper.find('.recentEvents').length).toEqual(1);
@@ -59,7 +59,7 @@ describe('Events', () => {
       events={mockEvents} 
       suggestedRestaurants={mockSuggestedRestaurants}
       suggestedBars={mockSuggestedBars}
-      selectedEvent={mockSelectedEvent}
+      selectedEvent={mockSelectedEvent[0]}
     />);
 
     expect(wrapper.find(Plans).length).toEqual(0);

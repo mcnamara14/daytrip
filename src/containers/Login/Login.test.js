@@ -346,7 +346,7 @@ describe('Login', () => {
   
   describe('mapDispatchToProps', () => {
     it('should render a location popup when location is submitted', () => {
-      const wrapper = shallow(<Login toggleLocation={jest.fn()} location={'Denver'} />);
+      const wrapper = shallow(<Login toggleLocation={jest.fn()} location={{}} />);
 
       expect(wrapper.find('.errorPopup').length).toEqual(1);
     })

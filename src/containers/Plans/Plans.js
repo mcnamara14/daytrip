@@ -3,8 +3,76 @@ import { connect } from 'react-redux';
 import './Plans.css';
 import Stop from '../Stop/Stop';
 import PropTypes from 'prop-types';
+import * as firebase from 'firebase';
+import 'firebase/database';
 
 export class Plans extends Component {
+  selectPlan = (
+    restaurantId,
+    restaurantName, 
+    restaurantRating, 
+    restaurantAddress, 
+    restaurantPrice, 
+    restaurantReviewCount, 
+    restaurantImage,
+    barId,
+    barName, 
+    barRating, 
+    barAddress, 
+    barPrice, 
+    barReviewCount, 
+    barImage,
+    id,
+    title, 
+    image, 
+    venue, 
+    date,
+    eventPrice,
+    planNum 
+  ) => {
+
+    if (this.props.user.userId) {
+      const firebaseRef = firebase.database().ref();
+      firebaseRef.child('users').child(this.props.user.userId).child('selectedPlan').update(
+        {
+          restaurant: {
+            id: restaurantId,
+            title: restaurantName,
+            rating: restaurantRating,
+            location: restaurantAddress, 
+            price: restaurantPrice, 
+            reviews: restaurantReviewCount, 
+            image: restaurantImage, 
+            type: 'restaurant', 
+            index: planNum
+          },
+          bar: {
+            id: barId,
+            title: barName,
+            rating: barRating,
+            location: barAddress, 
+            price: barPrice,
+            reviews: barReviewCount,
+            image: barImage,
+            type: 'bar' ,
+            index: planNum
+          },
+          event: {
+            id: id, 
+            title: title, 
+            rating: 0, 
+            location: venue, 
+            price: eventPrice, 
+            reviews: date, 
+            image: image, 
+            type: 'event', 
+            index: planNum
+          }
+        }
+      )
+    }
+  }
+
   getPlans = () => {
     const { 
       suggestedBars, 
@@ -16,6 +84,7 @@ export class Plans extends Component {
     if (suggestedBars.length && suggestedRestaurants.length) {
       for (var i = 0; i < this.props.suggestedBars.length; i++) {
         const { 
+          id: restaurantId,
           name: restaurantName, 
           rating: restaurantRating, 
           address: restaurantAddress, 
@@ -24,6 +93,7 @@ export class Plans extends Component {
           image_url: restaurantImage 
         } = this.props.suggestedRestaurants[i];
         const { 
+          id: barId,
           name: barName, 
           rating: barRating, 
           address: barAddress, 
@@ -32,6 +102,7 @@ export class Plans extends Component {
           image_url: barImage 
         } = this.props.suggestedBars[i];
         const { 
+          id,
           title, 
           image, 
           venue, 
@@ -43,6 +114,7 @@ export class Plans extends Component {
           <h4>Plan</h4>
           <section className="plan">
             <Stop 
+              id={restaurantId}
               title={restaurantName} 
               rating={restaurantRating} 
               location={restaurantAddress} 
@@ -53,9 +125,10 @@ export class Plans extends Component {
               index={planNum}
             />
             <img src={require('./assets/route-img.jpg')} className="routeImg" />
-            <Stop 
+            <Stop
+              id={id} 
               title={title} 
-              rating={''} 
+              rating={0} 
               location={venue} 
               price={eventPrice} 
               reviews={date} 
@@ -65,6 +138,7 @@ export class Plans extends Component {
             />
             <img src={require('./assets/route-img.jpg')} className="routeImg" />
             <Stop 
+              id={barId}
               title={barName} 
               rating={barRating} 
               location={barAddress} 
@@ -75,7 +149,29 @@ export class Plans extends Component {
               index={planNum}
             />
           </section>
-          <button>Select Plan</button>
+          <button onClick={() => this.selectPlan(
+            restaurantId,
+            restaurantName, 
+            restaurantRating, 
+            restaurantAddress, 
+            restaurantPrice, 
+            restaurantReviewCount, 
+            restaurantImage,
+            barId,
+            barName, 
+            barRating, 
+            barAddress, 
+            barPrice, 
+            barReviewCount, 
+            barImage,
+            id,
+            title, 
+            image, 
+            venue, 
+            date,
+            eventPrice,
+            planNum
+          )}>Select Plan</button>
         </div>);
       }
     }
@@ -104,10 +200,16 @@ Plans.propTypes = {
   selectedEvent: PropTypes.object
 };
 
+Stop.propTypes = {
+  rating: PropTypes.number,
+  selectedEvent: PropTypes.object
+};
+
 export const mapStateToProps = (state) => ({
   suggestedRestaurants: state.suggestedRestaurants,
   suggestedBars: state.suggestedBars,
-  selectedEvent: state.selectedEvent
+  selectedEvent: state.selectedEvent,
+  user: state.user
 });
 
 export default connect(mapStateToProps)(Plans);

@@ -20,18 +20,16 @@ ShallowWrapper {
           ]
     }
     selectedEvent={
-        Array [
-            Object {
-              "date": "2018-05-30 2018-05-27T17:13:38-06:00",
-              "id": "Zrt9dk32l",
-              "image": "https://s1.ticketm.allswifty.jpg",
-              "latitude": "39.735001",
-              "longitude": "-105.020401",
-              "price": "$300+",
-              "title": "T Swift",
-              "venue": "Boulder Theater",
-            },
-          ]
+        Object {
+            "date": "2018-05-30 2018-05-27T17:13:38-06:00",
+            "id": "Zrt9dk32l",
+            "image": "https://s1.ticketm.allswifty.jpg",
+            "latitude": "39.735001",
+            "longitude": "-105.020401",
+            "price": "$300+",
+            "title": "T Swift",
+            "venue": "Boulder Theater",
+          }
     }
     suggestedBars={
         Array [
