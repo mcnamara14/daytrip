@@ -12,7 +12,7 @@ header img {
 }
 
 nav {
-  width: 39%;
+  width: 32%;
   display: flex;
   justify-content: space-between;
 }
@@ -30,7 +30,7 @@ nav a {
 .loginLink {
   display: flex;
   justify-content: space-between;
-  width: 34%;
+  width: 42%;
   align-items: center;
   margin-left: 20px;
 }

@@ -5,6 +5,8 @@ import { storeSuggestedRestaurants } from './storeSuggestedRestaurants';
 import { storeSuggestedBars } from './storeSuggestedBars';
 import { toggleLocation } from './toggleLocation';
 import { toggleEventError } from './toggleEventError';
+import { storeBarFilters } from './storeBarFilters';
+import { storeRestaurantFilters } from './storeRestaurantFilters';
 
 export {
   loginUser, 
@@ -13,5 +15,7 @@ export {
   storeSuggestedRestaurants,
   storeSuggestedBars,
   toggleLocation,
-  toggleEventError
+  toggleEventError,
+  storeBarFilters,
+  storeRestaurantFilters
 };

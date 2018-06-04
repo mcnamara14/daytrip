@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import './StopSelection.css';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
+import * as firebase from 'firebase';
+import 'firebase/database';
 import { 
   beforeEventCategoryCleaner, 
   afterEventCategoryCleaner 
@@ -11,7 +13,9 @@ import { fetchRestaurantsAndBars } from '../../apiCalls';
 import { 
   storeSuggestedRestaurants, 
   storeSuggestedBars, 
-  toggleEventError 
+  toggleEventError,
+  storeRestaurantFilters,
+  storeBarFilters
 } from '../../actions';
 
 export class StopSelection extends Component {
@@ -24,21 +28,15 @@ export class StopSelection extends Component {
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedEvent) {
-      setTimeout(() => {
-        this.storeRestaurantsOrBars();
-      }, 0);
-    }
-  }
-
   onSelect = (selectedOption) => {
     this.setState({ selectedOption });
   }
 
   changePriceRange = (price) => {
+    let priceRanges;
+
     if (!this.state.priceRanges.includes(price)) {
-      const priceRanges = [...this.state.priceRanges, price];
+      priceRanges = [...this.state.priceRanges, price];
       
       this.setState({
         priceRanges 
@@ -52,6 +50,10 @@ export class StopSelection extends Component {
         priceRanges 
       });
     }
+    console.log(this.props.type)
+    this.props.type === 'before' ? this.props.storeRestaurantFilters(this.state.selectedOption.alias, priceRanges) :
+      this.props.storeBarFilters(this.state.selectedOption.alias, priceRanges);
+    
   }
 
   toggleEventError = () => {
@@ -59,29 +61,6 @@ export class StopSelection extends Component {
     setTimeout(() => {
       this.props.toggleEventError(false);
     }, 2000);
-  }
-
-  storeRestaurantsOrBars = async () => {
-    const { 
-      selectedEvent, 
-      type, 
-      storeSuggestedRestaurants, 
-      storeSuggestedBars 
-    } = this.props;
-    const { selectedOption, priceRanges } = this.state;
-   
-    if (selectedEvent !== null && selectedOption !== null) {
-      const latitude = selectedEvent.latitude;
-      const longitude = selectedEvent.longitude;
-      const price = priceRanges.sort().join();
-      const category = selectedOption.alias;
-      const suggestedRestaurantsBars = 
-        await fetchRestaurantsAndBars(latitude, longitude, price, category);
-      type === 'before' ? storeSuggestedRestaurants(suggestedRestaurantsBars) : 
-        storeSuggestedBars(suggestedRestaurantsBars);
-    } else if (selectedEvent === null) {
-      this.toggleEventError();
-    }
   }
 
   render() {
@@ -120,7 +99,6 @@ export class StopSelection extends Component {
             className={priceRanges.includes('4') ? 'selected last' : 
               'priceFour last'}>$$$$</span>
         </div>
-        <button onClick={this.storeRestaurantsOrBars}>Submit</button>
       </div>
     );
   }
@@ -140,7 +118,13 @@ export const mapDispatchToProps = (dispatch) => ({
     return dispatch(storeSuggestedRestaurants(restaurants));
   },
   storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars)),
-  toggleEventError: (boolean) => dispatch(toggleEventError(boolean))
+  toggleEventError: (boolean) => dispatch(toggleEventError(boolean)),
+  storeRestaurantFilters: (category, priceRanges) => {
+    return dispatch(storeRestaurantFilters(category, priceRanges))
+  },
+  storeBarFilters: (category, priceRanges) => {
+    return dispatch(storeBarFilters(category, priceRanges))
+  },
 });
 
 export const mapStateToProps = (state) => ({

@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import RecentEvent from '../../containers/RecentEvent/RecentEvent';
 import { EventsHero } from '../../components/EventsHero/EventsHero';
 import EventsSearch from '../EventsSearch/EventsSearch';
-import { StopsSelection } from '../../components/StopsSelection/StopsSelection';
+import StopsSelection from '../../components/StopsSelection/StopsSelection';
 import SelectedEvent from '../../containers/SelectedEvent/SelectedEvent';
 import Plans from '../Plans/Plans';
 
