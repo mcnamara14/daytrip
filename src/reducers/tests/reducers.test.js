@@ -2,6 +2,7 @@ import { location } from '../location';
 import { eventError } from '../eventError';
 import { recentEvents } from '../recentEvents';
 import { selectedEvent } from '../selectedEvent';
+import { suggestedBars } from '../suggestedBars';
 
 describe('Reducers', () => {
   describe('location reducer', () => {
@@ -79,7 +80,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return the boolean passed with TOGGLE EVENT ERROR action type', () => {
+    it('should return event passed with STORE_SELECTED_EVENT action type', () => {
       const mockAction = {
         type: 'STORE_SELECTED_EVENT',
         event: {title: 'TSwizzle'}
@@ -87,6 +88,28 @@ describe('Reducers', () => {
       const expected = {title: 'TSwizzle'};
 
       const result = selectedEvent(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('suggestedBars reducer', () => {
+    it('should return the initial state', () => {
+      const expected = [];
+
+      const result = suggestedBars(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return the boolean passed with TOGGLE EVENT ERROR action type', () => {
+      const mockAction = {
+        type: 'STORE_SUGGESTED_BARS',
+        bars: [{title: 'Matchbox'}]
+      }
+      const expected = [{title: 'Matchbox'}];
+
+      const result = suggestedBars(undefined, mockAction)
 
       expect(result).toEqual(expected)
     })
