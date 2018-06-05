@@ -32,6 +32,9 @@ export class Plan extends Component {
   }
 
   render () {
+    let city;
+    let state;
+    
     const { selectedPlan } = this.state;
 
     if (selectedPlan) {
@@ -67,12 +70,23 @@ export class Plan extends Component {
         reviews: eventDate
       } = event;
 
+      if (this.props.location) {
+        const { city, state } = this.props.location;
+      } else {
+        const { city, state } = this.props.user
+      }
+      
+
       const restaurantBgImage = {backgroundImage: "url(" + restaurantImage + ")"};
       const eventBgImage = {backgroundImage: "url(" + eventImage + ")"};
       const barBgImage = {backgroundImage: "url(" + barImage + ")"};
 
       const restaurantReview = restaurantRating * 20;
       const barReview = barRating * 20;
+      const mapRestaurantLocation = restaurantLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
+      const mapEventLocation = eventLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
+      const mapBarLocation = barLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
+
       const mapStyles = {
         width: '80%',
         height: '350px',
@@ -137,7 +151,10 @@ export class Plan extends Component {
             </section>
             <section className="planRightContainer">
               <h2>Directions:</h2>
-              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=1543+champa+denver+co&destination=coors-field&mode=walking`} style={mapStyles} ></iframe>
+              <h4>To the event</h4>
+              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapRestaurantLocation}&destination=${mapEventLocation}+${city}+${state}&mode=walking`} style={mapStyles} ></iframe>
+              <h4>From the event</h4>
+              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapEventLocation}+${city}+${state}&destination=${mapBarLocation}&mode=walking`} style={mapStyles} ></iframe>
             </section>
           </div>
         </section>
@@ -156,7 +173,8 @@ export const mapStateToProps = (state) => ({
   suggestedRestaurants: state.suggestedRestaurants,
   suggestedBars: state.suggestedBars,
   selectedEvent: state.selectedEvent,
-  user: state.user
+  user: state.user,
+  location: state.location
 });
 
 export default connect(mapStateToProps)(Plan);

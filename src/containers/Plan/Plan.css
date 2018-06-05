@@ -68,12 +68,18 @@
 }
 
 .planRightContainer {
-  padding-top: 110px;
+  padding-top: 45px;
   width: 45%
 }
 
 .planRightContainer h2 {
   margin-top: 0;
+}
+
+.planRightContainer h4 {
+  color: #555;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .planLeftContainer h2 {

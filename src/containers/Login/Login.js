@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
-import { loginUser, storeRecentEvents, toggleLocation } from '../../actions';
+import { loginUser, storeRecentEvents, toggleLocationError } from '../../actions';
 import { fetchRecentEvents } from '../../apiCalls';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
@@ -73,14 +73,14 @@ export class Login extends Component {
  
       this.handleTicketMasterFetch();
     } else {
-      this.toggleLocation();
+      this.toggleLocationError();
     }
   }
 
   toggleLocation = () => {
-    this.props.toggleLocation(true);
+    this.props.toggleLocationError(true);
     setTimeout(() => {
-      this.props.toggleLocation(false);
+      this.props.toggleLocationError(false);
     }, 2000);
   }
 
@@ -121,7 +121,7 @@ export class Login extends Component {
       state
     });
 
-    this.props.toggleLocation(false);
+    this.props.toggleLocationError(false);
   }
 
   render() {
@@ -210,7 +210,7 @@ export class Login extends Component {
 
 Login.propTypes = {
   loginUser: PropTypes.func,
-  toggleLocation: PropTypes.func,
+  toggleLocationError: PropTypes.func,
   storeRecentEvents: PropTypes.func,
   history: PropTypes.object,
   location: PropTypes.object
@@ -223,7 +223,7 @@ export const mapDispatchToProps = (dispatch) => ({
   storeRecentEvents: (recentEvents) => {
     return dispatch(storeRecentEvents(recentEvents));
   },
-  toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
+  toggleLocationError: (boolean) => dispatch(toggleLocationError(boolean))
 });
 
 export const mapStateToProps = (state) => ({

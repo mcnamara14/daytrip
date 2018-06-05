@@ -3,6 +3,7 @@ import { storeRecentEvents } from './storeRecentEvents';
 import { storeSelectedEvent } from './storeSelectedEvent';
 import { storeSuggestedRestaurants } from './storeSuggestedRestaurants';
 import { storeSuggestedBars } from './storeSuggestedBars';
+import { toggleLocationError } from './toggleLocationError';
 import { toggleLocation } from './toggleLocation';
 import { toggleEventError } from './toggleEventError';
 import { toggleFiltersError } from './toggleFiltersError';
@@ -16,10 +17,11 @@ export {
   storeSelectedEvent, 
   storeSuggestedRestaurants,
   storeSuggestedBars,
-  toggleLocation,
+  toggleLocationError,
   toggleEventError,
   toggleFiltersError,
   storeBarFilters,
   storeRestaurantFilters,
-  toggleRestaurantBarError
+  toggleRestaurantBarError,
+  toggleLocation
 };
