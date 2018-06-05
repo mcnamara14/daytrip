@@ -19,16 +19,16 @@ export class RecentEvent extends Component {
 
     return (
       <div className="recentEvent">
+        <div className="eventImage" style={ backgroundImage } ></div>
         <div className="eventInfo">
           <div className="recentTitle">
             <h3>{title}</h3>
           </div>
+          <p className="price">{price}</p>
+          <hr/>
           <p className="venue">{venue}</p>
           <p className="date">{date}</p>
-          <hr/>
-          <p className="price">{price}</p>
         </div>
-        <div className="eventImage" style={ backgroundImage } ></div>
         <button onClick={() => this.handleRecentClick(id)}>Select</button>
       </div>
     );

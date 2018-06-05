@@ -1,5 +1,5 @@
 .stopsSelection {
-  background: #d9492c;
+  background: linear-gradient(45deg, rgba(207,121,138,1) 0%, rgba(116,87,117,1) 100%);
   width: calc(60% - 140px);
   margin-top: -100px;
   padding: 20px 70px;
@@ -16,7 +16,7 @@
 
 .stopsSelectionContainer hr {
   height: 200px;
-  border-right: 1px solid #dc806e;
+  border-right: 1px solid #fff;
   border-left: 0;
   border-top: 0;
   width: 1px;

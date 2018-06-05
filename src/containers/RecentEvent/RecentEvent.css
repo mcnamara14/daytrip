@@ -13,9 +13,11 @@
 
 .upcomingEvents h2 {
   margin: 0 0 50px 0;
-  color: #494949;
+  color: #888;
+  font-weight: 500;
   text-transform: uppercase;
   font-size: 1.4rem;
+  font-family: "Roboto";
 }
 
 .upcomingEventsContainer {
@@ -26,76 +28,84 @@
 
 .recentEvent {
   text-align: center;
-  width: 24%;
+  width: 21%;
   height: 520px;
   text-align: left;
   margin-bottom: 30px;
   border-radius: 5px;
+  box-shadow: 2px 2px 3px #eee;
 }
 
 .recentEvent h3 {
-  color: #7c7c7c;
+  color: #555;
   text-transform: uppercase;
   font-size: 1rem;
   display: inline;
+  font-weight: 600;
 }
 
 .recentTitle {
   display: flex;
-  height: 40px;
+  height: 70px;
   align-items: flex-end;
 }
 
 .eventImage {
-  width: 90%;
+  width: 100%;
   height: 190px;
   border-radius: 5px 5px 0 0;
   display: block;
-  border-radius: 5px;
   background-size: cover;
   background-position: center;
   border: 1px solid #eee;
 }
 
 .recentEvent .price {
-  color: #4195ce;
-  font-weight: 500;
+  color: #e2604b;
+  margin-top: 0;
   font-size: 1.2rem;
 }
 
 .recentEvent .date {
   color: #999;
-  font-size: 0.8rem;
+  font-size: 1.1rem;
   margin-bottom: 20px;
   margin-top: 0px;
 }
 
 .recentEvent .venue {
-  color: #444;
-  font-weight: 500;
-  font-family: "Exo 2";
+  color: #888;
+  margin-bottom: 0px;
   font-size: 0.9rem;
-  margin-bottom: 10px;
+  height: 40px;
+  font-family: helvetica;
+  font-weight: bold;
+  margin-top: 0px;
+  border-radius: 18px;
+  border-radius: 3px;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
 }
 
 .recentEvent button {
-  background: #ccc;
+  background: #e2604b;
   padding: 10px 25px;
   font-size: 0.9rem;
   color: #fff;
+  margin-left: 20px;
   border: none;
   border-radius: 3px;
-  margin-top: 35px;
-
 }
 
 hr {
   width: 53px;
   margin-left: 0;
   border-bottom: 0;
+  margin-bottom: 25px;
   border-top: 1px solid #ccc;
 }
 
 .eventInfo {
-  padding: 15px 0;
+  padding: 25px;
 }
