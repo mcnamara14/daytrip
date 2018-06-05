@@ -6,17 +6,40 @@ import * as firebase from 'firebase';
 import 'firebase/database';
 
 export class Plan extends Component {
+  constructor() {
+    super();
 
+    this.state = {
+      selectedPlan: null
+    }
+  }
+
+  componentDidMount() {
+    let selectedPlan;
+
+    const firebaseRef = firebase.database().ref();
+    let ref = firebaseRef.child('users').child('anonymous').child('selectedPlan');
+    console.log(this)
+
+    ref.once('value')
+      .then((snapshot) => {
+        return snapshot.val();
+      }).then(selectedPlan => 
+        this.setState({selectedPlan}))
+  }
 
   render () {
-
-    return (
-      <section className="planMain">
-        <div className="planHeader">
-        </div>
-        I'm a plan yo
-      </section>
-    );
+    if (this.state.selectedPlan) {
+      return (
+        <section className="planMain">
+          <div className="planHeader"></div>
+          <h1>Your plan</h1>
+          <h2>{this.state.selectedPlan.restaurant.title}</h2>
+        </section>
+      ) 
+    } else {
+      return <h1>Selected a plan</h1>
+    }
   }
 }
 
