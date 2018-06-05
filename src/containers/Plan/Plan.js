@@ -4,6 +4,7 @@ import './Plan.css';
 import PropTypes from 'prop-types';
 import * as firebase from 'firebase';
 import 'firebase/database';
+import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 
 export class Plan extends Component {
   constructor() {
@@ -15,10 +16,15 @@ export class Plan extends Component {
   }
 
   componentDidMount() {
-    const firebaseRef = firebase.database().ref();
-    let ref = firebaseRef.child('users').child('anonymous').child('selectedPlan');
+    let firebaseDb;
 
-    ref.once('value')
+    if (this.props.user.userId !== null) {
+      firebaseDb = firebase.database().ref().child('users').child(this.props.user.userId).child('selectedPlan');
+    } else {
+      firebaseDb = firebase.database().ref().child('users').child('anonymous').child('selectedPlan');
+    };
+
+    firebaseDb.once('value')
       .then((snapshot) => {
         return snapshot.val();
       }).then(selectedPlan => 
@@ -46,6 +52,10 @@ export class Plan extends Component {
 
       const restaurantBgImage = {backgroundImage: "url(" + restaurantImage + ")"};
       const restaurantReview = restaurantRating * 20;
+      const mapStyles = {
+        width: '600px',
+        height: '450px'
+      };
 
       return (
         <section className="planMain">
@@ -72,6 +82,7 @@ export class Plan extends Component {
                   null
                 }
                 <p className="location">{restaurantLocation}</p>
+                <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=Oslo+Norway&destination=Telemark+Norway&avoid=tolls|highways`} style={mapStyles} ></iframe>
               </div>
             </div>
           </div>
@@ -82,6 +93,14 @@ export class Plan extends Component {
     }
   }
 }
+
+// https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=3720+bruce+randolp+denver+co&destination=union+station+denver+co=bicycling
+// https://www.google.com/maps/embed/v1/directions
+//   ?key=YOUR_API_KEY
+//   &origin=Oslo+Norway
+//   &destination=Telemark+Norway
+//   &avoid=tolls|highways
+// https://www.google.com/maps/dir/?api=1&origin=3720+bruce+randolp+denver+co&destination=union+station+denver+co=bicycling
 
 Plan.propTypes = {
   suggestedRestaurants: PropTypes.array
