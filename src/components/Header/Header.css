@@ -27,6 +27,14 @@ nav a {
   font-style: italic;
 }
 
+.signout .loginLink {
+  width: 31%;
+}
+
+.signout {
+  width: 29%;
+}
+
 .loginLink {
   display: flex;
   justify-content: space-between;

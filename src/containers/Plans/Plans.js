@@ -5,6 +5,7 @@ import Stop from '../Stop/Stop';
 import PropTypes from 'prop-types';
 import * as firebase from 'firebase';
 import 'firebase/database';
+import { withRouter } from 'react-router-dom';
 
 export class Plans extends Component {
   selectPlan = (
@@ -73,6 +74,8 @@ export class Plans extends Component {
         }
       }
     );
+
+    this.props.history.push('/plan');
   }
 
   getPlans = () => {
@@ -214,4 +217,4 @@ export const mapStateToProps = (state) => ({
   user: state.user
 });
 
-export default connect(mapStateToProps)(Plans);
+export default withRouter(connect(mapStateToProps)(Plans));

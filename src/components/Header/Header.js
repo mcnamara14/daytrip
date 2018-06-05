@@ -21,15 +21,21 @@ export class Header extends Component {
   }
 
   render() {
+    let loginSignout;
+    let signoutClass;
+
+    !this.props.user.userId ? loginSignout = 'Login / Signup' : loginSignout = 'Signout';
+    this.props.user.userId ? signoutClass = 'signout' : signoutClass = '';
+
     return (
       <header>  
         <img src={headerLogo} className="headerLogo" alt="Header logo"/>
-        <nav>
+        <nav className={signoutClass}>
           <NavLink to='/events'>Events</NavLink>
           <NavLink to='/plan'>Plan</NavLink>
-          <div className='loginLink'>
+          <div className="loginLink">
             <img src={loginIcon} className="loginIcon" alt="Login icon" />
-            <NavLink to='/' className="navLogin" onClick={this.signoutLoginClickHandler} > { !this.props.user.userId ? 'Login / Signup' : 'Signout' } </NavLink>
+            <NavLink to='/' className="NavLogin" onClick={this.signoutLoginClickHandler}>{loginSignout}</NavLink>
           </div>
         </nav>
       </header>

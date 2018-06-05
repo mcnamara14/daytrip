@@ -19,20 +19,22 @@ export class Events extends Component {
     } = this.props;
 
     const recentEvents = events.map((event, index) => {
-      const { id, image, title, price, venue, date } = event;
-
-      return (
-        <RecentEvent
-          key={index}
-          id={id}
-          image={image}
-          title={title}
-          price={price}
-          venue={venue}
-          date={date}
-        />
-      );
-    });
+      console.log(event)
+      if (event !== undefined) {
+        const { id, image, title, price, venue, date } = event;
+        
+        return (
+          <RecentEvent
+            key={index}
+            id={id}
+            image={image}
+            title={title}
+            price={price}
+            venue={venue}
+            date={date}
+          />
+        );
+      }});
 
     return (
       <div className="eventsContainer">
