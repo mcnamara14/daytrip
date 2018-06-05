@@ -30,47 +30,49 @@ export class Plans extends Component {
     eventPrice,
     planNum 
   ) => {
+    let firebaseLocation;
+    const firebaseRef = firebase.database().ref();
 
-    if (this.props.user.userId) {
-      const firebaseRef = firebase.database().ref();
-      firebaseRef.child('users').child(this.props.user.userId).child('selectedPlan').update(
-        {
-          restaurant: {
-            id: restaurantId,
-            title: restaurantName,
-            rating: restaurantRating,
-            location: restaurantAddress, 
-            price: restaurantPrice, 
-            reviews: restaurantReviewCount, 
-            image: restaurantImage, 
-            type: 'restaurant', 
-            index: planNum
-          },
-          bar: {
-            id: barId,
-            title: barName,
-            rating: barRating,
-            location: barAddress, 
-            price: barPrice,
-            reviews: barReviewCount,
-            image: barImage,
-            type: 'bar' ,
-            index: planNum
-          },
-          event: {
-            id: id, 
-            title: title, 
-            rating: 0, 
-            location: venue, 
-            price: eventPrice, 
-            reviews: date, 
-            image: image, 
-            type: 'event', 
-            index: planNum
-          }
+    this.props.user.userId !== null ? firebaseLocation = firebaseRef.child('users').child(this.props.user.userId).child('selectedPlan') :
+      firebaseLocation = firebaseRef.child('users').child('anonymous').child('selectedPlan');
+
+    firebaseLocation.update(
+      {
+        restaurant: {
+          id: restaurantId,
+          title: restaurantName,
+          rating: restaurantRating,
+          location: restaurantAddress, 
+          price: restaurantPrice, 
+          reviews: restaurantReviewCount, 
+          image: restaurantImage, 
+          type: 'restaurant', 
+          index: planNum
+        },
+        bar: {
+          id: barId,
+          title: barName,
+          rating: barRating,
+          location: barAddress, 
+          price: barPrice,
+          reviews: barReviewCount,
+          image: barImage,
+          type: 'bar' ,
+          index: planNum
+        },
+        event: {
+          id: id, 
+          title: title, 
+          rating: 0, 
+          location: venue, 
+          price: eventPrice, 
+          reviews: date, 
+          image: image, 
+          type: 'event', 
+          index: planNum
         }
-      )
-    }
+      }
+    );
   }
 
   getPlans = () => {

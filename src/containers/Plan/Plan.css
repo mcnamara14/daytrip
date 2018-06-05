@@ -1,0 +1,8 @@
+.planHeader {
+  height: 120px;
+  z-index: -1;
+  position: relative;
+  background: url('./assets/plan-bg.jpg');
+  background-size: cover;
+  margin-top: -115px;
+}
