@@ -105,55 +105,61 @@ export class Plan extends Component {
               <div className="planStop">
                 <h2>Begin</h2>
                 <div className="planImage" style={restaurantBgImage}></div>
-                <div className="planInfo">
-                  <h3>{restaurantTitle}</h3>
-                  <div className="reviewContainer">
-                    <div className="stars">
-                      <div>
-                        <img src={require('./assets/stars-gray.png')} />
+                <section className="planInfoContainer">
+                  <div className="planInfo">
+                    <h3>{restaurantTitle}</h3>
+                    <div className="reviewContainer">
+                      <div className="stars">
+                        <div>
+                          <img src={require('./assets/stars-gray.png')} />
+                        </div>
+                        <div className="redStars" style={{ "width": `${restaurantReview}%` }}>
+                          <img src={require('./assets/stars-red.png')} />
+                        </div>
                       </div>
-                      <div className="redStars" style={{ "width": `${restaurantReview}%` }}>
-                        <img src={require('./assets/stars-red.png')} />
-                      </div>
+                      <p className="reviewCount">{restaurantReviews} reviews</p>
                     </div>
-                    <p className="reviewCount">{restaurantReviews} reviews</p>
+                    <p className="planLocation">{restaurantLocation}</p>
                   </div>
-                  <p className="location">{restaurantLocation}</p>
-                </div>
+                </section>
               </div>
               <div className="planStop">
                 <h2>Event</h2>
                 <div className="planImage" style={eventBgImage}></div>
-                <div className="planInfo">
-                  <h3>{eventTitle}</h3>
-                  <p className="location">{eventLocation}</p>
-                  <p className="eventPrice">{eventPrice}</p>
-                  <p className="eventDate">{eventDate}</p>
-                  <a href={tickets} className="eventTickets" target="_blank">Purchase Tickets</a>
-                </div>
+                <section className="planInfoContainer">
+                  <div className="planInfo planEvent">
+                    <h3>{eventTitle}</h3>
+                    <p className="eventPrice">{eventPrice}</p>
+                    <p className="planLocation">{eventLocation}</p>
+                    <p className="eventDate">{eventDate}</p>
+                    <a href={tickets} className="eventTickets" target="_blank">Purchase Tickets</a>
+                  </div>
+                </section>
               </div>
               <div className="planStop">
                 <h2>After</h2>
                 <div className="planImage" style={barBgImage}></div>
-                <div className="planInfo">
-                  <h3>{barTitle}</h3>
-                  <div className="reviewContainer">
-                    <div className="stars">
-                      <div>
-                        <img src={require('./assets/stars-gray.png')} />
+                <section className="planInfoContainer">
+                  <div className="planInfo">
+                    <h3>{barTitle}</h3>
+                    <div className="reviewContainer">
+                      <div className="stars">
+                        <div>
+                          <img src={require('./assets/stars-gray.png')} />
+                        </div>
+                        <div className="redStars" style={{ "width": `${barReview}%` }}>
+                          <img src={require('./assets/stars-red.png')} />
+                        </div>
                       </div>
-                      <div className="redStars" style={{ "width": `${barReview}%` }}>
-                        <img src={require('./assets/stars-red.png')} />
-                      </div>
+                      <p className="reviewCount">{barReviews} reviews</p>
                     </div>
-                    <p className="reviewCount">{barReviews} reviews</p>
+                    <p className="planLocation">{barLocation}</p>
                   </div>
-                  <p className="location">{barLocation}</p>
-                </div>
+                </section>
               </div>
             </section>
             <section className="planRightContainer">
-              <h2>Directions:</h2>
+              <h2>Directions</h2>
               <h4>To the event</h4>
               <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapRestaurantLocation}&destination=${mapEventLocation}+${city}+${state}&mode=walking`} style={mapStyles} ></iframe>
               <h4>From the event</h4>
