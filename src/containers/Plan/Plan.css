@@ -23,7 +23,6 @@
 .planMain h3 {
   color: #333;
   font-size: 1.8rem;
-  margin-top: 40px;
   margin-bottom: 10px;
   font-weight: 700;
 }
@@ -37,7 +36,7 @@
 }
 
 .planImage {
-  width: 45%;
+  width: 35%;
   height: 185px;
   border-radius: 3px;
   display: block;
@@ -46,10 +45,15 @@
 
 .planStop {
   display: flex;
+  align-items: center;
+  padding: 50px 0;
+  border-bottom: 1px solid #eee;
 }
 
 .planInfo {
+  width: 52%;
   margin-left: 40px;
+  height: 100%;
 }
 
 .planInfo .reviewContainer {
@@ -59,7 +63,8 @@
 }
 
 .planLeftContainer {
-  width: 45%
+  width: 65%;
+  padding-right: 50px;
 }
 
 .planRightContainer {
@@ -69,4 +74,18 @@
 
 .planRightContainer h2 {
   margin-top: 0;
+}
+
+.planLeftContainer h2 {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  color: #eee;
+  display: -ms-flexbox;
+  display: flex;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.51rem;
+  letter-spacing: -7px;
+  align-items: center;
+  margin: -5px 20px 0 0;
 }

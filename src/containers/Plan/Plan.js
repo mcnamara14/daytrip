@@ -47,11 +47,32 @@ export class Plan extends Component {
         location: restaurantLocation,
         rating: restaurantRating,
         reviews: restaurantReviews,
-        type
+        type: restaurantType
       } = restaurant;
 
+      const {
+        image: barImage,
+        title: barTitle,
+        location: barLocation,
+        rating: barRating,
+        reviews: barReviews,
+        type: barType
+      } = bar;
+
+      const {
+        image: eventImage,
+        title: eventTitle,
+        location: eventLocation,
+        price: eventPrice,
+        reviews: eventDate
+      } = event;
+
       const restaurantBgImage = {backgroundImage: "url(" + restaurantImage + ")"};
+      const eventBgImage = {backgroundImage: "url(" + eventImage + ")"};
+      const barBgImage = {backgroundImage: "url(" + barImage + ")"};
+
       const restaurantReview = restaurantRating * 20;
+      const barReview = barRating * 20;
       const mapStyles = {
         width: '80%',
         height: '350px',
@@ -65,26 +86,52 @@ export class Plan extends Component {
           <div className="planWrapper">
             <section className="planLeftContainer">
               <h1>Your plan</h1>
-              <h2>Begin your night at:</h2>
               <div className="planStop">
+                <h2>Begin</h2>
                 <div className="planImage" style={restaurantBgImage}></div>
                 <div className="planInfo">
                   <h3>{restaurantTitle}</h3>
-                  { type === 'restaurant' || type === 'bar' ?
-                    <div className="reviewContainer">
-                      <div className="stars">
-                        <div>
-                          <img src={require('./assets/stars-gray.png')} />
-                        </div>
-                        <div className="redStars" style={{ "width": `${restaurantReview}%` }}>
-                          <img src={require('./assets/stars-red.png')} />
-                        </div>
+                  <div className="reviewContainer">
+                    <div className="stars">
+                      <div>
+                        <img src={require('./assets/stars-gray.png')} />
                       </div>
-                      <p className="reviewCount">{restaurantReviews} reviews</p>
-                    </div> :
-                    null
-                  }
+                      <div className="redStars" style={{ "width": `${restaurantReview}%` }}>
+                        <img src={require('./assets/stars-red.png')} />
+                      </div>
+                    </div>
+                    <p className="reviewCount">{restaurantReviews} reviews</p>
+                  </div>
                   <p className="location">{restaurantLocation}</p>
+                </div>
+              </div>
+              <div className="planStop">
+                <h2>Event</h2>
+                <div className="planImage" style={eventBgImage}></div>
+                <div className="planInfo">
+                  <h3>{eventTitle}</h3>
+                  <p className="location">{eventLocation}</p>
+                  <p className="eventPrice">{eventPrice}</p>
+                  <p className="eventDate">{eventDate}</p>
+                </div>
+              </div>
+              <div className="planStop">
+                <h2>After</h2>
+                <div className="planImage" style={barBgImage}></div>
+                <div className="planInfo">
+                  <h3>{barTitle}</h3>
+                  <div className="reviewContainer">
+                    <div className="stars">
+                      <div>
+                        <img src={require('./assets/stars-gray.png')} />
+                      </div>
+                      <div className="redStars" style={{ "width": `${barReview}%` }}>
+                        <img src={require('./assets/stars-red.png')} />
+                      </div>
+                    </div>
+                    <p className="reviewCount">{barReviews} reviews</p>
+                  </div>
+                  <p className="location">{barLocation}</p>
                 </div>
               </div>
             </section>
