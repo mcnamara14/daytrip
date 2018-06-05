@@ -15,11 +15,8 @@ export class Plan extends Component {
   }
 
   componentDidMount() {
-    let selectedPlan;
-
     const firebaseRef = firebase.database().ref();
     let ref = firebaseRef.child('users').child('anonymous').child('selectedPlan');
-    console.log(this)
 
     ref.once('value')
       .then((snapshot) => {
@@ -29,12 +26,55 @@ export class Plan extends Component {
   }
 
   render () {
-    if (this.state.selectedPlan) {
+    const { selectedPlan } = this.state;
+
+    if (selectedPlan) {
+      const {
+        bar,
+        restaurant,
+        event
+      } = this.state.selectedPlan;
+
+      const {
+        image: restaurantImage,
+        title: restaurantTitle,
+        location: restaurantLocation,
+        rating: restaurantRating,
+        reviews: restaurantReviews,
+        type
+      } = restaurant;
+
+      const restaurantBgImage = {backgroundImage: "url(" + restaurantImage + ")"};
+      const restaurantReview = restaurantRating * 20;
+
       return (
         <section className="planMain">
           <div className="planHeader"></div>
-          <h1>Your plan</h1>
-          <h2>{this.state.selectedPlan.restaurant.title}</h2>
+          <div className="planWrapper">
+            <h1>Your plan</h1>
+            <h2>Begin your night at:</h2>
+            <div className="planStop">
+              <div className="planImage" style={restaurantBgImage}></div>
+              <div className="planInfo">
+                <h3>{restaurantTitle}</h3>
+                { type === 'restaurant' || type === 'bar' ?
+                  <div className="reviewContainer">
+                    <div className="stars">
+                      <div>
+                        <img src={require('./assets/stars-gray.png')} />
+                      </div>
+                      <div className="redStars" style={{ "width": `${restaurantReview}%` }}>
+                        <img src={require('./assets/stars-red.png')} />
+                      </div>
+                    </div>
+                    <p className="reviewCount">{restaurantReviews} reviews</p>
+                  </div> :
+                  null
+                }
+                <p className="location">{restaurantLocation}</p>
+              </div>
+            </div>
+          </div>
         </section>
       ) 
     } else {
