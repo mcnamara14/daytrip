@@ -67,7 +67,8 @@ export class Plan extends Component {
         title: eventTitle,
         location: eventLocation,
         price: eventPrice,
-        reviews: eventDate
+        reviews: eventDate,
+        tickets
       } = event;
 
       if (this.props.location) {
@@ -128,6 +129,7 @@ export class Plan extends Component {
                   <p className="location">{eventLocation}</p>
                   <p className="eventPrice">{eventPrice}</p>
                   <p className="eventDate">{eventDate}</p>
+                  <a href={tickets} className="eventTickets" target="_blank">Purchase Tickets</a>
                 </div>
               </div>
               <div className="planStop">

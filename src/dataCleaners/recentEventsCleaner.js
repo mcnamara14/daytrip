@@ -10,7 +10,8 @@ export const cleanRecentEvents = (events) => {
       images,
       priceRanges,
       dates,
-      _embedded
+      _embedded,
+      url
     } = event;
   
     const price = priceRanges ? '$' + priceRanges[0].min + '+' : 'Price TBD';
@@ -36,7 +37,8 @@ export const cleanRecentEvents = (events) => {
         venue: _embedded.venues[0].name,
         date,
         latitude,
-        longitude
+        longitude,
+        url
       };
     }
   });

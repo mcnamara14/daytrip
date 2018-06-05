@@ -29,7 +29,8 @@ export class Plans extends Component {
     venue, 
     date,
     eventPrice,
-    planNum 
+    planNum,
+    url
   ) => {
     let firebaseLocation;
     const firebaseRef = firebase.database().ref();
@@ -70,7 +71,8 @@ export class Plans extends Component {
           reviews: date, 
           image: image, 
           type: 'event', 
-          index: planNum
+          index: planNum,
+          tickets: url
         }
       }
     );
@@ -111,7 +113,8 @@ export class Plans extends Component {
           title, 
           image, 
           venue, 
-          date } = this.props.selectedEvent;
+          date,
+          url } = this.props.selectedEvent;
         const eventPrice = selectedEvent.price;
         const planNum = i + 1;
 
@@ -175,7 +178,8 @@ export class Plans extends Component {
             venue, 
             date,
             eventPrice,
-            planNum
+            planNum,
+            url
           )}>Select Plan</button>
         </div>);
       }

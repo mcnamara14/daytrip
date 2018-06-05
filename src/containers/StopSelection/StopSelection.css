@@ -18,14 +18,7 @@
   background: brown;
   color: #fff;
   font-size: 1rem;
-  background: rgba(211,104,83,1);
-  background: -moz-linear-gradient(top, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
-  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(211,104,83,1)), color-stop(100%, rgba(217,73,44,1)));
-  background: -webkit-linear-gradient(top, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
-  background: -o-linear-gradient(top, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
-  background: -ms-linear-gradient(top, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
-  background: linear-gradient(to bottom, rgba(211,104,83,1) 0%, rgba(217,73,44,1) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d36853', endColorstr='#d9492c', GradientType=0 );
+  background: linear-gradient(45deg, rgba(213,144,159,1) 0%, rgba(157,108,128,1) 100%);
 }
 
 .stopsSelectionContainer button:hover {
@@ -41,7 +34,6 @@
 }
 
 .priceRange {
-  background: #d25e47;
   border: 1px solid #ddd;
   border-radius: 3px;
   display: flex;
@@ -56,12 +48,12 @@
 }
 
 .priceRange span.selected {
-  background: #c03a1f;
+  background: #e58da6;
 }
 
 .priceRange span:hover {
   cursor: pointer;
-  background: #be4128;
+  background: #e58da6;
 }
 
 .priceRange span.last {

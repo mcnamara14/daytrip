@@ -31,7 +31,7 @@
 .selectedTitle h3 {
   font-family: "Roboto";
   text-transform: uppercase;
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   margin-bottom: 20px;
 }
 
@@ -48,10 +48,9 @@
 }
 
 .selectedPrice {
-  font-size: 4rem;
+  font-size: 3rem;
   color: #fff;
   font-family: "Roboto";
-  margin-right: 40px;
 }
 
 .selectedVenue {

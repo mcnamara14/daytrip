@@ -41,6 +41,7 @@
   border-radius: 3px;
   display: block;
   background-size: cover;
+  background-position: center;
 }
 
 .planStop {
@@ -63,12 +64,12 @@
 }
 
 .planLeftContainer {
-  width: 65%;
-  padding-right: 50px;
+  width: 60%;
+  padding-right: 80px;
 }
 
 .planRightContainer {
-  padding-top: 45px;
+  padding-top: 60px;
   width: 45%
 }
 
