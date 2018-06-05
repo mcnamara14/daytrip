@@ -18,7 +18,7 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <Unknown />,
+        <Connect(Header) />,
         <div
           className="mainContent"
 >
@@ -32,6 +32,11 @@ ShallowWrapper {
                     exact={true}
                     path="/events"
           />
+          <Route
+                    component={[Function]}
+                    exact={true}
+                    path="/plan"
+          />
 </div>,
       ],
       "className": "App",
@@ -41,7 +46,7 @@ ShallowWrapper {
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "function",
+        "nodeType": "class",
         "props": Object {},
         "ref": null,
         "rendered": null,
@@ -62,6 +67,11 @@ ShallowWrapper {
               component={[Function]}
               exact={true}
               path="/events"
+/>,
+            <Route
+              component={[Function]}
+              exact={true}
+              path="/plan"
 />,
           ],
           "className": "mainContent",
@@ -94,6 +104,19 @@ ShallowWrapper {
             "rendered": null,
             "type": [Function],
           },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "component": [Function],
+              "exact": true,
+              "path": "/plan",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
         ],
         "type": "div",
       },
@@ -107,7 +130,7 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <Unknown />,
+          <Connect(Header) />,
           <div
             className="mainContent"
 >
@@ -121,6 +144,11 @@ ShallowWrapper {
                         exact={true}
                         path="/events"
             />
+            <Route
+                        component={[Function]}
+                        exact={true}
+                        path="/plan"
+            />
 </div>,
         ],
         "className": "App",
@@ -130,7 +158,7 @@ ShallowWrapper {
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "function",
+          "nodeType": "class",
           "props": Object {},
           "ref": null,
           "rendered": null,
@@ -151,6 +179,11 @@ ShallowWrapper {
                 component={[Function]}
                 exact={true}
                 path="/events"
+/>,
+              <Route
+                component={[Function]}
+                exact={true}
+                path="/plan"
 />,
             ],
             "className": "mainContent",
@@ -178,6 +211,19 @@ ShallowWrapper {
                 "component": [Function],
                 "exact": true,
                 "path": "/events",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "component": [Function],
+                "exact": true,
+                "path": "/plan",
               },
               "ref": null,
               "rendered": null,

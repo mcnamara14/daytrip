@@ -32,11 +32,13 @@
   width: 86%;
   margin: 0 auto;
   text-align: left;
+  display: flex;
+  justify-content: space-between;
 }
 
 .planImage {
-  width: 25%;
-  height: 200px;
+  width: 45%;
+  height: 185px;
   border-radius: 3px;
   display: block;
   background-size: cover;
@@ -54,4 +56,17 @@
   width: 100%;
   display: flex;
   align-items: center;
+}
+
+.planLeftContainer {
+  width: 45%
+}
+
+.planRightContainer {
+  padding-top: 110px;
+  width: 45%
+}
+
+.planRightContainer h2 {
+  margin-top: 0;
 }

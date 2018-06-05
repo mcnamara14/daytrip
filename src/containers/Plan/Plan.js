@@ -53,38 +53,45 @@ export class Plan extends Component {
       const restaurantBgImage = {backgroundImage: "url(" + restaurantImage + ")"};
       const restaurantReview = restaurantRating * 20;
       const mapStyles = {
-        width: '600px',
-        height: '450px'
+        width: '80%',
+        height: '350px',
+        border: '0',
+        borderRadius: '5px'
       };
 
       return (
         <section className="planMain">
           <div className="planHeader"></div>
           <div className="planWrapper">
-            <h1>Your plan</h1>
-            <h2>Begin your night at:</h2>
-            <div className="planStop">
-              <div className="planImage" style={restaurantBgImage}></div>
-              <div className="planInfo">
-                <h3>{restaurantTitle}</h3>
-                { type === 'restaurant' || type === 'bar' ?
-                  <div className="reviewContainer">
-                    <div className="stars">
-                      <div>
-                        <img src={require('./assets/stars-gray.png')} />
+            <section className="planLeftContainer">
+              <h1>Your plan</h1>
+              <h2>Begin your night at:</h2>
+              <div className="planStop">
+                <div className="planImage" style={restaurantBgImage}></div>
+                <div className="planInfo">
+                  <h3>{restaurantTitle}</h3>
+                  { type === 'restaurant' || type === 'bar' ?
+                    <div className="reviewContainer">
+                      <div className="stars">
+                        <div>
+                          <img src={require('./assets/stars-gray.png')} />
+                        </div>
+                        <div className="redStars" style={{ "width": `${restaurantReview}%` }}>
+                          <img src={require('./assets/stars-red.png')} />
+                        </div>
                       </div>
-                      <div className="redStars" style={{ "width": `${restaurantReview}%` }}>
-                        <img src={require('./assets/stars-red.png')} />
-                      </div>
-                    </div>
-                    <p className="reviewCount">{restaurantReviews} reviews</p>
-                  </div> :
-                  null
-                }
-                <p className="location">{restaurantLocation}</p>
-                <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=Oslo+Norway&destination=Telemark+Norway&avoid=tolls|highways`} style={mapStyles} ></iframe>
+                      <p className="reviewCount">{restaurantReviews} reviews</p>
+                    </div> :
+                    null
+                  }
+                  <p className="location">{restaurantLocation}</p>
+                </div>
               </div>
-            </div>
+            </section>
+            <section className="planRightContainer">
+              <h2>Directions:</h2>
+              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=1543+champa+denver+co&destination=coors-field&mode=walking`} style={mapStyles} ></iframe>
+            </section>
           </div>
         </section>
       ) 
@@ -93,14 +100,6 @@ export class Plan extends Component {
     }
   }
 }
-
-// https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=3720+bruce+randolp+denver+co&destination=union+station+denver+co=bicycling
-// https://www.google.com/maps/embed/v1/directions
-//   ?key=YOUR_API_KEY
-//   &origin=Oslo+Norway
-//   &destination=Telemark+Norway
-//   &avoid=tolls|highways
-// https://www.google.com/maps/dir/?api=1&origin=3720+bruce+randolp+denver+co&destination=union+station+denver+co=bicycling
 
 Plan.propTypes = {
   suggestedRestaurants: PropTypes.array

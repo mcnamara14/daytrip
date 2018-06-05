@@ -28,9 +28,6 @@ ShallowWrapper {
                         Select an event. Choose a type of restaurant and bar. We will do the rest.
                 </span>
         </h4>
-        <button>
-                Select Event
-        </button>
 </article>,
       "className": "eventsHeroContainer",
     },
@@ -49,9 +46,6 @@ ShallowWrapper {
                         Select an event. Choose a type of restaurant and bar. We will do the rest.
             </span>
 </h4>,
-          <button>
-            Select Event
-</button>,
         ],
         "className": "eventsHeroTextBox",
       },
@@ -91,17 +85,6 @@ ShallowWrapper {
           },
           "type": "h4",
         },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "children": "Select Event",
-          },
-          "ref": null,
-          "rendered": "Select Event",
-          "type": "button",
-        },
       ],
       "type": "article",
     },
@@ -124,9 +107,6 @@ ShallowWrapper {
                               Select an event. Choose a type of restaurant and bar. We will do the rest.
                     </span>
           </h4>
-          <button>
-                    Select Event
-          </button>
 </article>,
         "className": "eventsHeroContainer",
       },
@@ -145,9 +125,6 @@ ShallowWrapper {
                             Select an event. Choose a type of restaurant and bar. We will do the rest.
               </span>
 </h4>,
-            <button>
-              Select Event
-</button>,
           ],
           "className": "eventsHeroTextBox",
         },
@@ -186,17 +163,6 @@ ShallowWrapper {
               "type": "span",
             },
             "type": "h4",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": "Select Event",
-            },
-            "ref": null,
-            "rendered": "Select Event",
-            "type": "button",
           },
         ],
         "type": "article",
