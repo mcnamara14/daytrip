@@ -43,12 +43,12 @@ export class Events extends Component {
         </div>
         { selectedEvent ? <SelectedEvent /> : 
           <section className="recentEvents">
-            <div className="upcomingEvents">
+            { events.length ? <div className="upcomingEvents">
               <h2>Upcoming Events</h2>
               <div className="upcomingEventsContainer">
                 { recentEvents }
               </div>
-            </div>
+            </div> : null }
           </section>
         }
         { suggestedRestaurants.length && suggestedBars.length ? 
