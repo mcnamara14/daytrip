@@ -71,11 +71,12 @@ export class Plan extends Component {
       } = event;
 
       if (this.props.location) {
-        const { city, state } = this.props.location;
+        city = this.props.location.city;
+        state = this.props.location.state;
       } else {
-        const { city, state } = this.props.user;
+        city = this.props.user.city;
+        state = this.props.user.state;
       }
-      
 
       const restaurantBgImage = {backgroundImage: "url(" + restaurantImage + ")"};
       const eventBgImage = {backgroundImage: "url(" + eventImage + ")"};
