@@ -8,9 +8,11 @@
 }
 
 .planMain h1 {
-  color: #333;
+  color: #555;
   font-size: 1.5rem;
-  margin-top: 40px;
+  margin-top: 70px;
+  font-weight: normal;
+  font-family: "Work Sans";
 }
 
 .planMain h2 {
@@ -22,8 +24,8 @@
 
 .planMain h3 {
   color: #333;
-  font-size: 1.8rem;
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 0;
   font-weight: 700;
 }
 
@@ -37,8 +39,8 @@
 
 .planImage {
   width: 35%;
-  height: 185px;
-  border-radius: 3px;
+  height: 250px;
+  border-radius: 3px 0 0 3px;
   display: block;
   background-size: cover;
   background-position: center;
@@ -52,9 +54,16 @@
 }
 
 .planInfo {
-  width: 52%;
+  width: 100%;
   margin-left: 40px;
-  height: 100%;
+}
+
+.planInfoContainer {
+  height: 250px;
+  display: flex;
+  width: 55%;
+  box-shadow: 2px 2px 3px #eee;
+  align-items: center;
 }
 
 .planInfo .reviewContainer {
@@ -69,18 +78,19 @@
 }
 
 .planRightContainer {
-  padding-top: 60px;
+  padding-top: 90px;
   width: 45%
 }
 
 .planRightContainer h2 {
   margin-top: 0;
+  font-style: italic;
+  color: #888;
 }
 
 .planRightContainer h4 {
   color: #555;
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin: 50px 0 30px 0;
 }
 
 .planLeftContainer h2 {
@@ -95,4 +105,29 @@
   letter-spacing: -7px;
   align-items: center;
   margin: -5px 20px 0 0;
+}
+
+.eventPrice {
+  color: #e2604b;
+  font-size: 1.3rem;
+  margin: 10px 0 10px 0;
+}
+
+.eventDate {
+  margin-top: 0px;
+}
+
+.planLocation {
+  margin: 0 0 5px;
+  color: #888;
+}
+
+.eventTickets {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #e2604b;
+  color: #fff;
+  display: inline-block;
+  text-decoration: none;
+  border-radius: 3px;
 }
