@@ -100,7 +100,7 @@ ShallowWrapper {
 >
           
           <LocationAutocomplete
-                    googleAPIKey="AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw"
+                    googleAPIKey="AIzaSyCsk3J8WFJ5LEMPbhNooarHGiQ-vrrbZGE"
                     locationType="(cities)"
                     name="location"
                     onChange={undefined}
@@ -125,7 +125,7 @@ ShallowWrapper {
                     onSelect={[Function]}
                     onYearChange={[Function]}
                     preventOpenOnFocus={false}
-                    selected={"2018-06-04T17:02:15.194Z"}
+                    selected={"2018-06-05T14:57:01.737Z"}
                     shouldCloseOnSelect={true}
                     showTimeSelect={false}
                     timeCaption="Time"
@@ -185,7 +185,7 @@ ShallowWrapper {
           "children": Array [
             "",
             <LocationAutocomplete
-              googleAPIKey="AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw"
+              googleAPIKey="AIzaSyCsk3J8WFJ5LEMPbhNooarHGiQ-vrrbZGE"
               locationType="(cities)"
               name="location"
               onChange={undefined}
@@ -210,7 +210,7 @@ ShallowWrapper {
               onSelect={[Function]}
               onYearChange={[Function]}
               preventOpenOnFocus={false}
-              selected={"2018-06-04T17:02:15.194Z"}
+              selected={"2018-06-05T14:57:01.737Z"}
               shouldCloseOnSelect={true}
               showTimeSelect={false}
               timeCaption="Time"
@@ -228,7 +228,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "class",
             "props": Object {
-              "googleAPIKey": "AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw",
+              "googleAPIKey": "AIzaSyCsk3J8WFJ5LEMPbhNooarHGiQ-vrrbZGE",
               "locationType": "(cities)",
               "name": "location",
               "onChange": undefined,
@@ -261,7 +261,7 @@ ShallowWrapper {
               "onSelect": [Function],
               "onYearChange": [Function],
               "preventOpenOnFocus": false,
-              "selected": "2018-06-04T17:02:15.194Z",
+              "selected": "2018-06-05T14:57:01.737Z",
               "shouldCloseOnSelect": true,
               "showTimeSelect": false,
               "timeCaption": "Time",
@@ -321,7 +321,7 @@ ShallowWrapper {
 >
             
             <LocationAutocomplete
-                        googleAPIKey="AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw"
+                        googleAPIKey="AIzaSyCsk3J8WFJ5LEMPbhNooarHGiQ-vrrbZGE"
                         locationType="(cities)"
                         name="location"
                         onChange={undefined}
@@ -346,7 +346,7 @@ ShallowWrapper {
                         onSelect={[Function]}
                         onYearChange={[Function]}
                         preventOpenOnFocus={false}
-                        selected={"2018-06-04T17:02:15.194Z"}
+                        selected={"2018-06-05T14:57:01.737Z"}
                         shouldCloseOnSelect={true}
                         showTimeSelect={false}
                         timeCaption="Time"
@@ -406,7 +406,7 @@ ShallowWrapper {
             "children": Array [
               "",
               <LocationAutocomplete
-                googleAPIKey="AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw"
+                googleAPIKey="AIzaSyCsk3J8WFJ5LEMPbhNooarHGiQ-vrrbZGE"
                 locationType="(cities)"
                 name="location"
                 onChange={undefined}
@@ -431,7 +431,7 @@ ShallowWrapper {
                 onSelect={[Function]}
                 onYearChange={[Function]}
                 preventOpenOnFocus={false}
-                selected={"2018-06-04T17:02:15.194Z"}
+                selected={"2018-06-05T14:57:01.737Z"}
                 shouldCloseOnSelect={true}
                 showTimeSelect={false}
                 timeCaption="Time"
@@ -449,7 +449,7 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "class",
               "props": Object {
-                "googleAPIKey": "AIzaSyC7EodX8nbqK0ol8lV6LVtBOtUpJUxSvRw",
+                "googleAPIKey": "AIzaSyCsk3J8WFJ5LEMPbhNooarHGiQ-vrrbZGE",
                 "locationType": "(cities)",
                 "name": "location",
                 "onChange": undefined,
@@ -482,7 +482,7 @@ ShallowWrapper {
                 "onSelect": [Function],
                 "onYearChange": [Function],
                 "preventOpenOnFocus": false,
-                "selected": "2018-06-04T17:02:15.194Z",
+                "selected": "2018-06-05T14:57:01.737Z",
                 "shouldCloseOnSelect": true,
                 "showTimeSelect": false,
                 "timeCaption": "Time",

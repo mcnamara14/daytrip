@@ -26,7 +26,7 @@ export class Header extends Component {
         <img src={headerLogo} className="headerLogo" alt="Header logo"/>
         <nav>
           <NavLink to='/events'>Events</NavLink>
-          <NavLink to='/trips'>Trips</NavLink>
+          <NavLink to='/plan'>Plan</NavLink>
           <div className='loginLink'>
             <img src={loginIcon} className="loginIcon" alt="Login icon" />
             <NavLink to='/' className="navLogin" onClick={this.signoutLoginClickHandler} > { !this.props.user.userId ? 'Login / Signup' : 'Signout' } </NavLink>

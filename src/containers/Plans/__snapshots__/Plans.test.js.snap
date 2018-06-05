@@ -147,7 +147,7 @@ ShallowWrapper {
                         />
                 </section>
                 <button
-                        onClick={undefined}
+                        onClick={[Function]}
                 >
                         Select Plan
                 </button>
@@ -218,7 +218,7 @@ ShallowWrapper {
                             />
               </section>
               <button
-                            onClick={undefined}
+                            onClick={[Function]}
               >
                             Select Plan
               </button>
@@ -295,7 +295,7 @@ ShallowWrapper {
                 />
 </section>,
               <button
-                onClick={undefined}
+                onClick={[Function]}
 >
                 Select Plan
 </button>,
@@ -457,7 +457,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": "Select Plan",
-                "onClick": undefined,
+                "onClick": [Function],
               },
               "ref": null,
               "rendered": "Select Plan",
@@ -535,7 +535,7 @@ ShallowWrapper {
                               />
                     </section>
                     <button
-                              onClick={undefined}
+                              onClick={[Function]}
                     >
                               Select Plan
                     </button>
@@ -606,7 +606,7 @@ ShallowWrapper {
                                 />
                 </section>
                 <button
-                                onClick={undefined}
+                                onClick={[Function]}
                 >
                                 Select Plan
                 </button>
@@ -683,7 +683,7 @@ ShallowWrapper {
                   />
 </section>,
                 <button
-                  onClick={undefined}
+                  onClick={[Function]}
 >
                   Select Plan
 </button>,
@@ -845,7 +845,7 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": "Select Plan",
-                  "onClick": undefined,
+                  "onClick": [Function],
                 },
                 "ref": null,
                 "rendered": "Select Plan",

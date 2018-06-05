@@ -10,7 +10,11 @@ import { Async } from 'react-select';
 import 'react-select/dist/react-select.css';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
-import { storeSelectedEvent, toggleLocation } from '../../actions';
+import { 
+  storeSelectedEvent, 
+  toggleLocationError, 
+  toggleLocation 
+} from '../../actions';
 
 
 export class EventsSearch extends Component {
@@ -90,14 +94,15 @@ export class EventsSearch extends Component {
     const place = component.autocomplete.getPlace();
     const city = place.vicinity;
     const state = place.address_components[2].short_name;
-    
+
     this.setState({
       city,
       state,
       selectedOption: ''
     });
 
-    this.props.toggleLocation(false);
+    this.props.toggleLocation(city, state);
+    this.props.toggleLocationError(false);
   }
 
   render() {
@@ -139,7 +144,7 @@ export class EventsSearch extends Component {
 EventsSearch.propTypes = {
   user: PropTypes.object,
   storeSelectedEvent: PropTypes.func,
-  toggleLocation: PropTypes.func,
+  toggleLocationError: PropTypes.func,
   eventError: PropTypes.bool
 };
 
@@ -153,13 +158,15 @@ DatePicker.propTypes = {
 
 export const mapDispatchToProps = (dispatch) => ({
   storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event)),
-  toggleLocation: (boolean) => dispatch(toggleLocation(boolean))
+  toggleLocationError: (boolean) => dispatch(toggleLocationError(boolean)),
+  toggleLocation: (city, state) => dispatch(toggleLocation(city, state))
 });
 
 export const mapStateToProps = (state) => ({
   user: state.user,
   eventError: state.eventError,
-  selectedEvent: state.selectedEvent
+  selectedEvent: state.selectedEvent,
+  location: state.location
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(EventsSearch);

@@ -1,5 +1,6 @@
-export const toggleLocation = (boolean) => ({
+export const toggleLocation = (city, state) => ({
   type: 'TOGGLE_LOCATION',
-  boolean
+  city,
+  state
 });
 

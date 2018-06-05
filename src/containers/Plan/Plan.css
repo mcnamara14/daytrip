@@ -1,0 +1,97 @@
+.planHeader {
+  height: 120px;
+  z-index: -1;
+  position: relative;
+  background: url('./assets/plan-bg.jpg');
+  background-size: cover;
+  margin-top: -115px;
+}
+
+.planMain h1 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-top: 40px;
+}
+
+.planMain h2 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-top: 40px;
+  margin-bottom: 35px;
+}
+
+.planMain h3 {
+  color: #333;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.planWrapper {
+  width: 86%;
+  margin: 0 auto;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+}
+
+.planImage {
+  width: 35%;
+  height: 185px;
+  border-radius: 3px;
+  display: block;
+  background-size: cover;
+}
+
+.planStop {
+  display: flex;
+  align-items: center;
+  padding: 50px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.planInfo {
+  width: 52%;
+  margin-left: 40px;
+  height: 100%;
+}
+
+.planInfo .reviewContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.planLeftContainer {
+  width: 65%;
+  padding-right: 50px;
+}
+
+.planRightContainer {
+  padding-top: 45px;
+  width: 45%
+}
+
+.planRightContainer h2 {
+  margin-top: 0;
+}
+
+.planRightContainer h4 {
+  color: #555;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.planLeftContainer h2 {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  color: #eee;
+  display: -ms-flexbox;
+  display: flex;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 2.51rem;
+  letter-spacing: -7px;
+  align-items: center;
+  margin: -5px 20px 0 0;
+}
