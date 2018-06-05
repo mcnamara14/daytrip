@@ -34,7 +34,7 @@ export class Plan extends Component {
   render () {
     let city;
     let state;
-    
+
     const { selectedPlan } = this.state;
 
     if (selectedPlan) {
@@ -73,7 +73,7 @@ export class Plan extends Component {
       if (this.props.location) {
         const { city, state } = this.props.location;
       } else {
-        const { city, state } = this.props.user
+        const { city, state } = this.props.user;
       }
       
 
