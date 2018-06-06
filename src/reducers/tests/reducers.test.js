@@ -6,6 +6,7 @@ import { suggestedBars } from '../suggestedBars';
 import { suggestedRestaurants } from '../suggestedRestaurants';
 import { user } from '../user';
 import { barFilters } from '../barFilters';
+import { filtersError } from '../filtersError';
 
 describe('Reducers', () => {
   describe('location reducer', () => {
@@ -109,7 +110,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return bars passed with passed with TOGGLE EVENT ERROR action type', () => {
+    it('should return bars passed with TOGGLE EVENT ERROR action type', () => {
       const mockAction = {
         type: 'STORE_SUGGESTED_BARS',
         bars: [{title: 'Matchbox'}]
@@ -131,7 +132,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTS action type', () => {
+    it('should return restaurants passed with STORE_SUGGESTED_RESTAURANTS action type', () => {
       const mockAction = {
         type: 'STORE_SUGGESTED_RESTAURANTS',
         restaurants: [{title: 'Acron'}]
@@ -154,7 +155,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTS action type', () => {
+    it('should return restaurants passed with STORE_SUGGESTED_RESTAURANTS action type', () => {
       const mockAction = {
         type: 'LOGIN_USER',
         userId: '12345', 
@@ -185,7 +186,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return an object with category and priceRanges passed with passed with STORE_BAR_FILTERSaction type', () => {
+    it('should return an object with category and priceRanges passed with STORE_BAR_FILTERSaction type', () => {
       const mockAction = {
         type: 'STORE_BAR_FILTERS',
         category: 'newamerican', 
@@ -198,6 +199,29 @@ describe('Reducers', () => {
       };
 
       const result = barFilters(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('filtersError reducer', () => {
+    it('should return the initial state', () => {
+      const expected = false;
+
+      const result = filtersError(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return the boolean value passed with TOGGLE_FILTERS_ERROR action type', () => {
+      const mockAction = {
+        type: 'TOGGLE_FILTERS_ERROR',
+        boolean: true
+      }
+
+      const expected = true;
+
+      const result = filtersError(undefined, mockAction)
 
       expect(result).toEqual(expected)
     })
