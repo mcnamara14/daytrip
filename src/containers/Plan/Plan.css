@@ -137,3 +137,34 @@
   text-decoration: none;
   border-radius: 3px;
 }
+
+@media only screen and (max-width: 1100px)  {
+  .planWrapper {
+    flex-direction: column;
+  }
+
+  .planLeftContainer, .planRightContainer {
+    width: 100%;
+  }
+
+  .planMain h3 {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .planRightContainer h2 {
+    text-align: center;
+  }
+
+  .planRightContainer {
+    padding-top: 30px;
+  }
+
+  .planLocation {
+    margin: 20px 0 5px;
+  }
+
+  .eventDate {
+    margin-bottom: 20px;
+  }
+}
