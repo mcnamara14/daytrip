@@ -15,6 +15,7 @@ ShallowWrapper {
               "longitude": "-105.020401",
               "price": "$300+",
               "title": "T Swift",
+              "url": "http://www.ticketsnow.com/PID=2107079",
               "venue": "Boulder Theater",
             },
           ]
@@ -28,6 +29,7 @@ ShallowWrapper {
             "longitude": "-105.020401",
             "price": "$300+",
             "title": "T Swift",
+            "url": "http://www.ticketsnow.com/PID=2107079",
             "venue": "Boulder Theater",
           }
     }
