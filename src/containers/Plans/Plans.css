@@ -16,17 +16,17 @@
 .plansContainer h4 {
   color: #888;
   font-size: 1.7rem;
-  padding-top: 40px;
-  margin-bottom: 0;
+  padding-top: 20px;
+  margin-bottom: 30px;
 }
 
 .plansContainer button {
   float: left;
+  background: #e2604b;
   margin-top: 50px;
   height: 50px;
   width: 21%;
-  border: 1px solid #ddd;
-  color: #888;
+  color: #fff;
   font-size: 1rem;
   border-radius: 3px;
 }

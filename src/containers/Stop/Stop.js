@@ -21,6 +21,7 @@ export class Stop extends Component {
 
     return (
       <article className={className}  >
+        <div className="stopImage" style={backgroundImage}></div>
         <div className="stopInfo">
           <h2>{title}</h2>
           <p className="location">{location}</p>
@@ -40,7 +41,6 @@ export class Stop extends Component {
           }
           <p className="price">{price}</p>
         </div>
-        <div className="stopImage" style={backgroundImage}></div>
       </article>
     );
   }
