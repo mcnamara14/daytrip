@@ -116,5 +116,21 @@ describe('stopsSelection', () => {
       expect(result).toHaveBeenCalledWith(false);    })
   })
 
+  describe('toggleFiltersError', () => {
+    it('should call toggleFiltersError with correct argument then call again 2 seconds', () => {
+      const wrapper = shallow(<StopsSelection toggleFiltersError={jest.fn()} />);
+      const result = wrapper.instance().props.toggleFiltersError;
+
+      jest.useFakeTimers();
+
+      wrapper.instance().toggleFiltersError();
+
+      expect(result).toHaveBeenCalledWith(true);
+
+      jest.runAllTimers();
+
+      expect(result).toHaveBeenCalledWith(false);    })
+  })
+
 })
 
