@@ -5,6 +5,12 @@ import { selectedEvent } from '../selectedEvent';
 import { suggestedBars } from '../suggestedBars';
 import { suggestedRestaurants } from '../suggestedRestaurants';
 import { user } from '../user';
+import { barFilters } from '../barFilters';
+import { filtersError } from '../filtersError';
+import { locationError } from '../locationError';
+import { restaurantBarError } from '../restaurantBarError';
+import { restaurantFilters } from '../restaurantFilters';
+
 
 describe('Reducers', () => {
   describe('location reducer', () => {
@@ -108,7 +114,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return bars passed with passed with TOGGLE EVENT ERROR action type', () => {
+    it('should return bars passed with TOGGLE EVENT ERROR action type', () => {
       const mockAction = {
         type: 'STORE_SUGGESTED_BARS',
         bars: [{title: 'Matchbox'}]
@@ -130,7 +136,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTSaction type', () => {
+    it('should return restaurants passed with STORE_SUGGESTED_RESTAURANTS action type', () => {
       const mockAction = {
         type: 'STORE_SUGGESTED_RESTAURANTS',
         restaurants: [{title: 'Acron'}]
@@ -153,7 +159,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTSaction type', () => {
+    it('should return restaurants passed with STORE_SUGGESTED_RESTAURANTS action type', () => {
       const mockAction = {
         type: 'LOGIN_USER',
         userId: '12345', 
@@ -175,5 +181,127 @@ describe('Reducers', () => {
     })
   })
 
+  describe('barFilters reducer', () => {
+    it('should return the initial state', () => {
+      const expected = {};
+
+      const result = barFilters(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return an object with category and priceRanges passed with STORE_BAR_FILTERSaction type', () => {
+      const mockAction = {
+        type: 'STORE_BAR_FILTERS',
+        category: 'newamerican', 
+        priceRanges: ['1', '3']
+      }
+
+      const expected = {
+        category: 'newamerican', 
+        priceRange: ['1', '3']
+      };
+
+      const result = barFilters(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('filtersError reducer', () => {
+    it('should return the initial state', () => {
+      const expected = false;
+
+      const result = filtersError(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return the boolean value passed with TOGGLE_FILTERS_ERROR action type', () => {
+      const mockAction = {
+        type: 'TOGGLE_FILTERS_ERROR',
+        boolean: true
+      }
+
+      const expected = true;
+
+      const result = filtersError(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('locationError reducer', () => {
+    it('should return the initial state', () => {
+      const expected = false;
+
+      const result = locationError(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return the boolean value passed with TOGGLE_LOCATION_ERROR action type', () => {
+      const mockAction = {
+        type: 'TOGGLE_LOCATION_ERROR',
+        boolean: true
+      }
+
+      const expected = true;
+
+      const result = locationError(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('restaurantBarError reducer', () => {
+    it('should return the initial state', () => {
+      const expected = false;
+
+      const result = restaurantBarError(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return the boolean value passed with TOGGLE_RESTAURANT_BAR_ERROR action type', () => {
+      const mockAction = {
+        type: 'TOGGLE_RESTAURANT_BAR_ERROR',
+        boolean: true
+      }
+
+      const expected = true;
+
+      const result = restaurantBarError(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('restaurantFilters reducer', () => {
+    it('should return the initial state', () => {
+      const expected = {};
+
+      const result = restaurantFilters(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return an object with category and price ranges passed with TOGGLE_RESTAURANT_FILTERS action type', () => {
+      const mockAction = {
+        type: 'STORE_RESTAURANT_FILTERS',
+        category: 'newamerican', 
+        priceRanges: ['1', '3']
+      }
+
+      const expected = {
+        category: 'newamerican', 
+        priceRange: ['1', '3']
+      };
+
+      const result = restaurantFilters(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
 })
 
