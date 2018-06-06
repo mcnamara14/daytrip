@@ -17,7 +17,7 @@ export class Header extends Component {
     };
 
     authorization.signOut();
-    this.props.loginUser(...userReset);
+    this.props.loginUser(userReset);
   }
 
   render() {
