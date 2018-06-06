@@ -69,11 +69,11 @@ export class StopsSelection extends Component {
       restaurantFilters,
       storeSuggestedRestaurants
     } = this.props;
-    
+
     const price = restaurantFilters.priceRange.sort().join();
     const category = restaurantFilters.category;
     const suggestedRestaurants = 
-      await fetchRestaurantsAndBars(latitude, longitude, price, category);)
+      await fetchRestaurantsAndBars(latitude, longitude, price, category);
     suggestedRestaurants.length ? storeSuggestedRestaurants(suggestedRestaurants) :
       this.toggleRestaurantBarError();
   }

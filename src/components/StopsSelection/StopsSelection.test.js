@@ -205,5 +205,33 @@ describe('stopsSelection', () => {
       expect(wrapper.instance().toggleRestaurantBarError).toHaveBeenCalled();
     });
   });
+
+  describe('storeSuggestedBars', () => {
+    let wrapper;
+    let mockFilters;
+
+    beforeEach(() => {
+      mockFilters= {
+        category: 'newamerican',
+        priceRange: ['1', '3']
+      }
+
+      fetchCalls.fetchRestaurantsAndBars.mockImplementation(() => mockCleanSuggestedRestaurant)
+
+      wrapper = shallow(<StopsSelection 
+        barFilters={mockFilters}
+        storeSuggestedBars={jest.fn()}
+        storeSuggestedRestaurants={jest.fn()} 
+      />);
+    })
+
+    it('should call fetchRestaurantsAndBars with correct args when there are bar filters', async () => {
+      await wrapper.instance().storeSuggestedBars();
+
+      const expected = ["39.735001", "-105.020401", "1,3", "newamerican"];
+
+      expect(fetchCalls.fetchRestaurantsAndBars).toHaveBeenCalledWith(...expected);
+    })
+  });
 })
 
