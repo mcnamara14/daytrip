@@ -132,5 +132,21 @@ describe('stopsSelection', () => {
       expect(result).toHaveBeenCalledWith(false);    })
   })
 
+  describe('toggleRestaurantBarError', () => {
+    it('should call toggleRestaurantBarError with correct argument then call again 2 seconds', () => {
+      const wrapper = shallow(<StopsSelection toggleRestaurantBarError={jest.fn()} />);
+      const result = wrapper.instance().props.toggleRestaurantBarError;
+
+      jest.useFakeTimers();
+
+      wrapper.instance().toggleRestaurantBarError();
+
+      expect(result).toHaveBeenCalledWith(true);
+
+      jest.runAllTimers();
+
+      expect(result).toHaveBeenCalledWith(false);    })
+  })
+
 })
 
