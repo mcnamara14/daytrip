@@ -136,7 +136,11 @@ describe('EventsSearch', () => {
     let mockComponent;
 
     beforeEach(() => {
-      wrapper = shallow(<EventsSearch user={mockUser} toggleLocation={jest.fn()} />);
+      wrapper = shallow(<EventsSearch 
+        user={mockUser} 
+        toggleLocationError={jest.fn()} 
+        toggleLocation={jest.fn()}
+      />);
 
       mockComponent = {
         autocomplete: {
@@ -224,10 +228,11 @@ describe('EventsSearch', () => {
       const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
         type: 'TOGGLE_LOCATION',
-        boolean: false
+        city: 'San Diego',
+        state: 'CA'
       };
 
-      mappedProps.toggleLocation(false);
+      mappedProps.toggleLocation('San Diego', 'CA');
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
