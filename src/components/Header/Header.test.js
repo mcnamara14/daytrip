@@ -45,5 +45,17 @@ describe('Header', () => {
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
   });
+
+  // describe('render functionality', () => {
+  //   it('should set login / signout text to correct text when user is logged in or not', () => {
+  //     const mockUser = {
+  //       userId: '12345'
+  //     }
+
+  //     const wrapper = shallow(<Header user={mockUser} loginUser={jest.fn()} />)
+
+  //     expect(wrapper.find('.NavLogin').render().text()).toEqual('Signout');
+  //   })
+  // })
 })
 
