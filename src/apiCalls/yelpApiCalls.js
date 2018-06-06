@@ -29,6 +29,7 @@ export const fetchRestaurantsAndBars = async (
       });
   const data = await result.json();
   restaurants = data.businesses;
+  
   if (restaurants.length) {
     return suggestedRestaurantsCleaner(restaurants);
   } else {
