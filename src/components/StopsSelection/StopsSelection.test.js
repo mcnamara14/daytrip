@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { StopsSelection, mapDispatchToProps } from './StopsSelection';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import * as fetchCalls from '../../apiCalls';
 jest.mock('../../apiCalls/yelpApiCalls');
 import { mockCleanSuggestedRestaurant } from '../../mockData';
@@ -11,6 +11,60 @@ describe('stopsSelection', () => {
     const wrapper = shallow(<StopsSelection />);
   
     expect(wrapper).toMatchSnapshot();
+  });
+
+  describe('componentWillReceiveProps', () => {
+    it('should call storeRestaurantsAndBars when there is an event and filters', () => {
+      jest.useFakeTimers();
+      const spy = jest.spyOn(StopsSelection.prototype, 'componentWillReceiveProps');
+      const wrapper = mount(<StopsSelection 
+        selectedEvent={{ title: 'T-Swift'}} 
+        restaurantFilters={{category:'newamerican'}}
+        barFilters={{category:'newamerican'}}
+        filtersError={false}
+        restaurantBarError={false}
+      />);
+
+      wrapper.instance().storeRestaurantsAndBars = jest.fn();
+    
+      expect(wrapper.instance().storeRestaurantsAndBars).not.toHaveBeenCalled();
+    
+      wrapper.setProps({
+        selectedEvent: {
+          title: 'Backstreet Boys'
+        }
+      });
+    
+      wrapper.update();
+      jest.runAllTimers();
+    
+      expect(wrapper.instance().storeRestaurantsAndBars).toHaveBeenCalled();
+    })
+
+    it('should not call storeRestaurantsAndBars when an event or filters undefined or null', () => {
+      jest.useFakeTimers();
+      const spy = jest.spyOn(StopsSelection.prototype, 'componentWillReceiveProps');
+      const wrapper = mount(<StopsSelection 
+        selectedEvent={{}} 
+        restaurantFilters={{category:'newamerican'}}
+        barFilters={{category:'newamerican'}}
+        filtersError={false}
+        restaurantBarError={false}
+      />);
+
+      wrapper.instance().storeRestaurantsAndBars = jest.fn();
+    
+      expect(wrapper.instance().storeRestaurantsAndBars).not.toHaveBeenCalled();
+    
+      wrapper.setProps({
+        selectedEvent: null
+      });
+    
+      wrapper.update();
+      jest.runAllTimers();
+    
+      expect(wrapper.instance().storeRestaurantsAndBars).not.toHaveBeenCalled();
+    })
   });
 
   describe('storeRestaurantsAndBars', () => {

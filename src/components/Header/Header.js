@@ -10,15 +10,8 @@ import PropTypes from 'prop-types';
 
 export class Header extends Component {
   signoutLoginClickHandler = () => {
-    const userReset = {
-      userId: null,
-      email: '',
-      city: '',
-      state: ''
-    };
-
     authorization.signOut();
-    this.props.loginUser(userReset);
+    this.props.loginUser(null, '', '', '');
   }
 
   render() {
@@ -34,7 +27,7 @@ export class Header extends Component {
 
     return (
       <header>  
-        <img src={headerLogo} className="headerLogo" alt="Header logo"/>
+        <NavLink to='/'><img src={headerLogo} className="headerLogo" alt="Header logo"/></NavLink>
         <nav className={signoutClass}>
           <NavLink to='/events'>Events</NavLink>
           <NavLink to='/plan'>Plan</NavLink>

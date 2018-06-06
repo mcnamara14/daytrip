@@ -12,7 +12,7 @@ import {
 import { fetchRecentEvents } from '../../apiCalls';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
-import homeSignupTextBoxImg from './assets/home-signup-text-box-img.jpg';
+import homeSignupTextBoxPhoto from './assets/home-signup-text-box-img.jpg';
 import moment from 'moment';
 
 export class Login extends Component {
@@ -134,17 +134,16 @@ export class Login extends Component {
           <article className="homeHeroTextBox">
             <h1>Event Planner</h1>
             <h4><span>Your personal event planning assistant.</span></h4>
-            <p>Let us wax poetic about the beauty of the cheeseburger. 
-              The burg is flavour gracefully dances across.</p>
+            <p>Choose your event and pick a type of restaurant and bar. 
+              We will plan your day.</p>
           </article>
         </section>
         <section className="signupContainer">
           <section className="signupTextBox">
             <h2>Sign up to get started</h2>
-            <p>The cheese melts on the burger and in your mouth, 
-              perfectly complementing the medium-rare beef.</p>
+            <p>Enter a location to get started then sign in with your preferred sign in method.</p>
             <h5>We plan your stops</h5>
-            <img src={homeSignupTextBoxImg} />
+            <img src={homeSignupTextBoxPhoto} alt="Signup text box"/>
           </section>
           <div className="signupForms">
             <div className="signupFormsContainer">

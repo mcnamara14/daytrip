@@ -23,11 +23,11 @@ ShallowWrapper {
         <div
           className="stopsSelectionContainer"
 >
-          <Connect(StopSelection)
+          <StopSelection
                     type="before"
           />
           <hr />
-          <Connect(StopSelection)
+          <StopSelection
                     type="after"
           />
 </div>,
@@ -49,11 +49,11 @@ ShallowWrapper {
         "nodeType": "host",
         "props": Object {
           "children": Array [
-            <Connect(StopSelection)
+            <StopSelection
               type="before"
 />,
             <hr />,
-            <Connect(StopSelection)
+            <StopSelection
               type="after"
 />,
           ],
@@ -122,11 +122,11 @@ ShallowWrapper {
           <div
             className="stopsSelectionContainer"
 >
-            <Connect(StopSelection)
+            <StopSelection
                         type="before"
             />
             <hr />
-            <Connect(StopSelection)
+            <StopSelection
                         type="after"
             />
 </div>,
@@ -148,11 +148,11 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": Array [
-              <Connect(StopSelection)
+              <StopSelection
                 type="before"
 />,
               <hr />,
-              <Connect(StopSelection)
+              <StopSelection
                 type="after"
 />,
             ],

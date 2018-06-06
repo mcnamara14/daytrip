@@ -21,7 +21,7 @@ describe('Header', () => {
       }
     
       const wrapper = shallow(<Header user={mockUser} loginUser={jest.fn()} />)
-      const expected = [{"city": "", "email": "", "state": "", "userId": null}]
+      const expected = [null, "", "", ""]
       wrapper.instance().signoutLoginClickHandler();
 
       expect(wrapper.instance().props.loginUser).toHaveBeenCalledWith(...expected);

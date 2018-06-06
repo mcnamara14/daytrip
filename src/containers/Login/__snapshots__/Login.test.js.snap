@@ -14,7 +14,7 @@ ShallowWrapper {
             "entries": Array [
               Object {
                 "hash": "",
-                "key": "bc1dig",
+                "key": "zgr76k",
                 "pathname": "/",
                 "search": "",
                 "state": undefined,
@@ -28,7 +28,7 @@ ShallowWrapper {
             "listen": [Function],
             "location": Object {
               "hash": "",
-              "key": "bc1dig",
+              "key": "zgr76k",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -87,6 +87,7 @@ ShallowWrapper {
                               We plan your stops
                     </h5>
                     <img
+                              alt="Signup text box"
                               src="home-signup-text-box-img.jpg"
                     />
           </section>
@@ -303,6 +304,7 @@ ShallowWrapper {
                             We plan your stops
               </h5>
               <img
+                            alt="Signup text box"
                             src="home-signup-text-box-img.jpg"
               />
 </section>,
@@ -420,6 +422,7 @@ ShallowWrapper {
                   We plan your stops
 </h5>,
                 <img
+                  alt="Signup text box"
                   src="home-signup-text-box-img.jpg"
 />,
               ],
@@ -465,6 +468,7 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
+                  "alt": "Signup text box",
                   "src": "home-signup-text-box-img.jpg",
                 },
                 "ref": null,
@@ -1135,6 +1139,7 @@ ShallowWrapper {
                                     We plan your stops
                         </h5>
                         <img
+                                    alt="Signup text box"
                                     src="home-signup-text-box-img.jpg"
                         />
             </section>
@@ -1351,6 +1356,7 @@ ShallowWrapper {
                                 We plan your stops
                 </h5>
                 <img
+                                alt="Signup text box"
                                 src="home-signup-text-box-img.jpg"
                 />
 </section>,
@@ -1468,6 +1474,7 @@ ShallowWrapper {
                     We plan your stops
 </h5>,
                   <img
+                    alt="Signup text box"
                     src="home-signup-text-box-img.jpg"
 />,
                 ],
@@ -1513,6 +1520,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "alt": "Signup text box",
                     "src": "home-signup-text-box-img.jpg",
                   },
                   "ref": null,

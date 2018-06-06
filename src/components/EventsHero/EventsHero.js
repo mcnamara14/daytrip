@@ -12,7 +12,6 @@ export const EventsHero = () =>  {
             We will do the rest.
           </span>
         </h4>
-        {/* <button>Select Event</button> */}
       </article>
     </div>
   );

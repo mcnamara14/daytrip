@@ -40,6 +40,8 @@ export const cleanRecentEvents = (events) => {
         longitude,
         url
       };
+    } else {
+      return null;
     }
   });
 

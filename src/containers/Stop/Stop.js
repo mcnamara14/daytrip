@@ -29,10 +29,10 @@ export class Stop extends Component {
             <div className="reviewContainer">
               <div className="stars">
                 <div>
-                  <img src={require('./assets/stars-gray.png')} />
+                  <img src={require('./assets/stars-gray.png')} alt="Stars gray"/>
                 </div>
                 <div className="redStars" style={{ "width": `${review}%` }}>
-                  <img src={require('./assets/stars-red.png')} />
+                  <img src={require('./assets/stars-red.png')} alt="Stars red"/>
                 </div>
               </div>
               <p className="reviewCount">{reviews} reviews</p>

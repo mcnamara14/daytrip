@@ -19,7 +19,7 @@ export class Events extends Component {
     } = this.props;
 
     const recentEvents = events.map((event, index) => {
-      if (event !== undefined) {
+      if (event.id !== null) {
         const { id, image, title, price, venue, date } = event;
         
         return (
@@ -33,7 +33,7 @@ export class Events extends Component {
             date={date}
           />
         );
-      }
+      } 
     });
 
     return (
