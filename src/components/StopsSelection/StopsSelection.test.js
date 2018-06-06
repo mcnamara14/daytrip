@@ -99,5 +99,22 @@ describe('stopsSelection', () => {
       expect(wrapper.instance().toggleEventError).toHaveBeenCalled()
     })
   })
+
+  describe('toggleLocation', () => {
+    it('should call toggleLocation with correct argument then call again 2 seconds', () => {
+      const wrapper = shallow(<StopsSelection toggleEventError={jest.fn()} />);
+      const result = wrapper.instance().props.toggleEventError;
+
+      jest.useFakeTimers();
+
+      wrapper.instance().toggleEventError();
+
+      expect(result).toHaveBeenCalledWith(true);
+
+      jest.runAllTimers();
+
+      expect(result).toHaveBeenCalledWith(false);    })
+  })
+
 })
 
