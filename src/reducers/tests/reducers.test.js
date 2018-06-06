@@ -7,6 +7,7 @@ import { suggestedRestaurants } from '../suggestedRestaurants';
 import { user } from '../user';
 import { barFilters } from '../barFilters';
 import { filtersError } from '../filtersError';
+import { locationError } from '../locationError';
 
 describe('Reducers', () => {
   describe('location reducer', () => {
@@ -222,6 +223,29 @@ describe('Reducers', () => {
       const expected = true;
 
       const result = filtersError(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('locationError reducer', () => {
+    it('should return the initial state', () => {
+      const expected = false;
+
+      const result = locationError(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return the boolean value passed with TOGGLE_LOCATION_ERROR action type', () => {
+      const mockAction = {
+        type: 'TOGGLE_LOCATION_ERROR',
+        boolean: true
+      }
+
+      const expected = true;
+
+      const result = locationError(undefined, mockAction)
 
       expect(result).toEqual(expected)
     })
