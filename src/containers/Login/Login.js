@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 import LocationAutocomplete from 'location-autocomplete';
 import * as authorization from '../../firebase/auth';
 import './Login.css';
-import { loginUser, storeRecentEvents, toggleLocationError } from '../../actions';
+import { 
+  loginUser, 
+  storeRecentEvents, 
+  toggleLocationError } from '../../actions';
 import { fetchRecentEvents } from '../../apiCalls';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';

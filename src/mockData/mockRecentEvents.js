@@ -64,7 +64,7 @@ export const mockDirtyRecentEvents = {
       }
     }
   ]
-}
+};
 
 export const mockDirtyRecentEventsNoStartNoPrice = {
   events: [
@@ -99,4 +99,4 @@ export const mockDirtyRecentEventsNoStartNoPrice = {
       }
     }
   ]
-}
+};

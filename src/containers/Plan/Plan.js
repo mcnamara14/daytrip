@@ -12,23 +12,26 @@ export class Plan extends Component {
 
     this.state = {
       selectedPlan: null
-    }
+    };
   }
 
   componentDidMount() {
     let firebaseDb;
 
     if (this.props.user.userId !== null) {
-      firebaseDb = firebase.database().ref().child('users').child(this.props.user.userId).child('selectedPlan');
+      firebaseDb = 
+        firebase.database().ref().child('users')
+          .child(this.props.user.userId).child('selectedPlan');
     } else {
-      firebaseDb = firebase.database().ref().child('users').child('anonymous').child('selectedPlan');
-    };
+      firebaseDb = firebase.database().ref().child('users')
+        .child('anonymous').child('selectedPlan');
+    }
 
     firebaseDb.once('value')
       .then((snapshot) => {
         return snapshot.val();
       }).then(selectedPlan => 
-        this.setState({selectedPlan}))
+        this.setState({selectedPlan}));
   }
 
   render () {
@@ -49,8 +52,7 @@ export class Plan extends Component {
         title: restaurantTitle,
         location: restaurantLocation,
         rating: restaurantRating,
-        reviews: restaurantReviews,
-        type: restaurantType
+        reviews: restaurantReviews
       } = restaurant;
 
       const {
@@ -58,8 +60,7 @@ export class Plan extends Component {
         title: barTitle,
         location: barLocation,
         rating: barRating,
-        reviews: barReviews,
-        type: barType
+        reviews: barReviews
       } = bar;
 
       const {
@@ -79,15 +80,19 @@ export class Plan extends Component {
         state = this.props.user.state;
       }
 
-      const restaurantBgImage = {backgroundImage: "url(" + restaurantImage + ")"};
+      const restaurantBgImage = 
+        {backgroundImage: "url(" + restaurantImage + ")"};
       const eventBgImage = {backgroundImage: "url(" + eventImage + ")"};
       const barBgImage = {backgroundImage: "url(" + barImage + ")"};
 
       const restaurantReview = restaurantRating * 20;
       const barReview = barRating * 20;
-      const mapRestaurantLocation = restaurantLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
-      const mapEventLocation = eventLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
-      const mapBarLocation = barLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
+      const mapRestaurantLocation = 
+        restaurantLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
+      const mapEventLocation = 
+        eventLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
+      const mapBarLocation = 
+        barLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
 
       const mapStyles = {
         width: '100%',
@@ -113,7 +118,9 @@ export class Plan extends Component {
                         <div>
                           <img src={require('./assets/stars-gray.png')} />
                         </div>
-                        <div className="redStars" style={{ "width": `${restaurantReview}%` }}>
+                        <div 
+                          className="redStars" 
+                          style={{ "width": `${restaurantReview}%` }}>
                           <img src={require('./assets/stars-red.png')} />
                         </div>
                       </div>
@@ -132,7 +139,11 @@ export class Plan extends Component {
                     <p className="eventPrice">{eventPrice}</p>
                     <p className="planLocation">{eventLocation}</p>
                     <p className="eventDate">{eventDate}</p>
-                    <a href={tickets} className="eventTickets" target="_blank">Purchase Tickets</a>
+                    <a 
+                      href={tickets} 
+                      className="eventTickets" 
+                      target="_blank">Purchase Tickets
+                    </a>
                   </div>
                 </section>
               </div>
@@ -147,7 +158,10 @@ export class Plan extends Component {
                         <div>
                           <img src={require('./assets/stars-gray.png')} />
                         </div>
-                        <div className="redStars" style={{ "width": `${barReview}%` }}>
+                        <div 
+                          className="redStars" 
+                          style={{ "width": `${barReview}%` }}
+                        >
                           <img src={require('./assets/stars-red.png')} />
                         </div>
                       </div>
@@ -167,15 +181,17 @@ export class Plan extends Component {
             </section>
           </div>
         </section>
-      ) 
+      ); 
     } else {
-      return <h1>Selected a plan</h1>
+      return <h1>Selected a plan</h1>;
     }
   }
 }
 
 Plan.propTypes = {
-  suggestedRestaurants: PropTypes.array
+  suggestedRestaurants: PropTypes.array,
+  user: PropTypes.object,
+  location: PropTypes.object
 };
 
 export const mapStateToProps = (state) => ({

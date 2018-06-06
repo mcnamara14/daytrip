@@ -7,7 +7,7 @@ export const mockCleanSuggestedRestaurant = [
     rating: 5,
     review_count: 382
   }
-]
+];
 
 export const mockDirtySuggestedRestaurant = [
   {

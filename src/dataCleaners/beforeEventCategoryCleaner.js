@@ -1,11 +1,11 @@
 export const beforeEventCategoryCleaner = () => {
-const restaurantCategories = [
+  const restaurantCategories = [
     { alias: 'afghani', label: 'Afghani'},
     { alias: 'african', label: 'African'},
     { alias: 'southafrican', label: 'South African'},
     { alias: 'newamerican', label: 'New American'},
     { alias: 'tradamerican', label: 'Traditional American'}
-  ]
+  ];
 
   return restaurantCategories;
 };

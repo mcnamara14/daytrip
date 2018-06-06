@@ -5,4 +5,4 @@ export const suggestedRestaurants = (state = [], action) => {
     default:
       return state;
   }
-}
+};

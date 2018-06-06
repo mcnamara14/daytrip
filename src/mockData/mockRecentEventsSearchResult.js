@@ -4,7 +4,7 @@ export const mockCleanRecentEventsSearchResult = {
       "label": "T SwiftBoulder Theater", 
       "value": 0}
   ]
-}
+};
 
 export const mockCleanRecentEventsSearchResultNoStart = {
   "options": [
@@ -12,4 +12,4 @@ export const mockCleanRecentEventsSearchResultNoStart = {
       "label": "T SwiftBoulder Theater", 
       "value": 0}
   ]
-}
+};

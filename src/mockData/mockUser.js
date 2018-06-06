@@ -3,4 +3,4 @@ export const mockUser = {
   email: "mcnamara14@gmail.com",
   city: "San Diego",
   state: "CA"
-}
+};

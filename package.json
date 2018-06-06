@@ -35,7 +35,9 @@
       "!src/index.js",
       "!src/registerServiceWorker.js",
       "!src/reducers/index.js",
-      "!src/firebase/*"
+      "!src/firebase/*",
+      "!src/mockdata/",
+      "!src/dataCleaners/*"
     ]
   },
   "devDependencies": {

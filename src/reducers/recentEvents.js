@@ -1,8 +1,8 @@
 export const recentEvents = (state = [], action) => {
-  switch(action.type) {
+  switch (action.type) {
     case 'STORE_RECENT_EVENTS':
-      return [...action.recentEvents]
+      return [...action.recentEvents];
     default:
-      return state
+      return state;
   }
-}
+};
