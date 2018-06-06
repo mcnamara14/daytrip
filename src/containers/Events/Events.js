@@ -33,7 +33,8 @@ export class Events extends Component {
             date={date}
           />
         );
-      }});
+      }
+    });
 
     return (
       <div className="eventsContainer">

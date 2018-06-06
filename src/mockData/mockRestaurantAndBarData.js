@@ -6,4 +6,4 @@ export const mockCleanRestaurantAndBar = [
     rating: 4.5,
     review_count: 450
   }
-]
+];

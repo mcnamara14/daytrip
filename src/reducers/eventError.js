@@ -5,4 +5,4 @@ export const eventError = (state = false, action) => {
     default:
       return state;
   }
-}
+};

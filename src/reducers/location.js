@@ -4,8 +4,8 @@ export const location = (state = null, action) => {
       return {
         city: action.city,
         state: action.state
-      }
+      };
     default:
       return state;
   }
-}
+};

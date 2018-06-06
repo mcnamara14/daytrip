@@ -7,7 +7,7 @@ const config = {
   databaseURL: "https://daytrip-c5c3a.firebaseio.com",
   projectId: "daytrip-c5c3a",
   storageBucket: "daytrip-c5c3a.appspot.com",
-  messagingSenderId: "532630776936",
+  messagingSenderId: "532630776936"
 };
 
 if (!firebase.apps.length) {

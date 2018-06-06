@@ -35,8 +35,11 @@ export class Plans extends Component {
     let firebaseLocation;
     const firebaseRef = firebase.database().ref();
 
-    this.props.user.userId !== null ? firebaseLocation = firebaseRef.child('users').child(this.props.user.userId).child('selectedPlan') :
-      firebaseLocation = firebaseRef.child('users').child('anonymous').child('selectedPlan');
+    this.props.user.userId !== null ? 
+      firebaseLocation = firebaseRef.child('users')
+        .child(this.props.user.userId).child('selectedPlan') :
+      firebaseLocation = firebaseRef.child('users')
+        .child('anonymous').child('selectedPlan');
 
     firebaseLocation.update(
       {
@@ -59,7 +62,7 @@ export class Plans extends Component {
           price: barPrice,
           reviews: barReviewCount,
           image: barImage,
-          type: 'bar' ,
+          type: 'bar',
           index: planNum
         },
         event: {
@@ -206,7 +209,9 @@ export class Plans extends Component {
 Plans.propTypes = {
   suggestedRestaurants: PropTypes.array,
   suggestedBars: PropTypes.array,
-  selectedEvent: PropTypes.object
+  selectedEvent: PropTypes.object,
+  user: PropTypes.object,
+  history: PropTypes.object
 };
 
 Stop.propTypes = {

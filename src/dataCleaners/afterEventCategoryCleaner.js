@@ -5,7 +5,7 @@ export const afterEventCategoryCleaner = () => {
     { alias: 'champagne_bars', label: 'Champagne Bars'},
     { alias: 'cigarbars', label: 'Cigar Bars'},
     { alias: 'cocktailbars', label: 'Cocktail Bars'}
-  ]
+  ];
 
   return restaurantCategories;
 };

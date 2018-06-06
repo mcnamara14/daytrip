@@ -5,4 +5,4 @@ export const suggestedBars = (state = [], action) => {
     default:
       return state;
   }
-}
+};

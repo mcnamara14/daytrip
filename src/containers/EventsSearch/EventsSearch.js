@@ -61,7 +61,8 @@ export class EventsSearch extends Component {
     if (city && state) {
       const date = startDate;
       const timeNow = date.format();
-      const events = await fetchRecentEventsOnSearch(city, state, timeNow, input);
+      const events = 
+      await fetchRecentEventsOnSearch(city, state, timeNow, input);
 
       return events;
     } else {
@@ -120,10 +121,13 @@ export class EventsSearch extends Component {
           autoload={false}
         />
         <div className="eventsSearchLocationDate">
-          { this.props.eventError ? <p className="errorPopup">An event is required for signup</p>: ''}
+          { this.props.eventError ? 
+            <p className="errorPopup">An event is required for signup</p> : ''}
           <LocationAutocomplete
             name="location"
-            placeholder={this.state.selectedOption ? this.state.selectedOption : 'Enter a location'}
+            placeholder={this.state.selectedOption ? 
+              this.state.selectedOption : 
+              'Enter a location'}
             targetArea="City, State"
             locationType="(cities)"
             onChange={this.onChangeHandler}
@@ -145,7 +149,8 @@ EventsSearch.propTypes = {
   user: PropTypes.object,
   storeSelectedEvent: PropTypes.func,
   toggleLocationError: PropTypes.func,
-  eventError: PropTypes.bool
+  eventError: PropTypes.bool,
+  toggleLocation:PropTypes.func
 };
 
 LocationAutocomplete.propTypes = {

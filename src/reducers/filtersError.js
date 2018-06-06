@@ -5,4 +5,4 @@ export const filtersError = (state = false, action) => {
     default:
       return state;
   }
-}
+};

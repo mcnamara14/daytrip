@@ -3,13 +3,10 @@ import { connect } from 'react-redux';
 import './StopSelection.css';
 import PropTypes from 'prop-types';
 import Select from 'react-select';
-import * as firebase from 'firebase';
-import 'firebase/database';
 import { 
   beforeEventCategoryCleaner, 
   afterEventCategoryCleaner 
 } from '../../dataCleaners';
-import { fetchRestaurantsAndBars } from '../../apiCalls';
 import { 
   storeSuggestedRestaurants, 
   storeSuggestedBars, 
@@ -51,7 +48,10 @@ export class StopSelection extends Component {
       });
     }
     
-    this.props.type === 'before' ? this.props.storeRestaurantFilters(this.state.selectedOption.alias, priceRanges) :
+    this.props.type === 'before' ? 
+      this.props.storeRestaurantFilters(
+        this.state.selectedOption.alias, 
+        priceRanges) :
       this.props.storeBarFilters(this.state.selectedOption.alias, priceRanges);
     
   }
@@ -87,13 +87,19 @@ export class StopSelection extends Component {
         <div className="priceRange">
           <span 
             onClick={() => this.changePriceRange('1')} 
-            className={priceRanges.includes('1') ? 'selected' : 'priceOne'}>$</span>
+            className={priceRanges.includes('1') ? 
+              'selected' : 
+              'priceOne'}>$</span>
           <span 
             onClick={() => this.changePriceRange('2')} 
-            className={priceRanges.includes('2') ? 'selected' : 'priceTwo'}>$$</span>
+            className={priceRanges.includes('2') ? 
+              'selected' : 
+              'priceTwo'}>$$</span>
           <span 
             onClick={() => this.changePriceRange('3')} 
-            className={priceRanges.includes('3') ? 'selected' : 'priceThree'}>$$$</span>
+            className={priceRanges.includes('3') ? 
+              'selected' : 
+              'priceThree'}>$$$</span>
           <span 
             onClick={() => this.changePriceRange('4')} 
             className={priceRanges.includes('4') ? 'selected last' : 
@@ -110,7 +116,9 @@ StopSelection.propTypes = {
   toggleEventError: PropTypes.func,
   selectedEvent: PropTypes.object,
   eventError: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  storeRestaurantFilters: PropTypes.func,
+  storeBarFilters: PropTypes.func
 };
 
 export const mapDispatchToProps = (dispatch) => ({
@@ -120,11 +128,11 @@ export const mapDispatchToProps = (dispatch) => ({
   storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars)),
   toggleEventError: (boolean) => dispatch(toggleEventError(boolean)),
   storeRestaurantFilters: (category, priceRanges) => {
-    return dispatch(storeRestaurantFilters(category, priceRanges))
+    return dispatch(storeRestaurantFilters(category, priceRanges));
   },
   storeBarFilters: (category, priceRanges) => {
-    return dispatch(storeBarFilters(category, priceRanges))
-  },
+    return dispatch(storeBarFilters(category, priceRanges));
+  }
 });
 
 export const mapStateToProps = (state) => ({

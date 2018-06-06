@@ -4,8 +4,8 @@ export const barFilters = (state = {}, action) => {
       return {
         category: action.category,
         priceRange: action.priceRanges
-      }
+      };
     default:
       return state;
   }
-}
+};

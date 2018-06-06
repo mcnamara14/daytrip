@@ -5,4 +5,4 @@ export const locationError = (state = false, action) => {
     default:
       return state;
   }
-}
+};

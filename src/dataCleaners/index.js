@@ -10,4 +10,4 @@ export {
   beforeEventCategoryCleaner,
   afterEventCategoryCleaner,
   suggestedRestaurantsCleaner
-}
+};
