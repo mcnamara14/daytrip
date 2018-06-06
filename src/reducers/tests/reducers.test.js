@@ -5,6 +5,7 @@ import { selectedEvent } from '../selectedEvent';
 import { suggestedBars } from '../suggestedBars';
 import { suggestedRestaurants } from '../suggestedRestaurants';
 import { user } from '../user';
+import { barFilters } from '../barFilters';
 
 describe('Reducers', () => {
   describe('location reducer', () => {
@@ -130,7 +131,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTSaction type', () => {
+    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTS action type', () => {
       const mockAction = {
         type: 'STORE_SUGGESTED_RESTAURANTS',
         restaurants: [{title: 'Acron'}]
@@ -153,7 +154,7 @@ describe('Reducers', () => {
       expect(result).toEqual(expected)
     })
 
-    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTSaction type', () => {
+    it('should return restaurants passed with passed with STORE_SUGGESTED_RESTAURANTS action type', () => {
       const mockAction = {
         type: 'LOGIN_USER',
         userId: '12345', 
@@ -175,5 +176,31 @@ describe('Reducers', () => {
     })
   })
 
+  describe('barFilters reducer', () => {
+    it('should return the initial state', () => {
+      const expected = {};
+
+      const result = barFilters(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return an object with category and priceRanges passed with passed with STORE_BAR_FILTERSaction type', () => {
+      const mockAction = {
+        type: 'STORE_BAR_FILTERS',
+        category: 'newamerican', 
+        priceRanges: ['1', '3']
+      }
+
+      const expected = {
+        category: 'newamerican', 
+        priceRange: ['1', '3']
+      };
+
+      const result = barFilters(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
 })
 
