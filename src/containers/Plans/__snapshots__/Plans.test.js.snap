@@ -99,7 +99,8 @@ ShallowWrapper {
                 className="planContainer"
         >
                 <h4>
-                        Plan
+                        Plan 
+                        1
                 </h4>
                 <section
                         className="plan"
@@ -170,7 +171,8 @@ ShallowWrapper {
               className="planContainer"
 >
               <h4>
-                            Plan
+                            Plan 
+                            1
               </h4>
               <section
                             className="plan"
@@ -247,7 +249,8 @@ ShallowWrapper {
           "props": Object {
             "children": Array [
               <h4>
-                Plan
+                Plan 
+                1
 </h4>,
               <section
                 className="plan"
@@ -309,10 +312,16 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Plan",
+                "children": Array [
+                  "Plan ",
+                  1,
+                ],
               },
               "ref": null,
-              "rendered": "Plan",
+              "rendered": Array [
+                "Plan ",
+                1,
+              ],
               "type": "h4",
             },
             Object {
@@ -487,7 +496,8 @@ ShallowWrapper {
                     className="planContainer"
           >
                     <h4>
-                              Plan
+                              Plan 
+                              1
                     </h4>
                     <section
                               className="plan"
@@ -558,7 +568,8 @@ ShallowWrapper {
                 className="planContainer"
 >
                 <h4>
-                                Plan
+                                Plan 
+                                1
                 </h4>
                 <section
                                 className="plan"
@@ -635,7 +646,8 @@ ShallowWrapper {
             "props": Object {
               "children": Array [
                 <h4>
-                  Plan
+                  Plan 
+                  1
 </h4>,
                 <section
                   className="plan"
@@ -697,10 +709,16 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Plan",
+                  "children": Array [
+                    "Plan ",
+                    1,
+                  ],
                 },
                 "ref": null,
-                "rendered": "Plan",
+                "rendered": Array [
+                  "Plan ",
+                  1,
+                ],
                 "type": "h4",
               },
               Object {

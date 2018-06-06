@@ -19,7 +19,6 @@ export class Events extends Component {
     } = this.props;
 
     const recentEvents = events.map((event, index) => {
-      console.log(event)
       if (event !== undefined) {
         const { id, image, title, price, venue, date } = event;
         

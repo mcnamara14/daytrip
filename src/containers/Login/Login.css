@@ -99,7 +99,7 @@ h5 {
     justify-content: space-between;
     padding: 40px;
     margin-top: -100px;
-    background: #2a2a2a;
+    background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(28,28,62,1) 100%);
 }
 
 .emailSignup {
