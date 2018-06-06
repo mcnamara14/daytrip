@@ -116,12 +116,12 @@ export class Plan extends Component {
                     <div className="reviewContainer">
                       <div className="stars">
                         <div>
-                          <img src={require('./assets/stars-gray.png')} />
+                          <img src={require('./assets/stars-gray.png')} alt="Gray stars"/>
                         </div>
                         <div 
                           className="redStars" 
                           style={{ "width": `${restaurantReview}%` }}>
-                          <img src={require('./assets/stars-red.png')} />
+                          <img src={require('./assets/stars-red.png')} alt="Gold stars"/>
                         </div>
                       </div>
                       <p className="reviewCount">{restaurantReviews} reviews</p>
@@ -156,13 +156,13 @@ export class Plan extends Component {
                     <div className="reviewContainer">
                       <div className="stars">
                         <div>
-                          <img src={require('./assets/stars-gray.png')} />
+                          <img src={require('./assets/stars-gray.png')} alt="Gray stars"/>
                         </div>
                         <div 
                           className="redStars" 
                           style={{ "width": `${barReview}%` }}
                         >
-                          <img src={require('./assets/stars-red.png')} />
+                          <img src={require('./assets/stars-red.png')} alt="Gold stars"/>
                         </div>
                       </div>
                       <p className="reviewCount">{barReviews} reviews</p>
@@ -175,9 +175,9 @@ export class Plan extends Component {
             <section className="planRightContainer">
               <h2>Directions</h2>
               <h4>To the event</h4>
-              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapRestaurantLocation}&destination=${mapEventLocation}+${city}+${state}&mode=walking`} style={mapStyles} ></iframe>
+              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapRestaurantLocation}&destination=${mapEventLocation}+${city}+${state}&mode=walking`} style={mapStyles} title="toEvent"></iframe>
               <h4>From the event</h4>
-              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapEventLocation}+${city}+${state}&destination=${mapBarLocation}&mode=walking`} style={mapStyles} ></iframe>
+              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapEventLocation}+${city}+${state}&destination=${mapBarLocation}&mode=walking`} style={mapStyles} title="fromEvent"></iframe>
             </section>
           </div>
         </section>

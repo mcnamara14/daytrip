@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { EventsSearch, mapDispatchToProps } from './EventsSearch';
 import { shallow } from 'enzyme';
 import moment from 'moment';
-// jest.mock('moment', () => ({format: () => '2018–01–30T12:34:56+00:00'}));
 import { mockDirtyRecentEvents, mockUser } from '../../mockData';
 import { cleanRecentEventsSearch } from '../../dataCleaners/recentEventsSearchCleaner';
 jest.mock('../../dataCleaners/recentEventsSearchCleaner');
@@ -238,4 +237,17 @@ describe('EventsSearch', () => {
     });
   })
 
+  it('should call dispatch with the correct params on toggleLocationError', () => {
+    const mockDispatch = jest.fn();
+    const mappedProps = mapDispatchToProps(mockDispatch);
+    const mockAction = {
+      type: 'TOGGLE_LOCATION_ERROR',
+      boolean: true
+    };
+
+    mappedProps.toggleLocationError(true);
+
+    expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+  });
 });
+

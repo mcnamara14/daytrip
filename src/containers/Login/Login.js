@@ -12,7 +12,7 @@ import {
 import { fetchRecentEvents } from '../../apiCalls';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
-import homeSignupTextBoxImg from './assets/home-signup-text-box-img.jpg';
+import homeSignupTextBoxPhoto from './assets/home-signup-text-box-img.jpg';
 import moment from 'moment';
 
 export class Login extends Component {
@@ -144,7 +144,7 @@ export class Login extends Component {
             <p>The cheese melts on the burger and in your mouth, 
               perfectly complementing the medium-rare beef.</p>
             <h5>We plan your stops</h5>
-            <img src={homeSignupTextBoxImg} />
+            <img src={homeSignupTextBoxPhoto} alt="Signup text box"/>
           </section>
           <div className="signupForms">
             <div className="signupFormsContainer">

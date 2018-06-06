@@ -117,6 +117,7 @@ ShallowWrapper {
                                 type="restaurant"
                         />
                         <img
+                                alt="Arrow"
                                 className="routeImg"
                                 src="route-img.jpg"
                         />
@@ -132,6 +133,7 @@ ShallowWrapper {
                                 type="event"
                         />
                         <img
+                                alt="Arrow"
                                 className="routeImg"
                                 src="route-img.jpg"
                         />
@@ -189,6 +191,7 @@ ShallowWrapper {
                                           type="restaurant"
                             />
                             <img
+                                          alt="Arrow"
                                           className="routeImg"
                                           src="route-img.jpg"
                             />
@@ -204,6 +207,7 @@ ShallowWrapper {
                                           type="event"
                             />
                             <img
+                                          alt="Arrow"
                                           className="routeImg"
                                           src="route-img.jpg"
                             />
@@ -267,6 +271,7 @@ ShallowWrapper {
                                 type="restaurant"
                 />
                 <img
+                                alt="Arrow"
                                 className="routeImg"
                                 src="route-img.jpg"
                 />
@@ -282,6 +287,7 @@ ShallowWrapper {
                                 type="event"
                 />
                 <img
+                                alt="Arrow"
                                 className="routeImg"
                                 src="route-img.jpg"
                 />
@@ -342,6 +348,7 @@ ShallowWrapper {
                     type="restaurant"
 />,
                   <img
+                    alt="Arrow"
                     className="routeImg"
                     src="route-img.jpg"
 />,
@@ -357,6 +364,7 @@ ShallowWrapper {
                     type="event"
 />,
                   <img
+                    alt="Arrow"
                     className="routeImg"
                     src="route-img.jpg"
 />,
@@ -400,6 +408,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "alt": "Arrow",
                     "className": "routeImg",
                     "src": "route-img.jpg",
                   },
@@ -431,6 +440,7 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
+                    "alt": "Arrow",
                     "className": "routeImg",
                     "src": "route-img.jpg",
                   },
@@ -514,6 +524,7 @@ ShallowWrapper {
                                         type="restaurant"
                               />
                               <img
+                                        alt="Arrow"
                                         className="routeImg"
                                         src="route-img.jpg"
                               />
@@ -529,6 +540,7 @@ ShallowWrapper {
                                         type="event"
                               />
                               <img
+                                        alt="Arrow"
                                         className="routeImg"
                                         src="route-img.jpg"
                               />
@@ -586,6 +598,7 @@ ShallowWrapper {
                                                 type="restaurant"
                                 />
                                 <img
+                                                alt="Arrow"
                                                 className="routeImg"
                                                 src="route-img.jpg"
                                 />
@@ -601,6 +614,7 @@ ShallowWrapper {
                                                 type="event"
                                 />
                                 <img
+                                                alt="Arrow"
                                                 className="routeImg"
                                                 src="route-img.jpg"
                                 />
@@ -664,6 +678,7 @@ ShallowWrapper {
                                     type="restaurant"
                   />
                   <img
+                                    alt="Arrow"
                                     className="routeImg"
                                     src="route-img.jpg"
                   />
@@ -679,6 +694,7 @@ ShallowWrapper {
                                     type="event"
                   />
                   <img
+                                    alt="Arrow"
                                     className="routeImg"
                                     src="route-img.jpg"
                   />
@@ -739,6 +755,7 @@ ShallowWrapper {
                       type="restaurant"
 />,
                     <img
+                      alt="Arrow"
                       className="routeImg"
                       src="route-img.jpg"
 />,
@@ -754,6 +771,7 @@ ShallowWrapper {
                       type="event"
 />,
                     <img
+                      alt="Arrow"
                       className="routeImg"
                       src="route-img.jpg"
 />,
@@ -797,6 +815,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
+                      "alt": "Arrow",
                       "className": "routeImg",
                       "src": "route-img.jpg",
                     },
@@ -828,6 +847,7 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
+                      "alt": "Arrow",
                       "className": "routeImg",
                       "src": "route-img.jpg",
                     },

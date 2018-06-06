@@ -126,7 +126,7 @@ StopsSelection.propTypes = {
   selectedEvent: PropTypes.object,
   restaurantFilters: PropTypes.object,
   barFilters: PropTypes.object,
-  filtersError: PropTypes.func,
+  filtersError: PropTypes.string,
   restaurantBarError: PropTypes.func,
   toggleEventError: PropTypes.func,
   toggleFiltersError: PropTypes.func,

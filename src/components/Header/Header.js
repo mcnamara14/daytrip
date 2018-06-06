@@ -10,13 +10,6 @@ import PropTypes from 'prop-types';
 
 export class Header extends Component {
   signoutLoginClickHandler = () => {
-    const userReset = {
-      userId: null,
-      email: '',
-      city: '',
-      state: ''
-    };
-
     authorization.signOut();
     this.props.loginUser(null, '', '', '');
   }

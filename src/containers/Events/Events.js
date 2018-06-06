@@ -33,6 +33,8 @@ export class Events extends Component {
             date={date}
           />
         );
+      } else {
+        return null;
       }
     });
 

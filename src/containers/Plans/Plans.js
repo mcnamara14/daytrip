@@ -92,7 +92,7 @@ export class Plans extends Component {
     let plans = [];
 
     if (suggestedBars.length && suggestedRestaurants.length) {
-      for (var i = 0; i < this.props.suggestedBars.length; i++) {
+      for (var index = 0; index < this.props.suggestedBars.length; index++) {
         const { 
           id: restaurantId,
           name: restaurantName, 
@@ -101,7 +101,7 @@ export class Plans extends Component {
           price: restaurantPrice, 
           review_count: restaurantReviewCount, 
           image_url: restaurantImage 
-        } = this.props.suggestedRestaurants[i];
+        } = this.props.suggestedRestaurants[index];
         const { 
           id: barId,
           name: barName, 
@@ -110,7 +110,7 @@ export class Plans extends Component {
           price: barPrice, 
           review_count: barReviewCount, 
           image_url: barImage 
-        } = this.props.suggestedBars[i];
+        } = this.props.suggestedBars[index];
         const { 
           id,
           title, 
@@ -119,10 +119,10 @@ export class Plans extends Component {
           date,
           url } = this.props.selectedEvent;
         const eventPrice = selectedEvent.price;
-        const planNum = i + 1;
+        const planNum = index + 1;
 
-        plans.push(<div key={i} className="planContainer">
-          <h4>Plan {i + 1}</h4>
+        plans.push(<div key={index} className="planContainer">
+          <h4>Plan {index + 1}</h4>
           <section className="plan">
             <Stop 
               id={restaurantId}
@@ -135,7 +135,7 @@ export class Plans extends Component {
               type={'restaurant'} 
               index={planNum}
             />
-            <img src={require('./assets/route-img.jpg')} className="routeImg" />
+            <img src={require('./assets/route-img.jpg')} className="routeImg" alt="Arrow"/>
             <Stop
               id={id} 
               title={title} 
@@ -147,7 +147,7 @@ export class Plans extends Component {
               type={'event'} 
               index={planNum}
             />
-            <img src={require('./assets/route-img.jpg')} className="routeImg" />
+            <img src={require('./assets/route-img.jpg')} className="routeImg" alt="Arrow" />
             <Stop 
               id={barId}
               title={barName} 
