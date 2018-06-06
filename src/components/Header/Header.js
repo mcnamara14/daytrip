@@ -27,7 +27,7 @@ export class Header extends Component {
 
     return (
       <header>  
-        <img src={headerLogo} className="headerLogo" alt="Header logo"/>
+        <NavLink to='/'><img src={headerLogo} className="headerLogo" alt="Header logo"/></NavLink>
         <nav className={signoutClass}>
           <NavLink to='/events'>Events</NavLink>
           <NavLink to='/plan'>Plan</NavLink>

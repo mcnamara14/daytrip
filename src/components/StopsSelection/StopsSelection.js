@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './StopsSelection.css';
-import { StopSelection } from '../../containers/StopSelection/StopSelection';
+import StopSelection from '../../containers/StopSelection/StopSelection';
 import { 
   storeSuggestedRestaurants, 
   storeSuggestedBars, 
