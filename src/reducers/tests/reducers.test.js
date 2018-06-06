@@ -9,6 +9,7 @@ import { barFilters } from '../barFilters';
 import { filtersError } from '../filtersError';
 import { locationError } from '../locationError';
 import { restaurantBarError } from '../restaurantBarError';
+import { restaurantFilters } from '../restaurantFilters';
 
 
 describe('Reducers', () => {
@@ -271,6 +272,33 @@ describe('Reducers', () => {
       const expected = true;
 
       const result = restaurantBarError(undefined, mockAction)
+
+      expect(result).toEqual(expected)
+    })
+  })
+
+  describe('restaurantFilters reducer', () => {
+    it('should return the initial state', () => {
+      const expected = {};
+
+      const result = restaurantFilters(undefined, {})
+
+      expect(result).toEqual(expected)
+    })
+
+    it('should return an object with category and price ranges passed with TOGGLE_RESTAURANT_FILTERS action type', () => {
+      const mockAction = {
+        type: 'STORE_RESTAURANT_FILTERS',
+        category: 'newamerican', 
+        priceRanges: ['1', '3']
+      }
+
+      const expected = {
+        category: 'newamerican', 
+        priceRange: ['1', '3']
+      };
+
+      const result = restaurantFilters(undefined, mockAction)
 
       expect(result).toEqual(expected)
     })
