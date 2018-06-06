@@ -133,6 +133,24 @@ it('should match the snapshot', () => {
       expect(wrapper.instance().changePriceRange).toHaveBeenCalledWith('3');
     })
 
+    it('should add selected to class to price three when selected', () => {
+      wrapper.setState({
+        priceRanges: ['3']
+      })
+      wrapper.instance().changePriceRange = jest.fn();
+
+      expect(wrapper.find('.selected').length).toEqual(1);
+    })
+
+    it('should add selected to class to price four when selected', () => {
+      wrapper.setState({
+        priceRanges: ['4']
+      })
+      wrapper.instance().changePriceRange = jest.fn();
+
+      expect(wrapper.find('.selected').length).toEqual(1);
+    })
+
     it('should call changePriceRange with the correct argument when price four button is clicked', () => {
       wrapper.instance().changePriceRange = jest.fn();
       
