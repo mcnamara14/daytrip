@@ -172,12 +172,12 @@ describe('Login', () => {
     })
 
     it('should call toggleLocation when no location is entered', async () => {
-      wrapper.instance().toggleLocation = jest.fn();
+      wrapper.instance().toggleLocationError = jest.fn();
       wrapper.setState({
         location: ''
       })
 
-      const result = wrapper.instance().toggleLocation
+      const result = wrapper.instance().toggleLocationError
 
       await wrapper.instance().googleSignup();
 
@@ -187,8 +187,8 @@ describe('Login', () => {
 
   describe('toggleLocation', () => {
     it('should call toggleLocation with correct argument then call again 2 seconds', () => {
-      const wrapper = shallow(<Login toggleLocation={jest.fn()} />);
-      const result = wrapper.instance().props.toggleLocation;
+      const wrapper = shallow(<Login toggleLocationError={jest.fn()} />);
+      const result = wrapper.instance().props.toggleLocationError;
 
       jest.useFakeTimers();
 
@@ -323,7 +323,7 @@ describe('Login', () => {
         ]
       })}}
 
-      wrapper = shallow(<Login toggleLocation={jest.fn()} />);
+      wrapper = shallow(<Login toggleLocationError={jest.fn()} />);
     })
 
     it('should set the state to the city and state selected', () => {
@@ -340,7 +340,7 @@ describe('Login', () => {
 
       mockComponent.autocomplete = jest.fn();
 
-      expect(wrapper.instance().props.toggleLocation).toHaveBeenCalledWith(false);
+      expect(wrapper.instance().props.toggleLocationError).toHaveBeenCalledWith(false);
     })
   })
   
@@ -387,15 +387,15 @@ describe('Login', () => {
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });
 
-    it('should call dispatch with the correct params on toggleLocation', () => {
+    it('should call dispatch with the correct params on toggleLocationError', () => {
       const mockDispatch = jest.fn();
       const mappedProps = mapDispatchToProps(mockDispatch);
       const mockAction = {
-        type: 'TOGGLE_LOCATION',
+        type: 'TOGGLE_LOCATION_ERROR',
         boolean: false
       };
 
-      mappedProps.toggleLocation(false);
+      mappedProps.toggleLocationError(false);
 
       expect(mockDispatch).toHaveBeenCalledWith(mockAction);
     });

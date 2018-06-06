@@ -8,7 +8,8 @@ export const mockCleanRecentEvents = {
       date: "2018-05-30 2018-05-27T17:13:38-06:00",
       id: 'Zrt9dk32l',
       latitude: "39.735001",
-      longitude: "-105.020401"
+      longitude: "-105.020401",
+      url: "http://www.ticketsnow.com/PID=2107079"
     }
   ]
 };
@@ -23,7 +24,8 @@ export const mockCleanRecentEventsNoStartNoPrice = {
       date: "TBA",
       id: 'Zrt9dk32l',
       latitude: "39.735001",
-      longitude: "-105.020401"
+      longitude: "-105.020401",
+      url: "http://www.ticketsnow.com/PID=2107079"
     }
   ]
 };
