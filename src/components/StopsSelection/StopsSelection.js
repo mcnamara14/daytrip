@@ -10,6 +10,7 @@ import {
   toggleRestaurantBarError 
 } from '../../actions';
 import { fetchRestaurantsAndBars } from '../../apiCalls';
+import PropTypes from 'prop-types';
 
 export class StopsSelection extends Component {
   componentWillReceiveProps(nextProps) {
@@ -31,7 +32,9 @@ export class StopsSelection extends Component {
       barFilters
     } = this.props;
 
-    if (restaurantFilters.category !== undefined && barFilters.category !== undefined && selectedEvent !== null) {
+    if (restaurantFilters.category !== undefined && 
+        barFilters.category !== undefined && 
+        selectedEvent !== null) {
       const latitude = selectedEvent.latitude;
       const longitude = selectedEvent.longitude;
       this.storeSuggestedRestaurants(latitude, longitude);
@@ -74,7 +77,8 @@ export class StopsSelection extends Component {
     const category = restaurantFilters.category;
     const suggestedRestaurants = 
       await fetchRestaurantsAndBars(latitude, longitude, price, category);
-    suggestedRestaurants.length ? storeSuggestedRestaurants(suggestedRestaurants) :
+    suggestedRestaurants.length ? 
+      storeSuggestedRestaurants(suggestedRestaurants) :
       this.toggleRestaurantBarError();
   }
 
@@ -97,8 +101,16 @@ export class StopsSelection extends Component {
   render() {
     return (
       <div className="stopsSelection">
-        { this.props.filtersError ? <p className="filtersError">Please add a price and category for each stop.</p> : null }
-        { this.props.restaurantBarError ? <p className="filtersError">No restaurants or bars near by matching your filters. <br/> Select new filters.</p> : null }
+        { this.props.filtersError ? 
+          <p className="filtersError">
+            Please add a price and category for each stop.
+          </p> : 
+          null }
+        { this.props.restaurantBarError ? 
+          <p className="filtersError">
+          No restaurants or bars near by matching your filters. 
+            <br/> Select new filters.</p> : 
+          null }
         <div className="stopsSelectionContainer">
           <StopSelection type={'before'}/>
           <hr />
@@ -110,6 +122,17 @@ export class StopsSelection extends Component {
   }
 }
 
+StopsSelection.propTypes = {
+  selectedEvent: PropTypes.object,
+  restaurantFilters: PropTypes.object,
+  barFilters: PropTypes.object,
+  filtersError: PropTypes.func,
+  restaurantBarError: PropTypes.func,
+  toggleEventError: PropTypes.func,
+  toggleFiltersError: PropTypes.func,
+  toggleRestaurantBarError: PropTypes.func
+};
+
 export const mapDispatchToProps = (dispatch) => ({
   storeSuggestedRestaurants: (restaurants) => {
     return dispatch(storeSuggestedRestaurants(restaurants));
@@ -117,7 +140,9 @@ export const mapDispatchToProps = (dispatch) => ({
   storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars)),
   toggleFiltersError: (boolean) => dispatch(toggleFiltersError(boolean)),
   toggleEventError: (boolean) => dispatch(toggleEventError(boolean)),
-  toggleRestaurantBarError: (boolean) => dispatch(toggleRestaurantBarError(boolean))
+  toggleRestaurantBarError: (boolean) => {
+    return dispatch(toggleRestaurantBarError(boolean));
+  }
 });
 
 export const mapStateToProps = (state) => ({

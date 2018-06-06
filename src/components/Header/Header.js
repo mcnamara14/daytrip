@@ -6,6 +6,7 @@ import './Header.css';
 import headerLogo from './assets/header-logo.png';
 import loginIcon from './assets/header-login-icon.png';
 import { loginUser } from '../../actions';
+import PropTypes from 'prop-types';
 
 export class Header extends Component {
   signoutLoginClickHandler = () => {
@@ -24,8 +25,12 @@ export class Header extends Component {
     let loginSignout;
     let signoutClass;
 
-    !this.props.user.userId ? loginSignout = 'Login / Signup' : loginSignout = 'Signout';
-    this.props.user.userId ? signoutClass = 'signout' : signoutClass = '';
+    !this.props.user.userId ? 
+      loginSignout = 'Login / Signup' : 
+      loginSignout = 'Signout';
+    this.props.user.userId ? 
+      signoutClass = 'signout' : 
+      signoutClass = '';
 
     return (
       <header>  
@@ -35,13 +40,23 @@ export class Header extends Component {
           <NavLink to='/plan'>Plan</NavLink>
           <div className="loginLink">
             <img src={loginIcon} className="loginIcon" alt="Login icon" />
-            <NavLink to='/' className="NavLogin" onClick={this.signoutLoginClickHandler}>{loginSignout}</NavLink>
+            <NavLink 
+              to='/' 
+              className="NavLogin" 
+              onClick={this.signoutLoginClickHandler}>
+              {loginSignout}
+            </NavLink>
           </div>
         </nav>
       </header>
     );
-  };
+  }
 }
+
+Header.propTypes = {
+  loginUser: PropTypes.func,
+  user: PropTypes.object
+};
 
 export const mapDispatchToProps = (dispatch) => ({
   loginUser: (userId, email, city, state) => {

@@ -11,7 +11,7 @@ export const fetchRestaurantsAndBars = async (
   
   let restaurants;
 
-  const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/'
+  const corsAnywhereUrl = 'https://cors-anywhere.herokuapp.com/';
   const prefix = `${corsAnywhereUrl}https://api.yelp.com/v3/businesses/search?`;
   const cat = `categories=${category}`;
   const lat = `latitude=${latitude}`;
