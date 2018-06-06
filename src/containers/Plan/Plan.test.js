@@ -20,29 +20,28 @@ describe('Plan', () => {
     expect(wrapper).toMatchSnapshot();
   });
 
-  describe('render functionality', () => {
-    let wrapper;
+  // describe('render functionality', () => {
+  //   let wrapper;
 
-    beforeEach(() => {
-      wrapper = shallow(<Plan user={mockUser} />, { disableLifecycleMethods: true });
+  //   beforeEach(() => {
+  //     wrapper = shallow(<Plan user={mockUser} />, { disableLifecycleMethods: true });
 
-      wrapper.setState({
-        selectedPlan: {
-          bar: {
-            location: '555 Union Station, Denver, CO'
-          },
-          event: {
-            location: '555 Union Station, Denver, CO'
-          },
-          restaurant: {
-            location: '555 Union Station, Denver, CO'
-          }
-        }
-      })
-    });
+  //     wrapper.setState({
+  //       selectedPlan: {
+  //         bar: {
+  //           location: '555 Union Station, Denver, CO'
+  //         },
+  //         event: {
+  //           location: '555 Union Station, Denver, CO'
+  //         },
+  //         restaurant: {
+  //           location: '555 Union Station, Denver, CO'
+  //         }
+  //       }
+  //     })
+  //   });
 
-    it('should force location to lowercase with no commas', () => {
-    })
+  //   it('should force location to lowercase with no commas', () => {
+  //   })
   })
-})
 
