@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StopsSelection } from './StopsSelection';
+import { StopsSelection, mapDispatchToProps } from './StopsSelection';
 import { shallow } from 'enzyme';
 import * as fetchCalls from '../../apiCalls';
 jest.mock('../../apiCalls/yelpApiCalls');
@@ -233,5 +233,73 @@ describe('stopsSelection', () => {
       expect(fetchCalls.fetchRestaurantsAndBars).toHaveBeenCalledWith(...expected);
     })
   });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with the correct params on storeSuggestedRestaurants', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'STORE_SUGGESTED_RESTAURANTS',
+        restaurants: mockCleanSuggestedRestaurant
+      };
+
+      mappedProps.storeSuggestedRestaurants(mockCleanSuggestedRestaurant);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on storeSuggestedBars', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'STORE_SUGGESTED_BARS',
+        bars: mockCleanSuggestedRestaurant
+      };
+
+      mappedProps.storeSuggestedBars(mockCleanSuggestedRestaurant);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleFiltersError', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_FILTERS_ERROR',
+        boolean: true
+      };
+
+      mappedProps.toggleFiltersError(true);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleEventError', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_EVENT_ERROR',
+        boolean: true
+      };
+
+      mappedProps.toggleEventError(true);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+
+    it('should call dispatch with the correct params on toggleRestaurantBarError', () => {
+      const mockDispatch = jest.fn();
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      const mockAction = {
+        type: 'TOGGLE_RESTAURANT_BAR_ERROR',
+        boolean: true
+      };
+
+      mappedProps.toggleRestaurantBarError(true);
+
+      expect(mockDispatch).toHaveBeenCalledWith(mockAction);
+    });
+  });
+
 })
 
