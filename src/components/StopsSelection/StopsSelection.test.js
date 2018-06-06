@@ -2,6 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { StopsSelection } from './StopsSelection';
 import { shallow } from 'enzyme';
+import * as fetchCalls from '../../apiCalls';
+jest.mock('../../apiCalls/yelpApiCalls');
+import { mockCleanSuggestedRestaurant } from '../../mockData';
 
 describe('stopsSelection', () => {
   it('should match the snapshot', () => {
@@ -148,5 +151,59 @@ describe('stopsSelection', () => {
       expect(result).toHaveBeenCalledWith(false);    })
   })
 
+  describe('storeSuggestedRestaurants', () => {
+    let wrapper;
+    let mockRestaurantFilters;
+
+    beforeEach(() => {
+      mockRestaurantFilters = {
+        category: 'newamerican',
+        priceRange: ['1', '3']
+      }
+
+      fetchCalls.fetchRestaurantsAndBars.mockImplementation(() => mockCleanSuggestedRestaurant)
+
+      wrapper = shallow(<StopsSelection 
+        restaurantFilters={mockRestaurantFilters}
+        storeSuggestedBars={jest.fn()}
+        storeSuggestedRestaurants={jest.fn()} 
+      />);
+    })
+
+    it('should call fetchRestaurantsAndBars with the correct args ', async () => {
+      await wrapper.instance().storeSuggestedRestaurants("39.735001", "-105.020401");
+
+      const expected = ["39.735001", "-105.020401", "1,3", "newamerican"];
+
+      expect(fetchCalls.fetchRestaurantsAndBars).toHaveBeenCalledWith(...expected);
+    });
+
+    it('should call storeSuggestedRestaurants in props with the correct args when there are suggested restaurants', async () => {
+      await wrapper.instance().storeSuggestedRestaurants("39.735001", "-105.020401");
+
+      const expected = ["39.735001", "-105.020401", "1,3", "newamerican"];
+
+      expect(wrapper.instance().props.storeSuggestedRestaurants).toHaveBeenCalledWith(mockCleanSuggestedRestaurant);
+    });
+
+    it('should call toggleRestaurantBarError when there are no suggested restaurants', async () => {
+      fetchCalls.fetchRestaurantsAndBars.mockImplementation(() => [])
+
+      wrapper = shallow(<StopsSelection 
+        restaurantFilters={mockRestaurantFilters}
+        storeSuggestedBars={jest.fn()}
+        storeSuggestedRestaurants={jest.fn()}
+        toggleRestaurantBarError={jest.fn()} 
+      />);
+
+      wrapper.instance().toggleRestaurantBarError = jest.fn();
+
+      await wrapper.instance().storeSuggestedRestaurants("39.735001", "-105.020401");
+
+      const expected = ["39.735001", "-105.020401", "1,3", "newamerican"];
+
+      expect(wrapper.instance().toggleRestaurantBarError).toHaveBeenCalled();
+    });
+  });
 })
 
