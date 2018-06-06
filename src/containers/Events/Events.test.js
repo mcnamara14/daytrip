@@ -5,6 +5,7 @@ import { shallow } from 'enzyme';
 import { mockCleanRecentEvents, mockCleanRestaurantAndBar } from '../../mockData';
 import SelectedEvent from '../SelectedEvent/SelectedEvent';
 import Plans from '../Plans/Plans';
+import RecentEvent from '../RecentEvent/RecentEvent';
 
 describe('Events', () => {
   let wrapper;
@@ -63,5 +64,18 @@ describe('Events', () => {
     />);
 
     expect(wrapper.find(Plans).length).toEqual(0);
+  })
+
+  it('should not render a RecentEvent container if event is undefined', () => {
+    mockSuggestedBars = [];
+    wrapper = 
+    shallow(<Events 
+      events={[{}]} 
+      suggestedRestaurants={mockSuggestedRestaurants}
+      suggestedBars={mockSuggestedBars}
+      selectedEvent={mockSelectedEvent[0]}
+    />);
+
+    expect(wrapper.find(RecentEvent).length).toEqual(0);
   })
 });

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './StopsSelection.css';
-import StopSelection from '../../containers/StopSelection/StopSelection';
+import { StopSelection } from '../../containers/StopSelection/StopSelection';
 import { 
   storeSuggestedRestaurants, 
   storeSuggestedBars, 
@@ -126,8 +126,8 @@ StopsSelection.propTypes = {
   selectedEvent: PropTypes.object,
   restaurantFilters: PropTypes.object,
   barFilters: PropTypes.object,
-  filtersError: PropTypes.string,
-  restaurantBarError: PropTypes.func,
+  filtersError: PropTypes.bool,
+  restaurantBarError: PropTypes.bool,
   toggleEventError: PropTypes.func,
   toggleFiltersError: PropTypes.func,
   toggleRestaurantBarError: PropTypes.func
