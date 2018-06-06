@@ -9,7 +9,7 @@ import { user } from '../user';
 describe('Reducers', () => {
   describe('location reducer', () => {
     it('should return the initial state', () => {
-      const expected = false;
+      const expected = null;
 
       const result = location(undefined, {})
 
@@ -19,9 +19,13 @@ describe('Reducers', () => {
     it('should return the boolean passed with TOGGLE LOCATION action type', () => {
       const mockAction = {
         type: 'TOGGLE_LOCATION',
-        boolean: true
+        city: 'San Diego', 
+        state: 'CA'
       }
-      const expected = true;
+      const expected = {
+        city: 'San Diego', 
+        state: 'CA'
+      }
 
       const result = location(undefined, mockAction)
 
