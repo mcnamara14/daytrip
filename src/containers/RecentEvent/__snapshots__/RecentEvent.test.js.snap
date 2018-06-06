@@ -19,6 +19,14 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <div
+          className="eventImage"
+          style={
+                    Object {
+                              "backgroundImage": "url(undefined)",
+                            }
+          }
+/>,
+        <div
           className="eventInfo"
 >
           <div
@@ -27,24 +35,16 @@ ShallowWrapper {
                     <h3 />
           </div>
           <p
+                    className="price"
+          />
+          <hr />
+          <p
                     className="venue"
           />
           <p
                     className="date"
           />
-          <hr />
-          <p
-                    className="price"
-          />
 </div>,
-        <div
-          className="eventImage"
-          style={
-                    Object {
-                              "backgroundImage": "url(undefined)",
-                            }
-          }
-/>,
         <button
           onClick={[Function]}
 >
@@ -60,6 +60,20 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
+          "className": "eventImage",
+          "style": Object {
+            "backgroundImage": "url(undefined)",
+          },
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "div",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
           "children": Array [
             <div
               className="recentTitle"
@@ -67,14 +81,14 @@ ShallowWrapper {
               <h3 />
 </div>,
             <p
+              className="price"
+/>,
+            <hr />,
+            <p
               className="venue"
 />,
             <p
               className="date"
-/>,
-            <hr />,
-            <p
-              className="price"
 />,
           ],
           "className": "eventInfo",
@@ -109,19 +123,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": undefined,
-              "className": "venue",
-            },
-            "ref": null,
-            "rendered": null,
-            "type": "p",
-          },
-          Object {
-            "instance": null,
-            "key": undefined,
-            "nodeType": "host",
-            "props": Object {
-              "children": undefined,
-              "className": "date",
+              "className": "price",
             },
             "ref": null,
             "rendered": null,
@@ -142,27 +144,25 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": undefined,
-              "className": "price",
+              "className": "venue",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "p",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": undefined,
+              "className": "date",
             },
             "ref": null,
             "rendered": null,
             "type": "p",
           },
         ],
-        "type": "div",
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "className": "eventImage",
-          "style": Object {
-            "backgroundImage": "url(undefined)",
-          },
-        },
-        "ref": null,
-        "rendered": null,
         "type": "div",
       },
       Object {
@@ -188,6 +188,14 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <div
+            className="eventImage"
+            style={
+                        Object {
+                                    "backgroundImage": "url(undefined)",
+                                  }
+            }
+/>,
+          <div
             className="eventInfo"
 >
             <div
@@ -196,24 +204,16 @@ ShallowWrapper {
                         <h3 />
             </div>
             <p
+                        className="price"
+            />
+            <hr />
+            <p
                         className="venue"
             />
             <p
                         className="date"
             />
-            <hr />
-            <p
-                        className="price"
-            />
 </div>,
-          <div
-            className="eventImage"
-            style={
-                        Object {
-                                    "backgroundImage": "url(undefined)",
-                                  }
-            }
-/>,
           <button
             onClick={[Function]}
 >
@@ -229,6 +229,20 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
+            "className": "eventImage",
+            "style": Object {
+              "backgroundImage": "url(undefined)",
+            },
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "div",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
             "children": Array [
               <div
                 className="recentTitle"
@@ -236,14 +250,14 @@ ShallowWrapper {
                 <h3 />
 </div>,
               <p
+                className="price"
+/>,
+              <hr />,
+              <p
                 className="venue"
 />,
               <p
                 className="date"
-/>,
-              <hr />,
-              <p
-                className="price"
 />,
             ],
             "className": "eventInfo",
@@ -278,19 +292,7 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": undefined,
-                "className": "venue",
-              },
-              "ref": null,
-              "rendered": null,
-              "type": "p",
-            },
-            Object {
-              "instance": null,
-              "key": undefined,
-              "nodeType": "host",
-              "props": Object {
-                "children": undefined,
-                "className": "date",
+                "className": "price",
               },
               "ref": null,
               "rendered": null,
@@ -311,27 +313,25 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": undefined,
-                "className": "price",
+                "className": "venue",
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "p",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": undefined,
+                "className": "date",
               },
               "ref": null,
               "rendered": null,
               "type": "p",
             },
           ],
-          "type": "div",
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "host",
-          "props": Object {
-            "className": "eventImage",
-            "style": Object {
-              "backgroundImage": "url(undefined)",
-            },
-          },
-          "ref": null,
-          "rendered": null,
           "type": "div",
         },
         Object {
