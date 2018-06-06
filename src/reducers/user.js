@@ -8,6 +8,6 @@ export const user = (state = {userId: null, email: '', city: '', state: ''}, act
         state: action.state
       }
     default:
-      return state
+      return state;
   }
 }
