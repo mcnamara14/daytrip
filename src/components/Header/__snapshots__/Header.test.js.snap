@@ -461,3 +461,429 @@ ShallowWrapper {
   },
 }
 `;
+
+exports[`should match the snapshot 1`] = `
+ShallowWrapper {
+  "length": 1,
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <Header
+    user={
+        Object {
+            "userId": "12345",
+          }
+    }
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <img
+          alt="Header logo"
+          className="headerLogo"
+          src="header-logo.png"
+/>,
+        <nav
+          className="signout"
+>
+          <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    to="/events"
+          >
+                    Events
+          </NavLink>
+          <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    to="/plan"
+          >
+                    Plan
+          </NavLink>
+          <div
+                    className="loginLink"
+          >
+                    <img
+                              alt="Login icon"
+                              className="loginIcon"
+                              src="header-login-icon.png"
+                    />
+                    <NavLink
+                              activeClassName="active"
+                              ariaCurrent="true"
+                              className="NavLogin"
+                              onClick={[Function]}
+                              to="/"
+                    >
+                              Signout
+                    </NavLink>
+          </div>
+</nav>,
+      ],
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "alt": "Header logo",
+          "className": "headerLogo",
+          "src": "header-logo.png",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "img",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              to="/events"
+>
+              Events
+</NavLink>,
+            <NavLink
+              activeClassName="active"
+              ariaCurrent="true"
+              to="/plan"
+>
+              Plan
+</NavLink>,
+            <div
+              className="loginLink"
+>
+              <img
+                            alt="Login icon"
+                            className="loginIcon"
+                            src="header-login-icon.png"
+              />
+              <NavLink
+                            activeClassName="active"
+                            ariaCurrent="true"
+                            className="NavLogin"
+                            onClick={[Function]}
+                            to="/"
+              >
+                            Signout
+              </NavLink>
+</div>,
+          ],
+          "className": "signout",
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": "Events",
+              "to": "/events",
+            },
+            "ref": null,
+            "rendered": "Events",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "activeClassName": "active",
+              "ariaCurrent": "true",
+              "children": "Plan",
+              "to": "/plan",
+            },
+            "ref": null,
+            "rendered": "Plan",
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <img
+                  alt="Login icon"
+                  className="loginIcon"
+                  src="header-login-icon.png"
+/>,
+                <NavLink
+                  activeClassName="active"
+                  ariaCurrent="true"
+                  className="NavLogin"
+                  onClick={[Function]}
+                  to="/"
+>
+                  Signout
+</NavLink>,
+              ],
+              "className": "loginLink",
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "alt": "Login icon",
+                  "className": "loginIcon",
+                  "src": "header-login-icon.png",
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "img",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "function",
+                "props": Object {
+                  "activeClassName": "active",
+                  "ariaCurrent": "true",
+                  "children": "Signout",
+                  "className": "NavLogin",
+                  "onClick": [Function],
+                  "to": "/",
+                },
+                "ref": null,
+                "rendered": "Signout",
+                "type": [Function],
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "nav",
+      },
+    ],
+    "type": "header",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <img
+            alt="Header logo"
+            className="headerLogo"
+            src="header-logo.png"
+/>,
+          <nav
+            className="signout"
+>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/events"
+            >
+                        Events
+            </NavLink>
+            <NavLink
+                        activeClassName="active"
+                        ariaCurrent="true"
+                        to="/plan"
+            >
+                        Plan
+            </NavLink>
+            <div
+                        className="loginLink"
+            >
+                        <img
+                                    alt="Login icon"
+                                    className="loginIcon"
+                                    src="header-login-icon.png"
+                        />
+                        <NavLink
+                                    activeClassName="active"
+                                    ariaCurrent="true"
+                                    className="NavLogin"
+                                    onClick={[Function]}
+                                    to="/"
+                        >
+                                    Signout
+                        </NavLink>
+            </div>
+</nav>,
+        ],
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "alt": "Header logo",
+            "className": "headerLogo",
+            "src": "header-logo.png",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "img",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/events"
+>
+                Events
+</NavLink>,
+              <NavLink
+                activeClassName="active"
+                ariaCurrent="true"
+                to="/plan"
+>
+                Plan
+</NavLink>,
+              <div
+                className="loginLink"
+>
+                <img
+                                alt="Login icon"
+                                className="loginIcon"
+                                src="header-login-icon.png"
+                />
+                <NavLink
+                                activeClassName="active"
+                                ariaCurrent="true"
+                                className="NavLogin"
+                                onClick={[Function]}
+                                to="/"
+                >
+                                Signout
+                </NavLink>
+</div>,
+            ],
+            "className": "signout",
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": "Events",
+                "to": "/events",
+              },
+              "ref": null,
+              "rendered": "Events",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "function",
+              "props": Object {
+                "activeClassName": "active",
+                "ariaCurrent": "true",
+                "children": "Plan",
+                "to": "/plan",
+              },
+              "ref": null,
+              "rendered": "Plan",
+              "type": [Function],
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <img
+                    alt="Login icon"
+                    className="loginIcon"
+                    src="header-login-icon.png"
+/>,
+                  <NavLink
+                    activeClassName="active"
+                    ariaCurrent="true"
+                    className="NavLogin"
+                    onClick={[Function]}
+                    to="/"
+>
+                    Signout
+</NavLink>,
+                ],
+                "className": "loginLink",
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "alt": "Login icon",
+                    "className": "loginIcon",
+                    "src": "header-login-icon.png",
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "img",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "function",
+                  "props": Object {
+                    "activeClassName": "active",
+                    "ariaCurrent": "true",
+                    "children": "Signout",
+                    "className": "NavLogin",
+                    "onClick": [Function],
+                    "to": "/",
+                  },
+                  "ref": null,
+                  "rendered": "Signout",
+                  "type": [Function],
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "nav",
+        },
+      ],
+      "type": "header",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+      },
+    },
+  },
+}
+`;

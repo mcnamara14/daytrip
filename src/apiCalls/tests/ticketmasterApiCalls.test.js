@@ -93,5 +93,14 @@ describe('ticketmasterApiCalls', () => {
       expect(result).toEqual(expected);
     });
 
+    // it('should call an alert when the status doesnt come back ok', async () => {
+    //   cleanRecentEvents.mockImplementation(() => mockDirtyRecentEvents.events)
+    //   const expected = mockDirtyRecentEvents.events;
+
+    //   const result = await fetchSelectedEvent('Denver', 'CO', '12345', 'rockies');
+
+    //   expect(result).toEqual(expected);
+    // });
+
   })
 })

@@ -47,7 +47,7 @@ export const fetchRecentEventsOnSearch = async (
   
     return cleanRecentEventsSearch(events);
   } catch (error) {
-    console.log(error)
+    alert(error);
   }
 
 };
@@ -62,7 +62,7 @@ export const fetchSelectedEvent = async (id) => {
     
     return cleanRecentEvents([event]);
   } catch (error) {
-    console.log('error');
+    alert(error);
   }
 };
 
