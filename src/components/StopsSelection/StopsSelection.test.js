@@ -80,7 +80,7 @@ describe('stopsSelection', () => {
     })
 
     it('should call toggleFiltersError when filters are undefined', () => {
-      mockEvent = null;
+      mockEvent = {};
       mockRestaurantFilters = {
         category: undefined
       }
@@ -99,7 +99,7 @@ describe('stopsSelection', () => {
 
       const expected = ["1234", "6789"];
 
-      expect(wrapper.instance().toggleEventError).toHaveBeenCalled()
+      expect(wrapper.instance().toggleFiltersError).toHaveBeenCalled()
     })
   })
 
