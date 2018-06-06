@@ -90,8 +90,8 @@ export class Plan extends Component {
       const mapBarLocation = barLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
 
       const mapStyles = {
-        width: '80%',
-        height: '350px',
+        width: '100%',
+        height: '340px',
         border: '0',
         borderRadius: '5px'
       };
@@ -103,7 +103,7 @@ export class Plan extends Component {
             <section className="planLeftContainer">
               <h1>Your plan</h1>
               <div className="planStop">
-                <h2>Begin</h2>
+                <h2>Before</h2>
                 <div className="planImage" style={restaurantBgImage}></div>
                 <section className="planInfoContainer">
                   <div className="planInfo">

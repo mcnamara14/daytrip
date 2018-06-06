@@ -119,7 +119,7 @@ export class Plans extends Component {
         const planNum = i + 1;
 
         plans.push(<div key={i} className="planContainer">
-          <h4>Plan</h4>
+          <h4>Plan {i + 1}</h4>
           <section className="plan">
             <Stop 
               id={restaurantId}
