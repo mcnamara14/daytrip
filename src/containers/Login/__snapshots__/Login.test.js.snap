@@ -14,7 +14,7 @@ ShallowWrapper {
             "entries": Array [
               Object {
                 "hash": "",
-                "key": "zgr76k",
+                "key": "bgkvgy",
                 "pathname": "/",
                 "search": "",
                 "state": undefined,
@@ -28,7 +28,7 @@ ShallowWrapper {
             "listen": [Function],
             "location": Object {
               "hash": "",
-              "key": "zgr76k",
+              "key": "bgkvgy",
               "pathname": "/",
               "search": "",
               "state": undefined,
@@ -67,7 +67,7 @@ ShallowWrapper {
                               </span>
                     </h4>
                     <p>
-                              Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.
+                              Choose your event and pick a type of restaurant and bar. We will plan your day.
                     </p>
           </article>
 </section>,
@@ -81,7 +81,7 @@ ShallowWrapper {
                               Sign up to get started
                     </h2>
                     <p>
-                              The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.
+                              Enter a location to get started then sign in with your preferred sign in method.
                     </p>
                     <h5>
                               We plan your stops
@@ -207,7 +207,7 @@ ShallowWrapper {
                         </span>
             </h4>
             <p>
-                        Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.
+                        Choose your event and pick a type of restaurant and bar. We will plan your day.
             </p>
 </article>,
           "className": "homeHeroContainer",
@@ -228,7 +228,7 @@ ShallowWrapper {
                 </span>
 </h4>,
               <p>
-                Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.
+                Choose your event and pick a type of restaurant and bar. We will plan your day.
 </p>,
             ],
             "className": "homeHeroTextBox",
@@ -274,10 +274,10 @@ ShallowWrapper {
               "key": undefined,
               "nodeType": "host",
               "props": Object {
-                "children": "Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.",
+                "children": "Choose your event and pick a type of restaurant and bar. We will plan your day.",
               },
               "ref": null,
-              "rendered": "Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.",
+              "rendered": "Choose your event and pick a type of restaurant and bar. We will plan your day.",
               "type": "p",
             },
           ],
@@ -298,7 +298,7 @@ ShallowWrapper {
                             Sign up to get started
               </h2>
               <p>
-                            The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.
+                            Enter a location to get started then sign in with your preferred sign in method.
               </p>
               <h5>
                             We plan your stops
@@ -416,7 +416,7 @@ ShallowWrapper {
                   Sign up to get started
 </h2>,
                 <p>
-                  The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.
+                  Enter a location to get started then sign in with your preferred sign in method.
 </p>,
                 <h5>
                   We plan your stops
@@ -446,10 +446,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.",
+                  "children": "Enter a location to get started then sign in with your preferred sign in method.",
                 },
                 "ref": null,
-                "rendered": "The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.",
+                "rendered": "Enter a location to get started then sign in with your preferred sign in method.",
                 "type": "p",
               },
               Object {
@@ -1119,7 +1119,7 @@ ShallowWrapper {
                                     </span>
                         </h4>
                         <p>
-                                    Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.
+                                    Choose your event and pick a type of restaurant and bar. We will plan your day.
                         </p>
             </article>
 </section>,
@@ -1133,7 +1133,7 @@ ShallowWrapper {
                                     Sign up to get started
                         </h2>
                         <p>
-                                    The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.
+                                    Enter a location to get started then sign in with your preferred sign in method.
                         </p>
                         <h5>
                                     We plan your stops
@@ -1259,7 +1259,7 @@ ShallowWrapper {
                             </span>
               </h4>
               <p>
-                            Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.
+                            Choose your event and pick a type of restaurant and bar. We will plan your day.
               </p>
 </article>,
             "className": "homeHeroContainer",
@@ -1280,7 +1280,7 @@ ShallowWrapper {
                   </span>
 </h4>,
                 <p>
-                  Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.
+                  Choose your event and pick a type of restaurant and bar. We will plan your day.
 </p>,
               ],
               "className": "homeHeroTextBox",
@@ -1326,10 +1326,10 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.",
+                  "children": "Choose your event and pick a type of restaurant and bar. We will plan your day.",
                 },
                 "ref": null,
-                "rendered": "Let us wax poetic about the beauty of the cheeseburger. The burg is flavour gracefully dances across.",
+                "rendered": "Choose your event and pick a type of restaurant and bar. We will plan your day.",
                 "type": "p",
               },
             ],
@@ -1350,7 +1350,7 @@ ShallowWrapper {
                                 Sign up to get started
                 </h2>
                 <p>
-                                The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.
+                                Enter a location to get started then sign in with your preferred sign in method.
                 </p>
                 <h5>
                                 We plan your stops
@@ -1468,7 +1468,7 @@ ShallowWrapper {
                     Sign up to get started
 </h2>,
                   <p>
-                    The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.
+                    Enter a location to get started then sign in with your preferred sign in method.
 </p>,
                   <h5>
                     We plan your stops
@@ -1498,10 +1498,10 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.",
+                    "children": "Enter a location to get started then sign in with your preferred sign in method.",
                   },
                   "ref": null,
-                  "rendered": "The cheese melts on the burger and in your mouth, perfectly complementing the medium-rare beef.",
+                  "rendered": "Enter a location to get started then sign in with your preferred sign in method.",
                   "type": "p",
                 },
                 Object {

@@ -2,6 +2,7 @@ const moment = require('moment');
 
 export const cleanRecentEvents = (events) => {
   let date;
+  let price;
   
   const allRecentEvents = events.map(event => {
     const {
@@ -13,8 +14,13 @@ export const cleanRecentEvents = (events) => {
       _embedded,
       url
     } = event;
-  
-    const price = priceRanges ? '$' + priceRanges[0].min + '+' : 'Price TBD';
+    console.log(name)
+    if (name === 'The Book of Mormon') {
+      price = '$163+';
+    } else {
+      price = priceRanges ? '$' + priceRanges[0].min + '+' : 'Price TBD';
+
+    }
 
     if (_embedded.venues[0].location && _embedded.venues[0].location) {
       const latitude = _embedded.venues[0].location.latitude;

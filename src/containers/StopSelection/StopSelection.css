@@ -61,10 +61,35 @@
   width: 101%;
 }
 
-.Select-menu-outer div:hover {
-  background: #f5f7fd;
+.Select-menu-outer div div:hover {
+  background: #eef5ff;
+  cursor: pointer;
+}
+
+.Select-menu-outer div div{
+  background: #eef5ff;
+  cursor: pointer;
+  background: #fff;
+}
+
+.Select-menu-outer div {
+  background: #f8f8f8;
+  cursor: pointer;
+}
+
+.Select-menu-outer div {
+  border: 1px solid #eee;
+  padding: 10px;
 }
 
 .Select-menu-outer .is-selected {
   background: #fff;
+}
+
+.Select-menu-outer .is-selected:hover {
+  background: #fff;
+  cursor: pointer;
+}
+
+.Select-menu  {
 }

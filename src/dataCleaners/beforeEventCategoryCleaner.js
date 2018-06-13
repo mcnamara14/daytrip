@@ -2,14 +2,21 @@ export const beforeEventCategoryCleaner = () => {
   const restaurantCategories = [
     { alias: 'afghani', label: 'Afghani'},
     { alias: 'african', label: 'African'},
-    { alias: 'southafrican', label: 'South African'},
     { alias: 'newamerican', label: 'New American'},
-    { alias: 'tradamerican', label: 'Traditional American'}
+    { alias: 'tradamerican', label: 'Traditional American'},
+    { alias: 'brazilian', label: 'Brazilian'},
+    { alias: 'burgers', label: 'Burgers'},
+    { alias: 'chinese', label: 'Chinese'},
+    { alias: 'french', label: 'French'},
+    { alias: 'irish', label: 'Irish'},
+    { alias: 'italian', label: 'Italian'},
+    { alias: 'pizza', label: 'Pizza'},
+    { alias: 'ramen', label: 'Ramen'},
+    { alias: 'seafood', label: 'Seafood'}
   ];
 
   return restaurantCategories;
 };
-
 
 
 // andalusian, [IT, ES])
