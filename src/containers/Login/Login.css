@@ -102,6 +102,19 @@ h5 {
     background: linear-gradient(45deg, rgba(0,0,0,1) 0%, rgba(28,28,62,1) 100%);
 }
 
+.emailSignup a {
+    right: -37px !important;
+    background: rgba(28,28,62,1) !important;
+    color: #fff !important;
+    font-size: 0.88rem;
+}
+
+.emailSignup div {
+    position: relative;
+    width: calc(100% - 40px);
+    margin-left: -40px;
+}
+
 .emailSignup {
   display: flex;
   height: 150px;

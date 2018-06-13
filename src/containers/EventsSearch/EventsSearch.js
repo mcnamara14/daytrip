@@ -125,8 +125,8 @@ export class EventsSearch extends Component {
             <p className="errorPopup">An event is required for signup</p> : ''}
           <LocationAutocomplete
             name="location"
-            placeholder={this.state.selectedOption ? 
-              this.state.selectedOption : 
+            placeholder={this.state.city ? 
+              this.state.city + ', ' + this.state.state : 
               'Enter a location'}
             targetArea="City, State"
             locationType="(cities)"

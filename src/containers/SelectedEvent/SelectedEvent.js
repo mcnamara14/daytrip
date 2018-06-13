@@ -17,7 +17,7 @@ export class SelectedEvent extends Component {
             <p>Your selected event</p>
           </div>
           <div className="selectedInfo">
-            <p className="selectedPrice">{price}</p>
+            <p className="selectedPrice">$163+</p>
             <span>
               <p className="selectedVenue">{venue}</p>
               <p className="selectedDate">{date}</p>
