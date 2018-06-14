@@ -26,17 +26,23 @@
 .filtersError {
   height: 100%;
   display: inline-block;
-  background: rgba(206,86,62,0.9);
+  background: #e5eff1;
   position: absolute;
   width: 100%;
-  color: #fff;
+  color: #555;
   font-size: 1.4rem;
   top: -22px;
   left: 0px;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 2;
   text-align: center;
   line-height: 2rem;
+}
+
+.loadingImg {
+  height: 150px;
+  width: 150px;
 }

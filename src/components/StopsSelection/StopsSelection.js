@@ -7,23 +7,24 @@ import {
   storeSuggestedBars, 
   toggleFiltersError, 
   toggleEventError,
-  toggleRestaurantBarError 
+  toggleRestaurantBarError,
+  toggleRestaurantBarLoading 
 } from '../../actions';
 import { fetchRestaurantsAndBars } from '../../apiCalls';
 import PropTypes from 'prop-types';
 
 export class StopsSelection extends Component {
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedEvent !== null && 
-        nextProps.restaurantFilters.category !== undefined && 
-        nextProps.barFilters.category !== undefined && 
-        !this.props.filtersError &&
-        !this.props.restaurantBarError) {
-      setTimeout(() => {
-        this.storeRestaurantsAndBars();
-      }, 1000);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.selectedEvent !== null && 
+  //       nextProps.restaurantFilters.category !== undefined && 
+  //       nextProps.barFilters.category !== undefined && 
+  //       this.props.filtersError === false &&
+  //       this.props.restaurantBarError === false) {
+  //     setTimeout(() => {
+  //       this.storeRestaurantsAndBars();
+  //     }, 3000);
+  //   }
+  // }
 
   storeRestaurantsAndBars = () => {
     const { 
@@ -31,7 +32,7 @@ export class StopsSelection extends Component {
       restaurantFilters,
       barFilters
     } = this.props;
-
+    
     if (restaurantFilters.category !== undefined && 
         barFilters.category !== undefined && 
         selectedEvent !== null) {
@@ -73,10 +74,13 @@ export class StopsSelection extends Component {
       storeSuggestedRestaurants
     } = this.props;
 
-    const price = restaurantFilters.priceRange.sort().join();
+    const price = restaurantFilters.price.sort().join();
     const category = restaurantFilters.category;
+    this.props.toggleRestaurantBarLoading(true);
     const suggestedRestaurants = 
       await fetchRestaurantsAndBars(latitude, longitude, price, category);
+    this.props.toggleRestaurantBarLoading(false);
+    
     suggestedRestaurants.length ? 
       storeSuggestedRestaurants(suggestedRestaurants) :
       this.toggleRestaurantBarError();
@@ -88,13 +92,16 @@ export class StopsSelection extends Component {
       storeSuggestedBars
     } = this.props;
 
-    if (barFilters.priceRange.length) {
-      const price = barFilters.priceRange.sort().join();
+    if (barFilters.price.length) {
+      const price = barFilters.price.sort().join();
       const category = barFilters.category;
       const suggestedBars = 
         await fetchRestaurantsAndBars(latitude, longitude, price, category);
-      storeSuggestedBars(suggestedBars);
-    }
+
+      suggestedBars.length ?
+        storeSuggestedBars(suggestedBars) :
+        this.toggleRestaurantBarError();
+    } 
 
   }
 
@@ -110,6 +117,11 @@ export class StopsSelection extends Component {
           <p className="filtersError">
           No restaurants or bars near by matching your filters. 
             <br/> Select new filters.</p> : 
+          null }
+        { this.props.restaurantBarLoading ? 
+          <p className="filtersError">
+          Looking for restaurants and bars that match your filters. 
+            <img src={require('./assets/loading.gif')} alt="Loading gif" className="loadingImg" /></p> : 
           null }
         <div className="stopsSelectionContainer">
           <StopSelection type={'before'}/>
@@ -142,7 +154,8 @@ export const mapDispatchToProps = (dispatch) => ({
   toggleEventError: (boolean) => dispatch(toggleEventError(boolean)),
   toggleRestaurantBarError: (boolean) => {
     return dispatch(toggleRestaurantBarError(boolean));
-  }
+  },
+  toggleRestaurantBarLoading: (boolean) => dispatch(toggleRestaurantBarLoading(boolean))
 });
 
 export const mapStateToProps = (state) => ({
@@ -150,7 +163,8 @@ export const mapStateToProps = (state) => ({
   restaurantFilters: state.restaurantFilters,
   barFilters: state.barFilters,
   filtersError: state.filtersError,
-  restaurantBarError: state.restaurantBarError
+  restaurantBarError: state.restaurantBarError,
+  restaurantBarLoading: state.restaurantBarLoading
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(StopsSelection);

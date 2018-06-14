@@ -5,13 +5,14 @@ import * as authorization from '../../firebase/auth';
 import './Header.css';
 import headerLogo from './assets/header-logo.png';
 import loginIcon from './assets/header-login-icon.png';
-import { loginUser } from '../../actions';
+import { loginUser, logoutUser } from '../../actions';
 import PropTypes from 'prop-types';
 
 export class Header extends Component {
   signoutLoginClickHandler = () => {
     authorization.signOut();
-    this.props.loginUser(null, '', '', '');
+    this.props.logoutUser();
+
   }
 
   render() {
@@ -54,7 +55,8 @@ Header.propTypes = {
 export const mapDispatchToProps = (dispatch) => ({
   loginUser: (userId, email, city, state) => {
     return dispatch(loginUser(userId, email, city, state));
-  }
+  },
+  logoutUser: () => dispatch(logoutUser())
 });
 
 export const mapStateToProps = (state) => ({

@@ -1,4 +1,5 @@
 import { loginUser } from './loginUser';
+import { logoutUser } from './logoutUser';
 import { storeRecentEvents } from './storeRecentEvents';
 import { storeSelectedEvent } from './storeSelectedEvent';
 import { storeSuggestedRestaurants } from './storeSuggestedRestaurants';
@@ -8,11 +9,16 @@ import { toggleLocation } from './toggleLocation';
 import { toggleEventError } from './toggleEventError';
 import { toggleFiltersError } from './toggleFiltersError';
 import { toggleRestaurantBarError } from './toggleRestaurantBarError';
-import { storeBarFilters } from './storeBarFilters';
-import { storeRestaurantFilters } from './storeRestaurantFilters';
+import { storeBarCategory } from './storeBarCategory';
+import { storeRestaurantCategory } from './storeRestaurantCategory';
+import { storeRestaurantPrice } from './storeRestaurantPrice';
+import { storeBarPrice } from './storeBarPrice';
+import { toggleRestaurantBarLoading } from './toggleRestaurantBarLoading';
+import { togglePasswordError } from './togglePasswordError';
 
 export {
   loginUser, 
+  logoutUser,
   storeRecentEvents, 
   storeSelectedEvent, 
   storeSuggestedRestaurants,
@@ -20,8 +26,12 @@ export {
   toggleLocationError,
   toggleEventError,
   toggleFiltersError,
-  storeBarFilters,
-  storeRestaurantFilters,
+  storeBarCategory,
+  storeRestaurantCategory,
+  storeBarPrice,
+  storeRestaurantPrice,
   toggleRestaurantBarError,
-  toggleLocation
+  toggleLocation,
+  toggleRestaurantBarLoading,
+  togglePasswordError,
 };

@@ -8,7 +8,9 @@ import './Login.css';
 import { 
   loginUser, 
   storeRecentEvents, 
-  toggleLocationError } from '../../actions';
+  toggleLocationError,
+  togglePasswordError 
+} from '../../actions';
 import { fetchRecentEvents } from '../../apiCalls';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
 import { cleanRecentEvents } from '../../dataCleaners/index';
@@ -61,16 +63,22 @@ export class Login extends Component {
         this.handleTicketMasterFetch();
       } catch (error) {
         if (error.code === "auth/email-already-in-use") {
-          const result = 
-            await authorization.emailPasswordSignin(emailInput, password);
-          
-          const {
-            uid,
-            email
-          } = result.user;
+          try {
+            const result = 
+              await authorization.emailPasswordSignin(emailInput, password);
+            
+            const {
+              uid,
+              email
+            } = result.user;
 
-          this.props.loginUser(uid, email, this.state.city, this.state.state);
-          this.handleTicketMasterFetch();
+            this.props.loginUser(uid, email, this.state.city, this.state.state);
+            this.handleTicketMasterFetch();
+          } catch (error) {
+            if (error.code === "auth/wrong-password") {
+              this.togglePasswordError();
+            }
+          }
         }
       }
     } else {
@@ -98,6 +106,13 @@ export class Login extends Component {
     this.props.toggleLocationError(true);
     setTimeout(() => {
       this.props.toggleLocationError(false);
+    }, 2000);
+  }
+
+  togglePasswordError = () => {
+    this.props.togglePasswordError(true);
+    setTimeout(() => {
+      this.props.togglePasswordError(false);
     }, 2000);
   }
 
@@ -137,12 +152,11 @@ export class Login extends Component {
       city,
       state
     });
-    console.log('hit')
+
     this.props.toggleLocationError(false);
   }
 
   render() {
-    console.log(this.props.location)
     return (
       <div className="loginContainer">
         <section className="homeHeroContainer">
@@ -197,6 +211,7 @@ export class Login extends Component {
                       onChange={this.onChangeHandler}
                       placeholder='ex. tyler@daytrip.com'
                     />
+                    { this.props.passwordError ? <p className="passwordErrorPopup errorPopup">Wrong password, try again.</p> : null }
                     <PasswordMask
                       name='password'
                       value={this.state.password}
@@ -240,10 +255,12 @@ export const mapDispatchToProps = (dispatch) => ({
   storeRecentEvents: (recentEvents) => {
     return dispatch(storeRecentEvents(recentEvents));
   },
-  toggleLocationError: (boolean) => dispatch(toggleLocationError(boolean))
+  toggleLocationError: (boolean) => dispatch(toggleLocationError(boolean)),
+  togglePasswordError: (boolean) => dispatch(togglePasswordError(boolean))
 });
 
 export const mapStateToProps = (state) => ({
-  locationError: state.locationError
+  locationError: state.locationError,
+  passwordError: state.passwordError,
 });
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
