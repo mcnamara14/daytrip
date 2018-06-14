@@ -22,17 +22,19 @@ export const fetchRestaurantsAndBars = async (
 
   let headers = new Headers();
   headers.append("Authorization", "Bearer " + yelpApiKey);
-  const result = 
+
+  try {
+    const result = 
     await fetch(`${prefix}${cat}&${lat}&${long}&${cost}&${radius}&${sort}`, 
       {
         headers
       });
-  const data = await result.json();
-  restaurants = data.businesses;
-  
-  if (restaurants.length) {
+    console.log(result)
+    const data = await result.json();
+    restaurants = data.businesses;
+
     return suggestedRestaurantsCleaner(restaurants);
-  } else {
+  } catch (error) {
     return [];
   }
 };

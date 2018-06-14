@@ -11,8 +11,10 @@ import {
   storeSuggestedRestaurants, 
   storeSuggestedBars, 
   toggleEventError,
-  storeRestaurantFilters,
-  storeBarFilters
+  storeRestaurantCategory,
+  storeBarCategory,
+  storeRestaurantPrice,
+  storeBarPrice
 } from '../../actions';
 
 export class StopSelection extends Component {
@@ -26,7 +28,9 @@ export class StopSelection extends Component {
   }
 
   onSelect = (selectedOption) => {
-    this.setState({ selectedOption });
+    this.setState({selectedOption}, () => {
+      this.storeCategory();
+    });
   }
 
   changePriceRange = (price) => {
@@ -35,25 +39,14 @@ export class StopSelection extends Component {
     if (!this.state.priceRanges.includes(price)) {
       priceRanges = [...this.state.priceRanges, price];
       
-      this.setState({
-        priceRanges 
-      });
+      this.setState({priceRanges}, () => this.storePriceRange());
     } else {
       const priceRanges = this.state.priceRanges.filter(range => {
         return range !== price;
       });
       
-      this.setState({
-        priceRanges 
-      });
+      this.setState({priceRanges}, () => this.storePriceRange());
     }
-    
-    this.props.type === 'before' ? 
-      this.props.storeRestaurantFilters(
-        this.state.selectedOption.alias, 
-        priceRanges) :
-      this.props.storeBarFilters(this.state.selectedOption.alias, priceRanges);
-    
   }
 
   toggleEventError = () => {
@@ -61,6 +54,18 @@ export class StopSelection extends Component {
     setTimeout(() => {
       this.props.toggleEventError(false);
     }, 2000);
+  }
+
+  storePriceRange = () => {
+    this.props.type === 'before' ?
+      this.props.storeRestaurantPrice(this.state.priceRanges) :
+      this.props.storeBarPrice(this.state.priceRanges)
+  }
+
+  storeCategory = () => {
+    this.props.type === 'before' ? 
+      this.props.storeRestaurantCategory(this.state.selectedOption.alias) :
+      this.props.storeBarCategory(this.state.selectedOption.alias);
   }
 
   render() {
@@ -127,11 +132,13 @@ export const mapDispatchToProps = (dispatch) => ({
   },
   storeSuggestedBars: (bars) => dispatch(storeSuggestedBars(bars)),
   toggleEventError: (boolean) => dispatch(toggleEventError(boolean)),
-  storeRestaurantFilters: (category, priceRanges) => {
-    return dispatch(storeRestaurantFilters(category, priceRanges));
+  storeRestaurantPrice: (boolean) => dispatch(storeRestaurantPrice(boolean)),
+  storeBarPrice: (price) => dispatch(storeBarPrice(price)),
+  storeRestaurantCategory: (category) => {
+    return dispatch(storeRestaurantCategory(category));
   },
-  storeBarFilters: (category, priceRanges) => {
-    return dispatch(storeBarFilters(category, priceRanges));
+  storeBarCategory: (category) => {
+    return dispatch(storeBarCategory(category));
   }
 });
 

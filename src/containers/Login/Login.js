@@ -142,7 +142,6 @@ export class Login extends Component {
   }
 
   render() {
-    console.log(this.props.location)
     return (
       <div className="loginContainer">
         <section className="homeHeroContainer">

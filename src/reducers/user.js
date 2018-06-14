@@ -11,6 +11,8 @@ export const user = (state = {
         city: action.city,
         state: action.state
       };
+    case 'LOGOUT':
+      return {};
     default:
       return state;
   }

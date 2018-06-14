@@ -8,10 +8,10 @@ import { locationError } from './locationError';
 import { eventError } from './eventError';
 import { filtersError } from './filtersError';
 import { restaurantBarError } from './restaurantBarError';
+import { restaurantBarLoading } from './restaurantBarLoading';
 import { barFilters } from './barFilters';
 import { restaurantFilters } from './restaurantFilters';
 import { location } from './location';
-
 
 export const rootReducer = combineReducers({
   user,
@@ -23,6 +23,7 @@ export const rootReducer = combineReducers({
   eventError,
   filtersError,
   restaurantBarError,
+  restaurantBarLoading,
   barFilters,
   restaurantFilters,
   location
