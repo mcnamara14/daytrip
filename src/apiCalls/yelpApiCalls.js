@@ -29,7 +29,7 @@ export const fetchRestaurantsAndBars = async (
       {
         headers
       });
-    console.log(result)
+    
     const data = await result.json();
     restaurants = data.businesses;
 

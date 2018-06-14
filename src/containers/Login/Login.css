@@ -117,6 +117,7 @@ h5 {
 
 .emailSignup {
   display: flex;
+  position: relative;
   height: 150px;
   align-items: center;
   flex-direction: column;
@@ -261,6 +262,10 @@ p.errorPopup {
   border-right-color: #bbb;
   border-width: 22px;
   margin-top: -22px;
+}
+
+.passwordErrorPopup.errorPopup {
+  top: 37px;
 }
 
 .pac-matched {

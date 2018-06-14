@@ -9,11 +9,13 @@ import 'react-datepicker/dist/react-datepicker.css';
 import { Async } from 'react-select';
 import 'react-select/dist/react-select.css';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
-import { fetchRecentEventsOnSearch, fetchSelectedEvent } from '../../apiCalls';
+import { fetchRecentEventsOnSearch, fetchSelectedEvent, fetchRecentEvents } from '../../apiCalls';
+import { cleanRecentEvents } from '../../dataCleaners';
 import { 
   storeSelectedEvent, 
   toggleLocationError, 
-  toggleLocation 
+  toggleLocation,
+  storeRecentEvents 
 } from '../../actions';
 
 
@@ -100,10 +102,22 @@ export class EventsSearch extends Component {
       city,
       state,
       selectedOption: ''
-    });
+    }, () => this.storeRecentEvents());
 
     this.props.toggleLocation(city, state);
     this.props.toggleLocationError(false);
+  }
+
+  storeRecentEvents = async () => {
+    const city = this.state.city;
+    const state = this.state.state;
+    const date = moment();
+    const timeNow = date.format();
+    
+    const events = await fetchRecentEvents(city, state, timeNow);
+    const recentEvents = cleanRecentEvents(events);
+    
+    this.props.storeRecentEvents(recentEvents);
   }
 
   render() {
@@ -164,7 +178,8 @@ DatePicker.propTypes = {
 export const mapDispatchToProps = (dispatch) => ({
   storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event)),
   toggleLocationError: (boolean) => dispatch(toggleLocationError(boolean)),
-  toggleLocation: (city, state) => dispatch(toggleLocation(city, state))
+  toggleLocation: (city, state) => dispatch(toggleLocation(city, state)),
+  storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
 });
 
 export const mapStateToProps = (state) => ({

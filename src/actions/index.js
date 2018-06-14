@@ -14,6 +14,7 @@ import { storeRestaurantCategory } from './storeRestaurantCategory';
 import { storeRestaurantPrice } from './storeRestaurantPrice';
 import { storeBarPrice } from './storeBarPrice';
 import { toggleRestaurantBarLoading } from './toggleRestaurantBarLoading';
+import { togglePasswordError } from './togglePasswordError';
 
 export {
   loginUser, 
@@ -31,5 +32,6 @@ export {
   storeRestaurantPrice,
   toggleRestaurantBarError,
   toggleLocation,
-  toggleRestaurantBarLoading
+  toggleRestaurantBarLoading,
+  togglePasswordError,
 };

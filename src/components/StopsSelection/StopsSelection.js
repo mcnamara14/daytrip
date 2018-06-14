@@ -62,7 +62,6 @@ export class StopsSelection extends Component {
   }
 
   toggleRestaurantBarError = () => {
-    console.log('hello')
     this.props.toggleRestaurantBarError(true);
     setTimeout(() => {
       this.props.toggleRestaurantBarError(false);
@@ -75,7 +74,7 @@ export class StopsSelection extends Component {
       storeSuggestedRestaurants
     } = this.props;
 
-    const price = restaurantFilters.priceRange.sort().join();
+    const price = restaurantFilters.price.sort().join();
     const category = restaurantFilters.category;
     this.props.toggleRestaurantBarLoading(true);
     const suggestedRestaurants = 
@@ -93,12 +92,12 @@ export class StopsSelection extends Component {
       storeSuggestedBars
     } = this.props;
 
-    if (barFilters.priceRange.length) {
-      const price = barFilters.priceRange.sort().join();
+    if (barFilters.price.length) {
+      const price = barFilters.price.sort().join();
       const category = barFilters.category;
       const suggestedBars = 
         await fetchRestaurantsAndBars(latitude, longitude, price, category);
-      console.log(suggestedBars)
+
       suggestedBars.length ?
         storeSuggestedBars(suggestedBars) :
         this.toggleRestaurantBarError();
