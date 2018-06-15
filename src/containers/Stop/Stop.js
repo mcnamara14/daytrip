@@ -16,7 +16,7 @@ export class Stop extends Component {
       type 
     } = this.props;
     const backgroundImage = {backgroundImage: "url(" + image + ")"};
-    const className = `${type}-${index}`;
+    const className = `${type}-${index} ${type}Stop`;
     const review = rating * 20;
 
     return (

@@ -3,6 +3,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 1px 1px 1px #ccc;
+  border: 1px solid #f8f8f8;
 }
 
 .planContainer {
@@ -19,9 +21,9 @@
 }
 
 .plan article {
-  width: 21%;
+  width: 29%;
   text-align: left;
-  box-shadow: 2px 2px 3px #eee;
+  padding: 30px;
 }
 
 .stars {

@@ -1,6 +1,7 @@
 const moment = require('moment');
 
 export const cleanRecentEvents = (events) => {
+  let time;
   let date;
   let price;
   
@@ -27,9 +28,9 @@ export const cleanRecentEvents = (events) => {
       const longitude = _embedded.venues[0].location.longitude;
     
       if (!dates.start.dateTBA) {
-        const standardTime = moment(dates.start.localTime, 'HH:mm')
+        time = moment(dates.start.localTime, 'HH:mm')
           .format('h:mm A');
-        date = dates.start.localDate + ' ' + standardTime ;
+        date = moment(dates.start.localDate, 'Y/M/D').format('dddd, MMMM D, Y');
       } else {
         date = 'TBA';
       }
@@ -42,6 +43,7 @@ export const cleanRecentEvents = (events) => {
         price,
         venue: _embedded.venues[0].name,
         date,
+        time,
         latitude,
         longitude,
         url
