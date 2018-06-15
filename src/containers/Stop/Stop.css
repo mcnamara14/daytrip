@@ -22,7 +22,7 @@
 .plan article {
   width: 29%;
   text-align: left;
-  padding: 30px;
+  padding: 30px 30px 50px 30px;
 }
 
 .plan img {
@@ -87,7 +87,7 @@
 }
 
 .reviewContainer {
-  height: 19px;
+  height: 30px;
   display: flex;
   align-items: center;
 }
