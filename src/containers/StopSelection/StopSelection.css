@@ -9,13 +9,13 @@
 
 .stopsSelection button {
   margin-top: 30px;
-  border: 1px solid #fff;
+  box-shadow: 1px 1px 1px rgba(116,87,117,1);
+  border: none;
   border-radius: 3px;
   padding: 15px 40px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: brown;
   color: #fff;
   font-size: 1rem;
   background: linear-gradient(45deg, rgba(213,144,159,1) 0%, rgba(157,108,128,1) 100%);
@@ -31,10 +31,11 @@
 
 .filterTitle {
   color: #ddd;
+  font-weight: 300;
+  text-transform: capitalize;
 }
 
 .priceRange {
-  border: 1px solid #ddd;
   border-radius: 3px;
   display: flex;
   height: 45px;
@@ -42,9 +43,10 @@
 }
 
 .priceRange span {
-  padding: 13px 21px;
+  margin-right: 5px;
+  padding: 13px 18.5px;
   color: #fff;
-  border-right: 1px solid #ffd;
+  border: 1px solid #fff;
 }
 
 .priceRange span.selected {
@@ -57,8 +59,7 @@
 }
 
 .priceRange span.last {
-  border: 0;
-  width: 101%;
+  margin-right: 0;
 }
 
 .Select-menu-outer div div:hover {
