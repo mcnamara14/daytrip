@@ -122,43 +122,44 @@ export class Plans extends Component {
         const planNum = index + 1;
 
         plans.push(<div key={index} className="planContainer">
-          <h4>Plan {index + 1}</h4>
-          <section className="plan">
-            <Stop 
-              id={restaurantId}
-              title={restaurantName} 
-              rating={restaurantRating} 
-              location={restaurantAddress} 
-              price={restaurantPrice} 
-              reviews={restaurantReviewCount} 
-              image={restaurantImage} 
-              type={'restaurant'} 
-              index={planNum}
-            />
-            <img src={require('./assets/route-img.jpg')} className="routeImg" alt="Arrow"/>
-            <Stop
-              id={id} 
-              title={title} 
-              rating={0} 
-              location={venue} 
-              price={eventPrice} 
-              reviews={date} 
-              image={image} 
-              type={'event'} 
-              index={planNum}
-            />
-            <img src={require('./assets/route-img.jpg')} className="routeImg" alt="Arrow" />
-            <Stop 
-              id={barId}
-              title={barName} 
-              rating={barRating} 
-              location={barAddress} 
-              price={barPrice} 
-              reviews={barReviewCount} 
-              image={barImage} 
-              type={'bar'} 
-              index={planNum}
-            />
+          { index === 0 ? <h4 className="suggestedPlan">Suggested Plan</h4> : <h4>Plan {index + 1}</h4> }
+          <section className="planWrap">
+            <div className="plan">
+              <Stop 
+                id={restaurantId}
+                title={restaurantName} 
+                rating={restaurantRating} 
+                location={restaurantAddress} 
+                price={restaurantPrice} 
+                reviews={restaurantReviewCount} 
+                image={restaurantImage} 
+                type={'restaurant'} 
+                index={planNum}
+              />
+              <Stop
+                id={id} 
+                title={title} 
+                rating={0} 
+                location={venue} 
+                price={eventPrice} 
+                reviews={date} 
+                image={image} 
+                type={'event'} 
+                index={planNum}
+              />
+              <Stop 
+                id={barId}
+                title={barName} 
+                rating={barRating} 
+                location={barAddress} 
+                price={barPrice} 
+                reviews={barReviewCount} 
+                image={barImage} 
+                type={'bar'} 
+                index={planNum}
+              />
+            </div>
+            <img src={require('./assets/plan-route-hr.png')} alt="Plan route line" className="planRouteHr"/>
           </section>
           <button onClick={() => this.selectPlan(
             restaurantId,
@@ -193,11 +194,12 @@ export class Plans extends Component {
 
   render () {
     const { suggestedBars, suggestedRestaurants } = this.props;
+    const { date } = this.props.selectedEvent;
 
     return (
       <section className="suggestedPlans">
         <div className="plansContainer">
-          <h3>Suggested Plan</h3>
+          <h3>Your choices for {date}</h3>
           { suggestedBars.length && suggestedRestaurants.length ? 
             this.getPlans() : null }
         </div>

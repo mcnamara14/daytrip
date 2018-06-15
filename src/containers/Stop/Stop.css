@@ -12,16 +12,21 @@
 
 .plan h2 {
   margin-top: 20px;
-  color: #444;
+  color: #888;
   text-transform: uppercase;
   font-size: 1.1rem;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
+
 }
 
 .plan article {
-  width: 21%;
+  width: 29%;
   text-align: left;
-  box-shadow: 2px 2px 3px #eee;
+  padding: 30px;
+}
+
+.plan img {
+  height: 18px;
 }
 
 .stars {
@@ -55,9 +60,10 @@
 }
 
 .location {
-  color: #888;
+  color: #b8b8b8;
+  display: flex;
   font-size: 0.85rem;
-  margin: 0 0 25px 0;
+  margin: 25px 0 13px 0;
 }
 
 .stopImage {
@@ -66,13 +72,13 @@
   border-radius: 5px 5px 0 0;
   display: block;
   background-size: cover;
+  border-radius: 0;
   background-position: center;
-  border: 1px solid #eee;
+  box-shadow: 0px 1px 1px #eee;
 }
 
 .stopInfo {
   height: 185px;
-  padding: 0 25px;
 }
 
 .routeImg {
@@ -84,4 +90,20 @@
   height: 19px;
   display: flex;
   align-items: center;
+}
+
+.eventStop h2 {
+  color: #e2604b;
+}
+
+.stopPrice {
+  color: #b8b8b8;
+}
+
+.stopInfo img {
+  margin-right: 10px;
+}
+
+.stopHeader {
+  height: 70px;
 }
