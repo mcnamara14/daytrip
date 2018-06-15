@@ -123,40 +123,43 @@ export class Plans extends Component {
 
         plans.push(<div key={index} className="planContainer">
           { index === 0 ? <h4 className="suggestedPlan">Suggested Plan</h4> : <h4>Plan {index + 1}</h4> }
-          <section className="plan">
-            <Stop 
-              id={restaurantId}
-              title={restaurantName} 
-              rating={restaurantRating} 
-              location={restaurantAddress} 
-              price={restaurantPrice} 
-              reviews={restaurantReviewCount} 
-              image={restaurantImage} 
-              type={'restaurant'} 
-              index={planNum}
-            />
-            <Stop
-              id={id} 
-              title={title} 
-              rating={0} 
-              location={venue} 
-              price={eventPrice} 
-              reviews={date} 
-              image={image} 
-              type={'event'} 
-              index={planNum}
-            />
-            <Stop 
-              id={barId}
-              title={barName} 
-              rating={barRating} 
-              location={barAddress} 
-              price={barPrice} 
-              reviews={barReviewCount} 
-              image={barImage} 
-              type={'bar'} 
-              index={planNum}
-            />
+          <section className="planWrap">
+            <div className="plan">
+              <Stop 
+                id={restaurantId}
+                title={restaurantName} 
+                rating={restaurantRating} 
+                location={restaurantAddress} 
+                price={restaurantPrice} 
+                reviews={restaurantReviewCount} 
+                image={restaurantImage} 
+                type={'restaurant'} 
+                index={planNum}
+              />
+              <Stop
+                id={id} 
+                title={title} 
+                rating={0} 
+                location={venue} 
+                price={eventPrice} 
+                reviews={date} 
+                image={image} 
+                type={'event'} 
+                index={planNum}
+              />
+              <Stop 
+                id={barId}
+                title={barName} 
+                rating={barRating} 
+                location={barAddress} 
+                price={barPrice} 
+                reviews={barReviewCount} 
+                image={barImage} 
+                type={'bar'} 
+                index={planNum}
+              />
+            </div>
+            <img src={require('./assets/plan-route-hr.png')} alt="Plan route line" className="planRouteHr"/>
           </section>
           <button onClick={() => this.selectPlan(
             restaurantId,

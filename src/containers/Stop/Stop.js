@@ -23,23 +23,45 @@ export class Stop extends Component {
       <article className={className}  >
         <div className="stopImage" style={backgroundImage}></div>
         <div className="stopInfo">
-          <h2>{title}</h2>
-          <p className="location">{location}</p>
-          { type === 'restaurant' || type === 'bar' ?
-            <div className="reviewContainer">
-              <div className="stars">
-                <div>
-                  <img src={require('./assets/stars-gray.png')} alt="Stars gray"/>
+          <div className="stopHeader">
+            <h2>{title}</h2>
+            { type === 'restaurant' || type === 'bar' ?
+              <div className="reviewContainer">
+                <div className="stars">
+                  <div>
+                    <img src={require('./assets/stars-gray.png')} alt="Stars gray"/>
+                  </div>
+                  <div className="redStars" style={{ "width": `${review}%` }}>
+                    <img src={require('./assets/stars-red.png')} alt="Stars red"/>
+                  </div>
                 </div>
-                <div className="redStars" style={{ "width": `${review}%` }}>
-                  <img src={require('./assets/stars-red.png')} alt="Stars red"/>
-                </div>
+                <p className="reviewCount">{reviews} reviews</p>
+              </div> :
+              null
+            }
+          </div>
+          { type === 'event' ? 
+            <div className="stopInfo">
+              <div className="location">
+                <img src={require('./assets/location-marker.png')} alt="Location marker icon"/>
+                {location} 
               </div>
-              <p className="reviewCount">{reviews} reviews</p>
-            </div> :
-            null
+              <div className="stopPrice">
+                <img src={require('./assets/price-tag.png')} alt="Price tag icon"/>
+                {price} 
+              </div>
+            </div>  :
+            <div className="stopInfo">
+              <div className="location">
+                <img src={require('./assets/location-marker.png')} alt="Location marker icon"/>
+                {location} 
+              </div>
+              <div className="stopPrice">
+                <img src={require('./assets/price-tag.png')} alt="Price tag icon"/>
+                {price} 
+              </div>
+            </div> 
           }
-          <p className="price">{price}</p>
         </div>
       </article>
     );

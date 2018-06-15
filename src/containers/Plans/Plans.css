@@ -32,6 +32,19 @@
   border-radius: 3px;
 }
 
+.planWrap {
+  box-shadow: 1px 1px 1px #ccc;
+  border: 1px solid #f8f8f8;
+  position: relative;
+}
+
 .plansContainer .eventStop {
   background: #f7f7f7;
+}
+
+.planRouteHr {
+  width: 95%;
+  position: absolute;
+  bottom: 25px;
+  left: 2.5%;
 }
