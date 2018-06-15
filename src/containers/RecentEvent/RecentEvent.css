@@ -13,11 +13,9 @@
 
 .upcomingEvents h2 {
   margin: 0 0 50px 0;
-  color: #888;
-  font-weight: 500;
-  text-transform: uppercase;
+  color: #e2604b;
   font-size: 1.4rem;
-  font-family: "Roboto";
+  text-transform: none;
 }
 
 .upcomingEventsContainer {
@@ -28,12 +26,17 @@
 
 .recentEvent {
   text-align: center;
-  width: 21%;
+  width: 23%;
   height: 520px;
   text-align: left;
   margin-bottom: 30px;
-  border-radius: 5px;
-  box-shadow: 2px 2px 3px #eee;
+  box-shadow: 1px 1px 1px #eee;
+  position: relative;
+}
+
+.recentEvent img {
+  height: 18px;
+  margin-right: 10px;
 }
 
 .recentEvent h3 {
@@ -46,29 +49,27 @@
 
 .recentTitle {
   display: flex;
-  height: 70px;
-  align-items: flex-end;
+  margin-bottom: 20px;
+  height: 60px;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 .eventImage {
-  width: 100%;
+  width: 86%;
+  margin: 20px auto 0 auto;
   height: 190px;
-  border-radius: 5px 5px 0 0;
+  box-shadow: 0 1px 1px #eee;
   display: block;
   background-size: cover;
   background-position: center;
   border: 1px solid #eee;
 }
 
-.recentEvent .price {
-  color: #e2604b;
-  margin-top: 0;
-  font-size: 1.2rem;
-}
 
 .recentEvent .date {
-  color: #999;
-  font-size: 1.1rem;
+  color: #b8b8b8;
+  font-size: 1rem;
   margin-bottom: 20px;
   margin-top: 0px;
 }
@@ -83,19 +84,22 @@
   margin-top: 0px;
   border-radius: 18px;
   border-radius: 3px;
-  display: -ms-flexbox;
   display: flex;
   align-items: center;
 }
 
 .recentEvent button {
-  background: #e2604b;
-  padding: 10px 25px;
+  background: rgba(116,87,117,1);
+  padding: 13px 35px;
   font-size: 0.9rem;
   color: #fff;
+  margin-top: 30px;
   margin-left: 20px;
   border: none;
+  box-shadow: 1px 1px 1px #ccc;
   border-radius: 3px;
+  position: absolute;
+  bottom: 15px;
 }
 
 hr {
@@ -107,5 +111,23 @@ hr {
 }
 
 .eventInfo {
-  padding: 25px;
+  padding: 20px;
+  font-size: 0.9rem;
+  color: #b8b8b8;
+}
+
+.recentEventVenue {
+  margin-bottom: 10px;
+  margin-top: 30px;
+  display: flex;
+}
+
+,.recentEventPrice {
+  display: flex;
+}
+
+.recentEventDate {
+  color: #888;
+  font-size: 0.95rem;
+  display: flex;
 }

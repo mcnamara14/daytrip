@@ -24,10 +24,15 @@ export class RecentEvent extends Component {
           <div className="recentTitle">
             <h3>{title}</h3>
           </div>
-          <p className="price">{price}</p>
-          <hr/>
-          <p className="venue">{venue}</p>
-          <p className="date">{date}</p>
+          <p className="recentEventDate">{date}</p>
+          <div className="recentEventVenue">
+            <img src={require('./assets/location-marker.png')} alt="Location marker icon"/>
+            {venue} 
+          </div>
+          <div className="recentEventPrice">
+            <img src={require('./assets/price-tag.png')} alt="Price tag icon"/>
+            {price} 
+          </div>
         </div>
         <button onClick={() => this.handleRecentClick(id)}>Select</button>
       </div>
