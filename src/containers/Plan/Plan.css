@@ -71,7 +71,7 @@
 }
 
 .planImage {
-  height: 250px;
+  height: 230px;
   display: block;
   background-size: cover;
   background-position: center;
@@ -84,7 +84,7 @@
   border: 1px solid #eee;
   box-shadow: 2px 2px 3px #eee;
   align-items: center;
-  padding: 30px 0;
+  padding: 30px;
   border-radius: 2px;
   border-bottom: 1px solid #eee;
   margin-top: 35px;
@@ -93,8 +93,6 @@
 
 .planInfo {
   width: 70%;
-  margin-left: 40px;
-  padding-right: 30px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -117,7 +115,7 @@
 }
 
 .planImages {
-  width: 30%;
+  width: 20%;
 }
 
 .planLeftContainer {

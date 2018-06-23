@@ -8,7 +8,8 @@ export const suggestedRestaurantsCleaner = (restaurants) => {
       location,
       price,
       review_count,
-      image_url
+      image_url,
+      display_phone
     } = restaurant;
 
     const address = location.display_address[0] + ' ' + location.display_address[1];
@@ -20,7 +21,8 @@ export const suggestedRestaurantsCleaner = (restaurants) => {
       address,
       price, 
       review_count,
-      image_url
+      image_url,
+      display_phone
     };
   });
 
