@@ -8,6 +8,7 @@ import { locationError } from './locationError';
 import { eventError } from './eventError';
 import { filtersError } from './filtersError';
 import { restaurantBarError } from './restaurantBarError';
+import { recentEventsError } from './recentEventsError';
 import { passwordError } from './passwordError';
 import { restaurantBarLoading } from './restaurantBarLoading';
 import { barFilters } from './barFilters';
@@ -24,6 +25,7 @@ export const rootReducer = combineReducers({
   eventError,
   filtersError,
   restaurantBarError,
+  recentEventsError,
   passwordError,
   restaurantBarLoading,
   barFilters,
