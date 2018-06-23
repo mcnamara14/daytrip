@@ -21,7 +21,7 @@ export const fetchRecentEvents = async (city, state, timeNow) => {
 
     return events;
   } catch (error) {
-    alert(error);
+    console.log(error)
   }
 };
 

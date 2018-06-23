@@ -15,6 +15,7 @@ import { storeRestaurantPrice } from './storeRestaurantPrice';
 import { storeBarPrice } from './storeBarPrice';
 import { toggleRestaurantBarLoading } from './toggleRestaurantBarLoading';
 import { togglePasswordError } from './togglePasswordError';
+import { toggleRecentEventsError } from './toggleRecentEventsError';
 
 export {
   loginUser, 
@@ -34,4 +35,5 @@ export {
   toggleLocation,
   toggleRestaurantBarLoading,
   togglePasswordError,
+  toggleRecentEventsError
 };

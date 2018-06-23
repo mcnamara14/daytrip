@@ -9,7 +9,8 @@ import {
   loginUser, 
   storeRecentEvents, 
   toggleLocationError,
-  togglePasswordError 
+  togglePasswordError,
+  toggleRecentEventsError 
 } from '../../actions';
 import { fetchRecentEvents } from '../../apiCalls';
 import { googleApiKey } from '../../apiCalls/apiKeys/googleApiKey';
@@ -116,6 +117,13 @@ export class Login extends Component {
     }, 2000);
   }
 
+  toggleRecentEventsError = () => {
+    this.props.toggleRecentEventsError(true);
+    setTimeout(() => {
+      this.props.toggleRecentEventsError(false);
+    }, 2000);
+  }
+
   handleTicketMasterFetch = async () => {
     const city = this.state.city;
     const state = this.state.state;
@@ -123,10 +131,16 @@ export class Login extends Component {
     const timeNow = date.format();
     
     const events = await fetchRecentEvents(city, state, timeNow);
-    const recentEvents = cleanRecentEvents(events);
+
+    if (events) {
+      const recentEvents = cleanRecentEvents(events);
     
-    this.props.storeRecentEvents(recentEvents);
-    this.props.history.push('/events');
+      this.props.storeRecentEvents(recentEvents);
+      this.props.history.push('/events');
+    } else {
+      this.toggleRecentEventsError()
+    }
+
   }
 
   facebookSignup = async () => {
@@ -175,6 +189,7 @@ export class Login extends Component {
             <img src={homeSignupTextBoxPhoto} alt="Signup text box"/>
           </section>
           <div className="signupForms">
+            { this.props.recentEventsError ? <p className="recentEventsErrorPopup">No upcoming events in the selected city.<br/> Choose a new location.</p> : null }
             <div className="signupFormsContainer">
               <article className="locationForm">
                 <h3>Choose your location</h3>
@@ -256,11 +271,13 @@ export const mapDispatchToProps = (dispatch) => ({
     return dispatch(storeRecentEvents(recentEvents));
   },
   toggleLocationError: (boolean) => dispatch(toggleLocationError(boolean)),
-  togglePasswordError: (boolean) => dispatch(togglePasswordError(boolean))
+  togglePasswordError: (boolean) => dispatch(togglePasswordError(boolean)),
+  toggleRecentEventsError: (boolean) => dispatch(toggleRecentEventsError(boolean)),
 });
 
 export const mapStateToProps = (state) => ({
   locationError: state.locationError,
   passwordError: state.passwordError,
+  recentEventsError: state.recentEventsError
 });
 export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));
