@@ -15,7 +15,8 @@ import {
   storeSelectedEvent, 
   toggleLocationError, 
   toggleLocation,
-  storeRecentEvents 
+  storeRecentEvents,
+  toggleEventError 
 } from '../../actions';
 
 
@@ -84,13 +85,23 @@ export class EventsSearch extends Component {
       });
     }, 2000);
   }
+
+  toggleEventError = () => {
+    this.props.toggleEventError(true);
+    setTimeout(() => {
+      this.props.toggleEventError(false);
+    }, 2000);
+  }
   
   handleStoreEvent = async () => {
     const eventId = this.state.selectedOption.id;
     const selectedEvent = await fetchSelectedEvent(eventId);
-    const event = selectedEvent[0];
-
-    this.props.storeSelectedEvent(event);
+    if (selectedEvent) {
+      const event = selectedEvent[0];
+      this.props.storeSelectedEvent(event);
+    } else {
+      this.toggleEventError();
+    }
   }
 
   onDropdownSelect = (component) => {
@@ -179,7 +190,8 @@ export const mapDispatchToProps = (dispatch) => ({
   storeSelectedEvent: (event) => dispatch(storeSelectedEvent(event)),
   toggleLocationError: (boolean) => dispatch(toggleLocationError(boolean)),
   toggleLocation: (city, state) => dispatch(toggleLocation(city, state)),
-  storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents))
+  storeRecentEvents: (recentEvents) => dispatch(storeRecentEvents(recentEvents)),
+  toggleEventError: (boolean) => dispatch(toggleEventError(boolean))
 });
 
 export const mapStateToProps = (state) => ({
