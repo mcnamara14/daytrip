@@ -95,43 +95,63 @@ export class Plan extends Component {
         barLocation.replace(/\s+/g, '+').toLowerCase().replace(',', '');
 
       const mapStyles = {
-        width: '100%',
-        height: '340px',
+        height: '400px',
         border: '0',
         borderRadius: '5px'
       };
 
       return (
         <section className="planMain">
-          <div className="planHeader"></div>
+          <div className="planHeader" style={eventBgImage}>
+            <div className="planHeaderInfo">
+              <h1>{eventTitle}</h1>
+              <p>@ {eventLocation}</p>
+            </div>
+          </div>
+          <div className="planMap">
+            <div className="planIntro">
+              <h2>Your day is set.</h2>
+              <p>Below is the plan for your day including a link to purchase tickets and contact info for each stop.</p>
+            </div>
+            <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapRestaurantLocation}&destination=${mapEventLocation}+${city}+${state}&mode=walking`} style={mapStyles} title="toEvent"></iframe>
+          </div>
           <div className="planWrapper">
             <section className="planLeftContainer">
               <h1>Your plan</h1>
+              <h3>Before</h3>
               <div className="planStop">
-                <h2>Before</h2>
-                <div className="planImage" style={restaurantBgImage}></div>
                 <section className="planInfoContainer">
                   <div className="planInfo">
-                    <h3>{restaurantTitle}</h3>
-                    <div className="reviewContainer">
-                      <div className="stars">
-                        <div>
-                          <img src={require('./assets/stars-gray.png')} alt="Gray stars"/>
+                    <div className="nameLocation">
+                      <h3>{restaurantTitle}</h3>
+                      <div className="reviewContainer">
+                        <div className="stars">
+                          <div>
+                            <img src={require('./assets/stars-gray.png')} alt="Gray stars"/>
+                          </div>
+                          <div 
+                            className="redStars" 
+                            style={{ "width": `${restaurantReview}%` }}>
+                            <img src={require('./assets/stars-red.png')} alt="Gold stars"/>
+                          </div>
                         </div>
-                        <div 
-                          className="redStars" 
-                          style={{ "width": `${restaurantReview}%` }}>
-                          <img src={require('./assets/stars-red.png')} alt="Gold stars"/>
-                        </div>
+                        <p className="reviewCount">{restaurantReviews} reviews</p>
                       </div>
-                      <p className="reviewCount">{restaurantReviews} reviews</p>
+                      <p className="planLocation">{restaurantLocation}</p>
                     </div>
-                    <p className="planLocation">{restaurantLocation}</p>
+                    <div className="contactInfo">
+                      <h4>Menu <img src={require('./assets/menu-icon.png')} alt="Menu icon"/></h4>
+                      <h4>Directions <img src={require('./assets/directions-icon.png')} alt="Directions icon"/></h4>
+                      <h4>Contact <img src={require('./assets/contact-icon.png')} alt="Contact icon"/></h4>
+                    </div>
+                  </div>
+                  <div className="planImages">
+                    <div className="planImage" style={restaurantBgImage}></div>
                   </div>
                 </section>
               </div>
+              <h3>Event</h3>
               <div className="planStop">
-                <h2>Event</h2>
                 <div className="planImage" style={eventBgImage}></div>
                 <section className="planInfoContainer">
                   <div className="planInfo planEvent">
@@ -147,8 +167,8 @@ export class Plan extends Component {
                   </div>
                 </section>
               </div>
+              <h3>After</h3>
               <div className="planStop">
-                <h2>After</h2>
                 <div className="planImage" style={barBgImage}></div>
                 <section className="planInfoContainer">
                   <div className="planInfo">
@@ -172,13 +192,11 @@ export class Plan extends Component {
                 </section>
               </div>
             </section>
-            <section className="planRightContainer">
-              <h2>Directions</h2>
+            {/* <h2>Directions</h2>
               <h4>To the event</h4>
               <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapRestaurantLocation}&destination=${mapEventLocation}+${city}+${state}&mode=walking`} style={mapStyles} title="toEvent"></iframe>
               <h4>From the event</h4>
-              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapEventLocation}+${city}+${state}&destination=${mapBarLocation}&mode=walking`} style={mapStyles} title="fromEvent"></iframe>
-            </section>
+              <iframe src={`https://www.google.com/maps/embed/v1/directions?key=${googleApiKey}&origin=${mapEventLocation}+${city}+${state}&destination=${mapBarLocation}&mode=walking`} style={mapStyles} title="fromEvent"></iframe> */}
           </div>
         </section>
       ); 
