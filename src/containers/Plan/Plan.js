@@ -52,7 +52,8 @@ export class Plan extends Component {
         title: restaurantTitle,
         location: restaurantLocation,
         rating: restaurantRating,
-        reviews: restaurantReviews
+        reviews: restaurantReviews,
+        phone: restaurantPhone
       } = restaurant;
 
       const {
@@ -60,7 +61,8 @@ export class Plan extends Component {
         title: barTitle,
         location: barLocation,
         rating: barRating,
-        reviews: barReviews
+        reviews: barReviews,
+        phone: barPhone
       } = bar;
 
       const {
@@ -120,6 +122,9 @@ export class Plan extends Component {
               <h1>Your plan</h1>
               <h3>Before</h3>
               <div className="planStop">
+                <div className="planImages">
+                  <div className="planImage" style={restaurantBgImage}></div>
+                </div>
                 <section className="planInfoContainer">
                   <div className="planInfo">
                     <div className="nameLocation">
@@ -141,18 +146,17 @@ export class Plan extends Component {
                     </div>
                     <div className="contactInfo">
                       <h4>Menu <img src={require('./assets/menu-icon.png')} alt="Menu icon"/></h4>
-                      <h4>Directions <img src={require('./assets/directions-icon.png')} alt="Directions icon"/></h4>
-                      <h4>Contact <img src={require('./assets/contact-icon.png')} alt="Contact icon"/></h4>
+                      <a href={`https://www.google.com/maps/dir//${mapEventLocation}+${city}+${state}`} target="_blank"><h4>Directions <img src={require('./assets/directions-icon.png')} alt="Directions icon"/></h4></a>
+                      <h4>{restaurantPhone} <img src={require('./assets/contact-icon.png')} alt="Contact icon"/></h4>
                     </div>
-                  </div>
-                  <div className="planImages">
-                    <div className="planImage" style={restaurantBgImage}></div>
                   </div>
                 </section>
               </div>
               <h3>Event</h3>
               <div className="planStop">
-                <div className="planImage" style={eventBgImage}></div>
+                <div className="planImages">
+                  <div className="planImage" style={eventBgImage}></div>
+                </div>
                 <section className="planInfoContainer">
                   <div className="planInfo planEvent">
                     <h3>{eventTitle}</h3>
@@ -169,25 +173,33 @@ export class Plan extends Component {
               </div>
               <h3>After</h3>
               <div className="planStop">
-                <div className="planImage" style={barBgImage}></div>
+                <div className="planImages">
+                  <div className="planImage" style={barBgImage}></div>
+                </div>
                 <section className="planInfoContainer">
                   <div className="planInfo">
-                    <h3>{barTitle}</h3>
-                    <div className="reviewContainer">
-                      <div className="stars">
-                        <div>
-                          <img src={require('./assets/stars-gray.png')} alt="Gray stars"/>
+                    <div className="nameLocation">
+                      <h3>{barTitle}</h3>
+                      <div className="reviewContainer">
+                        <div className="stars">
+                          <div>
+                            <img src={require('./assets/stars-gray.png')} alt="Gray stars"/>
+                          </div>
+                          <div 
+                            className="redStars" 
+                            style={{ "width": `${barReview}%` }}>
+                            <img src={require('./assets/stars-red.png')} alt="Gold stars"/>
+                          </div>
                         </div>
-                        <div 
-                          className="redStars" 
-                          style={{ "width": `${barReview}%` }}
-                        >
-                          <img src={require('./assets/stars-red.png')} alt="Gold stars"/>
-                        </div>
+                        <p className="reviewCount">{barReviews} reviews</p>
                       </div>
-                      <p className="reviewCount">{barReviews} reviews</p>
+                      <p className="planLocation">{barLocation}</p>
                     </div>
-                    <p className="planLocation">{barLocation}</p>
+                    <div className="contactInfo">
+                      <h4>Menu <img src={require('./assets/menu-icon.png')} alt="Menu icon"/></h4>
+                      <a href={`https://www.google.com/maps/dir//${mapEventLocation}+${city}+${state}`} target="_blank"><h4>Directions <img src={require('./assets/directions-icon.png')} alt="Directions icon"/></h4></a>
+                      <h4>{barPhone} <img src={require('./assets/contact-icon.png')} alt="Contact icon"/></h4>
+                    </div>
                   </div>
                 </section>
               </div>

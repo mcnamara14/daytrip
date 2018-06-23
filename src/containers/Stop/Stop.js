@@ -11,14 +11,15 @@ export class Stop extends Component {
       location, 
       price, 
       reviews, 
-      image, 
+      image,
+      phone, 
       index, 
       type 
     } = this.props;
     const backgroundImage = {backgroundImage: "url(" + image + ")"};
     const className = `${type}-${index} ${type}Stop`;
     const review = rating * 20;
-
+    
     return (
       <article className={className}  >
         <div className="stopImage" style={backgroundImage}></div>

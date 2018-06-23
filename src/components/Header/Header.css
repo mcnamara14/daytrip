@@ -46,3 +46,9 @@ nav a {
 .loginLink img {
   height: 25px;
 }
+
+@media only screen and (max-width: 1100px)  {
+  nav a {
+    margin-left: 10px;
+  }
+}

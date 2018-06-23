@@ -39,6 +39,7 @@
   border-radius: 3px;
   display: flex;
   height: 45px;
+  width: 100%;
   align-items: center;
 }
 

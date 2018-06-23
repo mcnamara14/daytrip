@@ -226,8 +226,8 @@ h5 {
 
 .errorPopup {
   position: absolute;
-  background: #bbb;
-  width: 144px;
+  background: #222;
+  width: 150px;
   height: 20px;
   top: -12px;
   left: 330px;
@@ -260,7 +260,7 @@ p.errorPopup {
 }
 .errorPopup:before {
   border-color: rgba(194, 225, 245, 0);
-  border-right-color: #bbb;
+  border-right-color: #222;
   border-width: 22px;
   margin-top: -22px;
 }
@@ -342,7 +342,7 @@ p.errorPopup {
     text-align: center;
   }
 
-  nav, nav .signout {
+  nav, nav.signout {
     width: 50%;
   }
 
