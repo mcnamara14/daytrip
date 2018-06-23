@@ -16,6 +16,7 @@ export class Plans extends Component {
     restaurantPrice, 
     restaurantReviewCount, 
     restaurantImage,
+    restaurantPhone,
     barId,
     barName, 
     barRating, 
@@ -23,6 +24,7 @@ export class Plans extends Component {
     barPrice, 
     barReviewCount, 
     barImage,
+    barPhone,
     id,
     title, 
     image, 
@@ -49,7 +51,8 @@ export class Plans extends Component {
           rating: restaurantRating,
           location: restaurantAddress, 
           price: restaurantPrice, 
-          reviews: restaurantReviewCount, 
+          reviews: restaurantReviewCount,
+          phone: restaurantPhone, 
           image: restaurantImage, 
           type: 'restaurant', 
           index: planNum
@@ -61,6 +64,7 @@ export class Plans extends Component {
           location: barAddress, 
           price: barPrice,
           reviews: barReviewCount,
+          phone: barPhone,
           image: barImage,
           type: 'bar',
           index: planNum
@@ -100,7 +104,8 @@ export class Plans extends Component {
           address: restaurantAddress, 
           price: restaurantPrice, 
           review_count: restaurantReviewCount, 
-          image_url: restaurantImage 
+          image_url: restaurantImage,
+          display_phone: restaurantPhone 
         } = this.props.suggestedRestaurants[index];
         const { 
           id: barId,
@@ -109,7 +114,8 @@ export class Plans extends Component {
           address: barAddress, 
           price: barPrice, 
           review_count: barReviewCount, 
-          image_url: barImage 
+          image_url: barImage,
+          display_phone: barPhone  
         } = this.props.suggestedBars[index];
         const { 
           id,
@@ -132,7 +138,8 @@ export class Plans extends Component {
                 location={restaurantAddress} 
                 price={restaurantPrice} 
                 reviews={restaurantReviewCount} 
-                image={restaurantImage} 
+                image={restaurantImage}
+                phone={restaurantPhone}
                 type={'restaurant'} 
                 index={planNum}
               />
@@ -155,6 +162,7 @@ export class Plans extends Component {
                 price={barPrice} 
                 reviews={barReviewCount} 
                 image={barImage} 
+                phone={barPhone}
                 type={'bar'} 
                 index={planNum}
               />
@@ -169,6 +177,7 @@ export class Plans extends Component {
             restaurantPrice, 
             restaurantReviewCount, 
             restaurantImage,
+            restaurantPhone,
             barId,
             barName, 
             barRating, 
@@ -176,6 +185,7 @@ export class Plans extends Component {
             barPrice, 
             barReviewCount, 
             barImage,
+            barPhone,
             id,
             title, 
             image, 

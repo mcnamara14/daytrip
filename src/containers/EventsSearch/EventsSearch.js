@@ -66,7 +66,7 @@ export class EventsSearch extends Component {
       const timeNow = date.format();
       const events = 
       await fetchRecentEventsOnSearch(city, state, timeNow, input);
-
+      
       return events;
     } else {
       this.handleMissingLocationError();

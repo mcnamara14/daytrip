@@ -15,7 +15,7 @@ export const cleanRecentEvents = (events) => {
       _embedded,
       url
     } = event;
-    console.log(name)
+    
     if (name === 'The Book of Mormon') {
       price = '$163+';
     } else {
