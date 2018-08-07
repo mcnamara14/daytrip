@@ -25,10 +25,10 @@ npm start
 
 ## Built With
 
-* [React] - Web framework
-* [Redux] - Library
-* [Router] - Library 
-* [Firebase] - Server
+* React - Web framework
+* Redux - Library
+* Router - Library 
+* Firebase - Server
 
 ## APIs
 
