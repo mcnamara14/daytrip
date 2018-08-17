@@ -21,6 +21,11 @@
   border-top: 0;
   width: 1px;
   margin: 0;
+  padding-left: 20px;
+}
+
+.stopsSelectionContainer .Select-control {
+  width: 117%;
 }
 
 .filtersError {

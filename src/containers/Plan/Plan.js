@@ -145,7 +145,7 @@ export class Plan extends Component {
                       <p className="planLocation">{restaurantLocation}</p>
                     </div>
                     <div className="contactInfo">
-                      <h4>Menu <img src={require('./assets/menu-icon.png')} alt="Menu icon"/></h4>
+                      {/* <h4>Menu <img src={require('./assets/menu-icon.png')} alt="Menu icon"/></h4> */}
                       <a href={`https://www.google.com/maps/dir//${mapEventLocation}+${city}+${state}`} target="_blank"><h4>Directions <img src={require('./assets/directions-icon.png')} alt="Directions icon"/></h4></a>
                       <h4>{restaurantPhone} <img src={require('./assets/contact-icon.png')} alt="Contact icon"/></h4>
                     </div>
@@ -196,7 +196,7 @@ export class Plan extends Component {
                       <p className="planLocation">{barLocation}</p>
                     </div>
                     <div className="contactInfo">
-                      <h4>Menu <img src={require('./assets/menu-icon.png')} alt="Menu icon"/></h4>
+                      {/* <h4>Menu <img src={require('./assets/menu-icon.png')} alt="Menu icon"/></h4> */}
                       <a href={`https://www.google.com/maps/dir//${mapEventLocation}+${city}+${state}`} target="_blank"><h4>Directions <img src={require('./assets/directions-icon.png')} alt="Directions icon"/></h4></a>
                       <h4>{barPhone} <img src={require('./assets/contact-icon.png')} alt="Contact icon"/></h4>
                     </div>
